@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
+        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--View Controller-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="BitcoinII" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="bitcoin" translatesAutoresizingMaskIntoConstraints="NO" id="si8-s2-YNh">
+                                <rect key="frame" x="87.5" y="30" width="200" height="140"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="200" id="KD9-ge-xir"/>
+                                    <constraint firstAttribute="height" constant="140" id="cWY-pp-GDM"/>
+                                </constraints>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Price" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DmA-Ua-ySz">
+                                <rect key="frame" x="137.5" y="210" width="100" height="80"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="80" id="FAS-nQ-ow7"/>
+                                    <constraint firstAttribute="width" constant="100" id="enS-Lx-j3x"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="Farah" family="Farah" pointSize="42"/>
+                                <color key="textColor" red="0.45138680930000002" green="0.99309605359999997" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="TaY-wQ-b0q">
+                                <rect key="frame" x="0.0" y="443" width="375" height="216"/>
+                            </pickerView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Hbx-2M-GA9">
+                                <rect key="frame" x="187.5" y="367" width="0.0" height="0.0"/>
+                                <fontDescription key="fontDescription" name="AcademyEngravedLetPlain" family="Academy Engraved LET" pointSize="50"/>
+                                <color key="textColor" red="0.0" green="0.56031829119999998" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" red="0.0" green="0.32852089410000002" blue="0.57488495110000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="Hbx-2M-GA9" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="4ID-TC-weF"/>
+                            <constraint firstItem="si8-s2-YNh" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="6eD-Vs-tgB"/>
+                            <constraint firstItem="TaY-wQ-b0q" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="AGm-CJ-JtQ"/>
+                            <constraint firstItem="DmA-Ua-ySz" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="FuL-D4-7Xz"/>
+                            <constraint firstItem="si8-s2-YNh" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" multiplier="0.3" id="h4c-O6-BIj"/>
+                            <constraint firstItem="TaY-wQ-b0q" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" multiplier="1.65" id="kox-ro-aK0"/>
+                            <constraint firstItem="TaY-wQ-b0q" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="s5F-yl-5N9"/>
+                            <constraint firstItem="DmA-Ua-ySz" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" multiplier="0.75" id="sTR-3x-YdN"/>
+                            <constraint firstItem="TaY-wQ-b0q" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="wYF-M8-tAg"/>
+                            <constraint firstItem="Hbx-2M-GA9" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" multiplier="1.1" id="zle-Ls-d2P"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                    </view>
+                    <connections>
+                        <outlet property="currencyPicker" destination="TaY-wQ-b0q" id="gwc-Fl-RF2"/>
+                        <outlet property="priceLabel" destination="Hbx-2M-GA9" id="A84-iC-t7T"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="136.80000000000001" y="133.5832083958021"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="bitcoin" width="400" height="266"/>
+    </resources>
+</document>

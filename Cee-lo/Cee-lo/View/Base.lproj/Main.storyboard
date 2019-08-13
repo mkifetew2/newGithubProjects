@@ -1,0 +1,1445 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Amm-q9-zcm">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Two player screen-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController title="Two player screen" id="BYZ-38-t0r" customClass="TwoPlayerIIViewController" customModule="Cee_lo" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="U50-4s-cob" userLabel="topView">
+                                <rect key="frame" x="10" y="30" width="355" height="190"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Bet:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mgt-M4-Zrq">
+                                        <rect key="frame" x="2.5" y="153" width="48.5" height="36"/>
+                                        <fontDescription key="fontDescription" name="AcademyEngravedLetPlain" family="Academy Engraved LET" pointSize="30"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Dice Up Logo" translatesAutoresizingMaskIntoConstraints="NO" id="D5G-Oq-Eyt" userLabel="logoView">
+                                        <rect key="frame" x="33" y="33" width="289" height="75"/>
+                                    </imageView>
+                                    <button opaque="NO" contentMode="scaleToFill" horizontalCompressionResistancePriority="751" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9ZI-ff-luf">
+                                        <rect key="frame" x="211.5" y="133" width="73" height="75"/>
+                                        <fontDescription key="fontDescription" name="AcademyEngravedLetPlain" family="Academy Engraved LET" pointSize="22"/>
+                                        <state key="normal" title="Submit ">
+                                            <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="betSubmitted:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Z8w-ce-a9v"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KIt-tn-gI2">
+                                        <rect key="frame" x="285" y="151" width="52" height="39"/>
+                                        <fontDescription key="fontDescription" name="AcademyEngravedLetPlain" family="Academy Engraved LET" pointSize="22"/>
+                                        <state key="normal" title="Reset">
+                                            <color key="titleColor" red="0.12984204290000001" green="0.12984612579999999" blue="0.12984395030000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="resetBet:" destination="BYZ-38-t0r" eventType="touchUpInside" id="08z-Mt-BG4"/>
+                                        </connections>
+                                    </button>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="g8N-wa-Ivh">
+                                        <rect key="frame" x="56" y="149" width="125" height="44"/>
+                                        <color key="backgroundColor" red="0.0" green="0.56031829119999998" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="44" id="3ou-Ib-yLO"/>
+                                            <constraint firstAttribute="width" constant="125" id="8Hf-RH-Vue"/>
+                                        </constraints>
+                                        <nil key="textColor"/>
+                                        <fontDescription key="fontDescription" name="AcademyEngravedLetPlain" family="Academy Engraved LET" pointSize="25"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                    <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsLetterSpacingToFitWidth="YES" enabled="NO" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZQ5-F8-d9N">
+                                        <rect key="frame" x="56" y="149" width="125" height="44"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="44" id="n40-ks-tSO"/>
+                                            <constraint firstAttribute="width" constant="125" id="r1A-YC-lXl"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" name="AcademyEngravedLetPlain" family="Academy Engraved LET" pointSize="25"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" red="0.0" green="0.56031829119999998" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="bottomMargin" secondItem="D5G-Oq-Eyt" secondAttribute="bottom" constant="74" id="2uv-JB-od9"/>
+                                    <constraint firstItem="D5G-Oq-Eyt" firstAttribute="top" secondItem="U50-4s-cob" secondAttribute="topMargin" constant="25" id="5rM-ZQ-HZx"/>
+                                    <constraint firstItem="KIt-tn-gI2" firstAttribute="centerX" secondItem="U50-4s-cob" secondAttribute="centerX" multiplier="1.75" id="AWu-SA-uIo"/>
+                                    <constraint firstItem="KIt-tn-gI2" firstAttribute="centerY" secondItem="U50-4s-cob" secondAttribute="centerY" multiplier="1.8" id="Eai-Tu-dNL"/>
+                                    <constraint firstItem="D5G-Oq-Eyt" firstAttribute="leading" secondItem="U50-4s-cob" secondAttribute="leadingMargin" constant="25" id="Ggh-gi-Qax"/>
+                                    <constraint firstItem="ZQ5-F8-d9N" firstAttribute="centerY" secondItem="U50-4s-cob" secondAttribute="centerY" multiplier="1.8" id="KgL-Rf-iKV"/>
+                                    <constraint firstItem="9ZI-ff-luf" firstAttribute="centerX" secondItem="U50-4s-cob" secondAttribute="centerX" multiplier="1.4" id="TqS-ra-9QE"/>
+                                    <constraint firstItem="9ZI-ff-luf" firstAttribute="centerY" secondItem="U50-4s-cob" secondAttribute="centerY" multiplier="1.8" id="UDi-6e-0dm"/>
+                                    <constraint firstItem="ZQ5-F8-d9N" firstAttribute="centerX" secondItem="U50-4s-cob" secondAttribute="centerX" multiplier="0.67" id="XL6-8e-sfu"/>
+                                    <constraint firstItem="9ZI-ff-luf" firstAttribute="top" secondItem="D5G-Oq-Eyt" secondAttribute="bottom" constant="25" id="ZOL-6m-SQv"/>
+                                    <constraint firstAttribute="trailingMargin" secondItem="D5G-Oq-Eyt" secondAttribute="trailing" constant="25" id="boO-iS-koN"/>
+                                    <constraint firstItem="g8N-wa-Ivh" firstAttribute="centerX" secondItem="U50-4s-cob" secondAttribute="centerX" multiplier="0.67" id="d9k-bz-vBY"/>
+                                    <constraint firstItem="mgt-M4-Zrq" firstAttribute="centerX" secondItem="U50-4s-cob" secondAttribute="centerX" multiplier="0.15" id="dLn-gw-JFi"/>
+                                    <constraint firstItem="mgt-M4-Zrq" firstAttribute="centerY" secondItem="U50-4s-cob" secondAttribute="centerY" multiplier="1.8" id="xjf-UA-y7s"/>
+                                    <constraint firstItem="g8N-wa-Ivh" firstAttribute="centerY" secondItem="U50-4s-cob" secondAttribute="centerY" multiplier="1.8" id="zWC-Y8-wpH"/>
+                                </constraints>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="GJt-qP-4v0" userLabel="middleView">
+                                <rect key="frame" x="10" y="230" width="355" height="135.5"/>
+                                <subviews>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="aDd-YI-Asb" userLabel="dice1">
+                                        <rect key="frame" x="8" y="15.5" width="99" height="99"/>
+                                    </imageView>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="dvq-ab-q89" userLabel="dice2">
+                                        <rect key="frame" x="128" y="15.5" width="99" height="99"/>
+                                    </imageView>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Swa-ML-Krk" userLabel="dice3">
+                                        <rect key="frame" x="248" y="15.5" width="99" height="99"/>
+                                    </imageView>
+                                </subviews>
+                                <color key="backgroundColor" red="0.0" green="0.56031829119999998" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstItem="dvq-ab-q89" firstAttribute="top" secondItem="GJt-qP-4v0" secondAttribute="topMargin" constant="7" id="AKV-G7-Yg2"/>
+                                    <constraint firstAttribute="bottomMargin" secondItem="Swa-ML-Krk" secondAttribute="bottom" constant="13.5" id="GQ6-dI-6S5"/>
+                                    <constraint firstItem="aDd-YI-Asb" firstAttribute="width" secondItem="dvq-ab-q89" secondAttribute="width" id="H6v-EC-Hw7"/>
+                                    <constraint firstItem="aDd-YI-Asb" firstAttribute="top" secondItem="GJt-qP-4v0" secondAttribute="topMargin" constant="7" id="KgT-2Q-PND"/>
+                                    <constraint firstAttribute="bottomMargin" secondItem="aDd-YI-Asb" secondAttribute="bottom" constant="13.5" id="LLt-N2-Z6y"/>
+                                    <constraint firstItem="dvq-ab-q89" firstAttribute="leading" secondItem="aDd-YI-Asb" secondAttribute="trailing" constant="21" id="Oll-SE-sMX"/>
+                                    <constraint firstItem="Swa-ML-Krk" firstAttribute="top" secondItem="GJt-qP-4v0" secondAttribute="topMargin" constant="7" id="RMl-h4-gmg"/>
+                                    <constraint firstItem="Swa-ML-Krk" firstAttribute="trailing" secondItem="GJt-qP-4v0" secondAttribute="trailingMargin" id="UZd-dQ-45T"/>
+                                    <constraint firstItem="aDd-YI-Asb" firstAttribute="leading" secondItem="GJt-qP-4v0" secondAttribute="leadingMargin" id="e3y-sp-bgv"/>
+                                    <constraint firstItem="Swa-ML-Krk" firstAttribute="leading" secondItem="dvq-ab-q89" secondAttribute="trailing" constant="21" id="obo-42-YIP"/>
+                                    <constraint firstItem="dvq-ab-q89" firstAttribute="leading" secondItem="aDd-YI-Asb" secondAttribute="trailing" constant="21" id="ojZ-Ps-tBx"/>
+                                    <constraint firstItem="Swa-ML-Krk" firstAttribute="leading" secondItem="dvq-ab-q89" secondAttribute="trailing" constant="21" id="s3g-lV-sOd"/>
+                                    <constraint firstAttribute="bottomMargin" secondItem="dvq-ab-q89" secondAttribute="bottom" constant="13.5" id="ttT-qg-9zP"/>
+                                    <constraint firstItem="dvq-ab-q89" firstAttribute="width" secondItem="Swa-ML-Krk" secondAttribute="width" id="vQL-BX-715"/>
+                                </constraints>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Tcf-2u-cvt" userLabel="bottomView">
+                                <rect key="frame" x="10" y="375.5" width="355" height="271.5"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hb3-Fq-Udl">
+                                        <rect key="frame" x="90.5" y="44" width="175" height="48"/>
+                                        <fontDescription key="fontDescription" name="AcademyEngravedLetPlain" family="Academy Engraved LET" pointSize="30"/>
+                                        <state key="normal" title="Player 1 Roll">
+                                            <color key="titleColor" red="0.0" green="0.99143940210000003" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="player1roll:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Y5U-O0-gLd"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TZc-5J-k81">
+                                        <rect key="frame" x="93.5" y="112" width="175" height="48"/>
+                                        <fontDescription key="fontDescription" name="AcademyEngravedLetPlain" family="Academy Engraved LET" pointSize="30"/>
+                                        <state key="normal" title="Player 2 Roll ">
+                                            <color key="titleColor" red="0.016804177310000001" green="0.19835099580000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="player2roll:" destination="BYZ-38-t0r" eventType="touchUpInside" id="t0D-gJ-iUw"/>
+                                        </connections>
+                                    </button>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="P1: " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eWC-Nj-CsR" userLabel="player1holder">
+                                        <rect key="frame" x="11.5" y="219.5" width="48" height="36"/>
+                                        <fontDescription key="fontDescription" name="AcademyEngravedLetPlain" family="Academy Engraved LET" pointSize="30"/>
+                                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hg8-th-uJM" userLabel="score1">
+                                        <rect key="frame" x="62" y="221" width="18" height="33.5"/>
+                                        <fontDescription key="fontDescription" name="AcademyEngravedLetPlain" family="Academy Engraved LET" pointSize="28"/>
+                                        <color key="textColor" red="1" green="0.14913141730000001" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0-0-0" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4SS-kt-3ka" userLabel="diceResult1">
+                                        <rect key="frame" x="6.5" y="246.5" width="76" height="36"/>
+                                        <fontDescription key="fontDescription" name="AcademyEngravedLetPlain" family="Academy Engraved LET" pointSize="30"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="P2:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Plr-Km-aiX" userLabel="player2holder">
+                                        <rect key="frame" x="264" y="219.5" width="40" height="36"/>
+                                        <fontDescription key="fontDescription" name="AcademyEngravedLetPlain" family="Academy Engraved LET" pointSize="30"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RgE-gs-QMO" userLabel="score2">
+                                        <rect key="frame" x="310" y="219.5" width="19" height="36"/>
+                                        <fontDescription key="fontDescription" name="AcademyEngravedLetPlain" family="Academy Engraved LET" pointSize="30"/>
+                                        <color key="textColor" red="1" green="0.14913141730000001" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0-0-0" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="N8c-YR-xhs" userLabel="diceResult2">
+                                        <rect key="frame" x="258.5" y="246.5" width="75.5" height="36"/>
+                                        <fontDescription key="fontDescription" name="AcademyEngravedLetPlain" family="Academy Engraved LET" pointSize="30"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" red="0.0" green="0.56031829119999998" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstItem="hb3-Fq-Udl" firstAttribute="centerY" secondItem="Tcf-2u-cvt" secondAttribute="centerY" multiplier="0.5" id="3jC-vG-Dp0"/>
+                                    <constraint firstItem="TZc-5J-k81" firstAttribute="centerY" secondItem="Tcf-2u-cvt" secondAttribute="centerY" id="4Mi-a3-0i7"/>
+                                    <constraint firstItem="4SS-kt-3ka" firstAttribute="centerX" secondItem="Tcf-2u-cvt" secondAttribute="centerX" multiplier="0.25" id="5hg-Gf-4Kh"/>
+                                    <constraint firstItem="eWC-Nj-CsR" firstAttribute="centerY" secondItem="Tcf-2u-cvt" secondAttribute="centerY" multiplier="1.75" id="8ai-1j-WkI"/>
+                                    <constraint firstItem="N8c-YR-xhs" firstAttribute="centerX" secondItem="Tcf-2u-cvt" secondAttribute="centerX" multiplier="1.67" id="EAr-YL-38k"/>
+                                    <constraint firstItem="hg8-th-uJM" firstAttribute="centerY" secondItem="Tcf-2u-cvt" secondAttribute="centerY" multiplier="1.75" id="EKl-Sh-KsH"/>
+                                    <constraint firstItem="TZc-5J-k81" firstAttribute="centerX" secondItem="Tcf-2u-cvt" secondAttribute="centerX" multiplier="1.02" id="EwQ-sT-pMk"/>
+                                    <constraint firstItem="hb3-Fq-Udl" firstAttribute="centerX" secondItem="Tcf-2u-cvt" secondAttribute="centerX" id="Kk8-dD-t6V"/>
+                                    <constraint firstItem="RgE-gs-QMO" firstAttribute="centerY" secondItem="Tcf-2u-cvt" secondAttribute="centerY" multiplier="1.75" id="Ncc-M4-tNs"/>
+                                    <constraint firstItem="4SS-kt-3ka" firstAttribute="centerY" secondItem="Tcf-2u-cvt" secondAttribute="centerY" multiplier="1.95" id="TBn-5X-zjz"/>
+                                    <constraint firstItem="N8c-YR-xhs" firstAttribute="centerY" secondItem="Tcf-2u-cvt" secondAttribute="centerY" multiplier="1.95" id="Yud-ha-OCh"/>
+                                    <constraint firstItem="Plr-Km-aiX" firstAttribute="centerX" secondItem="Tcf-2u-cvt" secondAttribute="centerX" multiplier="1.6" id="hck-Hc-h5s"/>
+                                    <constraint firstItem="eWC-Nj-CsR" firstAttribute="centerX" secondItem="Tcf-2u-cvt" secondAttribute="centerX" multiplier="0.2" id="n0R-g5-vh5"/>
+                                    <constraint firstItem="Plr-Km-aiX" firstAttribute="centerY" secondItem="Tcf-2u-cvt" secondAttribute="centerY" multiplier="1.75" id="nWc-2h-oG9"/>
+                                    <constraint firstItem="hg8-th-uJM" firstAttribute="centerX" secondItem="Tcf-2u-cvt" secondAttribute="centerX" multiplier="0.4" id="nbl-zZ-Hcy"/>
+                                    <constraint firstItem="TZc-5J-k81" firstAttribute="width" secondItem="hb3-Fq-Udl" secondAttribute="width" id="rRN-hR-AzX"/>
+                                    <constraint firstItem="RgE-gs-QMO" firstAttribute="centerX" secondItem="Tcf-2u-cvt" secondAttribute="centerX" multiplier="1.8" id="whI-Fv-gtQ"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" red="0.0" green="0.56031829119999998" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="Tcf-2u-cvt" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="10" id="60d-ps-i52"/>
+                            <constraint firstItem="Tcf-2u-cvt" firstAttribute="top" secondItem="GJt-qP-4v0" secondAttribute="bottom" constant="10" id="8X4-20-HM1"/>
+                            <constraint firstItem="GJt-qP-4v0" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="10" id="AY2-ca-3Ga"/>
+                            <constraint firstItem="Tcf-2u-cvt" firstAttribute="top" secondItem="GJt-qP-4v0" secondAttribute="bottom" constant="10" id="Bwh-9I-4xW"/>
+                            <constraint firstItem="GJt-qP-4v0" firstAttribute="top" secondItem="U50-4s-cob" secondAttribute="bottom" constant="10" id="CAD-FM-miE"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="U50-4s-cob" secondAttribute="trailing" constant="10" id="CEz-wW-sFH"/>
+                            <constraint firstItem="GJt-qP-4v0" firstAttribute="height" secondItem="Tcf-2u-cvt" secondAttribute="height" multiplier="0.5" id="DIf-rx-kMC"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="Tcf-2u-cvt" secondAttribute="bottom" constant="20" id="GhX-2k-mm1"/>
+                            <constraint firstItem="U50-4s-cob" firstAttribute="height" secondItem="GJt-qP-4v0" secondAttribute="height" multiplier="1.4" id="O4J-Hl-GRt"/>
+                            <constraint firstItem="GJt-qP-4v0" firstAttribute="top" secondItem="U50-4s-cob" secondAttribute="bottom" constant="10" id="TV3-F4-DML"/>
+                            <constraint firstItem="U50-4s-cob" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="10" id="omk-I3-9GW"/>
+                            <constraint firstItem="U50-4s-cob" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="10" id="orX-eh-WCR"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="GJt-qP-4v0" secondAttribute="trailing" constant="10" id="qpy-Tw-Qqw"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="Tcf-2u-cvt" secondAttribute="trailing" constant="10" id="tFb-Tj-FHa"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                    </view>
+                    <connections>
+                        <outlet property="betLabel" destination="ZQ5-F8-d9N" id="MkB-xF-cwc"/>
+                        <outlet property="betTextField" destination="g8N-wa-Ivh" id="KGu-pw-E0m"/>
+                        <outlet property="dice1Image" destination="aDd-YI-Asb" id="rT6-Se-OxN"/>
+                        <outlet property="dice2Image" destination="dvq-ab-q89" id="kpm-Y3-ACK"/>
+                        <outlet property="dice3Image" destination="Swa-ML-Krk" id="GSf-gV-hfK"/>
+                        <outlet property="player1Score" destination="hg8-th-uJM" id="6Ie-kz-chZ"/>
+                        <outlet property="player1diceResult" destination="4SS-kt-3ka" id="Os5-WO-oGi"/>
+                        <outlet property="player1rollButton" destination="hb3-Fq-Udl" id="s7E-GS-ZPf"/>
+                        <outlet property="player2Score" destination="RgE-gs-QMO" id="HXw-J0-Msc"/>
+                        <outlet property="player2diceResult" destination="N8c-YR-xhs" id="Git-Gn-leI"/>
+                        <outlet property="player2rollButton" destination="TZc-5J-k81" id="dWl-23-PNn"/>
+                        <outlet property="resetButton" destination="KIt-tn-gI2" id="kdS-3o-I55"/>
+                        <outlet property="submitButton" destination="9ZI-ff-luf" id="g49-G2-hDr"/>
+                        <segue destination="sIL-me-0jw" kind="show" identifier="runItBack" id="xq2-fj-vds"/>
+                        <segue destination="Amm-q9-zcm" kind="show" identifier="backToLaunch" id="V4k-iK-S94"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-4994" y="904"/>
+        </scene>
+        <!--three player screen-->
+        <scene sceneID="MNR-Wp-aed">
+            <objects>
+                <viewController title="three player screen" id="mTk-9j-ZNG" customClass="ThreePlayerViewController" customModule="Cee_lo" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="QcJ-p2-tYf">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="UDb-3D-O1P" userLabel="topView">
+                                <rect key="frame" x="10" y="30" width="355" height="193"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" horizontalCompressionResistancePriority="751" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CDe-62-29j">
+                                        <rect key="frame" x="230" y="149.5" width="73" height="39"/>
+                                        <fontDescription key="fontDescription" name="AcademyEngravedLetPlain" family="Academy Engraved LET" pointSize="22"/>
+                                        <state key="normal" title="Submit ">
+                                            <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="betSubmitted:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Kqm-Lt-M54"/>
+                                            <action selector="submitButtonPressed:" destination="mTk-9j-ZNG" eventType="touchUpInside" id="quh-e6-rzm"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LpU-Bu-2BO">
+                                        <rect key="frame" x="303" y="149.5" width="52" height="39"/>
+                                        <fontDescription key="fontDescription" name="AcademyEngravedLetPlain" family="Academy Engraved LET" pointSize="22"/>
+                                        <state key="normal" title="Reset">
+                                            <color key="titleColor" red="0.12984204290000001" green="0.12984612579999999" blue="0.12984395030000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="resetBet:" destination="BYZ-38-t0r" eventType="touchUpInside" id="3tq-nJ-afs"/>
+                                            <action selector="resetButtonPressed:" destination="mTk-9j-ZNG" eventType="touchUpInside" id="gur-VK-EH3"/>
+                                        </connections>
+                                    </button>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Bet:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ifo-pq-ldl">
+                                        <rect key="frame" x="2" y="155.5" width="49" height="36"/>
+                                        <fontDescription key="fontDescription" name="AcademyEngravedLetPlain" family="Academy Engraved LET" pointSize="30"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="JeS-a7-txL">
+                                        <rect key="frame" x="58" y="151" width="175" height="44"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="44" id="9a8-1w-PwV"/>
+                                            <constraint firstAttribute="width" constant="175" id="zZO-AG-tPd"/>
+                                        </constraints>
+                                        <nil key="textColor"/>
+                                        <fontDescription key="fontDescription" name="AcademyEngravedLetPlain" family="Academy Engraved LET" pointSize="28"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsLetterSpacingToFitWidth="YES" enabled="NO" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="L7b-kc-YtE">
+                                        <rect key="frame" x="58" y="151" width="175" height="44"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="44" id="1bx-om-8fi"/>
+                                            <constraint firstAttribute="width" constant="175" id="Jx7-C8-qac"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" name="AcademyEngravedLetPlain" family="Academy Engraved LET" pointSize="28"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Dice Up Logo" translatesAutoresizingMaskIntoConstraints="NO" id="PrH-FA-7Q7">
+                                        <rect key="frame" x="33" y="33" width="289" height="76.5"/>
+                                    </imageView>
+                                </subviews>
+                                <color key="backgroundColor" red="0.0" green="0.56031829119999998" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstItem="JeS-a7-txL" firstAttribute="centerY" secondItem="UDb-3D-O1P" secondAttribute="centerY" multiplier="1.8" id="3UY-Yw-tHS"/>
+                                    <constraint firstItem="JeS-a7-txL" firstAttribute="centerX" secondItem="UDb-3D-O1P" secondAttribute="centerX" multiplier="0.82" id="4WA-9q-PqX"/>
+                                    <constraint firstItem="CDe-62-29j" firstAttribute="top" secondItem="PrH-FA-7Q7" secondAttribute="bottom" constant="40" id="5OE-yk-zK4"/>
+                                    <constraint firstItem="L7b-kc-YtE" firstAttribute="centerX" secondItem="UDb-3D-O1P" secondAttribute="centerX" multiplier="0.82" id="H4S-h3-deE"/>
+                                    <constraint firstItem="L7b-kc-YtE" firstAttribute="centerY" secondItem="UDb-3D-O1P" secondAttribute="centerY" multiplier="1.8" id="JH7-gk-m92"/>
+                                    <constraint firstItem="CDe-62-29j" firstAttribute="centerY" secondItem="UDb-3D-O1P" secondAttribute="centerY" multiplier="1.75" id="VA7-qY-oDS"/>
+                                    <constraint firstItem="CDe-62-29j" firstAttribute="centerX" secondItem="UDb-3D-O1P" secondAttribute="centerX" multiplier="1.5" id="VMh-cU-PKD"/>
+                                    <constraint firstItem="ifo-pq-ldl" firstAttribute="centerX" secondItem="UDb-3D-O1P" secondAttribute="centerX" multiplier="0.15" id="bno-Tc-0KK"/>
+                                    <constraint firstAttribute="trailingMargin" secondItem="PrH-FA-7Q7" secondAttribute="trailing" constant="25" id="gmE-Pj-1nU"/>
+                                    <constraint firstItem="PrH-FA-7Q7" firstAttribute="leading" secondItem="UDb-3D-O1P" secondAttribute="leadingMargin" constant="25" id="hGx-dO-9wf"/>
+                                    <constraint firstItem="ifo-pq-ldl" firstAttribute="centerY" secondItem="UDb-3D-O1P" secondAttribute="centerY" multiplier="1.8" id="lBV-7f-7xz"/>
+                                    <constraint firstItem="PrH-FA-7Q7" firstAttribute="top" secondItem="UDb-3D-O1P" secondAttribute="topMargin" constant="25" id="nQB-DO-bBN"/>
+                                    <constraint firstItem="LpU-Bu-2BO" firstAttribute="centerY" secondItem="UDb-3D-O1P" secondAttribute="centerY" multiplier="1.75" id="smC-yf-C3U"/>
+                                    <constraint firstItem="LpU-Bu-2BO" firstAttribute="centerX" secondItem="UDb-3D-O1P" secondAttribute="centerX" multiplier="1.85" id="t0D-S4-EyK"/>
+                                </constraints>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="FPq-N2-d0X" userLabel="middleView">
+                                <rect key="frame" x="10" y="233" width="355" height="137.5"/>
+                                <subviews>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="adI-bU-P2n" userLabel="dice1">
+                                        <rect key="frame" x="16" y="22" width="102.5" height="92.5"/>
+                                    </imageView>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Zgp-LB-CPZ" userLabel="dice2">
+                                        <rect key="frame" x="126.5" y="22" width="102" height="92.5"/>
+                                    </imageView>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="B7i-ch-lXJ" userLabel="dice3">
+                                        <rect key="frame" x="236.5" y="22" width="102.5" height="92.5"/>
+                                    </imageView>
+                                </subviews>
+                                <color key="backgroundColor" red="0.0" green="0.56031829119999998" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstItem="adI-bU-P2n" firstAttribute="width" secondItem="Zgp-LB-CPZ" secondAttribute="width" id="7pV-s1-7Rs"/>
+                                    <constraint firstItem="B7i-ch-lXJ" firstAttribute="top" secondItem="FPq-N2-d0X" secondAttribute="topMargin" constant="14" id="Ciz-gs-qBB"/>
+                                    <constraint firstItem="Zgp-LB-CPZ" firstAttribute="top" secondItem="FPq-N2-d0X" secondAttribute="topMargin" constant="14" id="Dj3-Nn-I1p"/>
+                                    <constraint firstAttribute="bottomMargin" secondItem="Zgp-LB-CPZ" secondAttribute="bottom" constant="15" id="Dl9-iF-qh6"/>
+                                    <constraint firstAttribute="bottomMargin" secondItem="adI-bU-P2n" secondAttribute="bottom" constant="15" id="J3P-8R-M8Q"/>
+                                    <constraint firstItem="B7i-ch-lXJ" firstAttribute="leading" secondItem="Zgp-LB-CPZ" secondAttribute="trailing" constant="8" id="OLQ-OS-Bwi"/>
+                                    <constraint firstItem="Zgp-LB-CPZ" firstAttribute="width" secondItem="B7i-ch-lXJ" secondAttribute="width" id="Qxc-F3-MO1"/>
+                                    <constraint firstItem="Zgp-LB-CPZ" firstAttribute="leading" secondItem="adI-bU-P2n" secondAttribute="trailing" constant="8" id="Uqx-h5-a0M"/>
+                                    <constraint firstItem="adI-bU-P2n" firstAttribute="top" secondItem="FPq-N2-d0X" secondAttribute="topMargin" constant="14" id="X1J-lD-qdo"/>
+                                    <constraint firstItem="B7i-ch-lXJ" firstAttribute="leading" secondItem="Zgp-LB-CPZ" secondAttribute="trailing" constant="8" id="hdY-CQ-KeO"/>
+                                    <constraint firstAttribute="bottomMargin" secondItem="B7i-ch-lXJ" secondAttribute="bottom" constant="15" id="jSP-rs-SWA"/>
+                                    <constraint firstAttribute="trailingMargin" secondItem="B7i-ch-lXJ" secondAttribute="trailing" constant="8" id="l5g-To-4KT"/>
+                                    <constraint firstItem="Zgp-LB-CPZ" firstAttribute="leading" secondItem="adI-bU-P2n" secondAttribute="trailing" constant="8" id="p0a-1H-fFc"/>
+                                    <constraint firstItem="adI-bU-P2n" firstAttribute="leading" secondItem="FPq-N2-d0X" secondAttribute="leadingMargin" constant="8" id="rae-OC-wCw"/>
+                                </constraints>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4z2-Od-fhe" userLabel="bottomView">
+                                <rect key="frame" x="10" y="380.5" width="355" height="276.5"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ca3-Zq-mIR" userLabel="player1rollButton">
+                                        <rect key="frame" x="95.5" y="10.5" width="163" height="48"/>
+                                        <fontDescription key="fontDescription" name="AcademyEngravedLetPlain" family="Academy Engraved LET" pointSize="30"/>
+                                        <state key="normal" title="Player 1 Roll">
+                                            <color key="titleColor" red="0.0048598507420000003" green="0.096086271109999996" blue="0.57499289509999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="player1rollButton:" destination="mTk-9j-ZNG" eventType="touchUpInside" id="7Bh-Z2-Vaw"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cge-es-bnx" userLabel="player2rollButton">
+                                        <rect key="frame" x="94.5" y="87" width="165" height="48"/>
+                                        <fontDescription key="fontDescription" name="AcademyEngravedLetPlain" family="Academy Engraved LET" pointSize="30"/>
+                                        <state key="normal" title="Player 2 Roll">
+                                            <color key="titleColor" red="0.37055522200000002" green="0.37056469920000001" blue="0.37055957319999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="player2rollButton:" destination="mTk-9j-ZNG" eventType="touchUpInside" id="sq1-zf-q6B"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rb6-UV-1YU" userLabel="player3rollButton ">
+                                        <rect key="frame" x="94.5" y="163.5" width="166" height="48"/>
+                                        <fontDescription key="fontDescription" name="AcademyEngravedLetPlain" family="Academy Engraved LET" pointSize="30"/>
+                                        <state key="normal" title="Player 3 Roll">
+                                            <color key="titleColor" red="0.58072251080000004" green="0.066734083" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="player3rollButton:" destination="mTk-9j-ZNG" eventType="touchUpInside" id="1d8-Ll-rBc"/>
+                                        </connections>
+                                    </button>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="P1:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lGa-Kz-3Db" userLabel="player1">
+                                        <rect key="frame" x="1" y="219.5" width="34" height="32"/>
+                                        <fontDescription key="fontDescription" name="AcademyEngravedLetPlain" family="Academy Engraved LET" pointSize="27"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ruv-3p-eNd" userLabel="player1score">
+                                        <rect key="frame" x="45" y="219.5" width="17" height="32"/>
+                                        <fontDescription key="fontDescription" name="AcademyEngravedLetPlain" family="Academy Engraved LET" pointSize="27"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0-0-0" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1Nd-lN-Fkd" userLabel="player1diceResult">
+                                        <rect key="frame" x="-0.5" y="247" width="68" height="32"/>
+                                        <fontDescription key="fontDescription" name="AcademyEngravedLetPlain" family="Academy Engraved LET" pointSize="27"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="P2:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hmW-PW-eyD" userLabel="player2">
+                                        <rect key="frame" x="150.5" y="219.5" width="36" height="32"/>
+                                        <fontDescription key="fontDescription" name="AcademyEngravedLetPlain" family="Academy Engraved LET" pointSize="27"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="w10-0A-01i" userLabel="player2score">
+                                        <rect key="frame" x="196" y="219.5" width="17" height="32"/>
+                                        <fontDescription key="fontDescription" name="AcademyEngravedLetPlain" family="Academy Engraved LET" pointSize="27"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0-0-0" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="L7J-4g-mdS" userLabel="player2diceResult">
+                                        <rect key="frame" x="149" y="247" width="68" height="32"/>
+                                        <fontDescription key="fontDescription" name="AcademyEngravedLetPlain" family="Academy Engraved LET" pointSize="27"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="P3:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yXa-c1-GWV" userLabel="player3">
+                                        <rect key="frame" x="283.5" y="219.5" width="37" height="32"/>
+                                        <fontDescription key="fontDescription" name="AcademyEngravedLetPlain" family="Academy Engraved LET" pointSize="27"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3aq-2Y-c4P" userLabel="player3score ">
+                                        <rect key="frame" x="329.5" y="219.5" width="17" height="32"/>
+                                        <fontDescription key="fontDescription" name="AcademyEngravedLetPlain" family="Academy Engraved LET" pointSize="27"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0-0-0" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pNo-OK-5rL" userLabel="player3diceResult">
+                                        <rect key="frame" x="282" y="247" width="68" height="32"/>
+                                        <fontDescription key="fontDescription" name="AcademyEngravedLetPlain" family="Academy Engraved LET" pointSize="27"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" red="0.0" green="0.56031829119999998" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstItem="w10-0A-01i" firstAttribute="centerY" secondItem="4z2-Od-fhe" secondAttribute="centerY" multiplier="1.7" id="32b-7Q-f9p"/>
+                                    <constraint firstItem="lGa-Kz-3Db" firstAttribute="centerY" secondItem="4z2-Od-fhe" secondAttribute="centerY" multiplier="1.7" id="4CL-lg-9CM"/>
+                                    <constraint firstItem="yXa-c1-GWV" firstAttribute="centerX" secondItem="4z2-Od-fhe" secondAttribute="centerX" multiplier="1.7" id="6ay-2y-h2A"/>
+                                    <constraint firstItem="rb6-UV-1YU" firstAttribute="centerY" secondItem="4z2-Od-fhe" secondAttribute="centerY" multiplier="1.35" id="7Z7-ic-v1N"/>
+                                    <constraint firstItem="1Nd-lN-Fkd" firstAttribute="centerX" secondItem="4z2-Od-fhe" secondAttribute="centerX" multiplier="0.19" id="85T-D6-ARU"/>
+                                    <constraint firstItem="3aq-2Y-c4P" firstAttribute="centerY" secondItem="4z2-Od-fhe" secondAttribute="centerY" multiplier="1.7" id="BSI-xD-9Yp"/>
+                                    <constraint firstItem="Ca3-Zq-mIR" firstAttribute="centerY" secondItem="4z2-Od-fhe" secondAttribute="centerY" multiplier="0.25" id="GXE-9I-LdD"/>
+                                    <constraint firstItem="w10-0A-01i" firstAttribute="centerX" secondItem="4z2-Od-fhe" secondAttribute="centerX" multiplier="1.15" id="GqE-Uw-BbU"/>
+                                    <constraint firstItem="cge-es-bnx" firstAttribute="centerY" secondItem="4z2-Od-fhe" secondAttribute="centerY" multiplier="0.8" id="I0u-EI-NCI"/>
+                                    <constraint firstItem="L7J-4g-mdS" firstAttribute="centerY" secondItem="4z2-Od-fhe" secondAttribute="centerY" multiplier="1.9" id="OK9-IR-e1r"/>
+                                    <constraint firstItem="ruv-3p-eNd" firstAttribute="centerX" secondItem="4z2-Od-fhe" secondAttribute="centerX" multiplier="0.3" id="Ol2-7r-g0K"/>
+                                    <constraint firstItem="pNo-OK-5rL" firstAttribute="centerY" secondItem="4z2-Od-fhe" secondAttribute="centerY" multiplier="1.9" id="SXM-Vt-asF"/>
+                                    <constraint firstItem="3aq-2Y-c4P" firstAttribute="centerX" secondItem="4z2-Od-fhe" secondAttribute="centerX" multiplier="1.9" id="TwL-SB-DHk"/>
+                                    <constraint firstItem="Ca3-Zq-mIR" firstAttribute="centerX" secondItem="4z2-Od-fhe" secondAttribute="centerX" id="UbE-Bd-1GO"/>
+                                    <constraint firstItem="rb6-UV-1YU" firstAttribute="centerX" secondItem="4z2-Od-fhe" secondAttribute="centerX" id="ZV7-L7-0Hn"/>
+                                    <constraint firstItem="L7J-4g-mdS" firstAttribute="centerX" secondItem="4z2-Od-fhe" secondAttribute="centerX" multiplier="1.03" id="dCk-jC-ZtL"/>
+                                    <constraint firstItem="1Nd-lN-Fkd" firstAttribute="centerY" secondItem="4z2-Od-fhe" secondAttribute="centerY" multiplier="1.9" id="fel-vs-aPV"/>
+                                    <constraint firstItem="hmW-PW-eyD" firstAttribute="centerY" secondItem="4z2-Od-fhe" secondAttribute="centerY" multiplier="1.7" id="gFa-7g-RiH"/>
+                                    <constraint firstItem="lGa-Kz-3Db" firstAttribute="centerX" secondItem="4z2-Od-fhe" secondAttribute="centerX" multiplier="0.1" id="h6m-8T-hO9"/>
+                                    <constraint firstItem="yXa-c1-GWV" firstAttribute="centerY" secondItem="4z2-Od-fhe" secondAttribute="centerY" multiplier="1.7" id="hvr-Sd-U1B"/>
+                                    <constraint firstItem="cge-es-bnx" firstAttribute="centerX" secondItem="4z2-Od-fhe" secondAttribute="centerX" id="t7F-a6-tgV"/>
+                                    <constraint firstItem="ruv-3p-eNd" firstAttribute="centerY" secondItem="4z2-Od-fhe" secondAttribute="centerY" multiplier="1.7" id="uqQ-9r-cXZ"/>
+                                    <constraint firstItem="pNo-OK-5rL" firstAttribute="centerX" secondItem="4z2-Od-fhe" secondAttribute="centerX" multiplier="1.78" id="vzR-g3-KyV"/>
+                                    <constraint firstItem="hmW-PW-eyD" firstAttribute="centerX" secondItem="4z2-Od-fhe" secondAttribute="centerX" multiplier="0.95" id="xLl-2X-QAU"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" red="0.0" green="0.56031829119999998" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="FPq-N2-d0X" firstAttribute="width" secondItem="4z2-Od-fhe" secondAttribute="width" id="3ze-bf-7ad"/>
+                            <constraint firstItem="UDb-3D-O1P" firstAttribute="top" secondItem="3X8-mg-6Qq" secondAttribute="top" constant="10" id="5PS-aT-3kU"/>
+                            <constraint firstItem="3X8-mg-6Qq" firstAttribute="trailing" secondItem="UDb-3D-O1P" secondAttribute="trailing" constant="10" id="6LO-8y-lsz"/>
+                            <constraint firstItem="UDb-3D-O1P" firstAttribute="leading" secondItem="3X8-mg-6Qq" secondAttribute="leading" constant="10" id="6vI-yA-HID"/>
+                            <constraint firstItem="FPq-N2-d0X" firstAttribute="leading" secondItem="3X8-mg-6Qq" secondAttribute="leading" constant="10" id="Avd-fm-raV"/>
+                            <constraint firstItem="3X8-mg-6Qq" firstAttribute="trailing" secondItem="4z2-Od-fhe" secondAttribute="trailing" constant="10" id="BbS-qa-omN"/>
+                            <constraint firstItem="UDb-3D-O1P" firstAttribute="width" secondItem="FPq-N2-d0X" secondAttribute="width" id="DRE-K6-Enh"/>
+                            <constraint firstItem="4z2-Od-fhe" firstAttribute="top" secondItem="FPq-N2-d0X" secondAttribute="bottom" constant="10" id="EBo-Su-Ed1"/>
+                            <constraint firstItem="FPq-N2-d0X" firstAttribute="top" secondItem="UDb-3D-O1P" secondAttribute="bottom" constant="10" id="EV7-Af-eB3"/>
+                            <constraint firstItem="3X8-mg-6Qq" firstAttribute="bottom" secondItem="4z2-Od-fhe" secondAttribute="bottom" constant="10" id="GHc-yp-uuB"/>
+                            <constraint firstItem="3X8-mg-6Qq" firstAttribute="trailing" secondItem="UDb-3D-O1P" secondAttribute="trailing" constant="10" id="Giz-XZ-J3V"/>
+                            <constraint firstItem="FPq-N2-d0X" firstAttribute="top" secondItem="UDb-3D-O1P" secondAttribute="bottom" constant="10" id="Gj5-by-w5K"/>
+                            <constraint firstItem="4z2-Od-fhe" firstAttribute="top" secondItem="FPq-N2-d0X" secondAttribute="bottom" constant="10" id="Ii8-4l-iwC"/>
+                            <constraint firstItem="UDb-3D-O1P" firstAttribute="height" secondItem="FPq-N2-d0X" secondAttribute="height" multiplier="1.4" id="LGv-fC-NJh"/>
+                            <constraint firstItem="UDb-3D-O1P" firstAttribute="leading" secondItem="3X8-mg-6Qq" secondAttribute="leading" constant="10" id="Mzi-Rp-nbd"/>
+                            <constraint firstItem="4z2-Od-fhe" firstAttribute="top" secondItem="FPq-N2-d0X" secondAttribute="bottom" constant="10" id="PVq-vO-Upz"/>
+                            <constraint firstItem="FPq-N2-d0X" firstAttribute="top" secondItem="UDb-3D-O1P" secondAttribute="bottom" constant="10" id="YAe-N1-ehr"/>
+                            <constraint firstItem="3X8-mg-6Qq" firstAttribute="trailing" secondItem="4z2-Od-fhe" secondAttribute="trailing" constant="10" id="b8e-3z-VDH"/>
+                            <constraint firstItem="FPq-N2-d0X" firstAttribute="top" secondItem="UDb-3D-O1P" secondAttribute="bottom" constant="10" id="c2F-Hi-R5P"/>
+                            <constraint firstItem="FPq-N2-d0X" firstAttribute="leading" secondItem="3X8-mg-6Qq" secondAttribute="leading" constant="10" id="cUv-qi-XJL"/>
+                            <constraint firstItem="4z2-Od-fhe" firstAttribute="leading" secondItem="3X8-mg-6Qq" secondAttribute="leading" constant="10" id="cpq-Rz-Bum"/>
+                            <constraint firstItem="3X8-mg-6Qq" firstAttribute="bottom" secondItem="4z2-Od-fhe" secondAttribute="bottom" constant="10" id="kNX-dD-q9C"/>
+                            <constraint firstItem="FPq-N2-d0X" firstAttribute="height" secondItem="4z2-Od-fhe" secondAttribute="height" multiplier="0.5" id="npl-bk-j3Z"/>
+                            <constraint firstItem="3X8-mg-6Qq" firstAttribute="trailing" secondItem="FPq-N2-d0X" secondAttribute="trailing" constant="10" id="pdf-vj-hFF"/>
+                            <constraint firstItem="4z2-Od-fhe" firstAttribute="top" secondItem="FPq-N2-d0X" secondAttribute="bottom" constant="10" id="qWQ-6l-QV9"/>
+                            <constraint firstItem="UDb-3D-O1P" firstAttribute="top" secondItem="3X8-mg-6Qq" secondAttribute="top" constant="10" id="qrq-hg-sRc"/>
+                            <constraint firstItem="4z2-Od-fhe" firstAttribute="leading" secondItem="3X8-mg-6Qq" secondAttribute="leading" constant="10" id="uQ4-RR-5eh"/>
+                            <constraint firstItem="3X8-mg-6Qq" firstAttribute="trailing" secondItem="FPq-N2-d0X" secondAttribute="trailing" constant="10" id="xKN-2m-FgO"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="3X8-mg-6Qq"/>
+                    </view>
+                    <connections>
+                        <outlet property="betLabel" destination="L7b-kc-YtE" id="Dof-3G-Zeu"/>
+                        <outlet property="betTextField" destination="JeS-a7-txL" id="zue-6o-uV2"/>
+                        <outlet property="dice1" destination="adI-bU-P2n" id="PSF-3v-O39"/>
+                        <outlet property="dice2" destination="Zgp-LB-CPZ" id="D6v-Iy-oHq"/>
+                        <outlet property="dice3" destination="B7i-ch-lXJ" id="MLg-BR-2cX"/>
+                        <outlet property="player1diceResult" destination="1Nd-lN-Fkd" id="ybv-5U-GOP"/>
+                        <outlet property="player1rollButton" destination="Ca3-Zq-mIR" id="EKy-fi-nKw"/>
+                        <outlet property="player1scoreLabel" destination="ruv-3p-eNd" id="kCu-xj-bRE"/>
+                        <outlet property="player2diceResult" destination="L7J-4g-mdS" id="eKe-Ud-wZA"/>
+                        <outlet property="player2rollButton" destination="cge-es-bnx" id="zKy-DH-tuu"/>
+                        <outlet property="player2scoreLabel" destination="w10-0A-01i" id="9dE-8p-glg"/>
+                        <outlet property="player3diceResult" destination="pNo-OK-5rL" id="ols-nZ-8lZ"/>
+                        <outlet property="player3rollButton" destination="rb6-UV-1YU" id="0PA-oD-dV0"/>
+                        <outlet property="player3scoreLabel" destination="3aq-2Y-c4P" id="hMA-AH-A5e"/>
+                        <outlet property="resetButton" destination="LpU-Bu-2BO" id="HeP-0Q-jTE"/>
+                        <outlet property="submitButton" destination="CDe-62-29j" id="sGf-hg-6iF"/>
+                        <segue destination="7Ll-Ii-ZKm" kind="show" identifier="runItBack" id="u6m-sk-DPe"/>
+                        <segue destination="Amm-q9-zcm" kind="show" identifier="moveToGame" id="qXU-Pr-5Rq"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="OIc-Yt-SP0" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-3788" y="903"/>
+        </scene>
+        <!--Four Player View Controller-->
+        <scene sceneID="dda-MD-BcD">
+            <objects>
+                <viewController id="4b5-Kl-mBP" customClass="FourPlayerViewController" customModule="Cee_lo" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="1SU-Rp-syC">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ud0-gQ-L48" userLabel="topView">
+                                <rect key="frame" x="10" y="30" width="355" height="193"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Bet:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Arl-6j-KSG">
+                                        <rect key="frame" x="11" y="155.5" width="49" height="36"/>
+                                        <fontDescription key="fontDescription" name="AcademyEngravedLetPlain" family="Academy Engraved LET" pointSize="30"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <button opaque="NO" contentMode="scaleToFill" horizontalCompressionResistancePriority="751" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WON-5q-Yhe">
+                                        <rect key="frame" x="207.5" y="148" width="83" height="42"/>
+                                        <fontDescription key="fontDescription" name="AcademyEngravedLetPlain" family="Academy Engraved LET" pointSize="25"/>
+                                        <state key="normal" title="Submit ">
+                                            <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="betSubmitted:" destination="BYZ-38-t0r" eventType="touchUpInside" id="bb3-5L-VPj"/>
+                                            <action selector="betSubmitted:" destination="4b5-Kl-mBP" eventType="touchUpInside" id="m5N-9U-tMO"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="h96-cn-NRo">
+                                        <rect key="frame" x="290" y="148" width="59" height="42"/>
+                                        <fontDescription key="fontDescription" name="AcademyEngravedLetPlain" family="Academy Engraved LET" pointSize="25"/>
+                                        <state key="normal" title="Reset">
+                                            <color key="titleColor" red="0.12984204290000001" green="0.12984612579999999" blue="0.12984395030000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="resetBet:" destination="BYZ-38-t0r" eventType="touchUpInside" id="SXL-88-Ytl"/>
+                                            <action selector="resetBet:" destination="4b5-Kl-mBP" eventType="touchUpInside" id="wbD-0O-83f"/>
+                                        </connections>
+                                    </button>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8oQ-uD-ado" userLabel="betLabel">
+                                        <rect key="frame" x="65" y="152.5" width="120" height="42"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="120" id="XiB-Jh-bfa"/>
+                                            <constraint firstAttribute="height" constant="42" id="ooV-3t-PF4"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" name="AcademyEngravedLetPlain" family="Academy Engraved LET" pointSize="25"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="af8-eB-Tau" userLabel="betTextField">
+                                        <rect key="frame" x="65" y="152.5" width="120" height="42"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="120" id="7jz-mQ-W8C"/>
+                                            <constraint firstAttribute="height" constant="42" id="WK5-Xw-afl"/>
+                                        </constraints>
+                                        <nil key="textColor"/>
+                                        <fontDescription key="fontDescription" name="AcademyEngravedLetPlain" family="Academy Engraved LET" pointSize="25"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Dice Up Logo" translatesAutoresizingMaskIntoConstraints="NO" id="GEq-Zf-MwO">
+                                        <rect key="frame" x="33" y="33" width="289" height="75"/>
+                                    </imageView>
+                                </subviews>
+                                <color key="backgroundColor" red="0.0" green="0.56031829119999998" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstItem="WON-5q-Yhe" firstAttribute="centerX" secondItem="ud0-gQ-L48" secondAttribute="centerX" multiplier="1.4" id="33z-1m-kck"/>
+                                    <constraint firstItem="WON-5q-Yhe" firstAttribute="top" secondItem="GEq-Zf-MwO" secondAttribute="bottom" constant="40" id="44F-F8-89H"/>
+                                    <constraint firstItem="GEq-Zf-MwO" firstAttribute="top" secondItem="ud0-gQ-L48" secondAttribute="topMargin" constant="25" id="9ZD-0f-LPn"/>
+                                    <constraint firstItem="Arl-6j-KSG" firstAttribute="centerX" secondItem="ud0-gQ-L48" secondAttribute="centerX" multiplier="0.2" id="CsQ-oN-hGP"/>
+                                    <constraint firstItem="af8-eB-Tau" firstAttribute="centerX" secondItem="ud0-gQ-L48" secondAttribute="centerX" multiplier="0.7" id="DTn-tx-EAK"/>
+                                    <constraint firstItem="Arl-6j-KSG" firstAttribute="centerY" secondItem="ud0-gQ-L48" secondAttribute="centerY" multiplier="1.8" id="Ix9-Cn-lzU"/>
+                                    <constraint firstItem="GEq-Zf-MwO" firstAttribute="leading" secondItem="ud0-gQ-L48" secondAttribute="leadingMargin" constant="25" id="NAY-7g-qr9"/>
+                                    <constraint firstItem="h96-cn-NRo" firstAttribute="centerX" secondItem="ud0-gQ-L48" secondAttribute="centerX" multiplier="1.8" id="Nun-9z-a6F"/>
+                                    <constraint firstItem="WON-5q-Yhe" firstAttribute="centerY" secondItem="ud0-gQ-L48" secondAttribute="centerY" multiplier="1.75" id="XJO-0C-SNd"/>
+                                    <constraint firstItem="8oQ-uD-ado" firstAttribute="centerX" secondItem="ud0-gQ-L48" secondAttribute="centerX" multiplier="0.7" id="cgu-SU-StE"/>
+                                    <constraint firstItem="8oQ-uD-ado" firstAttribute="centerY" secondItem="ud0-gQ-L48" secondAttribute="centerY" multiplier="1.8" id="lQA-Ax-ECK"/>
+                                    <constraint firstAttribute="trailingMargin" secondItem="GEq-Zf-MwO" secondAttribute="trailing" constant="25" id="my0-dK-Qb1"/>
+                                    <constraint firstItem="af8-eB-Tau" firstAttribute="centerY" secondItem="ud0-gQ-L48" secondAttribute="centerY" multiplier="1.8" id="pOO-nv-g7r"/>
+                                    <constraint firstItem="h96-cn-NRo" firstAttribute="centerY" secondItem="ud0-gQ-L48" secondAttribute="centerY" multiplier="1.75" id="xAA-d6-sle"/>
+                                </constraints>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wpk-fp-Wf7" userLabel="middleView">
+                                <rect key="frame" x="10" y="233" width="355" height="138"/>
+                                <subviews>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Fdh-Rz-QSl" userLabel="dice1">
+                                        <rect key="frame" x="16" y="22" width="102.5" height="93"/>
+                                    </imageView>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="jhs-1m-RSC" userLabel="dice2">
+                                        <rect key="frame" x="126.5" y="22" width="102" height="93"/>
+                                    </imageView>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="x8e-CM-QJY" userLabel="dice3">
+                                        <rect key="frame" x="236.5" y="22" width="102.5" height="93"/>
+                                    </imageView>
+                                </subviews>
+                                <color key="backgroundColor" red="0.0" green="0.56031829119999998" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstItem="x8e-CM-QJY" firstAttribute="top" secondItem="wpk-fp-Wf7" secondAttribute="topMargin" constant="14" id="0d9-cW-DaB"/>
+                                    <constraint firstItem="jhs-1m-RSC" firstAttribute="leading" secondItem="Fdh-Rz-QSl" secondAttribute="trailing" constant="8" id="0ge-6n-uR3"/>
+                                    <constraint firstItem="Fdh-Rz-QSl" firstAttribute="top" secondItem="wpk-fp-Wf7" secondAttribute="topMargin" constant="14" id="1og-QT-kUa"/>
+                                    <constraint firstAttribute="trailingMargin" secondItem="x8e-CM-QJY" secondAttribute="trailing" constant="8" id="3MD-Gq-7Ea"/>
+                                    <constraint firstItem="jhs-1m-RSC" firstAttribute="width" secondItem="x8e-CM-QJY" secondAttribute="width" id="ANQ-jA-eH5"/>
+                                    <constraint firstItem="jhs-1m-RSC" firstAttribute="top" secondItem="wpk-fp-Wf7" secondAttribute="topMargin" constant="14" id="FOy-PK-Zll"/>
+                                    <constraint firstItem="Fdh-Rz-QSl" firstAttribute="width" secondItem="jhs-1m-RSC" secondAttribute="width" id="HIa-Dj-dQW"/>
+                                    <constraint firstItem="Fdh-Rz-QSl" firstAttribute="leading" secondItem="wpk-fp-Wf7" secondAttribute="leadingMargin" constant="8" id="MrH-zo-7Eb"/>
+                                    <constraint firstItem="x8e-CM-QJY" firstAttribute="leading" secondItem="jhs-1m-RSC" secondAttribute="trailing" constant="8" id="R2O-bg-BSL"/>
+                                    <constraint firstAttribute="bottomMargin" secondItem="jhs-1m-RSC" secondAttribute="bottom" constant="15" id="TBe-Ex-dhi"/>
+                                    <constraint firstAttribute="bottomMargin" secondItem="Fdh-Rz-QSl" secondAttribute="bottom" constant="15" id="jVY-XG-cUp"/>
+                                    <constraint firstItem="jhs-1m-RSC" firstAttribute="leading" secondItem="Fdh-Rz-QSl" secondAttribute="trailing" constant="8" id="oNH-Z9-l7e"/>
+                                    <constraint firstItem="x8e-CM-QJY" firstAttribute="leading" secondItem="jhs-1m-RSC" secondAttribute="trailing" constant="8" id="rB2-vf-2Pq"/>
+                                    <constraint firstAttribute="bottomMargin" secondItem="x8e-CM-QJY" secondAttribute="bottom" constant="15" id="uKf-N3-e9Z"/>
+                                </constraints>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8fD-64-GxL" userLabel="bottomView">
+                                <rect key="frame" x="10" y="381" width="355" height="276"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VJR-Sf-Ogm" userLabel="player1rollButton">
+                                        <rect key="frame" x="95.5" y="3.5" width="163" height="48"/>
+                                        <fontDescription key="fontDescription" name="AcademyEngravedLetPlain" family="Academy Engraved LET" pointSize="30"/>
+                                        <state key="normal" title="Player 1 Roll">
+                                            <color key="titleColor" red="0.58105844259999995" green="0.12855249639999999" blue="0.57453137639999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="player1Roll:" destination="4b5-Kl-mBP" eventType="touchUpInside" id="vNU-IH-8EB"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nGp-cW-a7C" userLabel="player2rollButton">
+                                        <rect key="frame" x="94.5" y="58.5" width="165" height="48"/>
+                                        <fontDescription key="fontDescription" name="AcademyEngravedLetPlain" family="Academy Engraved LET" pointSize="30"/>
+                                        <state key="normal" title="Player 2 Roll">
+                                            <color key="titleColor" red="0.58072251080000004" green="0.066734083" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="player2Roll:" destination="4b5-Kl-mBP" eventType="touchUpInside" id="0id-NU-BwD"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hGI-O7-CdV" userLabel="player3rollButton">
+                                        <rect key="frame" x="94.5" y="114" width="166" height="48"/>
+                                        <fontDescription key="fontDescription" name="AcademyEngravedLetPlain" family="Academy Engraved LET" pointSize="30"/>
+                                        <state key="normal" title="Player 3 Roll">
+                                            <color key="titleColor" red="1" green="0.57810515169999999" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="player3Roll:" destination="4b5-Kl-mBP" eventType="touchUpInside" id="iiz-lj-gjl"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="P58-s6-bX6" userLabel="player4rollButton">
+                                        <rect key="frame" x="93.5" y="169" width="168" height="48"/>
+                                        <fontDescription key="fontDescription" name="AcademyEngravedLetPlain" family="Academy Engraved LET" pointSize="30"/>
+                                        <state key="normal" title="Player 4 Roll">
+                                            <color key="titleColor" red="0.66422420739999999" green="0.66424006219999998" blue="0.66423153879999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="player4Roll:" destination="4b5-Kl-mBP" eventType="touchUpInside" id="AnN-Mj-rRK"/>
+                                        </connections>
+                                    </button>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="P1:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Tqe-Qd-e4N" userLabel="player1">
+                                        <rect key="frame" x="5.5" y="218" width="35" height="34"/>
+                                        <fontDescription key="fontDescription" name="AcademyEngravedLetPlain" family="Academy Engraved LET" pointSize="28"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0Ho-uH-KEf" userLabel="player1score ">
+                                        <rect key="frame" x="50" y="218" width="18" height="34"/>
+                                        <fontDescription key="fontDescription" name="AcademyEngravedLetPlain" family="Academy Engraved LET" pointSize="28"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0-0-0" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Qbk-Ba-ztg" userLabel="player1diceResult ">
+                                        <rect key="frame" x="3.5" y="241" width="71" height="34"/>
+                                        <fontDescription key="fontDescription" name="AcademyEngravedLetPlain" family="Academy Engraved LET" pointSize="28"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="P2:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MrS-BA-Nss" userLabel="player2">
+                                        <rect key="frame" x="93" y="218" width="38" height="34"/>
+                                        <fontDescription key="fontDescription" name="AcademyEngravedLetPlain" family="Academy Engraved LET" pointSize="28"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ibq-fi-0gd" userLabel="player2score ">
+                                        <rect key="frame" x="138.5" y="218" width="18" height="34"/>
+                                        <fontDescription key="fontDescription" name="AcademyEngravedLetPlain" family="Academy Engraved LET" pointSize="28"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0-0-0" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FfP-wI-oH5" userLabel="player2diceResult ">
+                                        <rect key="frame" x="93" y="241" width="71" height="34"/>
+                                        <fontDescription key="fontDescription" name="AcademyEngravedLetPlain" family="Academy Engraved LET" pointSize="28"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="P3:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ghU-Wc-ql1" userLabel="player3">
+                                        <rect key="frame" x="182" y="218" width="38" height="34"/>
+                                        <fontDescription key="fontDescription" name="AcademyEngravedLetPlain" family="Academy Engraved LET" pointSize="28"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5sF-3x-LgY" userLabel="player3score ">
+                                        <rect key="frame" x="227.5" y="218" width="18" height="34"/>
+                                        <fontDescription key="fontDescription" name="AcademyEngravedLetPlain" family="Academy Engraved LET" pointSize="28"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0-0-0" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bKc-hr-HQm" userLabel="player3diceResult ">
+                                        <rect key="frame" x="181.5" y="241" width="71" height="34"/>
+                                        <fontDescription key="fontDescription" name="AcademyEngravedLetPlain" family="Academy Engraved LET" pointSize="28"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="P4:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EB7-aa-x5t" userLabel="player4">
+                                        <rect key="frame" x="270" y="218" width="40" height="34"/>
+                                        <fontDescription key="fontDescription" name="AcademyEngravedLetPlain" family="Academy Engraved LET" pointSize="28"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GrU-05-Gvz" userLabel="player4score ">
+                                        <rect key="frame" x="316" y="218" width="18" height="34"/>
+                                        <fontDescription key="fontDescription" name="AcademyEngravedLetPlain" family="Academy Engraved LET" pointSize="28"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0-0-0" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="d41-Er-Qw3" userLabel="player4diceResult ">
+                                        <rect key="frame" x="270.5" y="241" width="71" height="34"/>
+                                        <fontDescription key="fontDescription" name="AcademyEngravedLetPlain" family="Academy Engraved LET" pointSize="28"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" red="0.0" green="0.56031829119999998" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstItem="5sF-3x-LgY" firstAttribute="centerY" secondItem="8fD-64-GxL" secondAttribute="centerY" multiplier="1.7" id="32p-dk-GJJ"/>
+                                    <constraint firstItem="P58-s6-bX6" firstAttribute="centerX" secondItem="8fD-64-GxL" secondAttribute="centerX" id="8sD-3T-aOn"/>
+                                    <constraint firstItem="5sF-3x-LgY" firstAttribute="centerX" secondItem="8fD-64-GxL" secondAttribute="centerX" multiplier="1.33" id="9PU-nf-IXO"/>
+                                    <constraint firstItem="nGp-cW-a7C" firstAttribute="centerX" secondItem="8fD-64-GxL" secondAttribute="centerX" id="9QS-yH-A15"/>
+                                    <constraint firstItem="0Ho-uH-KEf" firstAttribute="centerX" secondItem="8fD-64-GxL" secondAttribute="centerX" multiplier="0.33" id="Dzr-QL-WQ9"/>
+                                    <constraint firstItem="VJR-Sf-Ogm" firstAttribute="centerX" secondItem="8fD-64-GxL" secondAttribute="centerX" id="Fsb-gl-O36"/>
+                                    <constraint firstItem="Qbk-Ba-ztg" firstAttribute="centerY" secondItem="8fD-64-GxL" secondAttribute="centerY" multiplier="1.87" id="FzQ-Ok-yJG"/>
+                                    <constraint firstItem="GrU-05-Gvz" firstAttribute="centerX" secondItem="8fD-64-GxL" secondAttribute="centerX" multiplier="1.83" id="H9D-f5-4mT"/>
+                                    <constraint firstItem="hGI-O7-CdV" firstAttribute="centerY" secondItem="8fD-64-GxL" secondAttribute="centerY" id="HqH-Rz-Jki"/>
+                                    <constraint firstItem="GrU-05-Gvz" firstAttribute="centerY" secondItem="8fD-64-GxL" secondAttribute="centerY" multiplier="1.7" id="JzF-dx-1rY"/>
+                                    <constraint firstItem="hGI-O7-CdV" firstAttribute="centerX" secondItem="8fD-64-GxL" secondAttribute="centerX" id="Lld-Rm-rp7"/>
+                                    <constraint firstItem="Tqe-Qd-e4N" firstAttribute="centerY" secondItem="8fD-64-GxL" secondAttribute="centerY" multiplier="1.7" id="MZQ-3K-t4E"/>
+                                    <constraint firstItem="VJR-Sf-Ogm" firstAttribute="centerY" secondItem="8fD-64-GxL" secondAttribute="centerY" multiplier="0.2" id="N08-rC-7ky"/>
+                                    <constraint firstItem="Ibq-fi-0gd" firstAttribute="centerY" secondItem="8fD-64-GxL" secondAttribute="centerY" multiplier="1.7" id="NuK-cd-Vcw"/>
+                                    <constraint firstItem="EB7-aa-x5t" firstAttribute="centerY" secondItem="8fD-64-GxL" secondAttribute="centerY" multiplier="1.7" id="P9G-GV-bfX"/>
+                                    <constraint firstItem="MrS-BA-Nss" firstAttribute="centerX" secondItem="8fD-64-GxL" secondAttribute="centerX" multiplier="0.63" id="Phg-DV-BAc"/>
+                                    <constraint firstItem="FfP-wI-oH5" firstAttribute="centerY" secondItem="8fD-64-GxL" secondAttribute="centerY" multiplier="1.87" id="TD7-zY-Vug"/>
+                                    <constraint firstItem="0Ho-uH-KEf" firstAttribute="centerY" secondItem="8fD-64-GxL" secondAttribute="centerY" multiplier="1.7" id="TkI-eR-rqh"/>
+                                    <constraint firstItem="ghU-Wc-ql1" firstAttribute="centerY" secondItem="8fD-64-GxL" secondAttribute="centerY" multiplier="1.7" id="VsH-bq-axH"/>
+                                    <constraint firstItem="nGp-cW-a7C" firstAttribute="centerY" secondItem="8fD-64-GxL" secondAttribute="centerY" multiplier="0.6" id="Ze7-WG-Hty"/>
+                                    <constraint firstItem="ghU-Wc-ql1" firstAttribute="centerX" secondItem="8fD-64-GxL" secondAttribute="centerX" multiplier="1.13" id="azf-vz-3dM"/>
+                                    <constraint firstItem="Tqe-Qd-e4N" firstAttribute="centerX" secondItem="8fD-64-GxL" secondAttribute="centerX" multiplier="0.13" id="cDc-NT-TSN"/>
+                                    <constraint firstItem="d41-Er-Qw3" firstAttribute="centerY" secondItem="8fD-64-GxL" secondAttribute="centerY" multiplier="1.87" id="dPu-KK-eBA"/>
+                                    <constraint firstItem="Ibq-fi-0gd" firstAttribute="centerX" secondItem="8fD-64-GxL" secondAttribute="centerX" multiplier="0.83" id="dum-8v-0R8"/>
+                                    <constraint firstItem="P58-s6-bX6" firstAttribute="centerY" secondItem="8fD-64-GxL" secondAttribute="centerY" multiplier="1.4" id="elX-p6-zN6"/>
+                                    <constraint firstItem="d41-Er-Qw3" firstAttribute="centerX" secondItem="8fD-64-GxL" secondAttribute="centerX" multiplier="1.72" id="fdf-gP-r8P"/>
+                                    <constraint firstItem="EB7-aa-x5t" firstAttribute="centerX" secondItem="8fD-64-GxL" secondAttribute="centerX" multiplier="1.63" id="hBl-OX-B4x"/>
+                                    <constraint firstItem="bKc-hr-HQm" firstAttribute="centerX" secondItem="8fD-64-GxL" secondAttribute="centerX" multiplier="1.22" id="jww-6J-L1T"/>
+                                    <constraint firstItem="FfP-wI-oH5" firstAttribute="centerX" secondItem="8fD-64-GxL" secondAttribute="centerX" multiplier="0.72" id="kkZ-OR-a7I"/>
+                                    <constraint firstItem="MrS-BA-Nss" firstAttribute="centerY" secondItem="8fD-64-GxL" secondAttribute="centerY" multiplier="1.7" id="mj1-Cg-zmy"/>
+                                    <constraint firstItem="Qbk-Ba-ztg" firstAttribute="centerX" secondItem="8fD-64-GxL" secondAttribute="centerX" multiplier="0.22" id="ssG-wI-ubq"/>
+                                    <constraint firstItem="bKc-hr-HQm" firstAttribute="centerY" secondItem="8fD-64-GxL" secondAttribute="centerY" multiplier="1.87" id="t6R-kc-0aB"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" red="0.0" green="0.56031829119999998" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="wpk-fp-Wf7" firstAttribute="height" secondItem="8fD-64-GxL" secondAttribute="height" multiplier="0.5" id="1zi-Cs-sbd"/>
+                            <constraint firstItem="ud0-gQ-L48" firstAttribute="top" secondItem="wnw-EF-D5f" secondAttribute="top" constant="10" id="23C-wE-z5U"/>
+                            <constraint firstItem="wnw-EF-D5f" firstAttribute="trailing" secondItem="wpk-fp-Wf7" secondAttribute="trailing" constant="10" id="CNP-Yw-F4Q"/>
+                            <constraint firstItem="wpk-fp-Wf7" firstAttribute="top" secondItem="ud0-gQ-L48" secondAttribute="bottom" constant="10" id="FVZ-HE-iw6"/>
+                            <constraint firstItem="wnw-EF-D5f" firstAttribute="bottom" secondItem="8fD-64-GxL" secondAttribute="bottom" constant="10" id="SZO-0f-uE2"/>
+                            <constraint firstItem="wnw-EF-D5f" firstAttribute="trailing" secondItem="8fD-64-GxL" secondAttribute="trailing" constant="10" id="VCx-oe-afe"/>
+                            <constraint firstItem="ud0-gQ-L48" firstAttribute="leading" secondItem="wnw-EF-D5f" secondAttribute="leading" constant="10" id="crY-rc-W9g"/>
+                            <constraint firstItem="wpk-fp-Wf7" firstAttribute="leading" secondItem="wnw-EF-D5f" secondAttribute="leading" constant="10" id="f00-CT-p4T"/>
+                            <constraint firstItem="wnw-EF-D5f" firstAttribute="trailing" secondItem="ud0-gQ-L48" secondAttribute="trailing" constant="10" id="fmH-Q0-ERH"/>
+                            <constraint firstItem="wpk-fp-Wf7" firstAttribute="top" secondItem="ud0-gQ-L48" secondAttribute="bottom" constant="10" id="fqN-7y-wba"/>
+                            <constraint firstItem="ud0-gQ-L48" firstAttribute="height" secondItem="wpk-fp-Wf7" secondAttribute="height" multiplier="1.4" id="gIp-ZM-P44"/>
+                            <constraint firstItem="8fD-64-GxL" firstAttribute="leading" secondItem="wnw-EF-D5f" secondAttribute="leading" constant="10" id="lQd-dT-7z3"/>
+                            <constraint firstItem="8fD-64-GxL" firstAttribute="top" secondItem="wpk-fp-Wf7" secondAttribute="bottom" constant="10" id="mQC-EB-4tm"/>
+                            <constraint firstItem="8fD-64-GxL" firstAttribute="top" secondItem="wpk-fp-Wf7" secondAttribute="bottom" constant="10" id="obN-j3-giz"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="wnw-EF-D5f"/>
+                    </view>
+                    <connections>
+                        <outlet property="betLabel" destination="8oQ-uD-ado" id="Kbu-gt-9Fp"/>
+                        <outlet property="betTextField" destination="af8-eB-Tau" id="eTG-c0-wz1"/>
+                        <outlet property="dice1" destination="Fdh-Rz-QSl" id="11O-oO-mxH"/>
+                        <outlet property="dice2" destination="jhs-1m-RSC" id="coN-dc-YFV"/>
+                        <outlet property="dice3" destination="x8e-CM-QJY" id="lGp-xH-Z0N"/>
+                        <outlet property="player1diceResult" destination="Qbk-Ba-ztg" id="4bv-yt-TIE"/>
+                        <outlet property="player1rollButton" destination="VJR-Sf-Ogm" id="cDf-t8-qdI"/>
+                        <outlet property="player1scoreLabel" destination="0Ho-uH-KEf" id="Ebj-J9-goR"/>
+                        <outlet property="player2diceResult" destination="FfP-wI-oH5" id="zY5-7q-H3X"/>
+                        <outlet property="player2rollButton" destination="nGp-cW-a7C" id="DNu-9g-n9w"/>
+                        <outlet property="player2scoreLabel" destination="Ibq-fi-0gd" id="SbV-ll-Exd"/>
+                        <outlet property="player3diceResult" destination="bKc-hr-HQm" id="i6h-aR-POL"/>
+                        <outlet property="player3rollButton" destination="hGI-O7-CdV" id="FK6-YA-hic"/>
+                        <outlet property="player3scoreLabel" destination="5sF-3x-LgY" id="cQf-T7-PCv"/>
+                        <outlet property="player4diceResult" destination="d41-Er-Qw3" id="u6W-gF-oUz"/>
+                        <outlet property="player4rollButton" destination="P58-s6-bX6" id="bjs-VH-plG"/>
+                        <outlet property="player4scoreLabel" destination="GrU-05-Gvz" id="5Li-Jj-WHF"/>
+                        <outlet property="resetButton" destination="h96-cn-NRo" id="ZtM-fp-7Sd"/>
+                        <outlet property="submitButton" destination="WON-5q-Yhe" id="dfZ-cs-dII"/>
+                        <segue destination="kk0-HD-SVV" kind="show" identifier="runItBack" id="0IP-dl-twR"/>
+                        <segue destination="Amm-q9-zcm" kind="show" identifier="moveToGame" id="Do3-i9-8XK"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="6yR-B4-MPh" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-4393" y="903"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="cBm-Q1-Eul">
+            <objects>
+                <viewController id="Amm-q9-zcm" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="YDi-Wj-DbN">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Dice Up Interface-1" translatesAutoresizingMaskIntoConstraints="NO" id="Nj3-4c-6i4">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hUk-Vl-Myv" userLabel="2player">
+                                <rect key="frame" x="104.5" y="83" width="54" height="34"/>
+                                <state key="normal" title="Button">
+                                    <color key="titleColor" red="0.0" green="0.5607843137254902" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                            </button>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="number of players" translatesAutoresizingMaskIntoConstraints="NO" id="BjT-tz-iWG">
+                                <rect key="frame" x="0.0" y="-466.5" width="375" height="1600"/>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IaQ-Fc-T6J">
+                                <rect key="frame" x="77.5" y="482" width="32" height="70"/>
+                                <fontDescription key="fontDescription" name="AmericanTypewriter" family="American Typewriter" pointSize="50"/>
+                                <state key="normal" title="2">
+                                    <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                                <connections>
+                                    <segue destination="sIL-me-0jw" kind="show" id="PBu-sy-oaS"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Oom-xk-hOB">
+                                <rect key="frame" x="265.5" y="482" width="32" height="70"/>
+                                <fontDescription key="fontDescription" name="AmericanTypewriter" family="American Typewriter" pointSize="50"/>
+                                <state key="normal" title="4">
+                                    <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                                <connections>
+                                    <segue destination="kk0-HD-SVV" kind="show" id="cGs-Pb-wHc"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4GL-Dg-xNv">
+                                <rect key="frame" x="171.5" y="482" width="32" height="70"/>
+                                <fontDescription key="fontDescription" name="AmericanTypewriter" family="American Typewriter" pointSize="50"/>
+                                <state key="normal" title="3">
+                                    <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                                <connections>
+                                    <segue destination="7Ll-Ii-ZKm" kind="show" id="Q6Y-Pr-VmJ"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="j2U-DY-DyY" firstAttribute="trailing" secondItem="BjT-tz-iWG" secondAttribute="trailing" id="3kH-8S-hPC"/>
+                            <constraint firstItem="4GL-Dg-xNv" firstAttribute="centerX" secondItem="YDi-Wj-DbN" secondAttribute="centerX" id="9jp-B1-UIM"/>
+                            <constraint firstItem="BjT-tz-iWG" firstAttribute="centerX" secondItem="YDi-Wj-DbN" secondAttribute="centerX" id="AdT-bn-M4R"/>
+                            <constraint firstItem="Nj3-4c-6i4" firstAttribute="leading" secondItem="YDi-Wj-DbN" secondAttribute="leading" id="BTQ-e6-qcz"/>
+                            <constraint firstItem="4GL-Dg-xNv" firstAttribute="centerY" secondItem="YDi-Wj-DbN" secondAttribute="centerY" multiplier="1.55" id="JYe-Z3-Zsz"/>
+                            <constraint firstItem="Nj3-4c-6i4" firstAttribute="bottom" secondItem="YDi-Wj-DbN" secondAttribute="bottom" id="Juy-9y-0rz"/>
+                            <constraint firstItem="Oom-xk-hOB" firstAttribute="centerX" secondItem="YDi-Wj-DbN" secondAttribute="centerX" multiplier="1.5" id="Ob7-zM-Or4"/>
+                            <constraint firstItem="Nj3-4c-6i4" firstAttribute="trailing" secondItem="YDi-Wj-DbN" secondAttribute="trailing" id="TXF-Qw-VpX"/>
+                            <constraint firstItem="j2U-DY-DyY" firstAttribute="trailing" secondItem="Nj3-4c-6i4" secondAttribute="trailing" id="Tan-QS-fFs"/>
+                            <constraint firstItem="Oom-xk-hOB" firstAttribute="centerY" secondItem="YDi-Wj-DbN" secondAttribute="centerY" multiplier="1.55" id="ZwD-2P-RJr"/>
+                            <constraint firstItem="Nj3-4c-6i4" firstAttribute="leading" secondItem="YDi-Wj-DbN" secondAttribute="leading" id="dhR-f4-99K"/>
+                            <constraint firstItem="BjT-tz-iWG" firstAttribute="centerY" secondItem="YDi-Wj-DbN" secondAttribute="centerY" id="fg1-JK-S0C"/>
+                            <constraint firstItem="hUk-Vl-Myv" firstAttribute="centerY" secondItem="YDi-Wj-DbN" secondAttribute="centerY" multiplier="0.3" id="gQ4-TI-KfC"/>
+                            <constraint firstItem="IaQ-Fc-T6J" firstAttribute="centerX" secondItem="YDi-Wj-DbN" secondAttribute="centerX" multiplier="0.5" id="j3h-5J-k2d"/>
+                            <constraint firstItem="hUk-Vl-Myv" firstAttribute="centerX" secondItem="YDi-Wj-DbN" secondAttribute="centerX" multiplier="0.7" id="lHc-W8-Qq4"/>
+                            <constraint firstItem="IaQ-Fc-T6J" firstAttribute="centerY" secondItem="YDi-Wj-DbN" secondAttribute="centerY" multiplier="1.55" id="n74-hP-628"/>
+                            <constraint firstItem="Nj3-4c-6i4" firstAttribute="top" secondItem="YDi-Wj-DbN" secondAttribute="top" id="qiM-fi-0J8"/>
+                            <constraint firstItem="Nj3-4c-6i4" firstAttribute="top" secondItem="YDi-Wj-DbN" secondAttribute="top" id="y2b-Iq-YJZ"/>
+                            <constraint firstItem="BjT-tz-iWG" firstAttribute="leading" secondItem="j2U-DY-DyY" secondAttribute="leading" id="zCW-Jp-1in"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="j2U-DY-DyY"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="5hS-IW-tzR" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-3602.4000000000001" y="-1252.6236881559221"/>
+        </scene>
+        <!--LaunchPage-->
+        <scene sceneID="jeL-cb-jv8">
+            <objects>
+                <viewController title="LaunchPage" id="C5M-ZL-HZR" customClass="LaunchPageViewController" customModule="Cee_lo" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="cRv-Nu-zpT">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qbM-3u-fO4" userLabel="topView">
+                                <rect key="frame" x="20" y="40" width="335" height="293.5"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Cee-lo" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sS1-lk-fEt">
+                                        <rect key="frame" x="104.5" y="123.5" width="126" height="48"/>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="40"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" red="1" green="0.14913141730000001" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstItem="sS1-lk-fEt" firstAttribute="centerX" secondItem="qbM-3u-fO4" secondAttribute="centerX" id="8JS-Qz-J3L"/>
+                                    <constraint firstItem="sS1-lk-fEt" firstAttribute="centerY" secondItem="qbM-3u-fO4" secondAttribute="centerY" id="WSC-gz-3Qa"/>
+                                </constraints>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="a7q-8o-Nnd" userLabel="bottomView">
+                                <rect key="frame" x="20" y="353.5" width="335" height="293.5"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Number of players" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eZ8-CI-0xm">
+                                        <rect key="frame" x="18.5" y="126.5" width="299" height="42"/>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="35"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wWm-0B-uvP">
+                                        <rect key="frame" x="52" y="204.5" width="30" height="60"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="40"/>
+                                        <state key="normal" title="2"/>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fRa-Jb-G3u">
+                                        <rect key="frame" x="152.5" y="204.5" width="30" height="60"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="40"/>
+                                        <state key="normal" title="3"/>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6bi-we-gHp">
+                                        <rect key="frame" x="253.5" y="204.5" width="30" height="60"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="40"/>
+                                        <state key="normal" title="4"/>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" red="0.83216959239999999" green="0.98548370600000001" blue="0.47333085539999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstItem="6bi-we-gHp" firstAttribute="centerY" secondItem="a7q-8o-Nnd" secondAttribute="centerY" multiplier="1.6" id="5jw-9u-xTz"/>
+                                    <constraint firstItem="6bi-we-gHp" firstAttribute="centerX" secondItem="a7q-8o-Nnd" secondAttribute="centerX" multiplier="1.6" id="6zy-9d-y95"/>
+                                    <constraint firstItem="fRa-Jb-G3u" firstAttribute="centerY" secondItem="a7q-8o-Nnd" secondAttribute="centerY" multiplier="1.6" id="DIJ-rv-WF3"/>
+                                    <constraint firstItem="wWm-0B-uvP" firstAttribute="centerY" secondItem="a7q-8o-Nnd" secondAttribute="centerY" multiplier="1.6" id="KYq-k9-G4i"/>
+                                    <constraint firstItem="eZ8-CI-0xm" firstAttribute="centerY" secondItem="a7q-8o-Nnd" secondAttribute="centerY" id="YaA-Jk-ZDz"/>
+                                    <constraint firstItem="wWm-0B-uvP" firstAttribute="centerX" secondItem="a7q-8o-Nnd" secondAttribute="centerX" multiplier="0.4" id="bIq-v2-kox"/>
+                                    <constraint firstItem="fRa-Jb-G3u" firstAttribute="centerX" secondItem="a7q-8o-Nnd" secondAttribute="centerX" id="g5e-sY-N2N"/>
+                                    <constraint firstItem="eZ8-CI-0xm" firstAttribute="centerX" secondItem="a7q-8o-Nnd" secondAttribute="centerX" id="wLk-A3-ZsX"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" red="0.0" green="0.56031829119999998" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="a7q-8o-Nnd" firstAttribute="top" secondItem="qbM-3u-fO4" secondAttribute="bottom" constant="20" id="5kL-m1-4hY"/>
+                            <constraint firstItem="pR4-Pg-Z4d" firstAttribute="trailing" secondItem="qbM-3u-fO4" secondAttribute="trailing" constant="20" id="79I-Ts-yCT"/>
+                            <constraint firstItem="qbM-3u-fO4" firstAttribute="leading" secondItem="pR4-Pg-Z4d" secondAttribute="leading" constant="20" id="79U-H9-j1E"/>
+                            <constraint firstItem="qbM-3u-fO4" firstAttribute="top" secondItem="pR4-Pg-Z4d" secondAttribute="top" constant="20" id="EPd-5b-8qK"/>
+                            <constraint firstItem="qbM-3u-fO4" firstAttribute="height" secondItem="a7q-8o-Nnd" secondAttribute="height" id="LFn-IR-QSL"/>
+                            <constraint firstItem="pR4-Pg-Z4d" firstAttribute="bottom" secondItem="a7q-8o-Nnd" secondAttribute="bottom" constant="20" id="RaV-x3-nnR"/>
+                            <constraint firstItem="a7q-8o-Nnd" firstAttribute="top" secondItem="qbM-3u-fO4" secondAttribute="bottom" constant="20" id="eIU-m1-aN9"/>
+                            <constraint firstItem="a7q-8o-Nnd" firstAttribute="leading" secondItem="pR4-Pg-Z4d" secondAttribute="leading" constant="20" id="sMJ-jH-VLz"/>
+                            <constraint firstItem="pR4-Pg-Z4d" firstAttribute="trailing" secondItem="a7q-8o-Nnd" secondAttribute="trailing" constant="20" id="wIY-64-eWs"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="pR4-Pg-Z4d"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ZRQ-Ez-N7Y" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1684" y="-1315"/>
+        </scene>
+        <!--Two player order of turns-->
+        <scene sceneID="SAx-gH-C3p">
+            <objects>
+                <viewController title="Two player order of turns" id="sIL-me-0jw" customClass="TwoPlayTurnOfEventsViewController" customModule="Cee_lo" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="W5x-yw-zx5">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ZWe-sy-God">
+                                <rect key="frame" x="10" y="30" width="355" height="627"/>
+                                <subviews>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="T0t-z3-SoV" userLabel="dice">
+                                        <rect key="frame" x="115.5" y="204" width="125" height="125"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="125" id="2yC-WD-X8M"/>
+                                            <constraint firstAttribute="width" constant="125" id="qxX-hd-AeW"/>
+                                        </constraints>
+                                    </imageView>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="say-2O-2i3">
+                                        <rect key="frame" x="52.5" y="409" width="73" height="60"/>
+                                        <fontDescription key="fontDescription" name="AcademyEngravedLetPlain" family="Academy Engraved LET" pointSize="40"/>
+                                        <state key="normal" title="Roll">
+                                            <color key="titleColor" red="0.1764705882352941" green="0.98039215686274506" blue="0.043137254901960784" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="p1rollPressed:" destination="sIL-me-0jw" eventType="touchUpInside" id="zQz-BX-wbO"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="465-lO-6T7">
+                                        <rect key="frame" x="224" y="409" width="86" height="60"/>
+                                        <fontDescription key="fontDescription" name="AcademyEngravedLetPlain" family="Academy Engraved LET" pointSize="40"/>
+                                        <state key="normal" title="Roll ">
+                                            <color key="titleColor" red="0.0048598507420000003" green="0.096086271109999996" blue="0.57499289509999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="p2rollPressed:" destination="sIL-me-0jw" eventType="touchUpInside" id="hIw-oz-sGt"/>
+                                        </connections>
+                                    </button>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="P1:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="w0s-wd-Yqn">
+                                        <rect key="frame" x="-3.5" y="590.5" width="44" height="41.5"/>
+                                        <fontDescription key="fontDescription" name="AcademyEngravedLetPlain" family="Academy Engraved LET" pointSize="35"/>
+                                        <color key="textColor" red="0.093151240760572115" green="0.98132258650000004" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="15a-SL-HCU" userLabel="p1roll">
+                                        <rect key="frame" x="42.5" y="590.5" width="22.5" height="41.5"/>
+                                        <fontDescription key="fontDescription" name="AcademyEngravedLetPlain" family="Academy Engraved LET" pointSize="35"/>
+                                        <color key="textColor" red="0.093151240760572115" green="0.98132258650000004" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="P2:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Eku-Jd-jkF">
+                                        <rect key="frame" x="279" y="590.5" width="46.5" height="41.5"/>
+                                        <fontDescription key="fontDescription" name="AcademyEngravedLetPlain" family="Academy Engraved LET" pointSize="35"/>
+                                        <color key="textColor" red="0.11620650731921643" green="0.055006452378179894" blue="0.98132258650000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jhr-pk-x5O" userLabel="p2roll">
+                                        <rect key="frame" x="326.5" y="590.5" width="22.5" height="41.5"/>
+                                        <fontDescription key="fontDescription" name="AcademyEngravedLetPlain" family="Academy Engraved LET" pointSize="35"/>
+                                        <color key="textColor" red="0.11620650731921643" green="0.055006452378179894" blue="0.98132258650000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Dice Up Logo" translatesAutoresizingMaskIntoConstraints="NO" id="v0b-Eg-4qy">
+                                        <rect key="frame" x="33" y="33" width="289" height="131"/>
+                                    </imageView>
+                                </subviews>
+                                <color key="backgroundColor" red="0.0" green="0.5607843137254902" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="trailingMargin" secondItem="v0b-Eg-4qy" secondAttribute="trailing" constant="25" id="13Z-bI-xea"/>
+                                    <constraint firstItem="15a-SL-HCU" firstAttribute="centerY" secondItem="ZWe-sy-God" secondAttribute="centerY" multiplier="1.95" id="3In-zy-4Mf"/>
+                                    <constraint firstItem="jhr-pk-x5O" firstAttribute="centerX" secondItem="ZWe-sy-God" secondAttribute="centerX" multiplier="1.9" id="4fu-LQ-o0K"/>
+                                    <constraint firstItem="Eku-Jd-jkF" firstAttribute="centerY" secondItem="ZWe-sy-God" secondAttribute="centerY" multiplier="1.95" id="7dg-Nx-owp"/>
+                                    <constraint firstItem="15a-SL-HCU" firstAttribute="centerX" secondItem="ZWe-sy-God" secondAttribute="centerX" multiplier="0.3" id="Bcn-uG-Umd"/>
+                                    <constraint firstItem="w0s-wd-Yqn" firstAttribute="centerX" secondItem="ZWe-sy-God" secondAttribute="centerX" multiplier="0.1" id="BsE-wG-yH7"/>
+                                    <constraint firstItem="v0b-Eg-4qy" firstAttribute="top" secondItem="ZWe-sy-God" secondAttribute="topMargin" constant="25" id="G9f-M8-7UH"/>
+                                    <constraint firstItem="T0t-z3-SoV" firstAttribute="centerY" secondItem="ZWe-sy-God" secondAttribute="centerY" multiplier="0.85" id="HCB-hV-aFw"/>
+                                    <constraint firstItem="jhr-pk-x5O" firstAttribute="centerY" secondItem="ZWe-sy-God" secondAttribute="centerY" multiplier="1.95" id="IcP-qK-P2S"/>
+                                    <constraint firstItem="say-2O-2i3" firstAttribute="centerX" secondItem="ZWe-sy-God" secondAttribute="centerX" multiplier="0.5" id="NoK-ud-iw1"/>
+                                    <constraint firstItem="v0b-Eg-4qy" firstAttribute="leading" secondItem="ZWe-sy-God" secondAttribute="leadingMargin" constant="25" id="RfX-LC-DiR"/>
+                                    <constraint firstItem="465-lO-6T7" firstAttribute="centerY" secondItem="ZWe-sy-God" secondAttribute="centerY" multiplier="1.4" id="TDS-Wx-Bib"/>
+                                    <constraint firstItem="w0s-wd-Yqn" firstAttribute="centerY" secondItem="ZWe-sy-God" secondAttribute="centerY" multiplier="1.95" id="adG-sU-gmO"/>
+                                    <constraint firstItem="Eku-Jd-jkF" firstAttribute="centerX" secondItem="ZWe-sy-God" secondAttribute="centerX" multiplier="1.7" id="cE6-Ug-SmP"/>
+                                    <constraint firstItem="T0t-z3-SoV" firstAttribute="top" secondItem="v0b-Eg-4qy" secondAttribute="bottom" constant="40" id="feq-Dq-AQi"/>
+                                    <constraint firstItem="T0t-z3-SoV" firstAttribute="centerX" secondItem="ZWe-sy-God" secondAttribute="centerX" id="goR-X0-zcj"/>
+                                    <constraint firstItem="say-2O-2i3" firstAttribute="centerY" secondItem="ZWe-sy-God" secondAttribute="centerY" multiplier="1.4" id="q8y-fE-MlC"/>
+                                    <constraint firstItem="465-lO-6T7" firstAttribute="centerX" secondItem="ZWe-sy-God" secondAttribute="centerX" multiplier="1.5" id="rel-P6-a3y"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" red="0.0" green="0.5607843137254902" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="hhq-1I-j2o" firstAttribute="trailing" secondItem="ZWe-sy-God" secondAttribute="trailing" constant="10" id="DeG-ik-yIo"/>
+                            <constraint firstItem="ZWe-sy-God" firstAttribute="top" secondItem="hhq-1I-j2o" secondAttribute="top" constant="10" id="G3r-kv-7jQ"/>
+                            <constraint firstItem="hhq-1I-j2o" firstAttribute="bottom" secondItem="ZWe-sy-God" secondAttribute="bottom" constant="10" id="oat-qz-Z8a"/>
+                            <constraint firstItem="ZWe-sy-God" firstAttribute="leading" secondItem="hhq-1I-j2o" secondAttribute="leading" constant="10" id="tIl-zZ-Ycl"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="hhq-1I-j2o"/>
+                    </view>
+                    <connections>
+                        <outlet property="dice" destination="T0t-z3-SoV" id="kdo-rW-WC2"/>
+                        <outlet property="player1Roll" destination="say-2O-2i3" id="ALv-ig-wZM"/>
+                        <outlet property="player1score" destination="15a-SL-HCU" id="bq4-Nl-lgW"/>
+                        <outlet property="player2Roll" destination="465-lO-6T7" id="9id-HV-exv"/>
+                        <outlet property="player2score" destination="jhr-pk-x5O" id="pwx-TC-zyj"/>
+                        <segue destination="BYZ-38-t0r" kind="show" identifier="moveToGame" id="PR0-ap-ZKU"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="caM-gG-Fmo" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-5135" y="-313"/>
+        </scene>
+        <!--Three player order of turns-->
+        <scene sceneID="omG-h5-idh">
+            <objects>
+                <viewController title="Three player order of turns" id="7Ll-Ii-ZKm" customClass="ThreePlayTurnOfEventsViewController" customModule="Cee_lo" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="7Ry-Ht-IYN">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="leA-c3-BzG">
+                                <rect key="frame" x="10" y="30" width="355" height="627"/>
+                                <subviews>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="1gp-Wk-Bax" userLabel="dice">
+                                        <rect key="frame" x="115.5" y="204" width="125" height="125"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="125" id="akb-Dl-V8f"/>
+                                            <constraint firstAttribute="width" constant="125" id="sqJ-Cb-Oeq"/>
+                                        </constraints>
+                                    </imageView>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="u2N-BS-US4">
+                                        <rect key="frame" x="34.5" y="409" width="73" height="60"/>
+                                        <fontDescription key="fontDescription" name="AcademyEngravedLetPlain" family="Academy Engraved LET" pointSize="40"/>
+                                        <state key="normal" title="Roll">
+                                            <color key="titleColor" red="0.0039215686274509803" green="0.098039215686274508" blue="0.57647058823529407" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="p1rollPressed:" destination="7Ll-Ii-ZKm" eventType="touchUpInside" id="pkD-fq-4qJ"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0VS-Os-FId">
+                                        <rect key="frame" x="141.5" y="409" width="73" height="60"/>
+                                        <fontDescription key="fontDescription" name="AcademyEngravedLetPlain" family="Academy Engraved LET" pointSize="40"/>
+                                        <state key="normal" title="Roll">
+                                            <color key="titleColor" red="0.89241937130555571" green="0.79838045440833338" blue="0.62601204715833325" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="p2rollPressed:" destination="7Ll-Ii-ZKm" eventType="touchUpInside" id="nKP-TH-c2E"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="T9t-sy-YUx">
+                                        <rect key="frame" x="247.5" y="409" width="73" height="60"/>
+                                        <fontDescription key="fontDescription" name="AcademyEngravedLetPlain" family="Academy Engraved LET" pointSize="40"/>
+                                        <state key="normal" title="Roll">
+                                            <color key="titleColor" red="0.58072251080000004" green="0.066734083" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="p3rollPressed:" destination="7Ll-Ii-ZKm" eventType="touchUpInside" id="Wif-IA-oBu"/>
+                                        </connections>
+                                    </button>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="P1:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Xan-Fq-xy3">
+                                        <rect key="frame" x="5" y="591" width="44" height="41.5"/>
+                                        <fontDescription key="fontDescription" name="AcademyEngravedLetPlain" family="Academy Engraved LET" pointSize="35"/>
+                                        <color key="textColor" red="0.0039215686274509803" green="0.098039215686274508" blue="0.57647058823529407" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RiX-hk-ItH">
+                                        <rect key="frame" x="51" y="591" width="22.5" height="41.5"/>
+                                        <fontDescription key="fontDescription" name="AcademyEngravedLetPlain" family="Academy Engraved LET" pointSize="35"/>
+                                        <color key="textColor" red="0.0039215686274509803" green="0.098039215686274508" blue="0.57647058823529407" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="P2:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Zs2-Ps-4RV">
+                                        <rect key="frame" x="136.5" y="591" width="46.5" height="41.5"/>
+                                        <fontDescription key="fontDescription" name="AcademyEngravedLetPlain" family="Academy Engraved LET" pointSize="35"/>
+                                        <color key="textColor" red="0.89411764705882346" green="0.80000000000000004" blue="0.45098039215686275" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UQ6-u6-Qmz">
+                                        <rect key="frame" x="184" y="591" width="22.5" height="41.5"/>
+                                        <fontDescription key="fontDescription" name="AcademyEngravedLetPlain" family="Academy Engraved LET" pointSize="35"/>
+                                        <color key="textColor" red="0.89411764705882346" green="0.80000000000000004" blue="0.45098039215686275" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ORx-Zn-NnE">
+                                        <rect key="frame" x="317.5" y="591" width="22.5" height="41.5"/>
+                                        <fontDescription key="fontDescription" name="AcademyEngravedLetPlain" family="Academy Engraved LET" pointSize="35"/>
+                                        <color key="textColor" red="0.58039215686274503" green="0.066666666666666666" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="P3:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yEu-Uw-boV">
+                                        <rect key="frame" x="270" y="591" width="47" height="41.5"/>
+                                        <fontDescription key="fontDescription" name="AcademyEngravedLetPlain" family="Academy Engraved LET" pointSize="35"/>
+                                        <color key="textColor" red="0.58039215686274503" green="0.066666666666666666" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Dice Up Logo" translatesAutoresizingMaskIntoConstraints="NO" id="PN4-Am-ZnQ">
+                                        <rect key="frame" x="33" y="33" width="289" height="131"/>
+                                    </imageView>
+                                </subviews>
+                                <color key="backgroundColor" red="0.0" green="0.5607843137254902" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstItem="T9t-sy-YUx" firstAttribute="centerY" secondItem="leA-c3-BzG" secondAttribute="centerY" multiplier="1.4" id="1gc-7h-POT"/>
+                                    <constraint firstItem="RiX-hk-ItH" firstAttribute="centerX" secondItem="leA-c3-BzG" secondAttribute="centerX" multiplier="0.35" id="7rb-Ca-5ex"/>
+                                    <constraint firstItem="0VS-Os-FId" firstAttribute="centerY" secondItem="leA-c3-BzG" secondAttribute="centerY" multiplier="1.4" id="7wt-zL-U2E"/>
+                                    <constraint firstItem="UQ6-u6-Qmz" firstAttribute="centerX" secondItem="leA-c3-BzG" secondAttribute="centerX" multiplier="1.1" id="EDb-is-7Pz"/>
+                                    <constraint firstItem="0VS-Os-FId" firstAttribute="centerX" secondItem="leA-c3-BzG" secondAttribute="centerX" id="Etz-MS-lfO"/>
+                                    <constraint firstItem="u2N-BS-US4" firstAttribute="centerX" secondItem="leA-c3-BzG" secondAttribute="centerX" multiplier="0.4" id="HcH-nQ-Nzt"/>
+                                    <constraint firstItem="UQ6-u6-Qmz" firstAttribute="centerY" secondItem="leA-c3-BzG" secondAttribute="centerY" multiplier="1.95" id="Ikb-DP-hWf"/>
+                                    <constraint firstItem="T9t-sy-YUx" firstAttribute="centerX" secondItem="leA-c3-BzG" secondAttribute="centerX" multiplier="1.6" id="J5A-YP-4hy"/>
+                                    <constraint firstItem="Xan-Fq-xy3" firstAttribute="centerY" secondItem="leA-c3-BzG" secondAttribute="centerY" multiplier="1.95" id="Lkj-wu-ofs"/>
+                                    <constraint firstItem="Zs2-Ps-4RV" firstAttribute="centerX" secondItem="leA-c3-BzG" secondAttribute="centerX" multiplier="0.9" id="SN6-U8-yYW"/>
+                                    <constraint firstItem="yEu-Uw-boV" firstAttribute="centerX" secondItem="leA-c3-BzG" secondAttribute="centerX" multiplier="1.65" id="Sdh-yJ-rg6"/>
+                                    <constraint firstItem="Zs2-Ps-4RV" firstAttribute="centerY" secondItem="leA-c3-BzG" secondAttribute="centerY" multiplier="1.95" id="XXZ-zT-Y1t"/>
+                                    <constraint firstItem="yEu-Uw-boV" firstAttribute="centerY" secondItem="leA-c3-BzG" secondAttribute="centerY" multiplier="1.95" id="Xys-bl-v8F"/>
+                                    <constraint firstItem="RiX-hk-ItH" firstAttribute="centerY" secondItem="leA-c3-BzG" secondAttribute="centerY" multiplier="1.95" id="a7N-ns-PA2"/>
+                                    <constraint firstItem="PN4-Am-ZnQ" firstAttribute="leading" secondItem="leA-c3-BzG" secondAttribute="leadingMargin" constant="25" id="cmm-dq-sWh"/>
+                                    <constraint firstItem="1gp-Wk-Bax" firstAttribute="centerY" secondItem="leA-c3-BzG" secondAttribute="centerY" multiplier="0.85" id="eFu-u7-hEe"/>
+                                    <constraint firstItem="Xan-Fq-xy3" firstAttribute="centerX" secondItem="leA-c3-BzG" secondAttribute="centerX" multiplier="0.15" id="fBb-pU-vZS"/>
+                                    <constraint firstItem="PN4-Am-ZnQ" firstAttribute="top" secondItem="leA-c3-BzG" secondAttribute="topMargin" constant="25" id="lxJ-tA-exC"/>
+                                    <constraint firstAttribute="trailingMargin" secondItem="PN4-Am-ZnQ" secondAttribute="trailing" constant="25" id="mrX-d9-dft"/>
+                                    <constraint firstItem="u2N-BS-US4" firstAttribute="centerY" secondItem="leA-c3-BzG" secondAttribute="centerY" multiplier="1.4" id="rqM-aS-sAn"/>
+                                    <constraint firstItem="ORx-Zn-NnE" firstAttribute="centerX" secondItem="leA-c3-BzG" secondAttribute="centerX" multiplier="1.85" id="s4z-ug-24M"/>
+                                    <constraint firstItem="1gp-Wk-Bax" firstAttribute="centerX" secondItem="leA-c3-BzG" secondAttribute="centerX" id="wdk-4i-xhy"/>
+                                    <constraint firstItem="ORx-Zn-NnE" firstAttribute="centerY" secondItem="leA-c3-BzG" secondAttribute="centerY" multiplier="1.95" id="wtb-YS-kvH"/>
+                                    <constraint firstItem="1gp-Wk-Bax" firstAttribute="top" secondItem="PN4-Am-ZnQ" secondAttribute="bottom" constant="40" id="yAc-vZ-VhJ"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" red="0.0" green="0.56031829119999998" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="leA-c3-BzG" firstAttribute="top" secondItem="OTj-K8-jPT" secondAttribute="top" constant="10" id="4gX-xF-ody"/>
+                            <constraint firstItem="OTj-K8-jPT" firstAttribute="trailing" secondItem="leA-c3-BzG" secondAttribute="trailing" constant="10" id="JXV-IO-MEy"/>
+                            <constraint firstItem="leA-c3-BzG" firstAttribute="leading" secondItem="OTj-K8-jPT" secondAttribute="leading" constant="10" id="vpP-k7-7ph"/>
+                            <constraint firstItem="OTj-K8-jPT" firstAttribute="bottom" secondItem="leA-c3-BzG" secondAttribute="bottom" constant="10" id="zI2-ni-5ns"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="OTj-K8-jPT"/>
+                    </view>
+                    <connections>
+                        <outlet property="dice" destination="1gp-Wk-Bax" id="S34-LJ-bI1"/>
+                        <outlet property="player1Roll" destination="u2N-BS-US4" id="c8T-JS-1Fk"/>
+                        <outlet property="player1score" destination="RiX-hk-ItH" id="uhe-dJ-F3y"/>
+                        <outlet property="player2Roll" destination="0VS-Os-FId" id="aGk-rL-w7S"/>
+                        <outlet property="player2score" destination="UQ6-u6-Qmz" id="6x7-wG-avC"/>
+                        <outlet property="player3Roll" destination="T9t-sy-YUx" id="tWE-1v-O6S"/>
+                        <outlet property="player3score" destination="ORx-Zn-NnE" id="zsa-vH-ybu"/>
+                        <segue destination="mTk-9j-ZNG" kind="show" identifier="moveToGame" id="Lf2-0Q-iUO"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="hyo-iF-Mnw" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-3716" y="-313"/>
+        </scene>
+        <!--Four player order of turns-->
+        <scene sceneID="nm2-Zi-iah">
+            <objects>
+                <viewController title="Four player order of turns" id="kk0-HD-SVV" customClass="FourPlayTurnOfEventsViewController" customModule="Cee_lo" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="dBS-sX-zHE">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qwH-o8-hGM">
+                                <rect key="frame" x="10" y="30" width="355" height="627"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZKz-J7-ZNv">
+                                        <rect key="frame" x="8" y="409" width="73" height="60"/>
+                                        <fontDescription key="fontDescription" name="AcademyEngravedLetPlain" family="Academy Engraved LET" pointSize="40"/>
+                                        <state key="normal" title="Roll">
+                                            <color key="titleColor" red="0.58039215686274503" green="0.12941176470588234" blue="0.57647058823529407" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="p1rollPressed:" destination="kk0-HD-SVV" eventType="touchUpInside" id="XL4-6b-8rf"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Rv9-qa-ft1">
+                                        <rect key="frame" x="96.5" y="409" width="73" height="60"/>
+                                        <fontDescription key="fontDescription" name="AcademyEngravedLetPlain" family="Academy Engraved LET" pointSize="40"/>
+                                        <state key="normal" title="Roll">
+                                            <color key="titleColor" red="0.1764705882352941" green="0.98039215686274506" blue="0.043137254901960784" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="p2rollPressed:" destination="kk0-HD-SVV" eventType="touchUpInside" id="rx0-aV-a2R"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ud2-pQ-DnW">
+                                        <rect key="frame" x="185.5" y="409" width="73" height="60"/>
+                                        <fontDescription key="fontDescription" name="AcademyEngravedLetPlain" family="Academy Engraved LET" pointSize="40"/>
+                                        <state key="normal" title="Roll">
+                                            <color key="titleColor" red="1" green="0.63529411764705879" blue="0.24705882352941178" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="p3rollPressed:" destination="kk0-HD-SVV" eventType="touchUpInside" id="obh-dX-hg0"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CwE-kf-BOf">
+                                        <rect key="frame" x="274" y="409.5" width="73" height="60"/>
+                                        <fontDescription key="fontDescription" name="AcademyEngravedLetPlain" family="Academy Engraved LET" pointSize="40"/>
+                                        <state key="normal" title="Roll">
+                                            <color key="titleColor" red="0.66274509803921566" green="0.66274509803921566" blue="0.66274509803921566" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="p4rollPressed:" destination="kk0-HD-SVV" eventType="touchUpInside" id="bYG-tF-5aC"/>
+                                        </connections>
+                                    </button>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="xfk-Rt-7u5" userLabel="dice">
+                                        <rect key="frame" x="115.5" y="204" width="125" height="125"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="125" id="Hrw-3Y-iCv"/>
+                                            <constraint firstAttribute="height" constant="125" id="hhZ-im-nby"/>
+                                        </constraints>
+                                    </imageView>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="P1:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="T4A-I9-jJy">
+                                        <rect key="frame" x="5" y="590.5" width="44" height="41.5"/>
+                                        <fontDescription key="fontDescription" name="AcademyEngravedLetPlain" family="Academy Engraved LET" pointSize="35"/>
+                                        <color key="textColor" red="0.58039215686274503" green="0.12941176470588234" blue="0.57647058823529407" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oXS-77-oum" userLabel="p1Roll">
+                                        <rect key="frame" x="51.5" y="590.5" width="22.5" height="41.5"/>
+                                        <fontDescription key="fontDescription" name="AcademyEngravedLetPlain" family="Academy Engraved LET" pointSize="35"/>
+                                        <color key="textColor" red="0.58039215686274503" green="0.12941176470588234" blue="0.57647058823529407" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="P2:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="egy-pF-6Bk">
+                                        <rect key="frame" x="93" y="590.5" width="46.5" height="41.5"/>
+                                        <fontDescription key="fontDescription" name="AcademyEngravedLetPlain" family="Academy Engraved LET" pointSize="35"/>
+                                        <color key="textColor" red="0.1764705882352941" green="0.98039215686274506" blue="0.043137254901960784" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Otv-V1-HfK" userLabel="p2Roll">
+                                        <rect key="frame" x="140" y="590.5" width="22.5" height="41.5"/>
+                                        <fontDescription key="fontDescription" name="AcademyEngravedLetPlain" family="Academy Engraved LET" pointSize="35"/>
+                                        <color key="textColor" red="0.1764705882352941" green="0.98039215686274506" blue="0.043137254901960784" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="P3:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aQq-fw-Dab">
+                                        <rect key="frame" x="180.5" y="590.5" width="47" height="41.5"/>
+                                        <fontDescription key="fontDescription" name="AcademyEngravedLetPlain" family="Academy Engraved LET" pointSize="35"/>
+                                        <color key="textColor" red="1" green="0.63529411764705879" blue="0.24705882352941178" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="e3u-Tu-LJN" userLabel="p3Roll">
+                                        <rect key="frame" x="229" y="590.5" width="22.5" height="41.5"/>
+                                        <fontDescription key="fontDescription" name="AcademyEngravedLetPlain" family="Academy Engraved LET" pointSize="35"/>
+                                        <color key="textColor" red="1" green="0.63529411764705879" blue="0.24705882352941178" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="P4:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="E4A-t6-nb9">
+                                        <rect key="frame" x="268.5" y="590.5" width="50" height="41.5"/>
+                                        <fontDescription key="fontDescription" name="AcademyEngravedLetPlain" family="Academy Engraved LET" pointSize="35"/>
+                                        <color key="textColor" red="0.66274509803921566" green="0.66274509803921566" blue="0.66274509803921566" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ix8-Pz-OII" userLabel="p4Roll">
+                                        <rect key="frame" x="318" y="590.5" width="22.5" height="41.5"/>
+                                        <fontDescription key="fontDescription" name="AcademyEngravedLetPlain" family="Academy Engraved LET" pointSize="35"/>
+                                        <color key="textColor" red="0.66274509803921566" green="0.66274509803921566" blue="0.66274509803921566" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Dice Up Logo" translatesAutoresizingMaskIntoConstraints="NO" id="t3p-ha-c3f">
+                                        <rect key="frame" x="33" y="33" width="289" height="131"/>
+                                    </imageView>
+                                </subviews>
+                                <color key="backgroundColor" red="0.0" green="0.5607843137254902" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstItem="Rv9-qa-ft1" firstAttribute="centerY" secondItem="qwH-o8-hGM" secondAttribute="centerY" multiplier="1.4" id="2r1-j6-DZY"/>
+                                    <constraint firstItem="xfk-Rt-7u5" firstAttribute="centerX" secondItem="qwH-o8-hGM" secondAttribute="centerX" id="342-fS-VLY"/>
+                                    <constraint firstItem="Otv-V1-HfK" firstAttribute="centerY" secondItem="qwH-o8-hGM" secondAttribute="centerY" multiplier="1.95" id="40Q-OB-gBJ"/>
+                                    <constraint firstItem="CwE-kf-BOf" firstAttribute="centerX" secondItem="qwH-o8-hGM" secondAttribute="centerX" multiplier="1.75" id="4dU-bu-um3"/>
+                                    <constraint firstItem="oXS-77-oum" firstAttribute="centerY" secondItem="qwH-o8-hGM" secondAttribute="centerY" multiplier="1.95" id="DFw-v1-LFK"/>
+                                    <constraint firstItem="xfk-Rt-7u5" firstAttribute="top" secondItem="t3p-ha-c3f" secondAttribute="bottom" constant="40" id="EKw-Ub-I42"/>
+                                    <constraint firstItem="ix8-Pz-OII" firstAttribute="centerX" secondItem="qwH-o8-hGM" secondAttribute="centerX" multiplier="1.85" id="Fef-nd-6NJ"/>
+                                    <constraint firstItem="oXS-77-oum" firstAttribute="centerX" secondItem="qwH-o8-hGM" secondAttribute="centerX" multiplier="0.35" id="Fiw-iy-4Hi"/>
+                                    <constraint firstItem="ZKz-J7-ZNv" firstAttribute="centerY" secondItem="qwH-o8-hGM" secondAttribute="centerY" multiplier="1.4" id="Irc-hX-9wI"/>
+                                    <constraint firstItem="ix8-Pz-OII" firstAttribute="centerY" secondItem="qwH-o8-hGM" secondAttribute="centerY" multiplier="1.95" id="Kdb-t0-Bfp"/>
+                                    <constraint firstItem="T4A-I9-jJy" firstAttribute="centerY" secondItem="qwH-o8-hGM" secondAttribute="centerY" multiplier="1.95" id="PAb-Yy-ZaR"/>
+                                    <constraint firstItem="egy-pF-6Bk" firstAttribute="centerX" secondItem="qwH-o8-hGM" secondAttribute="centerX" multiplier="0.65" id="QmU-2c-b2p"/>
+                                    <constraint firstItem="E4A-t6-nb9" firstAttribute="centerY" secondItem="qwH-o8-hGM" secondAttribute="centerY" multiplier="1.95" id="Rav-FJ-WG5"/>
+                                    <constraint firstItem="ud2-pQ-DnW" firstAttribute="centerX" secondItem="qwH-o8-hGM" secondAttribute="centerX" multiplier="1.25" id="Su5-yE-Grr"/>
+                                    <constraint firstItem="E4A-t6-nb9" firstAttribute="centerX" secondItem="qwH-o8-hGM" secondAttribute="centerX" multiplier="1.65" id="V8v-fq-opn"/>
+                                    <constraint firstItem="ZKz-J7-ZNv" firstAttribute="centerX" secondItem="qwH-o8-hGM" secondAttribute="centerX" multiplier="0.25" id="W8z-c0-yA0"/>
+                                    <constraint firstItem="CwE-kf-BOf" firstAttribute="centerY" secondItem="qwH-o8-hGM" secondAttribute="centerY" multiplier="1.4" id="atw-qP-rUL"/>
+                                    <constraint firstItem="t3p-ha-c3f" firstAttribute="top" secondItem="qwH-o8-hGM" secondAttribute="topMargin" constant="25" id="b5y-jP-8u4"/>
+                                    <constraint firstItem="t3p-ha-c3f" firstAttribute="leading" secondItem="qwH-o8-hGM" secondAttribute="leadingMargin" constant="25" id="fiy-68-qNA"/>
+                                    <constraint firstItem="aQq-fw-Dab" firstAttribute="centerY" secondItem="qwH-o8-hGM" secondAttribute="centerY" multiplier="1.95" id="gvb-4L-3MT"/>
+                                    <constraint firstItem="T4A-I9-jJy" firstAttribute="centerX" secondItem="qwH-o8-hGM" secondAttribute="centerX" multiplier="0.15" id="kaD-DX-trP"/>
+                                    <constraint firstAttribute="trailingMargin" secondItem="t3p-ha-c3f" secondAttribute="trailing" constant="25" id="ksy-hH-CmA"/>
+                                    <constraint firstItem="ud2-pQ-DnW" firstAttribute="centerY" secondItem="qwH-o8-hGM" secondAttribute="centerY" multiplier="1.4" id="qW5-UW-Zys"/>
+                                    <constraint firstItem="egy-pF-6Bk" firstAttribute="centerY" secondItem="qwH-o8-hGM" secondAttribute="centerY" multiplier="1.95" id="qur-he-mMa"/>
+                                    <constraint firstItem="Rv9-qa-ft1" firstAttribute="centerX" secondItem="qwH-o8-hGM" secondAttribute="centerX" multiplier="0.75" id="smS-hi-PUJ"/>
+                                    <constraint firstItem="aQq-fw-Dab" firstAttribute="centerX" secondItem="qwH-o8-hGM" secondAttribute="centerX" multiplier="1.15" id="tPo-Ac-mh7"/>
+                                    <constraint firstItem="e3u-Tu-LJN" firstAttribute="centerX" secondItem="qwH-o8-hGM" secondAttribute="centerX" multiplier="1.35" id="taO-6F-luK"/>
+                                    <constraint firstItem="Otv-V1-HfK" firstAttribute="centerX" secondItem="qwH-o8-hGM" secondAttribute="centerX" multiplier="0.85" id="ueS-V6-m53"/>
+                                    <constraint firstItem="e3u-Tu-LJN" firstAttribute="centerY" secondItem="qwH-o8-hGM" secondAttribute="centerY" multiplier="1.95" id="vdz-hA-EoU"/>
+                                    <constraint firstItem="xfk-Rt-7u5" firstAttribute="centerY" secondItem="qwH-o8-hGM" secondAttribute="centerY" multiplier="0.85" id="wjM-wW-QrC"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" red="0.0" green="0.5607843137254902" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="OdI-2e-n9a" firstAttribute="trailing" secondItem="qwH-o8-hGM" secondAttribute="trailing" constant="10" id="MIp-Du-nV2"/>
+                            <constraint firstItem="qwH-o8-hGM" firstAttribute="leading" secondItem="OdI-2e-n9a" secondAttribute="leading" constant="10" id="QU2-mz-JdY"/>
+                            <constraint firstItem="qwH-o8-hGM" firstAttribute="top" secondItem="OdI-2e-n9a" secondAttribute="top" constant="10" id="wAw-LC-2nR"/>
+                            <constraint firstItem="OdI-2e-n9a" firstAttribute="bottom" secondItem="qwH-o8-hGM" secondAttribute="bottom" constant="10" id="wXD-XV-h45"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="OdI-2e-n9a"/>
+                    </view>
+                    <connections>
+                        <outlet property="dice" destination="xfk-Rt-7u5" id="4n0-bQ-m6k"/>
+                        <outlet property="player1Roll" destination="ZKz-J7-ZNv" id="aXB-FB-vBm"/>
+                        <outlet property="player1score" destination="oXS-77-oum" id="CA3-6t-h7Y"/>
+                        <outlet property="player2Roll" destination="Rv9-qa-ft1" id="p4E-n7-kLR"/>
+                        <outlet property="player2score" destination="Otv-V1-HfK" id="vFg-66-NHY"/>
+                        <outlet property="player3Roll" destination="ud2-pQ-DnW" id="N8o-F2-y7c"/>
+                        <outlet property="player3score" destination="e3u-Tu-LJN" id="aQJ-8l-MxY"/>
+                        <outlet property="player4Roll" destination="CwE-kf-BOf" id="m3Y-Dh-Sdc"/>
+                        <outlet property="player4score" destination="ix8-Pz-OII" id="kqd-Vv-TPE"/>
+                        <segue destination="4b5-Kl-mBP" kind="show" identifier="moveToGame" id="MnF-8E-NHj"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="unp-FR-270" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-2417" y="-313"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="Dice Up Interface-1" width="250" height="444"/>
+        <image name="Dice Up Logo" width="250" height="444"/>
+        <image name="number of players" width="1600" height="1600"/>
+    </resources>
+    <inferredMetricsTieBreakers>
+        <segue reference="0IP-dl-twR"/>
+        <segue reference="u6m-sk-DPe"/>
+        <segue reference="xq2-fj-vds"/>
+        <segue reference="Do3-i9-8XK"/>
+    </inferredMetricsTieBreakers>
+</document>
