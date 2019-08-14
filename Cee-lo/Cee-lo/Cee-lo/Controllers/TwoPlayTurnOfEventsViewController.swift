@@ -46,9 +46,42 @@ class TwoPlayTurnOfEventsViewController: UIViewController {
        
     }
     
+    func randomImageFirst()
+    {
+        
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.2)
+        {
+            self.dice.image = UIImage(named: self.diceNameArr[Int(arc4random_uniform(UInt32(self.diceNameArr.count)))])
+        }
+        
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.4)
+        {
+            self.dice.image = UIImage(named: self.diceNameArr[Int(arc4random_uniform(UInt32(self.diceNameArr.count)))])
+        }
+        
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.6)
+        {
+            self.dice.image = UIImage(named: self.diceNameArr[Int(arc4random_uniform(UInt32(self.diceNameArr.count)))])
+        }
+        
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.8)
+        {
+            self.dice.image = UIImage(named: self.diceNameArr[Int(arc4random_uniform(UInt32(self.diceNameArr.count)))])
+        }
+        
+        DispatchQueue.main.asyncAfter(deadline: .now() + 1.0)
+        {
+            self.dice.image = UIImage(named: self.diceNameArr[Int(arc4random_uniform(UInt32(self.diceNameArr.count)))])
+        }
+        
+        
+        
+        
+    }
     
     func diceRoll()
     {
+        
         let randomNum = numArr[Int(arc4random_uniform(UInt32(diceNameArr.count)))]
         
         let startIndex = randomNum[randomNum.startIndex]
@@ -57,7 +90,8 @@ class TwoPlayTurnOfEventsViewController: UIViewController {
         {
             randomIndexVar1 = number1
         }
-        UIUpdates()
+            UIUpdates()
+
     }
     
     func UIUpdates()
@@ -79,28 +113,42 @@ class TwoPlayTurnOfEventsViewController: UIViewController {
 
     @IBAction func p1rollPressed(_ sender: UIButton)
     {
-        diceRoll()
-        //testForTieFunctionality()
-        print("got here")
-        player1score.text = String(randomIndexVar1! + 1)
-        player1tempScore = Int(player1score.text!)!
-        player1Roll.isEnabled = false
-        player2Roll.isEnabled = true
-        player1Roll.isHidden = true 
-        player2Roll.isHidden = false
+        randomImageFirst()
+        DispatchQueue.main.asyncAfter(deadline: .now() + 1.2) {
+            // your code here
+            self.diceRoll()
+            //testForTieFunctionality()
+            print("got here")
+            self.player1score.text = String(self.randomIndexVar1! + 1)
+            self.player1tempScore = Int(self.player1score.text!)!
+            self.player1Roll.isEnabled = false
+            self.player2Roll.isEnabled = true
+            self.player1Roll.isHidden = true
+            self.player2Roll.isHidden = false
+        }
+        
         
         
     }
     
     @IBAction func p2rollPressed(_ sender: UIButton)
     {
-        diceRoll()
-        //testForTieFunctionality()
-        player2score.text = String(randomIndexVar1! + 1)
-        player2tempScore = Int(player2score.text!)!
-        player2Roll.isEnabled = false
-        player2Roll.isHidden = true
-        checkForPlayOrder()
+        randomImageFirst()
+        DispatchQueue.main.asyncAfter(deadline: .now() + 1.2)
+        {
+            self.diceRoll()
+            //testForTieFunctionality()
+            self.player2score.text = String(self.randomIndexVar1! + 1)
+            self.player2tempScore = Int(self.player2score.text!)!
+            self.player2Roll.isEnabled = false
+            self.player2Roll.isHidden = true
+            
+        }
+        
+        DispatchQueue.main.asyncAfter(deadline: .now() + 2.4)
+        {
+            self.checkForPlayOrder()
+        }
     }
     
     

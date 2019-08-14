@@ -241,6 +241,9 @@
                         <outlet property="submitButton" destination="9ZI-ff-luf" id="g49-G2-hDr"/>
                         <segue destination="sIL-me-0jw" kind="show" identifier="runItBack" id="xq2-fj-vds"/>
                         <segue destination="Amm-q9-zcm" kind="show" identifier="backToLaunch" id="V4k-iK-S94"/>
+                        <segue destination="h78-71-VbO" kind="show" identifier="2PlayerP1Wins" id="4s0-t2-xHM"/>
+                        <segue destination="gsg-Hx-Aea" kind="show" identifier="2PlayerP2Wins" id="KDw-vB-hsE"/>
+                        <segue destination="zjr-XW-Kws" kind="show" identifier="tieP2" id="ERY-gh-2sL"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -528,11 +531,145 @@
                         <outlet property="submitButton" destination="CDe-62-29j" id="sGf-hg-6iF"/>
                         <segue destination="7Ll-Ii-ZKm" kind="show" identifier="runItBack" id="u6m-sk-DPe"/>
                         <segue destination="Amm-q9-zcm" kind="show" identifier="moveToGame" id="qXU-Pr-5Rq"/>
+                        <segue destination="h78-71-VbO" kind="show" identifier="3PlayerP1Wins" id="4wj-pi-fXY"/>
+                        <segue destination="gsg-Hx-Aea" kind="show" identifier="3PlayerP2Wins" id="3Kn-pk-hp5"/>
+                        <segue destination="eIk-Pj-P2i" kind="show" identifier="3PlayerP3Wins" id="jNx-uK-gkQ"/>
+                        <segue destination="zjr-XW-Kws" kind="show" identifier="tieP3" id="bLA-eN-hQT"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="OIc-Yt-SP0" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-3788" y="903"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="Z2F-80-Srz">
+            <objects>
+                <viewController id="h78-71-VbO" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Ppm-Yz-LEh">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Player 1 Wins Interface" translatesAutoresizingMaskIntoConstraints="NO" id="HJZ-Ex-1kJ">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="cRk-c9-0hj" firstAttribute="bottom" secondItem="HJZ-Ex-1kJ" secondAttribute="bottom" id="DGv-4Q-mCx"/>
+                            <constraint firstItem="cRk-c9-0hj" firstAttribute="trailing" secondItem="HJZ-Ex-1kJ" secondAttribute="trailing" id="F7v-dr-2qy"/>
+                            <constraint firstItem="HJZ-Ex-1kJ" firstAttribute="top" secondItem="Ppm-Yz-LEh" secondAttribute="top" id="TcW-3U-heO"/>
+                            <constraint firstItem="HJZ-Ex-1kJ" firstAttribute="leading" secondItem="cRk-c9-0hj" secondAttribute="leading" id="yVq-80-i9J"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="cRk-c9-0hj"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Ngb-gs-xPx" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-5684" y="1904"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="diC-uU-eNz">
+            <objects>
+                <viewController id="gsg-Hx-Aea" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="BiV-Wh-dNW">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Player 2 Wins Interface" translatesAutoresizingMaskIntoConstraints="NO" id="3fD-vb-931">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="PKJ-YZ-79E" firstAttribute="trailing" secondItem="3fD-vb-931" secondAttribute="trailing" id="Mg7-1F-9tP"/>
+                            <constraint firstItem="3fD-vb-931" firstAttribute="top" secondItem="BiV-Wh-dNW" secondAttribute="top" id="dKN-Ki-4I9"/>
+                            <constraint firstItem="PKJ-YZ-79E" firstAttribute="bottom" secondItem="3fD-vb-931" secondAttribute="bottom" id="hKX-kg-FG2"/>
+                            <constraint firstItem="3fD-vb-931" firstAttribute="leading" secondItem="PKJ-YZ-79E" secondAttribute="leading" id="nue-7m-QjO"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="PKJ-YZ-79E"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="HGq-Ac-W1r" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-4905" y="1904"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="4nr-4K-UZj">
+            <objects>
+                <viewController id="eIk-Pj-P2i" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="5I1-nj-AOH">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Player 3 Wins Interface" translatesAutoresizingMaskIntoConstraints="NO" id="Jhv-4C-yW3">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="dYi-KK-vWZ" firstAttribute="bottom" secondItem="Jhv-4C-yW3" secondAttribute="bottom" id="Okz-Ux-usU"/>
+                            <constraint firstItem="Jhv-4C-yW3" firstAttribute="top" secondItem="5I1-nj-AOH" secondAttribute="top" id="aqd-1J-Z76"/>
+                            <constraint firstItem="Jhv-4C-yW3" firstAttribute="leading" secondItem="dYi-KK-vWZ" secondAttribute="leading" id="qZJ-qX-7RU"/>
+                            <constraint firstItem="dYi-KK-vWZ" firstAttribute="trailing" secondItem="Jhv-4C-yW3" secondAttribute="trailing" id="w5I-nA-1FP"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="dYi-KK-vWZ"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dP0-av-OTB" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-4079" y="1904"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="fvY-dc-57I">
+            <objects>
+                <viewController id="zjr-XW-Kws" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="mal-2B-zw8">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Tie Interface" translatesAutoresizingMaskIntoConstraints="NO" id="47s-lb-e2v">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="47s-lb-e2v" firstAttribute="leading" secondItem="fE9-uo-i3i" secondAttribute="leading" id="3wp-D5-pjO"/>
+                            <constraint firstItem="fE9-uo-i3i" firstAttribute="bottom" secondItem="47s-lb-e2v" secondAttribute="bottom" id="cUT-gP-qEr"/>
+                            <constraint firstItem="47s-lb-e2v" firstAttribute="top" secondItem="mal-2B-zw8" secondAttribute="top" id="mWf-IT-edu"/>
+                            <constraint firstItem="fE9-uo-i3i" firstAttribute="trailing" secondItem="47s-lb-e2v" secondAttribute="trailing" id="nlj-LX-hlA"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="fE9-uo-i3i"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Cjp-to-H9o" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-6033" y="1100"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="veY-9h-BHK">
+            <objects>
+                <viewController id="lnG-Fv-DX5" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="5n2-Jp-5d3">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Player 4 Wins Interface" translatesAutoresizingMaskIntoConstraints="NO" id="kXk-EO-5iT">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="kXk-EO-5iT" firstAttribute="leading" secondItem="b7f-z2-2UB" secondAttribute="leading" id="LGw-um-pKG"/>
+                            <constraint firstItem="kXk-EO-5iT" firstAttribute="top" secondItem="5n2-Jp-5d3" secondAttribute="top" id="dSA-EK-HiA"/>
+                            <constraint firstItem="b7f-z2-2UB" firstAttribute="trailing" secondItem="kXk-EO-5iT" secondAttribute="trailing" id="tbq-ec-Iaz"/>
+                            <constraint firstItem="b7f-z2-2UB" firstAttribute="bottom" secondItem="kXk-EO-5iT" secondAttribute="bottom" id="wSf-5z-Gnf"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="b7f-z2-2UB"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="3HH-tw-geQ" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-3318" y="1904"/>
         </scene>
         <!--Four Player View Controller-->
         <scene sceneID="dda-MD-BcD">
@@ -840,6 +977,11 @@
                         <outlet property="submitButton" destination="WON-5q-Yhe" id="dfZ-cs-dII"/>
                         <segue destination="kk0-HD-SVV" kind="show" identifier="runItBack" id="0IP-dl-twR"/>
                         <segue destination="Amm-q9-zcm" kind="show" identifier="moveToGame" id="Do3-i9-8XK"/>
+                        <segue destination="h78-71-VbO" kind="show" identifier="4PlayerP1Wins" id="1bV-ou-zfc"/>
+                        <segue destination="gsg-Hx-Aea" kind="show" identifier="4PlayerP2Wins" id="n8P-qJ-Qrm"/>
+                        <segue destination="eIk-Pj-P2i" kind="show" identifier="4PlayerP3Wins" id="iQm-60-N78"/>
+                        <segue destination="lnG-Fv-DX5" kind="show" identifier="4PlayerP4Wins" id="WQd-1F-nJL"/>
+                        <segue destination="zjr-XW-Kws" kind="show" identifier="tieP4" id="WpG-Zp-RtE"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="6yR-B4-MPh" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -1434,12 +1576,21 @@
     <resources>
         <image name="Dice Up Interface-1" width="250" height="444"/>
         <image name="Dice Up Logo" width="250" height="444"/>
+        <image name="Player 1 Wins Interface" width="250" height="444"/>
+        <image name="Player 2 Wins Interface" width="250" height="444"/>
+        <image name="Player 3 Wins Interface" width="250" height="444"/>
+        <image name="Player 4 Wins Interface" width="250" height="444"/>
+        <image name="Tie Interface" width="250" height="444"/>
         <image name="number of players" width="1600" height="1600"/>
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="0IP-dl-twR"/>
         <segue reference="u6m-sk-DPe"/>
         <segue reference="xq2-fj-vds"/>
-        <segue reference="Do3-i9-8XK"/>
+        <segue reference="qXU-Pr-5Rq"/>
+        <segue reference="ERY-gh-2sL"/>
+        <segue reference="jNx-uK-gkQ"/>
+        <segue reference="3Kn-pk-hp5"/>
+        <segue reference="4wj-pi-fXY"/>
     </inferredMetricsTieBreakers>
 </document>
