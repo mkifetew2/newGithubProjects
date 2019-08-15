@@ -14,7 +14,8 @@ class TwoPlayerIIViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var dice1Image: UIImageView!
     @IBOutlet weak var dice2Image: UIImageView!
     @IBOutlet weak var dice3Image: UIImageView!
-   
+    @IBOutlet weak var resultImage: UIImageView!
+    
     @IBOutlet weak var player1Score: UILabel!
     @IBOutlet weak var player2Score: UILabel!
     var player1Turns : Int = 0
@@ -280,7 +281,7 @@ class TwoPlayerIIViewController: UIViewController, UITextFieldDelegate {
         DispatchQueue.main.asyncAfter(deadline: .now() + 1.6)
         {
             self.diceRoll()
-        //testPlayer1Roll()
+            //testPlayer1Roll()
             print("player 1 has gone \(self.player1Turns) times")
             while (self.player1hasGone == false)
         {
@@ -643,9 +644,8 @@ class TwoPlayerIIViewController: UIViewController, UITextFieldDelegate {
             {
                 message = "Player 1 has won \(betLabel.text!) with a roll of \(player1diceResult.text!)"
                 print("player 1 has won")
+                winningImage(name: "player1wins")
                 gameDecided = true
-                performSegue(withIdentifier: "2PlayerP1Wins", sender: self)
-                gameOver()
                 break
             }
             
@@ -653,9 +653,8 @@ class TwoPlayerIIViewController: UIViewController, UITextFieldDelegate {
             {
                 message = "Player 2 has won \(betLabel.text!) with a roll of \(player2diceResult.text!)"
                 print("player 2 has won")
+                winningImage(name: "player2wins")
                 gameDecided = true
-                performSegue(withIdentifier: "2PlayerP2Wins", sender: self)
-                gameOver()
                 break
             }
            
@@ -663,9 +662,8 @@ class TwoPlayerIIViewController: UIViewController, UITextFieldDelegate {
             {
                 message = "It's a tie"
                 print("It's a tie")
+                winningImage(name: "tie")
                 gameDecided = true
-                performSegue(withIdentifier: "tieP2", sender: self)
-                gameTied()
                 break
             }
             
@@ -674,9 +672,8 @@ class TwoPlayerIIViewController: UIViewController, UITextFieldDelegate {
                 
                 message = "Player 1 has won \(betLabel.text!) with a roll of \(player1diceResult.text!)"
                 print("player 1 has won")
+                winningImage(name: "player1wins")
                 gameDecided = true
-                performSegue(withIdentifier: "2PlayerP1Wins", sender: self)
-                gameOver()
                 break
             }
             
@@ -684,9 +681,8 @@ class TwoPlayerIIViewController: UIViewController, UITextFieldDelegate {
             {
                 message = "Player 2 has won \(betLabel.text!) with a roll of \(player2diceResult.text!)"
                 print("player 2 has won")
+                winningImage(name: "player2wins")
                 gameDecided = true
-                performSegue(withIdentifier: "2PlayerP2Wins", sender: self)
-                gameOver()
                 break
             }
             
@@ -696,27 +692,24 @@ class TwoPlayerIIViewController: UIViewController, UITextFieldDelegate {
                 {
                     message = "Player 1 has won \(betLabel.text!) with a roll of \(player1diceResult.text!)"
                     print("player 1 has won")
+                    winningImage(name: "player2wins")
                     gameDecided = true
-                    performSegue(withIdentifier: "2PlayerP1Wins", sender: self)
-                    gameOver()
                     break
                 }
                 else if (player1score < player2score)
                 {
                     message = "Player 2 has won \(betLabel.text!) with a roll of \(player2diceResult.text!)"
                     print("player 2 has won")
+                    winningImage(name: "player2wins")
                     gameDecided = true
-                    performSegue(withIdentifier: "2PlayerP2Wins", sender: self)
-                    gameOver()
                     break
                 }
                 else if (player1score == player2score)
                 {
                     message = "Tie "
                     print("tie")
+                    winningImage(name: "tie")
                     gameDecided = true
-                    performSegue(withIdentifier: "tieP2", sender: self)
-                    gameTied()
                     break
                 }
             }
@@ -725,18 +718,16 @@ class TwoPlayerIIViewController: UIViewController, UITextFieldDelegate {
             {
                 message = "Player 2 has won \(betLabel.text!) with a roll of \(player2diceResult.text!)"
                 print("player 2 has won")
+                winningImage(name: "player2wins")
                 gameDecided = true
-                performSegue(withIdentifier: "2PlayerP2Wins", sender: self)
-                gameOver()
                 break
             }
             else if(player1oneTwoThree == false && player2oneTwoThree == true)
             {
                 message = "Player 1 has won \(betLabel.text!) with a roll of \(player1diceResult.text!)"
                 print("player 1 has won")
+                winningImage(name: "player1wins")
                 gameDecided = true
-                performSegue(withIdentifier: "2PlayerP1Wins", sender: self)
-                gameOver()
                 break
             }
             
@@ -744,9 +735,8 @@ class TwoPlayerIIViewController: UIViewController, UITextFieldDelegate {
             {
                 message = "Both players got 1-2-3, you can play again by running it back or take your original bet back and quit game"
                 print("both lost")
+                winningImage(name: "tie")
                 gameDecided = true
-                performSegue(withIdentifier: "tieP2", sender: self)
-                gameTied()
                 break
             }
             
@@ -754,9 +744,8 @@ class TwoPlayerIIViewController: UIViewController, UITextFieldDelegate {
             {
                 message = "Player 1 has won \(betLabel.text!) with a roll of \(player1diceResult.text!)"
                 print("player 1 has won")
+                winningImage(name: "player1wins")
                 gameDecided = true
-                performSegue(withIdentifier: "2PlayerP1Wins", sender: self)
-                gameOver()
                 break
             }
             
@@ -764,9 +753,8 @@ class TwoPlayerIIViewController: UIViewController, UITextFieldDelegate {
             {
                 message = "Player 2 has won \(betLabel.text!) with a roll of \(player2diceResult.text!)"
                 print("player 2 has won")
+                winningImage(name: "player2wins")
                 gameDecided = true
-                performSegue(withIdentifier: "2PlayerP2Wins", sender: self)
-                gameOver()
                 break
             }
             
@@ -774,9 +762,8 @@ class TwoPlayerIIViewController: UIViewController, UITextFieldDelegate {
             {
                 message = "Tie game, you can play again by running it back or take your original bet back and quit game"
                 print("tie game")
+                winningImage(name: "tie")
                 gameDecided = true
-                performSegue(withIdentifier: "tieP2", sender: self)
-                gameTied()
                 break
             }
             
@@ -785,46 +772,85 @@ class TwoPlayerIIViewController: UIViewController, UITextFieldDelegate {
        
     }
     
+    func winningImage(name: String)
+    {
+        DispatchQueue.main.asyncAfter(deadline: .now() + 2.4)
+        {
+            self.dice1Image.isHidden = true
+            self.dice2Image.isHidden = true
+            self.dice3Image.isHidden = true
+            if name == "tie"
+            {
+                self.resultImage.contentMode = .scaleAspectFill
+                self.resultImage.image = UIImage(named: "tie")
+                self.gameTied()
+            }
+            
+            if name == "player1wins"
+            {
+                self.resultImage.contentMode = .scaleAspectFill
+                self.resultImage.image = UIImage(named: "player1wins")
+                self.gameOver()
+            }
+            
+            if name == "player2wins"
+            {
+                self.resultImage.contentMode = .scaleAspectFill
+                self.resultImage.image = UIImage(named: "player2wins")
+                self.gameOver()
+            }
+        }
+    }
+    
+    
+
+    
     
     //Winner has been decided
     func gameOver()
     {
-        print("Game is over")
-        let alertController = UIAlertController(title: "Game complete", message: message, preferredStyle: .alert)
-        let action1 = UIAlertAction(title: "Run it back?", style: .default) { (action:UIAlertAction) in
-            self.resetEverything()
-            self.performSegue(withIdentifier: "runItBack", sender: self)
-            print("You've run it back");
+        DispatchQueue.main.asyncAfter(deadline: .now() + 3.9)
+        {
+            print("Game is over")
+                let alertController = UIAlertController(title: "Game complete", message: self.message, preferredStyle: .alert)
+            let action1 = UIAlertAction(title: "Run it back?", style: .default) { (action:UIAlertAction) in
+                self.resetEverything()
+                self.performSegue(withIdentifier: "runItBack", sender: self)
+                print("You've run it back");
+            }
+            let action2 = UIAlertAction(title: "Quit game", style: .default)
+            { (action: UIAlertAction) in
+                self.resetEverything()
+                self.performSegue(withIdentifier: "backToLaunch", sender: self)
+                print("quit game")
+            }
+            alertController.addAction(action1)
+            alertController.addAction(action2)
+            self.present(alertController, animated: true, completion: nil)
         }
-        let action2 = UIAlertAction(title: "Quit game", style: .default)
-        { (action: UIAlertAction) in
-            self.resetEverything()
-            self.performSegue(withIdentifier: "backToLaunch", sender: self)
-            print("quit game")
-        }
-        alertController.addAction(action1)
-        alertController.addAction(action2)
-        self.present(alertController, animated: true, completion: nil)
     }
     
     //Winner is still being decided
     func gameTied()
     {
-        print("Game is tied")
-        let alertController = UIAlertController(title: "Game complete", message: message, preferredStyle: .alert)
-        let action1 = UIAlertAction(title: "Run it back?", style: .default) { (action:UIAlertAction) in
-            self.resetEverythingButBetAmt()
-            print("You've run it back");
+        DispatchQueue.main.asyncAfter(deadline: .now() + 3.9)
+        {
+            print("Game is tied")
+            let alertController = UIAlertController(title: "Game complete", message: self.message, preferredStyle: .alert)
+            let action1 = UIAlertAction(title: "Run it back?", style: .default) { (action:UIAlertAction) in
+                self.resetEverythingButBetAmt()
+                print("You've run it back");
+            }
+            let action2 = UIAlertAction(title: "Quit game", style: .default)
+            { (action: UIAlertAction) in
+                self.resetEverything()
+                self.performSegue(withIdentifier: "backToLaunch", sender: self)
+                print("quit game")
+            }
+            alertController.addAction(action1)
+            alertController.addAction(action2)
+            self.present(alertController, animated: true, completion: nil)
         }
-        let action2 = UIAlertAction(title: "Quit game", style: .default)
-        { (action: UIAlertAction) in
-            self.resetEverything()
-            self.performSegue(withIdentifier: "backToLaunch", sender: self)
-            print("quit game")
-        }
-        alertController.addAction(action1)
-        alertController.addAction(action2)
-        self.present(alertController, animated: true, completion: nil)
     }
     
     
