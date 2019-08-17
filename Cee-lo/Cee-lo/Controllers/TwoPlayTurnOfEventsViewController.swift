@@ -145,7 +145,7 @@ class TwoPlayTurnOfEventsViewController: UIViewController {
             
         }
         
-        DispatchQueue.main.asyncAfter(deadline: .now() + 2.4)
+        DispatchQueue.main.asyncAfter(deadline: .now() + 3.9)
         {
             self.checkForPlayOrder()
         }

@@ -58,6 +58,37 @@ class ThreePlayTurnOfEventsViewController: UIViewController {
         randomIndexVar1 = 2
     }
     
+    func randomImageFirst()
+    {
+        
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.2)
+        {
+            self.dice.image = UIImage(named: self.diceNameArr[Int(arc4random_uniform(UInt32(self.diceNameArr.count)))])
+        }
+        
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.4)
+        {
+            self.dice.image = UIImage(named: self.diceNameArr[Int(arc4random_uniform(UInt32(self.diceNameArr.count)))])
+        }
+        
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.6)
+        {
+            self.dice.image = UIImage(named: self.diceNameArr[Int(arc4random_uniform(UInt32(self.diceNameArr.count)))])
+        }
+        
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.8)
+        {
+            self.dice.image = UIImage(named: self.diceNameArr[Int(arc4random_uniform(UInt32(self.diceNameArr.count)))])
+        }
+        
+        DispatchQueue.main.asyncAfter(deadline: .now() + 1.0)
+        {
+            self.dice.image = UIImage(named: self.diceNameArr[Int(arc4random_uniform(UInt32(self.diceNameArr.count)))])
+        }
+        
+        
+    }
+    
     
     func diceRoll()
     {
@@ -79,27 +110,29 @@ class ThreePlayTurnOfEventsViewController: UIViewController {
     
     @IBAction func p1rollPressed(_ sender: UIButton)
     {
+        randomImageFirst()
         if player1active == true
         {
-            diceRoll()
-            //testForTieFunctionality()
-            player1score.text = String(randomIndexVar1! + 1)
-            player1tempScore = Int(player1score.text!)!
-            player1Roll.isEnabled = false
-            player1Roll.isHidden = true
-    
-        if player2active == true
-        {
-            player2Roll.isEnabled = true
-            player2Roll.isHidden = false
-        }
+            DispatchQueue.main.asyncAfter(deadline: .now() + 1.2) {
+                self.diceRoll()
+                //testForTieFunctionality()
+                self.player1score.text = String(self.randomIndexVar1! + 1)
+                self.player1tempScore = Int(self.player1score.text!)!
+                self.player1Roll.isEnabled = false
+                self.player1Roll.isHidden = true
         
-        if player2active == false && player3active == true
-        {
-            player3Roll.isEnabled = true
-            player3Roll.isHidden = false
-        }
+                if self.player2active == true
+            {
+                self.player2Roll.isEnabled = true
+                self.player2Roll.isHidden = false
+            }
             
+                if self.player2active == false && self.player3active == true
+            {
+                self.player3Roll.isEnabled = true
+                self.player3Roll.isHidden = false
+            }
+        }
             
         player1active = true
         amtOfRollsLeft = amtOfRollsLeft - 1
@@ -108,38 +141,53 @@ class ThreePlayTurnOfEventsViewController: UIViewController {
     
     @IBAction func p2rollPressed(_ sender: UIButton)
     {
+        randomImageFirst()
         if player2active == true
         {
-        diceRoll()
-        //testForTieFunctionality()
-        player2score.text = String(randomIndexVar1! + 1)
-        player2tempScore = Int(player2score.text!)!
-        player2Roll.isEnabled = false
-        player2Roll.isHidden = true
-            
-        if player3active == true
-        {
-            player3Roll.isEnabled = true
-            player3Roll.isHidden = false
-        }
+            DispatchQueue.main.asyncAfter(deadline: .now() + 1.2)
+            {
+                self.diceRoll()
+                //testForTieFunctionality()
+                self.player2score.text = String(self.randomIndexVar1! + 1)
+                self.player2tempScore = Int(self.player2score.text!)!
+                self.player2Roll.isEnabled = false
+                self.player2Roll.isHidden = true
+                
+                if self.player3active == true
+                {
+                    self.player3Roll.isEnabled = true
+                    self.player3Roll.isHidden = false
+                }
+            }
         
         player2active = false
         amtOfRollsLeft = amtOfRollsLeft - 1
-        checkForPlayOrder()
+        
+            DispatchQueue.main.asyncAfter(deadline: .now() + 3.9)
+            {
+                self.checkForPlayOrder()
+            }
         }
     }
     
     @IBAction func p3rollPressed(_ sender: UIButton)
     {
+        randomImageFirst()
         if player3active == true
         {
-            diceRoll()
-            player3score.text = String(randomIndexVar1! + 1)
-            player3tempScore = Int(player3score.text!)!
-            player3Roll.isEnabled = false
-            player3Roll.isHidden = true 
-            amtOfRollsLeft = amtOfRollsLeft - 1
-            checkForPlayOrder()
+            DispatchQueue.main.asyncAfter(deadline: .now() + 1.2)
+            {
+                self.diceRoll()
+                self.player3score.text = String(self.randomIndexVar1! + 1)
+                self.player3tempScore = Int(self.player3score.text!)!
+                self.player3Roll.isEnabled = false
+                self.player3Roll.isHidden = true
+                self.amtOfRollsLeft = self.amtOfRollsLeft - 1
+            }
+        }
+        DispatchQueue.main.asyncAfter(deadline: .now() + 3.9)
+        {
+            self.checkForPlayOrder()
         }
         player3active = false
     }

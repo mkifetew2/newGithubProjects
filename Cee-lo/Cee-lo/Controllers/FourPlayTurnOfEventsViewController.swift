@@ -51,6 +51,39 @@ class FourPlayTurnOfEventsViewController: UIViewController {
         player3Roll.isHidden = true
         player4Roll.isHidden = true
     }
+    
+    func randomImageFirst()
+    {
+        
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.2)
+        {
+            self.dice.image = UIImage(named: self.diceNameArr[Int(arc4random_uniform(UInt32(self.diceNameArr.count)))])
+        }
+        
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.4)
+        {
+            self.dice.image = UIImage(named: self.diceNameArr[Int(arc4random_uniform(UInt32(self.diceNameArr.count)))])
+        }
+        
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.6)
+        {
+            self.dice.image = UIImage(named: self.diceNameArr[Int(arc4random_uniform(UInt32(self.diceNameArr.count)))])
+        }
+        
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.8)
+        {
+            self.dice.image = UIImage(named: self.diceNameArr[Int(arc4random_uniform(UInt32(self.diceNameArr.count)))])
+        }
+        
+        DispatchQueue.main.asyncAfter(deadline: .now() + 1.0)
+        {
+            self.dice.image = UIImage(named: self.diceNameArr[Int(arc4random_uniform(UInt32(self.diceNameArr.count)))])
+        }
+        
+        
+        
+        
+    }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -80,35 +113,38 @@ class FourPlayTurnOfEventsViewController: UIViewController {
   
     @IBAction func p1rollPressed(_ sender: UIButton)
     {
+        randomImageFirst()
         if player1active == true
         {
-            diceRoll()
-            player1score.text = String(randomIndexVar1! + 1)
-            player1tempScore = Float(player1score.text!)!
-            player1Roll.isEnabled = false
-            player1Roll.isHidden = true
-            
-            if player2active == true
-            {
-                player2Roll.isEnabled = true
-                player2Roll.isHidden = false
-            }
+            DispatchQueue.main.asyncAfter(deadline: .now() + 1.2) {
+                self.diceRoll()
+                self.player1score.text = String(self.randomIndexVar1! + 1)
+                self.player1tempScore = Float(self.player1score.text!)!
+                self.player1Roll.isEnabled = false
+                self.player1Roll.isHidden = true
                 
-            else if player2active == false && player3active == true
-            {
-                player3Roll.isEnabled = true
-                player3Roll.isHidden = false
-            }
-            
-            else if player2active == false && player3active == false && player4active == true
-            {
-                player4Roll.isEnabled = true
-                player4Roll.isHidden = false
-            }
-            
-            player1active = false
-            amtOfRollsLeft = amtOfRollsLeft - 1
-            nextScreen()
+                if self.player2active == true
+                {
+                    self.player2Roll.isEnabled = true
+                    self.player2Roll.isHidden = false
+                }
+                    
+                else if self.player2active == false && self.player3active == true
+                {
+                    self.player3Roll.isEnabled = true
+                    self.player3Roll.isHidden = false
+                }
+                
+                else if self.player2active == false && self.player3active == false && self.player4active == true
+                {
+                    self.player4Roll.isEnabled = true
+                    self.player4Roll.isHidden = false
+                }
+                
+                self.player1active = false
+                self.amtOfRollsLeft = self.amtOfRollsLeft - 1
+                self.nextScreen()
+        }
         }
         
     }
@@ -116,52 +152,67 @@ class FourPlayTurnOfEventsViewController: UIViewController {
     
     @IBAction func p2rollPressed(_ sender: UIButton)
     {
+        randomImageFirst()
         if player2active == true
         {
-            diceRoll()
-            player2score.text = String(randomIndexVar1! + 1)
-            player2tempScore = Float(player2score.text!)!
-            player2Roll.isEnabled = false
-            player2Roll.isHidden = true
-            
-            if player3active == true
+            DispatchQueue.main.asyncAfter(deadline: .now() + 1.2)
             {
-                player3Roll.isEnabled = true
-                player3Roll.isHidden = false
+                    self.diceRoll()
+                    self.player2score.text = String(self.randomIndexVar1! + 1)
+                    self.player2tempScore = Float(self.player2score.text!)!
+                    self.player2Roll.isEnabled = false
+                    self.player2Roll.isHidden = true
+                
+                    if self.player3active == true
+                    {
+                        self.player3Roll.isEnabled = true
+                        self.player3Roll.isHidden = false
+                    }
+                
+                    if self.player3active == false && self.player4active == true
+                    {
+                        self.player4Roll.isEnabled = true
+                        self.player4Roll.isHidden = false
+                    }
             }
             
-            if player3active == false && player4active == true
-            {
-                player4Roll.isEnabled = true
-                player4Roll.isHidden = false
-            }
+            
             
             player2active = false
             amtOfRollsLeft = amtOfRollsLeft - 1
-            nextScreen()
+            DispatchQueue.main.asyncAfter(deadline: .now() + 3.9)
+            {
+                self.nextScreen()
+            }
         }
     }
     
     
     @IBAction func p3rollPressed(_ sender: UIButton)
     {
+        randomImageFirst()
         if player3active == true
         {
-            diceRoll()
-            player3score.text = String(randomIndexVar1! + 1)
-            player3tempScore = Float(player3score.text!)!
-            player3Roll.isEnabled = false
-            player3Roll.isHidden = true
-            
-            if player4active == true
+            DispatchQueue.main.asyncAfter(deadline: .now() + 1.2)
             {
-                player4Roll.isEnabled = true
-                player4Roll.isHidden = false
+                self.diceRoll()
+                self.player3score.text = String(self.randomIndexVar1! + 1)
+                self.player3tempScore = Float(self.player3score.text!)!
+                self.player3Roll.isEnabled = false
+                self.player3Roll.isHidden = true
+                
+                if self.player4active == true
+                {
+                    self.player4Roll.isEnabled = true
+                    self.player4Roll.isHidden = false
+                }
             }
-            
             player3active = false
             amtOfRollsLeft = amtOfRollsLeft - 1
-            nextScreen()
+            DispatchQueue.main.asyncAfter(deadline: .now() + 3.9)
+            {
+                self.nextScreen()
+            }
         }
      
     }
@@ -170,15 +221,23 @@ class FourPlayTurnOfEventsViewController: UIViewController {
     
     @IBAction func p4rollPressed(_ sender: UIButton)
     {
+        randomImageFirst()
         if player4active == true
         {
-            diceRoll()
-            player4score.text = String(randomIndexVar1! + 1)
-            player4tempScore = Float(player4score.text!)!
-            player4Roll.isEnabled = false
-            player4Roll.isHidden = true
-            amtOfRollsLeft = amtOfRollsLeft - 1
-            nextScreen()
+            DispatchQueue.main.asyncAfter(deadline: .now() + 1.2)
+            {
+                self.diceRoll()
+                self.player4score.text = String(self.randomIndexVar1! + 1)
+                self.player4tempScore = Float(self.player4score.text!)!
+                self.player4Roll.isEnabled = false
+                self.player4Roll.isHidden = true
+                self.amtOfRollsLeft = self.amtOfRollsLeft - 1
+            }
+            
+            DispatchQueue.main.asyncAfter(deadline: .now() + 3.9)
+            {
+                self.nextScreen()
+            }
         }
         player4active = false
     }
@@ -397,7 +456,7 @@ class FourPlayTurnOfEventsViewController: UIViewController {
                 || player3tempScore > player1tempScore && player1tempScore > player4tempScore && player4tempScore > player2tempScore
                 || player3tempScore > player2tempScore && player2tempScore > player1tempScore && player1tempScore > player4tempScore
                 || player3tempScore > player2tempScore && player2tempScore > player4tempScore && player4tempScore > player1tempScore
-                || player3tempScore > player4tempScore && player4tempScore > player2tempScore && player1tempScore > player2tempScore
+                || player3tempScore > player4tempScore && player4tempScore > player2tempScore && player2tempScore > player1tempScore
                 || player3tempScore > player4tempScore && player4tempScore > player2tempScore && player2tempScore > player1tempScore
                 || player4tempScore > player1tempScore && player1tempScore > player2tempScore && player2tempScore > player3tempScore
                 || player4tempScore > player1tempScore && player1tempScore > player3tempScore && player3tempScore > player2tempScore
@@ -415,7 +474,25 @@ class FourPlayTurnOfEventsViewController: UIViewController {
             alertController.addAction(action1)
             self.present(alertController, animated: true, completion: nil)
         }
+                
+        //Two way tie happens twice
+        else if (player1tempScore == player2tempScore && player3tempScore == player4tempScore ||
+                player1tempScore == player3tempScore && player2tempScore == player4tempScore ||
+                player1tempScore == player4tempScore && player2tempScore == player3tempScore)
+            {
+                let alertController2 = UIAlertController(title: "Re-roll needs to be done", message: "There was 2 ties and a re-roll needs to be done so that turns can be decided", preferredStyle: .alert)
+                
+                let action2 = UIAlertAction(title: "OK", style: .default) { (action:    UIAlertAction) in
+                    self.resetEverything()
+                }
+                
+                amtOfRollsLeft = 4
+                
+                alertController2.addAction(action2)
+                self.present(alertController2, animated: true, completion: nil)
+            }
         
+                
         //If there is 4-way tie
         else if (player1tempScore == player2tempScore && player2tempScore == player3tempScore && player3tempScore == player4tempScore)
         {

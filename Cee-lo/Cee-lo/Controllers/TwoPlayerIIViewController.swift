@@ -105,7 +105,14 @@ class TwoPlayerIIViewController: UIViewController, UITextFieldDelegate {
     
     func randomImageFirst()
     {
-        DispatchQueue.main.asyncAfter(deadline: .now() + 0.3)
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.2)
+        {
+            self.dice1Image.image = UIImage(named: self.diceNameArr[Int(arc4random_uniform (UInt32(self.diceNameArr.count)))])
+            self.dice2Image.image = UIImage(named: self.diceNameArr[Int(arc4random_uniform (UInt32(self.diceNameArr.count)))])
+            self.dice3Image.image = UIImage(named: self.diceNameArr[Int(arc4random_uniform (UInt32(self.diceNameArr.count)))])
+            
+        }
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.4)
         {
             self.dice1Image.image = UIImage(named: self.diceNameArr[Int(arc4random_uniform (UInt32(self.diceNameArr.count)))])
             self.dice2Image.image = UIImage(named: self.diceNameArr[Int(arc4random_uniform (UInt32(self.diceNameArr.count)))])
@@ -119,7 +126,14 @@ class TwoPlayerIIViewController: UIViewController, UITextFieldDelegate {
             self.dice3Image.image = UIImage(named: self.diceNameArr[Int(arc4random_uniform (UInt32(self.diceNameArr.count)))])
             
         }
-        DispatchQueue.main.asyncAfter(deadline: .now() + 0.9)
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.8)
+        {
+            self.dice1Image.image = UIImage(named: self.diceNameArr[Int(arc4random_uniform (UInt32(self.diceNameArr.count)))])
+            self.dice2Image.image = UIImage(named: self.diceNameArr[Int(arc4random_uniform (UInt32(self.diceNameArr.count)))])
+            self.dice3Image.image = UIImage(named: self.diceNameArr[Int(arc4random_uniform (UInt32(self.diceNameArr.count)))])
+            
+        }
+        DispatchQueue.main.asyncAfter(deadline: .now() + 1.0)
         {
             self.dice1Image.image = UIImage(named: self.diceNameArr[Int(arc4random_uniform (UInt32(self.diceNameArr.count)))])
             self.dice2Image.image = UIImage(named: self.diceNameArr[Int(arc4random_uniform (UInt32(self.diceNameArr.count)))])
@@ -278,7 +292,7 @@ class TwoPlayerIIViewController: UIViewController, UITextFieldDelegate {
         resetButton.isEnabled = false
         randomImageFirst()
         
-        DispatchQueue.main.asyncAfter(deadline: .now() + 1.6)
+        DispatchQueue.main.asyncAfter(deadline: .now() + 1.4)
         {
             self.diceRoll()
             //testPlayer1Roll()
@@ -600,6 +614,10 @@ class TwoPlayerIIViewController: UIViewController, UITextFieldDelegate {
         player2hasGone = false
         player1rollButton.isHidden = false
         player1rollButton.isEnabled = true
+        dice1Image.isHidden = false
+        dice2Image.isHidden = false
+        dice3Image.isHidden = false
+        resultImage.isHidden = true
     
     }
     
@@ -632,7 +650,12 @@ class TwoPlayerIIViewController: UIViewController, UITextFieldDelegate {
         betTextField.isHidden = false
         betTextField.isEnabled = true
         player1rollButton.isHidden = false
-        player1rollButton.isEnabled = true 
+        player1rollButton.isEnabled = true
+        dice1Image.isHidden = false
+        dice2Image.isHidden = false
+        dice3Image.isHidden = false
+        resultImage.isHidden = true
+        
     }
     
     func checkWhoWon()
@@ -774,11 +797,12 @@ class TwoPlayerIIViewController: UIViewController, UITextFieldDelegate {
     
     func winningImage(name: String)
     {
-        DispatchQueue.main.asyncAfter(deadline: .now() + 2.4)
+        DispatchQueue.main.asyncAfter(deadline: .now() + 5.4)
         {
             self.dice1Image.isHidden = true
             self.dice2Image.isHidden = true
             self.dice3Image.isHidden = true
+            self.resultImage.isHidden = false 
             if name == "tie"
             {
                 self.resultImage.contentMode = .scaleAspectFill
@@ -809,7 +833,7 @@ class TwoPlayerIIViewController: UIViewController, UITextFieldDelegate {
     //Winner has been decided
     func gameOver()
     {
-        DispatchQueue.main.asyncAfter(deadline: .now() + 3.9)
+        DispatchQueue.main.asyncAfter(deadline: .now() + 8.4)
         {
             print("Game is over")
                 let alertController = UIAlertController(title: "Game complete", message: self.message, preferredStyle: .alert)
@@ -833,7 +857,7 @@ class TwoPlayerIIViewController: UIViewController, UITextFieldDelegate {
     //Winner is still being decided
     func gameTied()
     {
-        DispatchQueue.main.asyncAfter(deadline: .now() + 3.9)
+        DispatchQueue.main.asyncAfter(deadline: .now() + 8.4)
         {
             print("Game is tied")
             let alertController = UIAlertController(title: "Game complete", message: self.message, preferredStyle: .alert)

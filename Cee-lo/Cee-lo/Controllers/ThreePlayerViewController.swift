@@ -13,6 +13,7 @@ class ThreePlayerViewController: UIViewController {
    
     @IBOutlet weak var submitButton: UIButton!
     @IBOutlet weak var resetButton: UIButton!
+    @IBOutlet weak var resultImage: UIImageView!
     
     
     @IBOutlet weak var betTextField: UITextField!
@@ -122,41 +123,73 @@ class ThreePlayerViewController: UIViewController {
         return updatedText.count <= 8
     }
     
-    
-    //Functions to test the functionality of hiearchy of winning
-    func testPlayer1Roll()
+    func randomImageFirst()
     {
-        randomIndexVar1 = 2
-        randomIndexVar2 = 2
-        randomIndexVar3 = 2
-        threeNumArr[0] = randomIndexVar1!
-        threeNumArr[1] = randomIndexVar2!
-        threeNumArr[2] = randomIndexVar3!
-        UIUpdates(listofNums: threeNumArr)
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.3)
+        {
+            self.dice1.image = UIImage(named: self.diceNameArr[Int(arc4random_uniform (UInt32(self.diceNameArr.count)))])
+            self.dice2.image = UIImage(named: self.diceNameArr[Int(arc4random_uniform (UInt32(self.diceNameArr.count)))])
+            self.dice3.image = UIImage(named: self.diceNameArr[Int(arc4random_uniform (UInt32(self.diceNameArr.count)))])
+            
+        }
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.6)
+        {
+            self.dice1.image = UIImage(named: self.diceNameArr[Int(arc4random_uniform (UInt32(self.diceNameArr.count)))])
+            self.dice2.image = UIImage(named: self.diceNameArr[Int(arc4random_uniform (UInt32(self.diceNameArr.count)))])
+            self.dice3.image = UIImage(named: self.diceNameArr[Int(arc4random_uniform (UInt32(self.diceNameArr.count)))])
+            
+        }
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.9)
+        {
+            self.dice1.image = UIImage(named: self.diceNameArr[Int(arc4random_uniform (UInt32(self.diceNameArr.count)))])
+            self.dice2.image = UIImage(named: self.diceNameArr[Int(arc4random_uniform (UInt32(self.diceNameArr.count)))])
+            self.dice3.image = UIImage(named: self.diceNameArr[Int(arc4random_uniform (UInt32(self.diceNameArr.count)))])
+            
+        }
+        DispatchQueue.main.asyncAfter(deadline: .now() + 1.2)
+        {
+            self.dice1.image = UIImage(named: self.diceNameArr[Int(arc4random_uniform (UInt32(self.diceNameArr.count)))])
+            self.dice2.image = UIImage(named: self.diceNameArr[Int(arc4random_uniform (UInt32(self.diceNameArr.count)))])
+            self.dice3.image = UIImage(named: self.diceNameArr[Int(arc4random_uniform (UInt32(self.diceNameArr.count)))])
+            
+        }
     }
     
-    func testPlayer2Roll()
-    {
-        randomIndexVar1 = 2
-        randomIndexVar2 = 2
-        randomIndexVar3 = 2
-        threeNumArr[0] = randomIndexVar1!
-        threeNumArr[1] = randomIndexVar2!
-        threeNumArr[2] = randomIndexVar3!
-        UIUpdates(listofNums: threeNumArr)
-    }
     
-    func testPlayer3Roll()
-    {
-        randomIndexVar1 = 1
-        randomIndexVar2 = 5
-        randomIndexVar3 = 5
-        threeNumArr[0] = randomIndexVar1!
-        threeNumArr[1] = randomIndexVar2!
-        threeNumArr[2] = randomIndexVar3!
-        UIUpdates(listofNums: threeNumArr)
-    }
-    
+//    //Functions to test the functionality of hiearchy of winning
+//    func testPlayer1Roll()
+//    {
+//        randomIndexVar1 = 2
+//        randomIndexVar2 = 2
+//        randomIndexVar3 = 2
+//        threeNumArr[0] = randomIndexVar1!
+//        threeNumArr[1] = randomIndexVar2!
+//        threeNumArr[2] = randomIndexVar3!
+//        UIUpdates(listofNums: threeNumArr)
+//    }
+//
+//    func testPlayer2Roll()
+//    {
+//        randomIndexVar1 = 2
+//        randomIndexVar2 = 2
+//        randomIndexVar3 = 2
+//        threeNumArr[0] = randomIndexVar1!
+//        threeNumArr[1] = randomIndexVar2!
+//        threeNumArr[2] = randomIndexVar3!
+//        UIUpdates(listofNums: threeNumArr)
+//    }
+//
+//    func testPlayer3Roll()
+//    {
+//        randomIndexVar1 = 1
+//        randomIndexVar2 = 5
+//        randomIndexVar3 = 5
+//        threeNumArr[0] = randomIndexVar1!
+//        threeNumArr[1] = randomIndexVar2!
+//        threeNumArr[2] = randomIndexVar3!
+//        UIUpdates(listofNums: threeNumArr)
+//    }
+//
     
     func UIUpdates(listofNums : [Int])
     {
@@ -263,140 +296,147 @@ class ThreePlayerViewController: UIViewController {
     
     @IBAction func player3rollButton(_ sender: UIButton)
     {
+        
         if player3active == true
         {
-            diceRoll()
-            //testPlayer3Roll()
-            while(player3hasGone == false)
+            randomImageFirst()
+            
+            
+            DispatchQueue.main.asyncAfter(deadline: .now() + 1.6)
             {
-                if (dice2.image! != dice3.image! && dice1.image! != dice3.image! && dice1.image! != dice2.image!)
+                self.diceRoll()
+            //testPlayer3Roll()
+                while(self.player3hasGone == false)
+            {
+                if (self.dice2.image! != self.dice3.image! && self.dice1.image! != self.dice3.image! && self.dice1.image! != self.dice2.image!)
                 {
-                    if (diceNameArr[threeNumArr[0]] == "DICE4B" && diceNameArr[threeNumArr[1]] == "DICE5B" && diceNameArr[threeNumArr[2]] == "DICE6B" ||
-                        diceNameArr[threeNumArr[0]] == "DICE4B" && diceNameArr[threeNumArr[1]] == "DICE6B" && diceNameArr[threeNumArr[2]] == "DICE5B" ||
-                        diceNameArr[threeNumArr[0]] == "DICE5B" && diceNameArr[threeNumArr[1]] == "DICE4B" && diceNameArr[threeNumArr[2]] == "DICE6B" ||
-                        diceNameArr[threeNumArr[0]] == "DICE5B" && diceNameArr[threeNumArr[1]] == "DICE6B" && diceNameArr[threeNumArr[2]] == "DICE4B" ||
-                        diceNameArr[threeNumArr[0]] == "DICE6B" && diceNameArr[threeNumArr[1]] == "DICE4B" && diceNameArr[threeNumArr[2]] == "DICE5B" ||
-                        diceNameArr[threeNumArr[0]] == "DICE6B" && diceNameArr[threeNumArr[1]] == "DICE5B" && diceNameArr[threeNumArr[2]] == "DICE4B")
+                    if (self.diceNameArr[self.threeNumArr[0]] == "DICE4B" && self.diceNameArr[self.threeNumArr[1]] == "DICE5B" && self.diceNameArr[self.threeNumArr[2]] == "DICE6B" ||
+                        self.diceNameArr[self.threeNumArr[0]] == "DICE4B" && self.diceNameArr[self.threeNumArr[1]] == "DICE6B" && self.diceNameArr[self.threeNumArr[2]] == "DICE5B" ||
+                        self.diceNameArr[self.threeNumArr[0]] == "DICE5B" && self.diceNameArr[self.threeNumArr[1]] == "DICE4B" && self.diceNameArr[self.threeNumArr[2]] == "DICE6B" ||
+                        self.diceNameArr[self.threeNumArr[0]] == "DICE5B" && self.diceNameArr[self.threeNumArr[1]] == "DICE6B" && self.diceNameArr[self.threeNumArr[2]] == "DICE4B" ||
+                        self.diceNameArr[self.threeNumArr[0]] == "DICE6B" && self.diceNameArr[self.threeNumArr[1]] == "DICE4B" && self.diceNameArr[self.threeNumArr[2]] == "DICE5B" ||
+                        self.diceNameArr[self.threeNumArr[0]] == "DICE6B" && self.diceNameArr[self.threeNumArr[1]] == "DICE5B" && self.diceNameArr[self.threeNumArr[2]] == "DICE4B")
                         {
-                            amtOfPlayersLeft = amtOfPlayersLeft - 1
-                            minTurns = 0
-                            player3fourFiveSix = true
-                            player3score = 6
-                            player3scoreLabel.text = String(player3score)
-                            player3diceResult.text = "\(threeNumArr[0] + 1)-\(threeNumArr[1] + 1)-\(threeNumArr[2] + 1)"
-                            player3rollButton.isEnabled = false
-                            player3rollButton.isHidden = true
-                            player3hasGone = true
+                            self.amtOfPlayersLeft = self.amtOfPlayersLeft - 1
+                            self.minTurns = 0
+                            self.player3fourFiveSix = true
+                            self.player3score = 6
+                            self.player3scoreLabel.text = String(self.player3score)
+                            self.player3diceResult.text = "\(self.threeNumArr[0] + 1)-\(self.threeNumArr[1] + 1)-\(self.threeNumArr[2] + 1)"
+                            self.player3rollButton.isEnabled = false
+                            self.player3rollButton.isHidden = true
+                            self.player3hasGone = true
                             //reloadInputViews()
                             print("here456")
-                            checkWhoWon()
+                            self.checkWhoWon()
                             break
                         }
                     
-                    if (diceNameArr[threeNumArr[0]] == "DICE1B" && diceNameArr[threeNumArr[1]] == "DICE2B" && diceNameArr[threeNumArr[2]] == "DICE3B" ||
-                        diceNameArr[threeNumArr[0]] == "DICE1B" && diceNameArr[threeNumArr[1]] == "DICE3B" && diceNameArr[threeNumArr[2]] == "DICE2B" ||
-                        diceNameArr[threeNumArr[0]] == "DICE2B" && diceNameArr[threeNumArr[1]] == "DICE1B" && diceNameArr[threeNumArr[2]] == "DICE3B" ||
-                        diceNameArr[threeNumArr[0]] == "DICE2B" && diceNameArr[threeNumArr[1]] == "DICE3B" && diceNameArr[threeNumArr[2]] == "DICE1B" ||
-                        diceNameArr[threeNumArr[0]] == "DICE3B" && diceNameArr[threeNumArr[1]] == "DICE1B" && diceNameArr[threeNumArr[2]] == "DICE2B" ||
-                        diceNameArr[threeNumArr[0]] == "DICE3B" && diceNameArr[threeNumArr[1]] == "DICE2B" && diceNameArr[threeNumArr[2]] == "DICE1B")
+                    if (self.diceNameArr[self.threeNumArr[0]] == "DICE1B" && self.diceNameArr[self.threeNumArr[1]] == "DICE2B" && self.diceNameArr[self.threeNumArr[2]] == "DICE3B" ||
+                        self.diceNameArr[self.threeNumArr[0]] == "DICE1B" && self.diceNameArr[self.threeNumArr[1]] == "DICE3B" && self.diceNameArr[self.threeNumArr[2]] == "DICE2B" ||
+                        self.diceNameArr[self.threeNumArr[0]] == "DICE2B" && self.diceNameArr[self.threeNumArr[1]] == "DICE1B" && self.diceNameArr[self.threeNumArr[2]] == "DICE3B" ||
+                        self.diceNameArr[self.threeNumArr[0]] == "DICE2B" && self.diceNameArr[self.threeNumArr[1]] == "DICE3B" && self.diceNameArr[self.threeNumArr[2]] == "DICE1B" ||
+                        self.diceNameArr[self.threeNumArr[0]] == "DICE3B" && self.diceNameArr[self.threeNumArr[1]] == "DICE1B" && self.diceNameArr[self.threeNumArr[2]] == "DICE2B" ||
+                        self.diceNameArr[self.threeNumArr[0]] == "DICE3B" && self.diceNameArr[self.threeNumArr[1]] == "DICE2B" && self.diceNameArr[self.threeNumArr[2]] == "DICE1B")
                     {
-                        amtOfPlayersLeft = amtOfPlayersLeft - 1
-                        minTurns = 0
-                        player3oneTwoThree = true
-                        player3score = 0
-                        player3scoreLabel.text = String(player3score)
-                        player3diceResult.text = "\(threeNumArr[0] + 1)-\(threeNumArr[1] + 1)-\(threeNumArr[2] + 1)"
-                        player3rollButton.isEnabled = false
-                        player3rollButton.isHidden = true
-                        player3hasGone = true
+                        self.amtOfPlayersLeft = self.amtOfPlayersLeft - 1
+                        self.minTurns = 0
+                        self.player3oneTwoThree = true
+                        self.player3score = 0
+                        self.player3scoreLabel.text = String(self.player3score)
+                        self.player3diceResult.text = "\(self.threeNumArr[0] + 1)-\(self.threeNumArr[1] + 1)-\(self.threeNumArr[2] + 1)"
+                        self.player3rollButton.isEnabled = false
+                        self.player3rollButton.isHidden = true
+                        self.player3hasGone = true
                         //reloadInputViews()
                         print("here123")
-                        checkWhoWon()
+                        self.checkWhoWon()
                         break
                     }
                     
-                    player3rollButton.isEnabled = true
-                    player3score = 0
-                    player3scoreLabel.text = String(player3score)
-                    player3hasGone = false
+                    self.player3rollButton.isEnabled = true
+                    self.player3score = 0
+                    self.player3scoreLabel.text = String(self.player3score)
+                    self.player3hasGone = false
                     print("roll again")
                     break
                 }
                 
-                else if (dice1.image! == dice2.image! && dice2.image! == dice3.image!)
+                else if (self.dice1.image! == self.dice2.image! && self.dice2.image! == self.dice3.image!)
                 {
-                    amtOfPlayersLeft = amtOfPlayersLeft - 1
-                    minTurns = 0
-                    player3Triple = true
-                    player3score = Int(threeNumArr[0] + 1)
-                    player3scoreLabel.text = String(player3score)
-                    player3diceResult.text = "\(threeNumArr[0] + 1)-\(threeNumArr[1] + 1)-\(threeNumArr[2] + 1)"
-                    player3rollButton.isEnabled = false
-                    player3rollButton.isHidden = true
-                    player3hasGone = true
+                    self.amtOfPlayersLeft = self.amtOfPlayersLeft - 1
+                    self.minTurns = 0
+                    self.player3Triple = true
+                    self.player3score = Int(self.threeNumArr[0] + 1)
+                    self.player3scoreLabel.text = String(self.player3score)
+                    self.player3diceResult.text = "\(self.threeNumArr[0] + 1)-\(self.threeNumArr[1] + 1)-\(self.threeNumArr[2] + 1)"
+                    self.player3rollButton.isEnabled = false
+                    self.player3rollButton.isHidden = true
+                    self.player3hasGone = true
                     //reloadInputViews()
                     print("hereTriple2")
-                    checkWhoWon()
+                    self.checkWhoWon()
                     break
                     
                 }
                     
-                else if (dice1.image! == dice2.image!)
+                else if (self.dice1.image! == self.dice2.image!)
                 {
-                    amtOfPlayersLeft = amtOfPlayersLeft - 1
-                    minTurns = 0
-                    player3score = Int(threeNumArr[2] + 1)
-                    player3scoreLabel.text = String(player3score)
-                    player3diceResult.text = "\(threeNumArr[0] + 1)-\(threeNumArr[1] + 1)-\(threeNumArr[2] + 1)"
-                    player3rollButton.isEnabled = false
-                    player3rollButton.isHidden = true
-                    player3hasGone = true
-                    minTurns = 0
+                    self.amtOfPlayersLeft = self.amtOfPlayersLeft - 1
+                    self.minTurns = 0
+                    self.player3score = Int(self.threeNumArr[2] + 1)
+                    self.player3scoreLabel.text = String(self.player3score)
+                    self.player3diceResult.text = "\(self.threeNumArr[0] + 1)-\(self.threeNumArr[1] + 1)-\(self.threeNumArr[2] + 1)"
+                    self.player3rollButton.isEnabled = false
+                    self.player3rollButton.isHidden = true
+                    self.player3hasGone = true
+                    self.minTurns = 0
                     //reloadInputViews()
                     print("here 7")
-                    print("Score :\(player3score)")
-                    checkWhoWon()
+                    print("Score :\(self.player3score)")
+                    self.checkWhoWon()
                     break
                 }
                     
-                else if (dice1.image! == dice3.image!)
+                else if (self.dice1.image! == self.dice3.image!)
                 {
-                    amtOfPlayersLeft = amtOfPlayersLeft - 1
-                    minTurns = 0
-                    player3score = Int(threeNumArr[1] + 1)
-                    player3scoreLabel.text = String(player3score)
-                    player3diceResult.text = "\(threeNumArr[0] + 1)-\(threeNumArr[1] + 1)-\(threeNumArr[2] + 1)"
-                    player3rollButton.isEnabled = false
-                    player3rollButton.isHidden = true
-                    player3hasGone = true
+                    self.amtOfPlayersLeft = self.amtOfPlayersLeft - 1
+                    self.minTurns = 0
+                    self.player3score = Int(self.threeNumArr[1] + 1)
+                    self.player3scoreLabel.text = String(self.player3score)
+                    self.player3diceResult.text = "\(self.threeNumArr[0] + 1)-\(self.threeNumArr[1] + 1)-\(self.threeNumArr[2] + 1)"
+                    self.player3rollButton.isEnabled = false
+                    self.player3rollButton.isHidden = true
+                    self.player3hasGone = true
                     //reloadInputViews()
                     print("here 8")
-                    print("Score :\(player3score)")
-                    checkWhoWon()
+                    print("Score :\(self.player3score)")
+                    self.checkWhoWon()
                     break
                     
                 }
                     
-                else if (dice2.image! == dice3.image!)
+                else if (self.dice2.image! == self.dice3.image!)
                 {
-                    amtOfPlayersLeft = amtOfPlayersLeft - 1
-                    minTurns = 0
-                    player3score = Int(threeNumArr[0] + 1)
-                    player3scoreLabel.text = String(player3score)
-                    player3diceResult.text = "\(threeNumArr[0] + 1)-\(threeNumArr[1] + 1)-\(threeNumArr[2] + 1)"
-                    player3rollButton.isEnabled = false
-                    player3rollButton.isHidden = true
-                    player3hasGone = true
+                    self.amtOfPlayersLeft = self.amtOfPlayersLeft - 1
+                    self.minTurns = 0
+                    self.player3score = Int(self.threeNumArr[0] + 1)
+                    self.player3scoreLabel.text = String(self.player3score)
+                    self.player3diceResult.text = "\(self.threeNumArr[0] + 1)-\(self.threeNumArr[1] + 1)-\(self.threeNumArr[2] + 1)"
+                    self.player3rollButton.isEnabled = false
+                    self.player3rollButton.isHidden = true
+                    self.player3hasGone = true
                     //reloadInputViews()
                     print("here 9")
-                    print("Score :\(player3score)")
-                    checkWhoWon()
+                    print("Score :\(self.player3score)")
+                    self.checkWhoWon()
                     break
                     
                 }
                 
             }
             print("Player 3 has went ")
+            }
         }
         
     }
@@ -408,163 +448,166 @@ class ThreePlayerViewController: UIViewController {
     {
         if player2active == true
         {
-        diceRoll()
-        //testPlayer2Roll()
-        while(player2hasGone == false)
-        {
-            if (dice2.image! != dice3.image! && dice1.image! != dice3.image! && dice1.image! != dice2.image!)
+        randomImageFirst()
+            DispatchQueue.main.asyncAfter(deadline: .now() + 1.6)
             {
-                if (diceNameArr[threeNumArr[0]] == "DICE4B" && diceNameArr[threeNumArr[1]] == "DICE5B" && diceNameArr[threeNumArr[2]] == "DICE6B" ||
-                    diceNameArr[threeNumArr[0]] == "DICE4B" && diceNameArr[threeNumArr[1]] == "DICE6B" && diceNameArr[threeNumArr[2]] == "DICE5B" ||
-                    diceNameArr[threeNumArr[0]] == "DICE5B" && diceNameArr[threeNumArr[1]] == "DICE4B" && diceNameArr[threeNumArr[2]] == "DICE6B" ||
-                    diceNameArr[threeNumArr[0]] == "DICE5B" && diceNameArr[threeNumArr[1]] == "DICE6B" && diceNameArr[threeNumArr[2]] == "DICE4B" ||
-                    diceNameArr[threeNumArr[0]] == "DICE6B" && diceNameArr[threeNumArr[1]] == "DICE4B" && diceNameArr[threeNumArr[2]] == "DICE5B" ||
-                    diceNameArr[threeNumArr[0]] == "DICE6B" && diceNameArr[threeNumArr[1]] == "DICE5B" && diceNameArr[threeNumArr[2]] == "DICE4B")
+                self.diceRoll()
+        //testPlayer2Roll()
+                while(self.player2hasGone == false)
+        {
+            if (self.dice2.image! != self.dice3.image! && self.dice1.image! != self.dice3.image! && self.dice1.image! != self.dice2.image!)
+            {
+                if (self.diceNameArr[self.threeNumArr[0]] == "DICE4B" && self.diceNameArr[self.threeNumArr[1]] == "DICE5B" && self.diceNameArr[self.threeNumArr[2]] == "DICE6B" ||
+                    self.diceNameArr[self.threeNumArr[0]] == "DICE4B" && self.diceNameArr[self.threeNumArr[1]] == "DICE6B" && self.diceNameArr[self.threeNumArr[2]] == "DICE5B" ||
+                    self.diceNameArr[self.threeNumArr[0]] == "DICE5B" && self.diceNameArr[self.threeNumArr[1]] == "DICE4B" && self.diceNameArr[self.threeNumArr[2]] == "DICE6B" ||
+                    self.diceNameArr[self.threeNumArr[0]] == "DICE5B" && self.diceNameArr[self.threeNumArr[1]] == "DICE6B" && self.diceNameArr[self.threeNumArr[2]] == "DICE4B" ||
+                    self.diceNameArr[self.threeNumArr[0]] == "DICE6B" && self.diceNameArr[self.threeNumArr[1]] == "DICE4B" && self.diceNameArr[self.threeNumArr[2]] == "DICE5B" ||
+                    self.diceNameArr[self.threeNumArr[0]] == "DICE6B" && self.diceNameArr[self.threeNumArr[1]] == "DICE5B" && self.diceNameArr[self.threeNumArr[2]] == "DICE4B")
                 {
-                    amtOfPlayersLeft = amtOfPlayersLeft - 1
-                    minTurns = 0
-                    player2fourFiveSix = true
-                    player2score = 6
-                    player2scoreLabel.text = String(player2score)
-                    player2diceResult.text = "\(threeNumArr[0] + 1)-\(threeNumArr[1] + 1)-\(threeNumArr[2] + 1)"
-                    player2rollButton.isEnabled = false
-                    player2rollButton.isHidden = true
+                    self.amtOfPlayersLeft = self.amtOfPlayersLeft - 1
+                    self.minTurns = 0
+                    self.player2fourFiveSix = true
+                    self.player2score = 6
+                    self.player2scoreLabel.text = String(self.player2score)
+                    self.player2diceResult.text = "\(self.threeNumArr[0] + 1)-\(self.threeNumArr[1] + 1)-\(self.threeNumArr[2] + 1)"
+                    self.player2rollButton.isEnabled = false
+                    self.player2rollButton.isHidden = true
                     
-                    if player3active == true
+                    if self.player3active == true
                     {
-                        player3rollButton.isEnabled = true
-                        player3rollButton.isHidden = false
+                        self.player3rollButton.isEnabled = true
+                        self.player3rollButton.isHidden = false
                     }
                     
-                    player2hasGone = true
+                    self.player2hasGone = true
                     //reloadInputViews()
                     print("here456")
-                    checkWhoWon()
+                    self.checkWhoWon()
                     break
                 }
                 
-                if (diceNameArr[threeNumArr[0]] == "DICE1B" && diceNameArr[threeNumArr[1]] == "DICE2B" && diceNameArr[threeNumArr[2]] == "DICE3B" ||
-                    diceNameArr[threeNumArr[0]] == "DICE1B" && diceNameArr[threeNumArr[1]] == "DICE3B" && diceNameArr[threeNumArr[2]] == "DICE2B" ||
-                    diceNameArr[threeNumArr[0]] == "DICE2B" && diceNameArr[threeNumArr[1]] == "DICE1B" && diceNameArr[threeNumArr[2]] == "DICE3B" ||
-                    diceNameArr[threeNumArr[0]] == "DICE2B" && diceNameArr[threeNumArr[1]] == "DICE3B" && diceNameArr[threeNumArr[2]] == "DICE1B" ||
-                    diceNameArr[threeNumArr[0]] == "DICE3B" && diceNameArr[threeNumArr[1]] == "DICE1B" && diceNameArr[threeNumArr[2]] == "DICE2B" ||
-                    diceNameArr[threeNumArr[0]] == "DICE3B" && diceNameArr[threeNumArr[1]] == "DICE2B" && diceNameArr[threeNumArr[2]] == "DICE1B")
+                if (self.diceNameArr[self.threeNumArr[0]] == "DICE1B" && self.diceNameArr[self.threeNumArr[1]] == "DICE2B" && self.diceNameArr[self.threeNumArr[2]] == "DICE3B" ||
+                    self.diceNameArr[self.threeNumArr[0]] == "DICE1B" && self.diceNameArr[self.threeNumArr[1]] == "DICE3B" && self.diceNameArr[self.threeNumArr[2]] == "DICE2B" ||
+                    self.diceNameArr[self.threeNumArr[0]] == "DICE2B" && self.diceNameArr[self.threeNumArr[1]] == "DICE1B" && self.diceNameArr[self.threeNumArr[2]] == "DICE3B" ||
+                    self.diceNameArr[self.threeNumArr[0]] == "DICE2B" && self.diceNameArr[self.threeNumArr[1]] == "DICE3B" && self.diceNameArr[self.threeNumArr[2]] == "DICE1B" ||
+                    self.diceNameArr[self.threeNumArr[0]] == "DICE3B" && self.diceNameArr[self.threeNumArr[1]] == "DICE1B" && self.diceNameArr[self.threeNumArr[2]] == "DICE2B" ||
+                    self.diceNameArr[self.threeNumArr[0]] == "DICE3B" && self.diceNameArr[self.threeNumArr[1]] == "DICE2B" && self.diceNameArr[self.threeNumArr[2]] == "DICE1B")
                 {
-                    amtOfPlayersLeft = amtOfPlayersLeft - 1
-                    minTurns = 0
-                    player2oneTwoThree = true
-                    player2score = 0
-                    player2scoreLabel.text = String(player2score)
-                    player2diceResult.text = "\(threeNumArr[0] + 1)-\(threeNumArr[1] + 1)-\(threeNumArr[2] + 1)"
-                    player2rollButton.isEnabled = false
-                    player2rollButton.isHidden = true
+                    self.amtOfPlayersLeft = self.amtOfPlayersLeft - 1
+                    self.minTurns = 0
+                    self.player2oneTwoThree = true
+                    self.player2score = 0
+                    self.player2scoreLabel.text = String(self.player2score)
+                    self.player2diceResult.text = "\(self.threeNumArr[0] + 1)-\(self.self.threeNumArr[1] + 1)-\(self.threeNumArr[2] + 1)"
+                    self.player2rollButton.isEnabled = false
+                    self.player2rollButton.isHidden = true
                     
-                    if player3active == true
+                    if self.player3active == true
                     {
-                        player3rollButton.isEnabled = true
-                        player3rollButton.isHidden = false
+                        self.player3rollButton.isEnabled = true
+                        self.player3rollButton.isHidden = false
                     }
-                    player2hasGone = true
+                    self.player2hasGone = true
                     //reloadInputViews()
                     print("here123")
-                    checkWhoWon()
+                    self.checkWhoWon()
                     break
                 }
                 
-                player2rollButton.isEnabled = true
-                player2score = 0
-                player2scoreLabel.text = String(player2score)
-                player2hasGone = false
+                self.player2rollButton.isEnabled = true
+                self.player2score = 0
+                self.player2scoreLabel.text = String(self.player2score)
+                self.player2hasGone = false
                 print("roll again")
                 break
             }
                 
-            else if (dice1.image! == dice2.image! && dice2.image! == dice3.image!)
+            else if (self.dice1.image! == self.dice2.image! && self.dice2.image! == self.dice3.image!)
             {
-                amtOfPlayersLeft = amtOfPlayersLeft - 1
-                minTurns = 0
-                player2Triple = true
-                player2score = Int(threeNumArr[0] + 1)
-                player2scoreLabel.text = String(player2score)
-                player2diceResult.text = "\(threeNumArr[0] + 1)-\(threeNumArr[1] + 1)-\(threeNumArr[2] + 1)"
-                player2rollButton.isEnabled = false
-                player2rollButton.isHidden = true
+                self.amtOfPlayersLeft = self.amtOfPlayersLeft - 1
+                self.minTurns = 0
+                self.player2Triple = true
+                self.player2score = Int(self.threeNumArr[0] + 1)
+                self.player2scoreLabel.text = String(self.player2score)
+                self.player2diceResult.text = "\(self.threeNumArr[0] + 1)-\(self.threeNumArr[1] + 1)-\(self.threeNumArr[2] + 1)"
+                self.player2rollButton.isEnabled = false
+                self.player2rollButton.isHidden = true
                 
-                if player3active == true
+                if self.player3active == true
                 {
-                    player3rollButton.isEnabled = true
-                    player3rollButton.isHidden = false
+                    self.player3rollButton.isEnabled = true
+                    self.player3rollButton.isHidden = false
                 }
-                player2hasGone = true
+                self.player2hasGone = true
                 //reloadInputViews()
                 print("hereTriple2")
-                checkWhoWon()
+                self.checkWhoWon()
                 break
                 
             }
                 
-            else if (dice1.image! == dice2.image!)
+            else if (self.dice1.image! == self.dice2.image!)
             {
-                amtOfPlayersLeft = amtOfPlayersLeft - 1
-                minTurns = 0
-                player2score = Int(threeNumArr[2] + 1)
-                player2scoreLabel.text = String(player2score)
-                player2diceResult.text = "\(threeNumArr[0] + 1)-\(threeNumArr[1] + 1)-\(threeNumArr[2] + 1)"
-                player2rollButton.isEnabled = false
-                player2rollButton.isHidden = true
+                self.amtOfPlayersLeft = self.amtOfPlayersLeft - 1
+                self.minTurns = 0
+                self.player2score = Int(self.threeNumArr[2] + 1)
+                self.player2scoreLabel.text = String(self.player2score)
+                self.player2diceResult.text = "\(self.threeNumArr[0] + 1)-\(self.threeNumArr[1] + 1)-\(self.threeNumArr[2] + 1)"
+                self.player2rollButton.isEnabled = false
+                self.player2rollButton.isHidden = true
                 
-                if player3active == true
+                if self.player3active == true
                 {
-                    player3rollButton.isEnabled = true
-                    player3rollButton.isHidden = false
+                    self.player3rollButton.isEnabled = true
+                    self.player3rollButton.isHidden = false
                 }
-                player2hasGone = true
-                minTurns = 0
+                self.player2hasGone = true
+                self.minTurns = 0
                 //reloadInputViews()
-                checkWhoWon()
+                self.checkWhoWon()
                 break
             }
                 
-            else if (dice1.image! == dice3.image!)
+            else if (self.dice1.image! == self.dice3.image!)
             {
-                amtOfPlayersLeft = amtOfPlayersLeft - 1
-                minTurns = 0
-                player2score = Int(threeNumArr[1] + 1)
-                player2scoreLabel.text = String(player2score)
-                player2diceResult.text = "\(threeNumArr[0] + 1)-\(threeNumArr[1] + 1)-\(threeNumArr[2] + 1)"
-                player2rollButton.isEnabled = false
-                player2rollButton.isHidden = true
+                self.amtOfPlayersLeft = self.amtOfPlayersLeft - 1
+                self.minTurns = 0
+                self.player2score = Int(self.threeNumArr[1] + 1)
+                self.player2scoreLabel.text = String(self.player2score)
+                self.player2diceResult.text = "\(self.threeNumArr[0] + 1)-\(self.threeNumArr[1] + 1)-\(self.threeNumArr[2] + 1)"
+                self.player2rollButton.isEnabled = false
+                self.player2rollButton.isHidden = true
                 
-                if player3active == true
+                if self.player3active == true
                 {
-                    player3rollButton.isEnabled = true
-                    player3rollButton.isHidden = false
+                    self.player3rollButton.isEnabled = true
+                    self.player3rollButton.isHidden = false
                 }
-                player2hasGone = true
+                self.player2hasGone = true
                 //reloadInputViews()
-                checkWhoWon()
+                self.checkWhoWon()
                 break
                 
             }
                 
-            else if (dice2.image! == dice3.image!)
+            else if (self.dice2.image! == self.dice3.image!)
             {
-                amtOfPlayersLeft = amtOfPlayersLeft - 1
-                minTurns = 0
-                player2score = Int(threeNumArr[0] + 1)
-                player2scoreLabel.text = String(player2score)
-                player2diceResult.text = "\(threeNumArr[0] + 1)-\(threeNumArr[1] + 1)-\(threeNumArr[2] + 1)"
-                player2rollButton.isEnabled = false
-                player2rollButton.isHidden = true
+                self.amtOfPlayersLeft = self.amtOfPlayersLeft - 1
+                self.minTurns = 0
+                self.player2score = Int(self.threeNumArr[0] + 1)
+                self.player2scoreLabel.text = String(self.player2score)
+                self.player2diceResult.text = "\(self.threeNumArr[0] + 1)-\(self.threeNumArr[1] + 1)-\(self.threeNumArr[2] + 1)"
+                self.player2rollButton.isEnabled = false
+                self.player2rollButton.isHidden = true
                 
-                if player3active == true
+                if self.player3active == true
                 {
-                    player3rollButton.isEnabled = true
-                    player3rollButton.isHidden = false
+                    self.player3rollButton.isEnabled = true
+                    self.player3rollButton.isHidden = false
                 }
-                player2hasGone = true
+                self.player2hasGone = true
                 //reloadInputViews()
-                checkWhoWon()
+                self.checkWhoWon()
                 break
                 
             }
@@ -572,6 +615,7 @@ class ThreePlayerViewController: UIViewController {
         }
             print("Player 2 has went ")
             
+        }
         }
     }
     
@@ -588,116 +632,120 @@ class ThreePlayerViewController: UIViewController {
             gameDecided = false
             submitButton.isEnabled = false
             resetButton.isEnabled = false
-            diceRoll()
+            randomImageFirst()
+            
+            DispatchQueue.main.asyncAfter(deadline: .now() + 1.6)
+            {
+                self.diceRoll()
             //testPlayer1Roll()
             
-            while(player1hasGone == false)
+                while(self.player1hasGone == false)
             {
-                if (dice2.image! != dice3.image! && dice1.image! != dice3.image! && dice1.image! != dice2.image!)
+                if (self.dice2.image! != self.dice3.image! && self.dice1.image! != self.dice3.image! && self.dice1.image! != self.dice2.image!)
                 {
-                    if (diceNameArr[threeNumArr[0]] == "DICE4B" && diceNameArr[threeNumArr[1]] == "DICE5B" && diceNameArr[threeNumArr[2]] == "DICE6B" ||
-                        diceNameArr[threeNumArr[0]] == "DICE4B" && diceNameArr[threeNumArr[1]] == "DICE6B" && diceNameArr[threeNumArr[2]] == "DICE5B" ||
-                        diceNameArr[threeNumArr[0]] == "DICE5B" && diceNameArr[threeNumArr[1]] == "DICE4B" && diceNameArr[threeNumArr[2]] == "DICE6B" ||
-                        diceNameArr[threeNumArr[0]] == "DICE5B" && diceNameArr[threeNumArr[1]] == "DICE6B" && diceNameArr[threeNumArr[2]] == "DICE4B" ||
-                        diceNameArr[threeNumArr[0]] == "DICE6B" && diceNameArr[threeNumArr[1]] == "DICE4B" && diceNameArr[threeNumArr[2]] == "DICE5B" ||
-                        diceNameArr[threeNumArr[0]] == "DICE6B" && diceNameArr[threeNumArr[1]] == "DICE5B" && diceNameArr[threeNumArr[2]] == "DICE4B")
+                    if (self.diceNameArr[self.threeNumArr[0]] == "DICE4B" && self.diceNameArr[self.threeNumArr[1]] == "DICE5B" && self.diceNameArr[self.threeNumArr[2]] == "DICE6B" ||
+                        self.diceNameArr[self.threeNumArr[0]] == "DICE4B" && self.diceNameArr[self.threeNumArr[1]] == "DICE6B" && self.diceNameArr[self.threeNumArr[2]] == "DICE5B" ||
+                        self.diceNameArr[self.threeNumArr[0]] == "DICE5B" && self.diceNameArr[self.threeNumArr[1]] == "DICE4B" && self.diceNameArr[self.threeNumArr[2]] == "DICE6B" ||
+                        self.diceNameArr[self.threeNumArr[0]] == "DICE5B" && self.diceNameArr[self.threeNumArr[1]] == "DICE6B" && self.diceNameArr[self.threeNumArr[2]] == "DICE4B" ||
+                        self.diceNameArr[self.threeNumArr[0]] == "DICE6B" && self.diceNameArr[self.threeNumArr[1]] == "DICE4B" && self.diceNameArr[self.threeNumArr[2]] == "DICE5B" ||
+                        self.diceNameArr[self.threeNumArr[0]] == "DICE6B" && self.diceNameArr[self.threeNumArr[1]] == "DICE5B" && self.diceNameArr[self.threeNumArr[2]] == "DICE4B")
                     {
-                        amtOfPlayersLeft = amtOfPlayersLeft - 1
-                        minTurns = 0
-                        player1fourFiveSix = true
-                        player1score = 6
-                        player1scoreLabel.text = String(player1score)
-                        player1diceResult.text = "\(threeNumArr[0] + 1)-\(threeNumArr[1] + 1)-\(threeNumArr[2] + 1)"
-                        player1rollButton.isEnabled = false
-                        player1rollButton.isHidden = true
+                        self.amtOfPlayersLeft = self.amtOfPlayersLeft - 1
+                        self.minTurns = 0
+                        self.player1fourFiveSix = true
+                        self.player1score = 6
+                        self.player1scoreLabel.text = String(self.player1score)
+                        self.player1diceResult.text = "\(self.threeNumArr[0] + 1)-\(self.threeNumArr[1] + 1)-\(self.threeNumArr[2] + 1)"
+                        self.player1rollButton.isEnabled = false
+                        self.player1rollButton.isHidden = true
                         
-                        if player2active == true
+                        if self.player2active == true
                         {
-                            player2rollButton.isEnabled = true
-                            player2rollButton.isHidden = false
+                            self.player2rollButton.isEnabled = true
+                            self.player2rollButton.isHidden = false
                         }
                         
-                        if player2active == false && player3active == true
+                        if self.player2active == false && self.player3active == true
                         {
-                            player3rollButton.isHidden = false
-                            player3rollButton.isEnabled = true
+                            self.player3rollButton.isHidden = false
+                            self.player3rollButton.isEnabled = true
                         }
                         
             
-                        player1hasGone = true
+                        self.player1hasGone = true
                         //reloadInputViews()
                         print("here456")
                         //checkWhoWon()
                         break
                     }
                     
-                    if (diceNameArr[threeNumArr[0]] == "DICE1B" && diceNameArr[threeNumArr[1]] == "DICE2B" && diceNameArr[threeNumArr[2]] == "DICE3B" ||
-                        diceNameArr[threeNumArr[0]] == "DICE1B" && diceNameArr[threeNumArr[1]] == "DICE3B" && diceNameArr[threeNumArr[2]] == "DICE2B" ||
-                        diceNameArr[threeNumArr[0]] == "DICE2B" && diceNameArr[threeNumArr[1]] == "DICE1B" && diceNameArr[threeNumArr[2]] == "DICE3B" ||
-                        diceNameArr[threeNumArr[0]] == "DICE2B" && diceNameArr[threeNumArr[1]] == "DICE3B" && diceNameArr[threeNumArr[2]] == "DICE1B" ||
-                        diceNameArr[threeNumArr[0]] == "DICE3B" && diceNameArr[threeNumArr[1]] == "DICE1B" && diceNameArr[threeNumArr[2]] == "DICE2B" ||
-                        diceNameArr[threeNumArr[0]] == "DICE3B" && diceNameArr[threeNumArr[1]] == "DICE2B" && diceNameArr[threeNumArr[2]] == "DICE1B")
+                    if (self.diceNameArr[self.threeNumArr[0]] == "DICE1B" && self.diceNameArr[self.threeNumArr[1]] == "DICE2B" && self.diceNameArr[self.threeNumArr[2]] == "DICE3B" ||
+                        self.diceNameArr[self.threeNumArr[0]] == "DICE1B" && self.diceNameArr[self.threeNumArr[1]] == "DICE3B" && self.diceNameArr[self.threeNumArr[2]] == "DICE2B" ||
+                        self.diceNameArr[self.threeNumArr[0]] == "DICE2B" && self.diceNameArr[self.threeNumArr[1]] == "DICE1B" && self.diceNameArr[self.threeNumArr[2]] == "DICE3B" ||
+                        self.diceNameArr[self.threeNumArr[0]] == "DICE2B" && self.diceNameArr[self.threeNumArr[1]] == "DICE3B" && self.diceNameArr[self.threeNumArr[2]] == "DICE1B" ||
+                        self.diceNameArr[self.threeNumArr[0]] == "DICE3B" && self.diceNameArr[self.threeNumArr[1]] == "DICE1B" && self.diceNameArr[self.threeNumArr[2]] == "DICE2B" ||
+                        self.diceNameArr[self.threeNumArr[0]] == "DICE3B" && self.diceNameArr[self.threeNumArr[1]] == "DICE2B" && self.diceNameArr[self.threeNumArr[2]] == "DICE1B")
                     {
-                        amtOfPlayersLeft = amtOfPlayersLeft - 1
-                        minTurns = 0
-                        player1oneTwoThree = true
-                        player1score = 0
-                        player1scoreLabel.text = String(player1score)
-                        player1diceResult.text = "\(threeNumArr[0] + 1)-\(threeNumArr[1] + 1)-\(threeNumArr[2] + 1)"
-                        player1rollButton.isEnabled = false
-                        player1rollButton.isHidden = true
+                        self.amtOfPlayersLeft = self.amtOfPlayersLeft - 1
+                        self.minTurns = 0
+                        self.player1oneTwoThree = true
+                        self.player1score = 0
+                        self.player1scoreLabel.text = String(self.player1score)
+                        self.player1diceResult.text = "\(self.threeNumArr[0] + 1)-\(self.threeNumArr[1] + 1)-\(self.threeNumArr[2] + 1)"
+                        self.player1rollButton.isEnabled = false
+                        self.player1rollButton.isHidden = true
                         
-                        if player2active == true
+                        if self.player2active == true
                         {
-                            player2rollButton.isEnabled = true
-                            player2rollButton.isHidden = false
+                            self.player2rollButton.isEnabled = true
+                            self.player2rollButton.isHidden = false
                         }
                         
-                        if player2active == false && player3active == true
+                        if self.player2active == false && self.player3active == true
                         {
-                            player3rollButton.isHidden = false
-                            player3rollButton.isEnabled = true
+                            self.player3rollButton.isHidden = false
+                            self.player3rollButton.isEnabled = true
                         }
                         
                         
-                        player1hasGone = true
+                        self.player1hasGone = true
                         //reloadInputViews()
                         print("here123")
                         //checkWhoWon()
                         break
                     }
                     
-                    player1rollButton.isEnabled = true
-                    player1score = 0
-                    player1scoreLabel.text = String(player1score)
-                    player1hasGone = false
+                    self.player1rollButton.isEnabled = true
+                    self.player1score = 0
+                    self.player1scoreLabel.text = String(self.player1score)
+                    self.player1hasGone = false
                     print("roll again")
                     break
                 }
                     
-                else if (dice1.image! == dice2.image! && dice2.image! == dice3.image!)
+                else if (self.dice1.image! == self.dice2.image! && self.dice2.image! == self.dice3.image!)
                 {
-                    amtOfPlayersLeft = amtOfPlayersLeft - 1
-                    minTurns = 0
-                    player1Triple = true
-                    player1score = Int(threeNumArr[0] + 1)
-                    player1scoreLabel.text = String(player1score)
-                    player1diceResult.text = "\(threeNumArr[0] + 1)-\(threeNumArr[1] + 1)-\(threeNumArr[2] + 1)"
-                    player1rollButton.isEnabled = false
-                    player1rollButton.isHidden = true
+                    self.amtOfPlayersLeft = self.amtOfPlayersLeft - 1
+                    self.minTurns = 0
+                    self.player1Triple = true
+                    self.player1score = Int(self.threeNumArr[0] + 1)
+                    self.player1scoreLabel.text = String(self.player1score)
+                    self.player1diceResult.text = "\(self.threeNumArr[0] + 1)-\(self.threeNumArr[1] + 1)-\(self.threeNumArr[2] + 1)"
+                    self.player1rollButton.isEnabled = false
+                    self.player1rollButton.isHidden = true
                     
-                    if player2active == true
+                    if self.player2active == true
                     {
-                        player2rollButton.isEnabled = true
-                        player2rollButton.isHidden = false
+                        self.player2rollButton.isEnabled = true
+                        self.player2rollButton.isHidden = false
                     }
                     
-                    if player2active == false && player3active == true
+                    if self.player2active == false && self.player3active == true
                     {
-                        player3rollButton.isHidden = false
-                        player3rollButton.isEnabled = true
+                        self.player3rollButton.isHidden = false
+                        self.player3rollButton.isEnabled = true
                     }
-                    player1hasGone = true
+                    self.player1hasGone = true
                     //reloadInputViews()
                     print("hereTriple2")
                     //checkWhoWon()
@@ -705,83 +753,83 @@ class ThreePlayerViewController: UIViewController {
                     
                 }
                     
-                else if (dice1.image! == dice2.image!)
+                else if (self.dice1.image! == self.dice2.image!)
                 {
-                    amtOfPlayersLeft = amtOfPlayersLeft - 1
-                    minTurns = 0
-                    player1score = Int(threeNumArr[2] + 1)
-                    player1scoreLabel.text = String(player1score)
-                    player1diceResult.text = "\(threeNumArr[0] + 1)-\(threeNumArr[1] + 1)-\(threeNumArr[2] + 1)"
-                    player1rollButton.isEnabled = false
-                    player1rollButton.isHidden = true
+                    self.amtOfPlayersLeft = self.amtOfPlayersLeft - 1
+                    self.minTurns = 0
+                    self.player1score = Int(self.threeNumArr[2] + 1)
+                    self.player1scoreLabel.text = String(self.player1score)
+                    self.player1diceResult.text = "\(self.threeNumArr[0] + 1)-\(self.threeNumArr[1] + 1)-\(self.threeNumArr[2] + 1)"
+                    self.player1rollButton.isEnabled = false
+                    self.player1rollButton.isHidden = true
                     
-                    if player2active == true
+                    if self.player2active == true
                     {
-                        player2rollButton.isEnabled = true
-                        player2rollButton.isHidden = false
+                        self.player2rollButton.isEnabled = true
+                        self.player2rollButton.isHidden = false
                     }
                     
-                    if player2active == false && player3active == true
+                    if self.player2active == false && self.player3active == true
                     {
-                        player3rollButton.isHidden = false
-                        player3rollButton.isEnabled = true
+                        self.player3rollButton.isHidden = false
+                        self.player3rollButton.isEnabled = true
                     }
                     
-                    player1hasGone = true
+                    self.player1hasGone = true
                     //reloadInputViews()
                     break
                 }
                     
-                else if (dice1.image! == dice3.image!)
+                else if (self.dice1.image! == self.dice3.image!)
                 {
-                    amtOfPlayersLeft = amtOfPlayersLeft - 1
-                    minTurns = 0
-                    player1score = Int(threeNumArr[1] + 1)
-                    player1scoreLabel.text = String(player1score)
-                    player1diceResult.text = "\(threeNumArr[0] + 1)-\(threeNumArr[1] + 1)-\(threeNumArr[2] + 1)"
-                    player1rollButton.isEnabled = false
-                    player1rollButton.isHidden = true
+                    self.amtOfPlayersLeft = self.amtOfPlayersLeft - 1
+                    self.minTurns = 0
+                    self.player1score = Int(self.threeNumArr[1] + 1)
+                    self.player1scoreLabel.text = String(self.player1score)
+                    self.player1diceResult.text = "\(self.threeNumArr[0] + 1)-\(self.threeNumArr[1] + 1)-\(self.threeNumArr[2] + 1)"
+                    self.player1rollButton.isEnabled = false
+                    self.player1rollButton.isHidden = true
                     
-                    if player2active == true
+                    if self.player2active == true
                     {
-                        player2rollButton.isEnabled = true
-                        player2rollButton.isHidden = false
+                        self.player2rollButton.isEnabled = true
+                        self.player2rollButton.isHidden = false
                     }
                     
-                    if player2active == false && player3active == true
+                    if self.player2active == false && self.player3active == true
                     {
-                        player3rollButton.isHidden = false
-                        player3rollButton.isEnabled = true
+                        self.player3rollButton.isHidden = false
+                        self.player3rollButton.isEnabled = true
                     }
-                    player1hasGone = true
+                    self.player1hasGone = true
                     //reloadInputViews()
                     break
                     
                 }
                     
-                else if (dice2.image! == dice3.image!)
+                else if (self.dice2.image! == self.dice3.image!)
                 {
-                    amtOfPlayersLeft = amtOfPlayersLeft - 1
-                    minTurns = 0
-                    player1score = Int(threeNumArr[0] + 1)
-                    player1scoreLabel.text = String(player1score)
-                    player1diceResult.text = "\(threeNumArr[0] + 1)-\(threeNumArr[1] + 1)-\(threeNumArr[2] + 1)"
-                    player1rollButton.isEnabled = false
-                    player1rollButton.isHidden = true
+                    self.amtOfPlayersLeft = self.amtOfPlayersLeft - 1
+                    self.minTurns = 0
+                    self.player1score = Int(self.threeNumArr[0] + 1)
+                    self.player1scoreLabel.text = String(self.player1score)
+                    self.player1diceResult.text = "\(self.threeNumArr[0] + 1)-\(self.threeNumArr[1] + 1)-\(self.threeNumArr[2] + 1)"
+                    self.player1rollButton.isEnabled = false
+                    self.player1rollButton.isHidden = true
                     
                     
-                    if player2active == true
+                    if self.player2active == true
                     {
-                        player2rollButton.isEnabled = true
-                        player2rollButton.isHidden = false
+                        self.player2rollButton.isEnabled = true
+                        self.player2rollButton.isHidden = false
                     }
                     
-                    if player2active == false && player3active == true
+                    if self.player2active == false && self.player3active == true
                     {
-                        player3rollButton.isHidden = false
-                        player3rollButton.isEnabled = true
+                        self.player3rollButton.isHidden = false
+                        self.player3rollButton.isEnabled = true
                     }
-                    player1hasGone = true
+                    self.player1hasGone = true
                     //reloadInputViews()
                     break
                     
@@ -790,9 +838,68 @@ class ThreePlayerViewController: UIViewController {
             }
             print("Player 1 has went ")
             
-            
+            }
             
             }
+    }
+    
+    func winningImage(name: String)
+    {
+        DispatchQueue.main.asyncAfter(deadline: .now() + 2.4)
+        {
+            self.dice1.isHidden = true
+            self.dice2.isHidden = true
+            self.dice3.isHidden = true
+            
+            if name == "tie12"
+            {
+                self.resultImage.contentMode = .scaleAspectFill
+                self.resultImage.image = UIImage(named: "tie")
+                self.gameTied12()
+            }
+            
+            if name == "tie13"
+            {
+                self.resultImage.contentMode = .scaleAspectFill
+                self.resultImage.image = UIImage(named: "tie")
+                self.gameTied13()
+            }
+            
+            if name == "tie23"
+            {
+                self.resultImage.contentMode = .scaleAspectFill
+                self.resultImage.image = UIImage(named: "tie")
+                self.gameTied23()
+            }
+            
+            if name == "tie123"
+            {
+                self.resultImage.contentMode = .scaleAspectFill
+                self.resultImage.image = UIImage(named: "tie")
+                self.gameTied()
+            }
+            
+            if name == "player1wins"
+            {
+                self.resultImage.contentMode = .scaleAspectFill
+                self.resultImage.image = UIImage(named: "player1wins")
+                self.gameCompleted()
+            }
+            
+            if name == "player2wins"
+            {
+                self.resultImage.contentMode = .scaleAspectFill
+                self.resultImage.image = UIImage(named: "player2wins")
+                self.gameCompleted()
+            }
+            
+            if name == "player3wins"
+            {
+                self.resultImage.contentMode = .scaleAspectFill
+                self.resultImage.image = UIImage(named: "player3wins")
+                self.gameCompleted()
+            }
+        }
     }
     
     
@@ -810,7 +917,7 @@ class ThreePlayerViewController: UIViewController {
         randomIndexVar2 = 0
         randomIndexVar3 = 0
         player1rollButton.isHidden = false
-        player1rollButton.isEnabled = false
+        player1rollButton.isEnabled = true
         player1oneTwoThree = false
         player2oneTwoThree = false
         player1fourFiveSix = false
@@ -824,6 +931,10 @@ class ThreePlayerViewController: UIViewController {
         player1hasGone = false
         player2active = true
         player2hasGone = false
+        dice1.isHidden = false
+        dice2.isHidden = false
+        dice3.isHidden = false
+        resultImage.isHidden = true
         
     }
     
@@ -840,7 +951,7 @@ class ThreePlayerViewController: UIViewController {
         randomIndexVar2 = 0
         randomIndexVar3 = 0
         player1rollButton.isHidden = false
-        player1rollButton.isEnabled = false
+        player1rollButton.isEnabled = true
         player1oneTwoThree = false
         player3oneTwoThree = false
         player1fourFiveSix = false
@@ -854,6 +965,11 @@ class ThreePlayerViewController: UIViewController {
         player1hasGone = false
         player3active = true
         player3hasGone = false
+        dice1.isHidden = false
+        dice2.isHidden = false
+        dice3.isHidden = false
+        resultImage.isHidden = true
+        
     }
     
     public func resetEverythingP2nP3()
@@ -869,7 +985,7 @@ class ThreePlayerViewController: UIViewController {
         randomIndexVar2 = 0
         randomIndexVar3 = 0
         player2rollButton.isHidden = false
-        player2rollButton.isEnabled = false
+        player2rollButton.isEnabled = true
         player2oneTwoThree = false
         player3oneTwoThree = false
         player2fourFiveSix = false
@@ -883,6 +999,10 @@ class ThreePlayerViewController: UIViewController {
         player2hasGone = false
         player3active = true
         player3hasGone = false
+        dice1.isHidden = false
+        dice2.isHidden = false
+        dice3.isHidden = false
+        resultImage.isHidden = true
     }
     
     public func resetEverythingButBetAmt()
@@ -890,6 +1010,8 @@ class ThreePlayerViewController: UIViewController {
         player1diceResult.text = "0-0-0"
         player2diceResult.text = "0-0-0"
         player3diceResult.text = "0-0-0"
+        player1rollButton.isHidden = false
+        player1rollButton.isEnabled = true
         player1score = 0
         player2score = 0
         player3score = 0
@@ -914,6 +1036,13 @@ class ThreePlayerViewController: UIViewController {
         player1hasGone = false
         player2hasGone = false
         player3hasGone = false
+        player1active = true
+        player2active = true
+        player3active = true
+        dice1.isHidden = false
+        dice2.isHidden = false
+        dice3.isHidden = false
+        resultImage.isHidden = true
     }
     
     
@@ -921,6 +1050,7 @@ class ThreePlayerViewController: UIViewController {
     public func resetEverything()
     {
         player1rollButton.isEnabled = true
+        player1rollButton.isHidden = false 
         player1diceResult.text = "0-0-0"
         player2diceResult.text = "0-0-0"
         player3diceResult.text = "0-0-0"
@@ -945,6 +1075,9 @@ class ThreePlayerViewController: UIViewController {
         gameDecided = false
         minTurns = 0
         threeNumArr = [0,0,0]
+        player1active = true
+        player2active = true
+        player3active = true 
         player1hasGone = false
         player2hasGone = false
         player3hasGone = false
@@ -954,6 +1087,10 @@ class ThreePlayerViewController: UIViewController {
         betTextField.text = ""
         betTextField.isHidden = false
         betTextField.isEnabled = true
+        dice1.isHidden = false
+        dice2.isHidden = false
+        dice3.isHidden = false
+        resultImage.isHidden = true
     }
     
     
@@ -967,8 +1104,8 @@ class ThreePlayerViewController: UIViewController {
                 //Animation for tie here
                 message = "Three way tie, everyone collects"
                 print("Three way tie456")
+                winningImage(name: "tie")
                 gameDecided = true
-                gameTied()
                 amtOfPlayersLeft = 3
                 player1rollButton.isEnabled = true
                 player2rollButton.isEnabled = false
@@ -982,8 +1119,8 @@ class ThreePlayerViewController: UIViewController {
                 //Animation for tie here
                 message = "Two way tie, you have the option to split winnings or quit game and choose 2 player option and go for it all"
                 print("Two way tie456 player12")
+                winningImage(name: "tie12")
                 gameDecided = true
-                gameTied12()
                 amtOfPlayersLeft = 2
                 player1rollButton.isEnabled = true
                 player2rollButton.isEnabled = false
@@ -996,8 +1133,8 @@ class ThreePlayerViewController: UIViewController {
                 //Animation for tie here
                 message = "Two way tie, you have the option to split winnings or quit game and choose 2 player option and go for it all"
                 print("Two way tie456 player13")
+                winningImage(name: "tie13")
                 gameDecided = true
-                gameTied13()
                 amtOfPlayersLeft = 2
                 player1rollButton.isEnabled = true
                 player3rollButton.isEnabled = false
@@ -1010,8 +1147,8 @@ class ThreePlayerViewController: UIViewController {
                 //Animation for tie here
                 message = "Two way tie, you have the option to split winnings or quit game and choose 2 player option and go for it all"
                 print("Two way tie456 player23")
+                winningImage(name: "tie23")
                 gameDecided = true
-                gameTied23()
                 amtOfPlayersLeft = 2
                 player2rollButton.isEnabled = true
                 player3rollButton.isEnabled = false
@@ -1023,7 +1160,7 @@ class ThreePlayerViewController: UIViewController {
             {
                 //Animation for win here
                 message = "player 2 has won \(betLabel.text!) with a roll of \(player2diceResult.text!)"
-                print("player 2 has won")
+                winningImage(name: "player2wins")
                 gameDecided = true
                 gameCompleted()
                 break
@@ -1034,7 +1171,7 @@ class ThreePlayerViewController: UIViewController {
             {
                 //Animation for win here
                 message = "player 1 has won \(betLabel.text!) with a roll of \(player1diceResult.text!)"
-                print("player 1 has won")
+                winningImage(name: "player1wins")
                 gameDecided = true
                 gameCompleted()
                 break
@@ -1046,7 +1183,7 @@ class ThreePlayerViewController: UIViewController {
             {
                 //Animation for win here
                 message = "player 3 has won \(betLabel.text!) with a roll of \(player3diceResult.text!)"
-                print("player 3 has won")
+                winningImage(name: "player3wins")
                 gameDecided = true
                 gameCompleted()
                 break
@@ -1058,7 +1195,7 @@ class ThreePlayerViewController: UIViewController {
             {
                 //Animation for win here
                 message = "player 1 has won \(betLabel.text!) with a roll of \(player1diceResult.text!)"
-                print("player 1 has won")
+                winningImage(name: "player1wins")
                 gameDecided = true
                 gameCompleted()
                 break
@@ -1069,7 +1206,7 @@ class ThreePlayerViewController: UIViewController {
             {
                 //Animation for win here
                 message = "player 2 has won \(betLabel.text!) with a roll of \(player2diceResult.text!)"
-                print("player 2 has won")
+                winningImage(name: "player2wins")
                 gameDecided = true
                 gameCompleted()
                 break
@@ -1080,7 +1217,7 @@ class ThreePlayerViewController: UIViewController {
             {
                 //Animation for win here
                 message = "player 3 has won \(betLabel.text!) with a roll of \(player3diceResult.text!)"
-                print("player 3 has won")
+                winningImage(name: "player3wins")
                 gameDecided = true
                 gameCompleted()
                 break
@@ -1093,7 +1230,7 @@ class ThreePlayerViewController: UIViewController {
                 {
                     //Animation for win here
                     message = "player 1 has won \(betLabel.text!) with a roll of \(player1diceResult.text!)"
-                    print("player 1 has won")
+                    winningImage(name: "player1wins")
                     gameDecided = true
                     gameCompleted()
                     break
@@ -1102,7 +1239,7 @@ class ThreePlayerViewController: UIViewController {
                 {
                     //Animation for win here
                     message = "player 2 has won \(betLabel.text!) with a roll of \(player2diceResult.text!)"
-                    print("player 2 has won")
+                    winningImage(name: "player2wins")
                     gameDecided = true
                     gameCompleted()
                     break
@@ -1113,7 +1250,7 @@ class ThreePlayerViewController: UIViewController {
                 {
                     //Animation for win here
                     message = "player 3 has won \(betLabel.text!) with a roll of \(player3diceResult.text!)"
-                    print("player 3 has won")
+                    winningImage(name: "player3wins")
                     gameDecided = true
                     gameCompleted()
                     break
@@ -1127,7 +1264,7 @@ class ThreePlayerViewController: UIViewController {
                 {
                     //Animation for win here
                     message = "player 1 has won \(betLabel.text!) with a roll of \(player1diceResult.text!)"
-                    print("player 1 has won")
+                    winningImage(name: "player1wins")
                     gameDecided = true
                     gameCompleted()
                     break
@@ -1137,7 +1274,7 @@ class ThreePlayerViewController: UIViewController {
                 {
                     //Animation for win here
                     message = "player 2 has won \(betLabel.text!) with a roll of \(player2diceResult.text!)"
-                    print("player 2 has won")
+                    winningImage(name: "player2wins")
                     gameDecided = true
                     gameCompleted()
                     break
@@ -1148,8 +1285,8 @@ class ThreePlayerViewController: UIViewController {
                     //Animation for tie here
                     message = "Two way tie, you have the option to split winnings or quit game and choose 2 player option and go for it all"
                     print("Two way tieTriple player12")
+                    winningImage(name: "tie12")
                     gameDecided = true
-                    gameTied12()
                     amtOfPlayersLeft = 2
                     player1rollButton.isEnabled = true
                     player2rollButton.isEnabled = false
@@ -1164,7 +1301,7 @@ class ThreePlayerViewController: UIViewController {
                 if (player1score > player3score)
                 {
                     message = "player 1 has won \(betLabel.text!) with a roll of \(player1diceResult.text!)"
-                    print("player 1 has won")
+                    winningImage(name: "player1wins")
                     gameDecided = true
                     gameCompleted()
                     break
@@ -1173,7 +1310,7 @@ class ThreePlayerViewController: UIViewController {
                 else if (player3score > player1score)
                 {
                     message = "player 3 has won \(betLabel.text!) with a roll of \(player3diceResult.text!)"
-                    print("player 3 has won")
+                    winningImage(name: "player3wins")
                     gameDecided = true
                     gameCompleted()
                     break
@@ -1183,8 +1320,8 @@ class ThreePlayerViewController: UIViewController {
                 {
                     message = "Two way tie, you have the option to split winnings or quit game and choose 2 player option and go for it all"
                     print("Two way tieTriple player13")
+                    winningImage(name: "tie13")
                     gameDecided = true
-                    gameTied13()
                     amtOfPlayersLeft = 2
                     player1rollButton.isEnabled = true
                     player3rollButton.isEnabled = false
@@ -1200,8 +1337,8 @@ class ThreePlayerViewController: UIViewController {
                 {
                     message = "player 2 has won \(betLabel.text!) with a roll of \(player2diceResult.text!)"
                     print("player 2 has won")
+                    winningImage(name: "player2wins")
                     gameDecided = true
-                    gameCompleted()
                     break
                 }
                     
@@ -1209,8 +1346,8 @@ class ThreePlayerViewController: UIViewController {
                 {
                     message = "player 3 has won \(betLabel.text!) with a roll of \(player3diceResult.text!)"
                     print("player 3 has won")
+                    winningImage(name: "player3wins")
                     gameDecided = true
-                    gameCompleted()
                     break
                 }
                     
@@ -1218,8 +1355,9 @@ class ThreePlayerViewController: UIViewController {
                 {
                     message = "Two way tie, you have the option to split winnings or quit game and choose 2 player option and go for it all"
                     print("Two way tieTriple player23")
+                    winningImage(name: "tie23")
                     gameDecided = true
-                    gameTied()
+                    amtOfPlayersLeft = 2
                     player2rollButton.isEnabled = true
                     player3rollButton.isEnabled = false
                     break
@@ -1233,8 +1371,8 @@ class ThreePlayerViewController: UIViewController {
             {
                 message = "player 1 has won \(betLabel.text!) with a roll of \(player1diceResult.text!)"
                 print("player 1 has won")
+                winningImage(name: "player1wins")
                 gameDecided = true
-                gameCompleted()
                 break
             }
                 
@@ -1243,8 +1381,8 @@ class ThreePlayerViewController: UIViewController {
             {
                 message = "player 2 has won \(betLabel.text!) with a roll of \(player2diceResult.text!)"
                 print("player 2 has won")
+                winningImage(name: "player2wins")
                 gameDecided = true
-                gameCompleted()
                 break
             }
              
@@ -1253,8 +1391,8 @@ class ThreePlayerViewController: UIViewController {
             {
                 message = "player 3 has won \(betLabel.text!) with a roll of \(player3diceResult.text!)"
                 print("player 3 has won")
+                winningImage(name: "player3wins")
                 gameDecided = true
-                gameCompleted()
                 break
             }
             
@@ -1263,11 +1401,11 @@ class ThreePlayerViewController: UIViewController {
             {
                 message = "Two way tie, you have the option to split winnings or quit game and choose 2 player option and go for it all"
                 print("Two way tieScore player12")
+                winningImage(name: "tie12")
                 gameDecided = true
-                gameTied12()
                 amtOfPlayersLeft = 2
                 player1rollButton.isEnabled = true
-                player2rollButton.isEnabled = true
+                player2rollButton.isEnabled = false
                 break
             }
             
@@ -1276,8 +1414,8 @@ class ThreePlayerViewController: UIViewController {
             {
                 message = "Two way tie, you have the option to split winnings or quit game and choose 2 player option and go for it all"
                 print("Two way tieScore player23")
+                winningImage(name: "tie23")
                 gameDecided = true
-                gameTied23()
                 amtOfPlayersLeft = 2
                 player2rollButton.isEnabled = true
                 player3rollButton.isEnabled = false
@@ -1289,8 +1427,8 @@ class ThreePlayerViewController: UIViewController {
             {
                 message = "Two way tie, you have the option to split winnings or quit game and choose 2 player option and go for it all"
                 print("Two way tieScore player13")
+                winningImage(name: "tie13")
                 gameDecided = true
-                gameTied13()
                 amtOfPlayersLeft = 2
                 player1rollButton.isEnabled = true
                 player3rollButton.isEnabled = false 
@@ -1308,99 +1446,114 @@ class ThreePlayerViewController: UIViewController {
    
     func gameCompleted()
     {
-        let alertController = UIAlertController(title: "Game complete", message: message, preferredStyle: .alert)
-        let action1 = UIAlertAction(title: "Run it back?", style: .default) { (action:UIAlertAction) in
-            self.resetEverything()
-            self.performSegue(withIdentifier: "runItBack", sender: self)
-            
-            print("You've pressed default");
+        DispatchQueue.main.asyncAfter(deadline: .now() + 5.4)
+        {
+            let alertController = UIAlertController(title: "Game complete", message: self.message, preferredStyle: .alert)
+            let action1 = UIAlertAction(title: "Run it back?", style: .default) { (action:UIAlertAction) in
+                self.resetEverything()
+                self.performSegue(withIdentifier: "runItBack", sender: self)
+                
+                print("You've pressed default");
+            }
+            let action2 = UIAlertAction(title: "Quit game", style: .default)
+            { (action: UIAlertAction) in
+                self.resetEverything()
+                self.performSegue(withIdentifier: "moveToGame", sender: self)
+                print("quit game")
+            }
+            alertController.addAction(action1)
+            alertController.addAction(action2)
+            self.present(alertController, animated: true, completion: nil)
         }
-        let action2 = UIAlertAction(title: "Quit game", style: .default)
-        { (action: UIAlertAction) in
-            self.resetEverything()
-            self.performSegue(withIdentifier: "moveToGame", sender: self)
-            print("quit game")
-        }
-        alertController.addAction(action1)
-        alertController.addAction(action2)
-        self.present(alertController, animated: true, completion: nil)
     }
     
     //Winner is still being decided
     func gameTied()
     {
-        print("Game is tied")
-        let alertController = UIAlertController(title: "Game complete", message: message, preferredStyle: .alert)
-        let action1 = UIAlertAction(title: "Run it back?", style: .default) { (action:UIAlertAction) in
-            self.resetEverythingButBetAmt()
-            print("You've run it back");
+        DispatchQueue.main.asyncAfter(deadline: .now() + 5.4)
+        {
+            print("Game is tied")
+            let alertController = UIAlertController(title: "Game complete", message: self.message, preferredStyle: .alert)
+            let action1 = UIAlertAction(title: "Run it back?", style: .default) { (action:UIAlertAction) in
+                self.resetEverythingButBetAmt()
+                print("You've run it back");
+            }
+            let action2 = UIAlertAction(title: "Quit game", style: .default)
+            { (action: UIAlertAction) in
+                self.resetEverything()
+                self.performSegue(withIdentifier: "moveToGame", sender: self)
+                print("quit game")
+            }
+            alertController.addAction(action1)
+            alertController.addAction(action2)
+            self.present(alertController, animated: true, completion: nil)
         }
-        let action2 = UIAlertAction(title: "Quit game", style: .default)
-        { (action: UIAlertAction) in
-            self.resetEverything()
-            self.performSegue(withIdentifier: "moveToGame", sender: self)
-            print("quit game")
-        }
-        alertController.addAction(action1)
-        alertController.addAction(action2)
-        self.present(alertController, animated: true, completion: nil)
     }
     
     func gameTied12()
     {
-        print("Game is tied")
-        let alertController = UIAlertController(title: "Game complete", message: message, preferredStyle: .alert)
-        let action1 = UIAlertAction(title: "Run it back?", style: .default) { (action:UIAlertAction) in
-            self.resetEverythingP1nP2()
-            print("You've run it back");
+        DispatchQueue.main.asyncAfter(deadline: .now() + 5.4)
+        {
+            print("Game is tied")
+            let alertController = UIAlertController(title: "Game complete", message: self.message, preferredStyle: .alert)
+            let action1 = UIAlertAction(title: "Run it back?", style: .default) { (action:UIAlertAction) in
+                self.resetEverythingP1nP2()
+                print("You've run it back");
+            }
+            let action2 = UIAlertAction(title: "Quit game", style: .default)
+            { (action: UIAlertAction) in
+                self.resetEverything()
+                self.performSegue(withIdentifier: "moveToGame", sender: self)
+                print("quit game")
+            }
+            alertController.addAction(action1)
+            alertController.addAction(action2)
+            self.present(alertController, animated: true, completion: nil)
         }
-        let action2 = UIAlertAction(title: "Quit game", style: .default)
-        { (action: UIAlertAction) in
-            self.resetEverything()
-            self.performSegue(withIdentifier: "moveToGame", sender: self)
-            print("quit game")
-        }
-        alertController.addAction(action1)
-        alertController.addAction(action2)
-        self.present(alertController, animated: true, completion: nil)
     }
     
     func gameTied13()
     {
-        print("Game is tied")
-        let alertController = UIAlertController(title: "Game complete", message: message, preferredStyle: .alert)
-        let action1 = UIAlertAction(title: "Run it back?", style: .default) { (action:UIAlertAction) in
-            self.resetEverythingP1nP3()
-            print("You've run it back");
+        DispatchQueue.main.asyncAfter(deadline: .now() + 5.4)
+        {
+            print("Game is tied")
+            let alertController = UIAlertController(title: "Game complete", message: self.message, preferredStyle: .alert)
+            let action1 = UIAlertAction(title: "Run it back?", style: .default) { (action:UIAlertAction) in
+                self.resetEverythingP1nP3()
+                print("You've run it back");
+            }
+            let action2 = UIAlertAction(title: "Quit game", style: .default)
+            { (action: UIAlertAction) in
+                self.resetEverything()
+                self.performSegue(withIdentifier: "moveToGame", sender: self)
+                print("quit game")
+            }
+            alertController.addAction(action1)
+            alertController.addAction(action2)
+            self.present(alertController, animated: true, completion: nil)
         }
-        let action2 = UIAlertAction(title: "Quit game", style: .default)
-        { (action: UIAlertAction) in
-            self.resetEverything()
-            self.performSegue(withIdentifier: "moveToGame", sender: self)
-            print("quit game")
-        }
-        alertController.addAction(action1)
-        alertController.addAction(action2)
-        self.present(alertController, animated: true, completion: nil)
     }
     
     func gameTied23()
     {
-        print("Game is tied")
-        let alertController = UIAlertController(title: "Game complete", message: message, preferredStyle: .alert)
-        let action1 = UIAlertAction(title: "Run it back?", style: .default) { (action:UIAlertAction) in
-            self.resetEverythingP2nP3()
-            print("You've run it back");
+        DispatchQueue.main.asyncAfter(deadline: .now() + 5.4)
+        {
+            print("Game is tied")
+            let alertController = UIAlertController(title: "Game complete", message: self.message, preferredStyle: .alert)
+            let action1 = UIAlertAction(title: "Run it back?", style: .default) { (action:UIAlertAction) in
+                self.resetEverythingP2nP3()
+                print("You've run it back");
+            }
+            let action2 = UIAlertAction(title: "Quit game", style: .default)
+            { (action: UIAlertAction) in
+                self.resetEverything()
+                self.performSegue(withIdentifier: "moveToGame", sender: self)
+                print("quit game")
+            }
+            alertController.addAction(action1)
+            alertController.addAction(action2)
+            self.present(alertController, animated: true, completion: nil)
         }
-        let action2 = UIAlertAction(title: "Quit game", style: .default)
-        { (action: UIAlertAction) in
-            self.resetEverything()
-            self.performSegue(withIdentifier: "moveToGame", sender: self)
-            print("quit game")
-        }
-        alertController.addAction(action1)
-        alertController.addAction(action2)
-        self.present(alertController, animated: true, completion: nil)
     }
     
     

@@ -13,11 +13,9 @@
 		052688C92288A4FC0024B0FF /* ThreePlayTurnOfEventsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 052688C82288A4FC0024B0FF /* ThreePlayTurnOfEventsViewController.swift */; };
 		052688CB2288A5190024B0FF /* FourPlayTurnOfEventsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 052688CA2288A5190024B0FF /* FourPlayTurnOfEventsViewController.swift */; };
 		05346A92226D76C9003E37B4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05346A91226D76C9003E37B4 /* AppDelegate.swift */; };
-		05346A94226D76C9003E37B4 /* TwoPlayerController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05346A93226D76C9003E37B4 /* TwoPlayerController.swift */; };
 		05346A97226D76C9003E37B4 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 05346A95226D76C9003E37B4 /* Main.storyboard */; };
 		05346A99226D76CB003E37B4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 05346A98226D76CB003E37B4 /* Assets.xcassets */; };
 		05346A9C226D76CB003E37B4 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 05346A9A226D76CB003E37B4 /* LaunchScreen.storyboard */; };
-		05346AA4226E1679003E37B4 /* LaunchPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05346AA3226E1679003E37B4 /* LaunchPageViewController.swift */; };
 		0586E7BE227EAEBA00D6C638 /* FourPlayerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0586E7BD227EAEBA00D6C638 /* FourPlayerViewController.swift */; };
 		05B9918522AAC17200909AF9 /* PlayerModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 05B9918322AAC17200909AF9 /* PlayerModel.xcdatamodeld */; };
 		05ECC48A22768A6300F87407 /* TwoPlayerIIViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05ECC48922768A6300F87407 /* TwoPlayerIIViewController.swift */; };
@@ -31,12 +29,10 @@
 		052688CA2288A5190024B0FF /* FourPlayTurnOfEventsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FourPlayTurnOfEventsViewController.swift; sourceTree = "<group>"; };
 		05346A8E226D76C9003E37B4 /* Cee-lo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Cee-lo.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		05346A91226D76C9003E37B4 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		05346A93226D76C9003E37B4 /* TwoPlayerController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TwoPlayerController.swift; sourceTree = "<group>"; };
 		05346A96226D76C9003E37B4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		05346A98226D76CB003E37B4 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		05346A9B226D76CB003E37B4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		05346A9D226D76CB003E37B4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		05346AA3226E1679003E37B4 /* LaunchPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchPageViewController.swift; sourceTree = "<group>"; };
 		0586E7BD227EAEBA00D6C638 /* FourPlayerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FourPlayerViewController.swift; sourceTree = "<group>"; };
 		05B9918422AAC17200909AF9 /* PlayerModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = PlayerModel.xcdatamodel; sourceTree = "<group>"; };
 		05ECC48922768A6300F87407 /* TwoPlayerIIViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TwoPlayerIIViewController.swift; sourceTree = "<group>"; };
@@ -88,9 +84,7 @@
 			children = (
 				05008F4922BAAC3C00DABC16 /* StartPageViewController.swift */,
 				05ECC48922768A6300F87407 /* TwoPlayerIIViewController.swift */,
-				05346A93226D76C9003E37B4 /* TwoPlayerController.swift */,
 				050688EB226FB87200FE1FC6 /* ThreePlayerViewController.swift */,
-				05346AA3226E1679003E37B4 /* LaunchPageViewController.swift */,
 				0586E7BD227EAEBA00D6C638 /* FourPlayerViewController.swift */,
 				052688C62288A4D70024B0FF /* TwoPlayTurnOfEventsViewController.swift */,
 				052688C82288A4FC0024B0FF /* ThreePlayTurnOfEventsViewController.swift */,
@@ -186,9 +180,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				05346A94226D76C9003E37B4 /* TwoPlayerController.swift in Sources */,
 				052688C72288A4D70024B0FF /* TwoPlayTurnOfEventsViewController.swift in Sources */,
-				05346AA4226E1679003E37B4 /* LaunchPageViewController.swift in Sources */,
 				050688EC226FB87200FE1FC6 /* ThreePlayerViewController.swift in Sources */,
 				052688C92288A4FC0024B0FF /* ThreePlayTurnOfEventsViewController.swift in Sources */,
 				05346A92226D76C9003E37B4 /* AppDelegate.swift in Sources */,
