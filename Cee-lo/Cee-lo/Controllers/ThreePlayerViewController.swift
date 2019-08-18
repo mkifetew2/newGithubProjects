@@ -97,8 +97,19 @@ class ThreePlayerViewController: UIViewController {
         
     }
     
+    //These two functions should make the keyboard appear and disappear
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        self.view.endEditing(true)
+    }
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        return true
+    }
+    
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
+        betTextField.becomeFirstResponder()
         let alertController = UIAlertController(title: "Wager entry", message: "Place a bet entry if playing to gamble next to bet label before rolling", preferredStyle: .alert)
         let action1 = UIAlertAction(title: "OK", style: .default) { (action:UIAlertAction) in
             print("You've pressed okay");
@@ -122,6 +133,7 @@ class ThreePlayerViewController: UIViewController {
         
         return updatedText.count <= 8
     }
+    
     
     func disableRolling()
     {
