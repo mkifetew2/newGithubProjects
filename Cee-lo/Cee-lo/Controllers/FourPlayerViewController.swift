@@ -138,6 +138,10 @@ class FourPlayerViewController: UIViewController {
             self.dice1.image = UIImage(named: self.diceNameArr[Int(arc4random_uniform (UInt32(self.diceNameArr.count)))])
             self.dice2.image = UIImage(named: self.diceNameArr[Int(arc4random_uniform (UInt32(self.diceNameArr.count)))])
             self.dice3.image = UIImage(named: self.diceNameArr[Int(arc4random_uniform (UInt32(self.diceNameArr.count)))])
+            self.player1rollButton.isEnabled = false
+            self.player2rollButton.isEnabled = false
+            self.player3rollButton.isEnabled = false
+            self.player4rollButton.isEnabled = false
             
         }
         DispatchQueue.main.asyncAfter(deadline: .now() + 0.4)
@@ -145,6 +149,10 @@ class FourPlayerViewController: UIViewController {
             self.dice1.image = UIImage(named: self.diceNameArr[Int(arc4random_uniform (UInt32(self.diceNameArr.count)))])
             self.dice2.image = UIImage(named: self.diceNameArr[Int(arc4random_uniform (UInt32(self.diceNameArr.count)))])
             self.dice3.image = UIImage(named: self.diceNameArr[Int(arc4random_uniform (UInt32(self.diceNameArr.count)))])
+            self.player1rollButton.isEnabled = false
+            self.player2rollButton.isEnabled = false
+            self.player3rollButton.isEnabled = false
+            self.player4rollButton.isEnabled = false
             
         }
         DispatchQueue.main.asyncAfter(deadline: .now() + 0.6)
@@ -152,6 +160,10 @@ class FourPlayerViewController: UIViewController {
             self.dice1.image = UIImage(named: self.diceNameArr[Int(arc4random_uniform (UInt32(self.diceNameArr.count)))])
             self.dice2.image = UIImage(named: self.diceNameArr[Int(arc4random_uniform (UInt32(self.diceNameArr.count)))])
             self.dice3.image = UIImage(named: self.diceNameArr[Int(arc4random_uniform (UInt32(self.diceNameArr.count)))])
+            self.player1rollButton.isEnabled = false
+            self.player2rollButton.isEnabled = false
+            self.player3rollButton.isEnabled = false
+            self.player4rollButton.isEnabled = false
             
         }
         DispatchQueue.main.asyncAfter(deadline: .now() + 0.8)
@@ -159,6 +171,10 @@ class FourPlayerViewController: UIViewController {
             self.dice1.image = UIImage(named: self.diceNameArr[Int(arc4random_uniform (UInt32(self.diceNameArr.count)))])
             self.dice2.image = UIImage(named: self.diceNameArr[Int(arc4random_uniform (UInt32(self.diceNameArr.count)))])
             self.dice3.image = UIImage(named: self.diceNameArr[Int(arc4random_uniform (UInt32(self.diceNameArr.count)))])
+            self.player1rollButton.isEnabled = false
+            self.player2rollButton.isEnabled = false
+            self.player3rollButton.isEnabled = false
+            self.player4rollButton.isEnabled = false
             
         }
         DispatchQueue.main.asyncAfter(deadline: .now() + 1.0)
@@ -166,6 +182,10 @@ class FourPlayerViewController: UIViewController {
             self.dice1.image = UIImage(named: self.diceNameArr[Int(arc4random_uniform (UInt32(self.diceNameArr.count)))])
             self.dice2.image = UIImage(named: self.diceNameArr[Int(arc4random_uniform (UInt32(self.diceNameArr.count)))])
             self.dice3.image = UIImage(named: self.diceNameArr[Int(arc4random_uniform (UInt32(self.diceNameArr.count)))])
+            self.player1rollButton.isEnabled = false
+            self.player2rollButton.isEnabled = false
+            self.player3rollButton.isEnabled = false
+            self.player4rollButton.isEnabled = false
             
         }
         DispatchQueue.main.asyncAfter(deadline: .now() + 1.2)
@@ -173,12 +193,20 @@ class FourPlayerViewController: UIViewController {
             self.dice1.image = UIImage(named: self.diceNameArr[Int(arc4random_uniform (UInt32(self.diceNameArr.count)))])
             self.dice2.image = UIImage(named: self.diceNameArr[Int(arc4random_uniform (UInt32(self.diceNameArr.count)))])
             self.dice3.image = UIImage(named: self.diceNameArr[Int(arc4random_uniform (UInt32(self.diceNameArr.count)))])
+            self.player1rollButton.isEnabled = false
+            self.player2rollButton.isEnabled = false
+            self.player3rollButton.isEnabled = false
+            self.player4rollButton.isEnabled = false
             
         }
     }
     
     func diceRoll()
     {
+        self.player1rollButton.isEnabled = false
+        self.player2rollButton.isEnabled = false
+        self.player3rollButton.isEnabled = false
+        self.player4rollButton.isEnabled = false
         //[0,1,2,3,4,5]
         //[1,2,3,4,5,6]
         var listOfNonWinningScores = ["013", "014", "015", "023", "024", "025", "031", "032", "034", "035", "041", "042", "043", "045", "051", "052", "053","054","103", "104", "105", "123", "124", "125", "130", "132", "134", "135", "140", "142", "143", "145", "150", "152", "153", "154","203", "204", "205", "213", "214", "215", "230", "231", "234", "235", "240", "241", "243", "245", "250", "251", "253", "254", "301", "302", "304", "305", "310", "312", "314", "315", "320", "321", "324", "325", "340", "341", "342", "350", "351", "352", "401", "402", "403", "405", "410", "412", "413", "415", "420", "421", "423", "425", "430", "431", "432", "450", "451", "452", "501", "502", "503", "504", "510", "512", "513", "514", "520", "521", "523", "524", "530", "531", "532", "540", "541", "542"]
@@ -317,16 +345,20 @@ class FourPlayerViewController: UIViewController {
                     if self.player2hasGone == false
                     {
                         self.player2rollButton.isHidden = false
+                        self.player2rollButton.isEnabled = true
+                        
                     }
                     
                     if self.player2hasGone == true && self.player3hasGone == false
                     {
                         self.player3rollButton.isHidden = false
+                        self.player3rollButton.isEnabled = true
                     }
                     
                     if self.player2hasGone == true && self.player3hasGone == true && self.player4hasGone == false
                     {
                         self.player4rollButton.isHidden = false
+                        self.player4rollButton.isEnabled = true
                     }
                     
                     
@@ -354,16 +386,19 @@ class FourPlayerViewController: UIViewController {
                     if self.player2hasGone == false
                     {
                         self.player2rollButton.isHidden = false
+                        self.player2rollButton.isEnabled = true
                     }
                     
                     if self.player2hasGone == true && self.player3hasGone == false
                     {
                         self.player3rollButton.isHidden = false
+                        self.player3rollButton.isEnabled = true
                     }
                     
                     if self.player2hasGone == true && self.player3hasGone == true && self.player4hasGone == false
                     {
                         self.player4rollButton.isHidden = false
+                        self.player3rollButton.isEnabled = true
                     }
                     
             
@@ -394,16 +429,19 @@ class FourPlayerViewController: UIViewController {
                 if self.player2hasGone == false
                 {
                     self.player2rollButton.isHidden = false
+                    self.player2rollButton.isEnabled = true
                 }
                 
                 if self.player2hasGone == true && self.player3hasGone == false
                 {
                     self.player3rollButton.isHidden = false
+                    self.player3rollButton.isEnabled = true
                 }
                 
                 if self.player2hasGone == true && self.player3hasGone == true && self.player4hasGone == false
                 {
                     self.player4rollButton.isHidden = false
+                    self.player4rollButton.isEnabled = true
                 }
                 
                 self.player1hasGone = true
@@ -425,16 +463,19 @@ class FourPlayerViewController: UIViewController {
                 if self.player2hasGone == false
                 {
                     self.player2rollButton.isHidden = false
+                    self.player2rollButton.isEnabled = true
                 }
                 
                 if self.player2hasGone == true && self.player3hasGone == false
                 {
                     self.player3rollButton.isHidden = false
+                    self.player3rollButton.isEnabled = true
                 }
                 
                 if self.player2hasGone == true && self.player3hasGone == true && self.player4hasGone == false
                 {
                     self.player4rollButton.isHidden = false
+                    self.player4rollButton.isEnabled = true
                 }
                 
                 self.player1hasGone = true
@@ -454,16 +495,19 @@ class FourPlayerViewController: UIViewController {
                 if self.player2hasGone == false
                 {
                     self.player2rollButton.isHidden = false
+                    self.player2rollButton.isEnabled = true
                 }
                 
                 if self.player2hasGone == true && self.player3hasGone == false
                 {
                     self.player3rollButton.isHidden = false
+                    self.player3rollButton.isEnabled = true
                 }
                 
                 if self.player2hasGone == true && self.player3hasGone == true && self.player4hasGone == false
                 {
                     self.player4rollButton.isHidden = false
+                    self.player4rollButton.isEnabled = true
                 }
                 
                 self.player1hasGone = true
@@ -484,16 +528,19 @@ class FourPlayerViewController: UIViewController {
                 if self.player2hasGone == false
                 {
                     self.player2rollButton.isHidden = false
+                    self.player2rollButton.isEnabled = true
                 }
                 
                 if self.player2hasGone == true && self.player3hasGone == false
                 {
                     self.player3rollButton.isHidden = false
+                    self.player3rollButton.isEnabled = true
                 }
                 
                 if self.player2hasGone == true && self.player3hasGone == true && self.player4hasGone == false
                 {
                     self.player4rollButton.isHidden = false
+                    self.player4rollButton.isEnabled = true
                 }
                 
                 self.player1hasGone = true
@@ -540,11 +587,13 @@ class FourPlayerViewController: UIViewController {
                     if self.player3hasGone == false
                     {
                         self.player3rollButton.isHidden = false
+                        self.player3rollButton.isEnabled = true
                     }
                     
                     if self.player3hasGone == true && self.player4hasGone == false
                     {
                         self.player4rollButton.isHidden = false
+                        self.player4rollButton.isEnabled = true
                     }
     
                     self.player2hasGone = true
@@ -572,11 +621,13 @@ class FourPlayerViewController: UIViewController {
                     if self.player3hasGone == false
                     {
                         self.player3rollButton.isHidden = false
+                        self.player3rollButton.isEnabled = true
                     }
                     
                     if self.player3hasGone == true && self.player4hasGone == false
                     {
                         self.player4rollButton.isHidden = false
+                        self.player4rollButton.isEnabled = true
                     }
                     self.player2hasGone = true
                     //reloadInputViews()
@@ -606,11 +657,13 @@ class FourPlayerViewController: UIViewController {
                 if self.player3hasGone == false
                 {
                     self.player3rollButton.isHidden = false
+                    self.player3rollButton.isEnabled = true
                 }
                 
                 if self.player3hasGone == true && self.player4hasGone == false
                 {
                     self.player4rollButton.isHidden = false
+                    self.player4rollButton.isEnabled = true
                 }
                 self.player2hasGone = true
                 //reloadInputViews()
@@ -632,11 +685,13 @@ class FourPlayerViewController: UIViewController {
                 if self.player3hasGone == false
                 {
                     self.player3rollButton.isHidden = false
+                    self.player3rollButton.isEnabled = true
                 }
                 
                 if self.player3hasGone == true && self.player4hasGone == false
                 {
                     self.player4rollButton.isHidden = false
+                    self.player4rollButton.isEnabled = true
                 }
                 self.player2hasGone = true
                 //reloadInputViews()
@@ -656,11 +711,13 @@ class FourPlayerViewController: UIViewController {
                 if self.player3hasGone == false
                 {
                     self.player3rollButton.isHidden = false
+                    self.player3rollButton.isEnabled = true
                 }
                 
                 if self.player3hasGone == true && self.player4hasGone == false
                 {
                     self.player4rollButton.isHidden = false
+                    self.player4rollButton.isEnabled = true
                 }
                 self.player2hasGone = true
                 //reloadInputViews()
@@ -681,11 +738,13 @@ class FourPlayerViewController: UIViewController {
                 if self.player3hasGone == false
                 {
                     self.player3rollButton.isHidden = false
+                    self.player3rollButton.isEnabled = true
                 }
                 
                 if self.player3hasGone == true && self.player4hasGone == false
                 {
                     self.player4rollButton.isHidden = false
+                    self.player4rollButton.isEnabled = true
                 }
                 self.player2hasGone = true
                 //reloadInputViews()
@@ -732,6 +791,7 @@ class FourPlayerViewController: UIViewController {
                     if self.player4hasGone == false
                     {
                         self.player4rollButton.isHidden = false
+                        self.player4rollButton.isEnabled = true
                     }
                     
                     self.player3hasGone = true
@@ -759,6 +819,7 @@ class FourPlayerViewController: UIViewController {
                     if self.player4hasGone == false
                     {
                         self.player4rollButton.isHidden = false
+                        self.player4rollButton.isEnabled = true
                     }
                     self.player3hasGone = true
                     //reloadInputViews()
@@ -788,6 +849,7 @@ class FourPlayerViewController: UIViewController {
                 if self.player4hasGone == false
                 {
                     self.player4rollButton.isHidden = false
+                    self.player4rollButton.isEnabled = true
                 }
                 self.player3hasGone = true
                 //reloadInputViews()
@@ -809,6 +871,7 @@ class FourPlayerViewController: UIViewController {
                 if self.player4hasGone == false
                 {
                     self.player4rollButton.isHidden = false
+                    self.player4rollButton.isEnabled = true
                 }
                 self.player3hasGone = true
                 self.minTurns = 0
@@ -831,6 +894,7 @@ class FourPlayerViewController: UIViewController {
                 if self.player4hasGone == false
                 {
                     self.player4rollButton.isHidden = false
+                    self.player4rollButton.isEnabled = true
                 }
                 self.player3hasGone = true
                 //reloadInputViews()
@@ -853,6 +917,7 @@ class FourPlayerViewController: UIViewController {
                 if self.player4hasGone == false
                 {
                     self.player4rollButton.isHidden = false
+                    self.player4rollButton.isEnabled = true 
                 }
                 self.player3hasGone = true
                 //reloadInputViews()
@@ -1060,6 +1125,11 @@ class FourPlayerViewController: UIViewController {
         betTextField.text = ""
         betTextField.isHidden = false
         betTextField.isEnabled = true
+        resultImage.isHidden = true
+        dice1.isHidden = false
+        dice2.isHidden = false
+        dice3.isHidden = false
+        
     }
     
     public func resetEverythingButBetAmt()
@@ -1100,6 +1170,10 @@ class FourPlayerViewController: UIViewController {
         gameDecided = false
         minTurns = 0
         threeNumArr = [0,0,0]
+        resultImage.isHidden = true
+        dice1.isHidden = false
+        dice2.isHidden = false
+        dice3.isHidden = false
        
     }
     
@@ -1135,6 +1209,10 @@ class FourPlayerViewController: UIViewController {
         player1hasGone = false
         player2hasGone = false
         player3hasGone = false
+        resultImage.isHidden = true
+        dice1.isHidden = false
+        dice2.isHidden = false
+        dice3.isHidden = false
     }
     
     public func resetEverythingP1nP2nP4()
@@ -1169,6 +1247,10 @@ class FourPlayerViewController: UIViewController {
         player1hasGone = false
         player2hasGone = false
         player4hasGone = false
+        resultImage.isHidden = true
+        dice1.isHidden = false
+        dice2.isHidden = false
+        dice3.isHidden = false
     }
     
     public func resetEverythingP1nP3nP4()
@@ -1203,6 +1285,10 @@ class FourPlayerViewController: UIViewController {
         player1hasGone = false
         player3hasGone = false
         player4hasGone = false
+        resultImage.isHidden = true
+        dice1.isHidden = false
+        dice2.isHidden = false
+        dice3.isHidden = false
     }
     
     public func resetEverythingP2nP3nP4()
@@ -1238,6 +1324,9 @@ class FourPlayerViewController: UIViewController {
         player3hasGone = false
         player4hasGone = false
         resultImage.isHidden = true
+        dice1.isHidden = false
+        dice2.isHidden = false
+        dice3.isHidden = false
     }
     
     
@@ -1257,7 +1346,7 @@ class FourPlayerViewController: UIViewController {
         randomIndexVar2 = 0
         randomIndexVar3 = 0
         player1rollButton.isHidden = false
-        player1rollButton.isEnabled = false
+        player1rollButton.isEnabled = true
         player1oneTwoThree = false
         player2oneTwoThree = false
         player1fourFiveSix = false
@@ -1270,6 +1359,9 @@ class FourPlayerViewController: UIViewController {
         player1hasGone = false
         player2hasGone = false
         resultImage.isHidden = true
+        dice1.isHidden = false
+        dice2.isHidden = false
+        dice3.isHidden = false
         
     }
     
@@ -1287,7 +1379,7 @@ class FourPlayerViewController: UIViewController {
         randomIndexVar2 = 0
         randomIndexVar3 = 0
         player1rollButton.isHidden = false
-        player1rollButton.isEnabled = false
+        player1rollButton.isEnabled = true
         player1oneTwoThree = false
         player3oneTwoThree = false
         player1fourFiveSix = false
@@ -1300,6 +1392,9 @@ class FourPlayerViewController: UIViewController {
         player1hasGone = false
         player3hasGone = false
         resultImage.isHidden = true
+        dice1.isHidden = false
+        dice2.isHidden = false
+        dice3.isHidden = false
     }
     
     public func resetEverythingP1nP4()
@@ -1316,7 +1411,7 @@ class FourPlayerViewController: UIViewController {
         randomIndexVar2 = 0
         randomIndexVar3 = 0
         player1rollButton.isHidden = false
-        player1rollButton.isEnabled = false
+        player1rollButton.isEnabled = true
         player1oneTwoThree = false
         player4oneTwoThree = false
         player1fourFiveSix = false
@@ -1328,6 +1423,10 @@ class FourPlayerViewController: UIViewController {
         threeNumArr = [0,0,0]
         player1hasGone = false
         player4hasGone = false
+        resultImage.isHidden = true
+        dice1.isHidden = false
+        dice2.isHidden = false
+        dice3.isHidden = false
     }
     
     public func resetEverythingP2nP3()
@@ -1344,7 +1443,7 @@ class FourPlayerViewController: UIViewController {
         randomIndexVar2 = 0
         randomIndexVar3 = 0
         player2rollButton.isHidden = false
-        player2rollButton.isEnabled = false
+        player2rollButton.isEnabled = true
         player2oneTwoThree = false
         player3oneTwoThree = false
         player2fourFiveSix = false
@@ -1356,6 +1455,10 @@ class FourPlayerViewController: UIViewController {
         threeNumArr = [0,0,0]
         player2hasGone = false
         player3hasGone = false
+        resultImage.isHidden = true
+        dice1.isHidden = false
+        dice2.isHidden = false
+        dice3.isHidden = false
     }
     
     public func resetEverythingP2nP4()
@@ -1372,7 +1475,7 @@ class FourPlayerViewController: UIViewController {
         randomIndexVar2 = 0
         randomIndexVar3 = 0
         player2rollButton.isHidden = false
-        player2rollButton.isEnabled = false
+        player2rollButton.isEnabled = true
         player2oneTwoThree = false
         player4oneTwoThree = false
         player2fourFiveSix = false
@@ -1384,6 +1487,10 @@ class FourPlayerViewController: UIViewController {
         threeNumArr = [0,0,0]
         player2hasGone = false
         player4hasGone = false
+        resultImage.isHidden = true
+        dice1.isHidden = false
+        dice2.isHidden = false
+        dice3.isHidden = false
     }
     
     public func resetEverythingP3nP4()
@@ -1412,6 +1519,10 @@ class FourPlayerViewController: UIViewController {
         threeNumArr = [0,0,0]
         player3hasGone = false
         player4hasGone = false
+        resultImage.isHidden = true
+        dice1.isHidden = false
+        dice2.isHidden = false
+        dice3.isHidden = false 
     }
     
     func winningImage(name: String)
@@ -1656,11 +1767,11 @@ class FourPlayerViewController: UIViewController {
              else if(player1fourFiveSix == false && player2fourFiveSix == false && player3fourFiveSix == true && player4fourFiveSix == true)
             {
                 message = "It's a tie between Player 3 and Player 4. Either split the winnings or run it back between the people who tied by quitting game and choosing the player amount of people who tied "
-                winningImage(name: "tie24")
+                winningImage(name: "tie34")
                 gameDecided = true
                 amtOfPlayersLeft = 2
-                player3rollButton.isEnabled = true
-                player3rollButton.isHidden = false
+                player2rollButton.isEnabled = true
+                player2rollButton.isHidden = false
                 break
             }
             

@@ -123,10 +123,27 @@ class ThreePlayerViewController: UIViewController {
         return updatedText.count <= 8
     }
     
+    func disableRolling()
+    {
+        player1rollButton.isEnabled = false
+        player2rollButton.isEnabled = false
+        player3rollButton.isEnabled = false
+        
+    }
+    
     func randomImageFirst()
     {
-        DispatchQueue.main.asyncAfter(deadline: .now() + 0.3)
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.2)
         {
+            self.disableRolling()
+            self.dice1.image = UIImage(named: self.diceNameArr[Int(arc4random_uniform (UInt32(self.diceNameArr.count)))])
+            self.dice2.image = UIImage(named: self.diceNameArr[Int(arc4random_uniform (UInt32(self.diceNameArr.count)))])
+            self.dice3.image = UIImage(named: self.diceNameArr[Int(arc4random_uniform (UInt32(self.diceNameArr.count)))])
+            
+        }
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.4)
+        {
+            self.disableRolling()
             self.dice1.image = UIImage(named: self.diceNameArr[Int(arc4random_uniform (UInt32(self.diceNameArr.count)))])
             self.dice2.image = UIImage(named: self.diceNameArr[Int(arc4random_uniform (UInt32(self.diceNameArr.count)))])
             self.dice3.image = UIImage(named: self.diceNameArr[Int(arc4random_uniform (UInt32(self.diceNameArr.count)))])
@@ -134,13 +151,22 @@ class ThreePlayerViewController: UIViewController {
         }
         DispatchQueue.main.asyncAfter(deadline: .now() + 0.6)
         {
+            self.disableRolling()
             self.dice1.image = UIImage(named: self.diceNameArr[Int(arc4random_uniform (UInt32(self.diceNameArr.count)))])
             self.dice2.image = UIImage(named: self.diceNameArr[Int(arc4random_uniform (UInt32(self.diceNameArr.count)))])
             self.dice3.image = UIImage(named: self.diceNameArr[Int(arc4random_uniform (UInt32(self.diceNameArr.count)))])
             
         }
-        DispatchQueue.main.asyncAfter(deadline: .now() + 0.9)
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.8)
         {
+            self.disableRolling()
+            self.dice1.image = UIImage(named: self.diceNameArr[Int(arc4random_uniform (UInt32(self.diceNameArr.count)))])
+            self.dice2.image = UIImage(named: self.diceNameArr[Int(arc4random_uniform (UInt32(self.diceNameArr.count)))])
+            self.dice3.image = UIImage(named: self.diceNameArr[Int(arc4random_uniform (UInt32(self.diceNameArr.count)))])
+        }
+        DispatchQueue.main.asyncAfter(deadline: .now() + 1.0)
+        {
+            self.disableRolling()
             self.dice1.image = UIImage(named: self.diceNameArr[Int(arc4random_uniform (UInt32(self.diceNameArr.count)))])
             self.dice2.image = UIImage(named: self.diceNameArr[Int(arc4random_uniform (UInt32(self.diceNameArr.count)))])
             self.dice3.image = UIImage(named: self.diceNameArr[Int(arc4random_uniform (UInt32(self.diceNameArr.count)))])
@@ -148,48 +174,48 @@ class ThreePlayerViewController: UIViewController {
         }
         DispatchQueue.main.asyncAfter(deadline: .now() + 1.2)
         {
+            self.disableRolling()
             self.dice1.image = UIImage(named: self.diceNameArr[Int(arc4random_uniform (UInt32(self.diceNameArr.count)))])
             self.dice2.image = UIImage(named: self.diceNameArr[Int(arc4random_uniform (UInt32(self.diceNameArr.count)))])
             self.dice3.image = UIImage(named: self.diceNameArr[Int(arc4random_uniform (UInt32(self.diceNameArr.count)))])
-            
         }
     }
     
     
-//    //Functions to test the functionality of hiearchy of winning
-//    func testPlayer1Roll()
-//    {
-//        randomIndexVar1 = 2
-//        randomIndexVar2 = 2
-//        randomIndexVar3 = 2
-//        threeNumArr[0] = randomIndexVar1!
-//        threeNumArr[1] = randomIndexVar2!
-//        threeNumArr[2] = randomIndexVar3!
-//        UIUpdates(listofNums: threeNumArr)
-//    }
-//
-//    func testPlayer2Roll()
-//    {
-//        randomIndexVar1 = 2
-//        randomIndexVar2 = 2
-//        randomIndexVar3 = 2
-//        threeNumArr[0] = randomIndexVar1!
-//        threeNumArr[1] = randomIndexVar2!
-//        threeNumArr[2] = randomIndexVar3!
-//        UIUpdates(listofNums: threeNumArr)
-//    }
-//
-//    func testPlayer3Roll()
-//    {
-//        randomIndexVar1 = 1
-//        randomIndexVar2 = 5
-//        randomIndexVar3 = 5
-//        threeNumArr[0] = randomIndexVar1!
-//        threeNumArr[1] = randomIndexVar2!
-//        threeNumArr[2] = randomIndexVar3!
-//        UIUpdates(listofNums: threeNumArr)
-//    }
-//
+    //Functions to test the functionality of hiearchy of winning
+    func testPlayer1Roll()
+    {
+        randomIndexVar1 = 2
+        randomIndexVar2 = 2
+        randomIndexVar3 = 2
+        threeNumArr[0] = randomIndexVar1!
+        threeNumArr[1] = randomIndexVar2!
+        threeNumArr[2] = randomIndexVar3!
+        UIUpdates(listofNums: threeNumArr)
+    }
+
+    func testPlayer3Roll()
+    {
+        randomIndexVar1 = 2
+        randomIndexVar2 = 2
+        randomIndexVar3 = 2
+        threeNumArr[0] = randomIndexVar1!
+        threeNumArr[1] = randomIndexVar2!
+        threeNumArr[2] = randomIndexVar3!
+        UIUpdates(listofNums: threeNumArr)
+    }
+
+    func testPlayer2Roll()
+    {
+        randomIndexVar1 = 1
+        randomIndexVar2 = 5
+        randomIndexVar3 = 5
+        threeNumArr[0] = randomIndexVar1!
+        threeNumArr[1] = randomIndexVar2!
+        threeNumArr[2] = randomIndexVar3!
+        UIUpdates(listofNums: threeNumArr)
+    }
+
     
     func UIUpdates(listofNums : [Int])
     {
@@ -203,6 +229,7 @@ class ThreePlayerViewController: UIViewController {
     
     func diceRoll()
     {
+        disableRolling()
         //[0,1,2,3,4,5]
         //[1,2,3,4,5,6]
         var listOfNonWinningScores = ["013", "014", "015", "023", "024", "025", "031", "032", "034", "035", "041", "042", "043", "045", "051", "052", "053","054","103", "104", "105", "123", "124", "125", "130", "132", "134", "135", "140", "142", "143", "145", "150", "152", "153", "154","203", "204", "205", "213", "214", "215", "230", "231", "234", "235", "240", "241", "243", "245", "250", "251", "253", "254", "301", "302", "304", "305", "310", "312", "314", "315", "320", "321", "324", "325", "340", "341", "342", "350", "351", "352", "401", "402", "403", "405", "410", "412", "413", "415", "420", "421", "423", "425", "430", "431", "432", "450", "451", "452", "501", "502", "503", "504", "510", "512", "513", "514", "520", "521", "523", "524", "530", "531", "532", "540", "541", "542"]
@@ -304,7 +331,8 @@ class ThreePlayerViewController: UIViewController {
             
             DispatchQueue.main.asyncAfter(deadline: .now() + 1.6)
             {
-                self.diceRoll()
+                //self.diceRoll()
+                self.testPlayer3Roll()
             //testPlayer3Roll()
                 while(self.player3hasGone == false)
             {
@@ -451,8 +479,8 @@ class ThreePlayerViewController: UIViewController {
         randomImageFirst()
             DispatchQueue.main.asyncAfter(deadline: .now() + 1.6)
             {
-                self.diceRoll()
-        //testPlayer2Roll()
+                //self.diceRoll()
+        self.testPlayer2Roll()
                 while(self.player2hasGone == false)
         {
             if (self.dice2.image! != self.dice3.image! && self.dice1.image! != self.dice3.image! && self.dice1.image! != self.dice2.image!)
@@ -636,8 +664,8 @@ class ThreePlayerViewController: UIViewController {
             
             DispatchQueue.main.asyncAfter(deadline: .now() + 1.6)
             {
-                self.diceRoll()
-            //testPlayer1Roll()
+                //self.diceRoll()
+            self.testPlayer1Roll()
             
                 while(self.player1hasGone == false)
             {
@@ -851,8 +879,10 @@ class ThreePlayerViewController: UIViewController {
             self.dice2.isHidden = true
             self.dice3.isHidden = true
             
+            
             if name == "tie12"
             {
+                self.resultImage.isHidden = false
                 self.resultImage.contentMode = .scaleAspectFill
                 self.resultImage.image = UIImage(named: "tie")
                 self.gameTied12()
@@ -860,6 +890,7 @@ class ThreePlayerViewController: UIViewController {
             
             if name == "tie13"
             {
+                self.resultImage.isHidden = false
                 self.resultImage.contentMode = .scaleAspectFill
                 self.resultImage.image = UIImage(named: "tie")
                 self.gameTied13()
@@ -867,6 +898,7 @@ class ThreePlayerViewController: UIViewController {
             
             if name == "tie23"
             {
+                self.resultImage.isHidden = false
                 self.resultImage.contentMode = .scaleAspectFill
                 self.resultImage.image = UIImage(named: "tie")
                 self.gameTied23()
@@ -874,6 +906,7 @@ class ThreePlayerViewController: UIViewController {
             
             if name == "tie123"
             {
+                self.resultImage.isHidden = false
                 self.resultImage.contentMode = .scaleAspectFill
                 self.resultImage.image = UIImage(named: "tie")
                 self.gameTied()
@@ -881,6 +914,7 @@ class ThreePlayerViewController: UIViewController {
             
             if name == "player1wins"
             {
+                self.resultImage.isHidden = false
                 self.resultImage.contentMode = .scaleAspectFill
                 self.resultImage.image = UIImage(named: "player1wins")
                 self.gameCompleted()
@@ -888,6 +922,7 @@ class ThreePlayerViewController: UIViewController {
             
             if name == "player2wins"
             {
+                self.resultImage.isHidden = false
                 self.resultImage.contentMode = .scaleAspectFill
                 self.resultImage.image = UIImage(named: "player2wins")
                 self.gameCompleted()
@@ -895,6 +930,7 @@ class ThreePlayerViewController: UIViewController {
             
             if name == "player3wins"
             {
+                self.resultImage.isHidden = false
                 self.resultImage.contentMode = .scaleAspectFill
                 self.resultImage.image = UIImage(named: "player3wins")
                 self.gameCompleted()
@@ -931,6 +967,7 @@ class ThreePlayerViewController: UIViewController {
         player1hasGone = false
         player2active = true
         player2hasGone = false
+        player3active = false
         dice1.isHidden = false
         dice2.isHidden = false
         dice3.isHidden = false
@@ -963,6 +1000,7 @@ class ThreePlayerViewController: UIViewController {
         threeNumArr = [0,0,0]
         player1active = true
         player1hasGone = false
+        player2active = false
         player3active = true
         player3hasGone = false
         dice1.isHidden = false
@@ -995,6 +1033,7 @@ class ThreePlayerViewController: UIViewController {
         gameDecided = false
         minTurns = 0
         threeNumArr = [0,0,0]
+        player1active = false
         player2active = true
         player2hasGone = false
         player3active = true

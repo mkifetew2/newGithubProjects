@@ -103,10 +103,17 @@ class TwoPlayerIIViewController: UIViewController, UITextFieldDelegate {
         return updatedText.count <= 8
     }
     
+    func disableRolling()
+    {
+        player1rollButton.isEnabled = false
+        player2rollButton.isEnabled = false
+    }
+    
     func randomImageFirst()
     {
         DispatchQueue.main.asyncAfter(deadline: .now() + 0.2)
         {
+            self.disableRolling()
             self.dice1Image.image = UIImage(named: self.diceNameArr[Int(arc4random_uniform (UInt32(self.diceNameArr.count)))])
             self.dice2Image.image = UIImage(named: self.diceNameArr[Int(arc4random_uniform (UInt32(self.diceNameArr.count)))])
             self.dice3Image.image = UIImage(named: self.diceNameArr[Int(arc4random_uniform (UInt32(self.diceNameArr.count)))])
@@ -114,6 +121,7 @@ class TwoPlayerIIViewController: UIViewController, UITextFieldDelegate {
         }
         DispatchQueue.main.asyncAfter(deadline: .now() + 0.4)
         {
+            self.disableRolling()
             self.dice1Image.image = UIImage(named: self.diceNameArr[Int(arc4random_uniform (UInt32(self.diceNameArr.count)))])
             self.dice2Image.image = UIImage(named: self.diceNameArr[Int(arc4random_uniform (UInt32(self.diceNameArr.count)))])
             self.dice3Image.image = UIImage(named: self.diceNameArr[Int(arc4random_uniform (UInt32(self.diceNameArr.count)))])
@@ -121,6 +129,7 @@ class TwoPlayerIIViewController: UIViewController, UITextFieldDelegate {
         }
         DispatchQueue.main.asyncAfter(deadline: .now() + 0.6)
         {
+            self.disableRolling()
             self.dice1Image.image = UIImage(named: self.diceNameArr[Int(arc4random_uniform (UInt32(self.diceNameArr.count)))])
             self.dice2Image.image = UIImage(named: self.diceNameArr[Int(arc4random_uniform (UInt32(self.diceNameArr.count)))])
             self.dice3Image.image = UIImage(named: self.diceNameArr[Int(arc4random_uniform (UInt32(self.diceNameArr.count)))])
@@ -128,6 +137,7 @@ class TwoPlayerIIViewController: UIViewController, UITextFieldDelegate {
         }
         DispatchQueue.main.asyncAfter(deadline: .now() + 0.8)
         {
+            self.disableRolling()
             self.dice1Image.image = UIImage(named: self.diceNameArr[Int(arc4random_uniform (UInt32(self.diceNameArr.count)))])
             self.dice2Image.image = UIImage(named: self.diceNameArr[Int(arc4random_uniform (UInt32(self.diceNameArr.count)))])
             self.dice3Image.image = UIImage(named: self.diceNameArr[Int(arc4random_uniform (UInt32(self.diceNameArr.count)))])
@@ -135,6 +145,7 @@ class TwoPlayerIIViewController: UIViewController, UITextFieldDelegate {
         }
         DispatchQueue.main.asyncAfter(deadline: .now() + 1.0)
         {
+            self.disableRolling()
             self.dice1Image.image = UIImage(named: self.diceNameArr[Int(arc4random_uniform (UInt32(self.diceNameArr.count)))])
             self.dice2Image.image = UIImage(named: self.diceNameArr[Int(arc4random_uniform (UInt32(self.diceNameArr.count)))])
             self.dice3Image.image = UIImage(named: self.diceNameArr[Int(arc4random_uniform (UInt32(self.diceNameArr.count)))])
@@ -142,6 +153,7 @@ class TwoPlayerIIViewController: UIViewController, UITextFieldDelegate {
         }
         DispatchQueue.main.asyncAfter(deadline: .now() + 1.2)
         {
+            self.disableRolling()
             self.dice1Image.image = UIImage(named: self.diceNameArr[Int(arc4random_uniform (UInt32(self.diceNameArr.count)))])
             self.dice2Image.image = UIImage(named: self.diceNameArr[Int(arc4random_uniform (UInt32(self.diceNameArr.count)))])
             self.dice3Image.image = UIImage(named: self.diceNameArr[Int(arc4random_uniform (UInt32(self.diceNameArr.count)))])
@@ -174,6 +186,7 @@ class TwoPlayerIIViewController: UIViewController, UITextFieldDelegate {
     
     func diceRoll()
     {
+        disableRolling()
             //[0,1,2,3,4,5]
             //[1,2,3,4,5,6]
             var listOfNonWinningScores = ["013", "014", "015", "023", "024", "025", "031", "032", "034", "035", "041", "042", "043", "045", "051", "052", "053","054","103", "104", "105", "123", "124", "125", "130", "132", "134", "135", "140", "142", "143", "145", "150", "152", "153", "154","203", "204", "205", "213", "214", "215", "230", "231", "234", "235", "240", "241", "243", "245", "250", "251", "253", "254", "301", "302", "304", "305", "310", "312", "314", "315", "320", "321", "324", "325", "340", "341", "342", "350", "351", "352", "401", "402", "403", "405", "410", "412", "413", "415", "420", "421", "423", "425", "430", "431", "432", "450", "451", "452", "501", "502", "503", "504", "510", "512", "513", "514", "520", "521", "523", "524", "530", "531", "532", "540", "541", "542"]

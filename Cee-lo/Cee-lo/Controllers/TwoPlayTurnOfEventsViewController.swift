@@ -46,32 +46,43 @@ class TwoPlayTurnOfEventsViewController: UIViewController {
        
     }
     
+    func disableRolling()
+    {
+        player1Roll.isEnabled = false
+        player2Roll.isEnabled = false
+    }
+    
     func randomImageFirst()
     {
         
         DispatchQueue.main.asyncAfter(deadline: .now() + 0.2)
         {
             self.dice.image = UIImage(named: self.diceNameArr[Int(arc4random_uniform(UInt32(self.diceNameArr.count)))])
+            self.disableRolling()
         }
         
         DispatchQueue.main.asyncAfter(deadline: .now() + 0.4)
         {
             self.dice.image = UIImage(named: self.diceNameArr[Int(arc4random_uniform(UInt32(self.diceNameArr.count)))])
+            self.disableRolling()
         }
         
         DispatchQueue.main.asyncAfter(deadline: .now() + 0.6)
         {
             self.dice.image = UIImage(named: self.diceNameArr[Int(arc4random_uniform(UInt32(self.diceNameArr.count)))])
+            self.disableRolling()
         }
         
         DispatchQueue.main.asyncAfter(deadline: .now() + 0.8)
         {
             self.dice.image = UIImage(named: self.diceNameArr[Int(arc4random_uniform(UInt32(self.diceNameArr.count)))])
+            self.disableRolling()
         }
         
         DispatchQueue.main.asyncAfter(deadline: .now() + 1.0)
         {
             self.dice.image = UIImage(named: self.diceNameArr[Int(arc4random_uniform(UInt32(self.diceNameArr.count)))])
+            self.disableRolling()
         }
         
         
@@ -81,7 +92,7 @@ class TwoPlayTurnOfEventsViewController: UIViewController {
     
     func diceRoll()
     {
-        
+        disableRolling()
         let randomNum = numArr[Int(arc4random_uniform(UInt32(diceNameArr.count)))]
         
         let startIndex = randomNum[randomNum.startIndex]
