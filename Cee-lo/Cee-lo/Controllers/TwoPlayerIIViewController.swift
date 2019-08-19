@@ -121,56 +121,79 @@ class TwoPlayerIIViewController: UIViewController, UITextFieldDelegate {
         player2rollButton.isEnabled = false
     }
     
+    func randomImageMaker()
+    {
+        self.disableRolling()
+        self.dice1Image.image = UIImage(named: self.diceNameArr[Int(arc4random_uniform (UInt32(self.diceNameArr.count)))])
+        self.dice2Image.image = UIImage(named: self.diceNameArr[Int(arc4random_uniform (UInt32(self.diceNameArr.count)))])
+        self.dice3Image.image = UIImage(named: self.diceNameArr[Int(arc4random_uniform (UInt32(self.diceNameArr.count)))])
+    }
+    
     func randomImageFirst()
     {
+       
         DispatchQueue.main.asyncAfter(deadline: .now() + 0.2)
         {
-            self.disableRolling()
             self.dice1Image.image = UIImage(named: self.diceNameArr[Int(arc4random_uniform (UInt32(self.diceNameArr.count)))])
             self.dice2Image.image = UIImage(named: self.diceNameArr[Int(arc4random_uniform (UInt32(self.diceNameArr.count)))])
             self.dice3Image.image = UIImage(named: self.diceNameArr[Int(arc4random_uniform (UInt32(self.diceNameArr.count)))])
+            self.player1rollButton.isEnabled = false
+            self.player2rollButton.isEnabled = false
             
         }
         DispatchQueue.main.asyncAfter(deadline: .now() + 0.4)
         {
-            self.disableRolling()
             self.dice1Image.image = UIImage(named: self.diceNameArr[Int(arc4random_uniform (UInt32(self.diceNameArr.count)))])
             self.dice2Image.image = UIImage(named: self.diceNameArr[Int(arc4random_uniform (UInt32(self.diceNameArr.count)))])
             self.dice3Image.image = UIImage(named: self.diceNameArr[Int(arc4random_uniform (UInt32(self.diceNameArr.count)))])
-            
+            self.player1rollButton.isEnabled = false
+            self.player2rollButton.isEnabled = false
         }
         DispatchQueue.main.asyncAfter(deadline: .now() + 0.6)
         {
-            self.disableRolling()
             self.dice1Image.image = UIImage(named: self.diceNameArr[Int(arc4random_uniform (UInt32(self.diceNameArr.count)))])
             self.dice2Image.image = UIImage(named: self.diceNameArr[Int(arc4random_uniform (UInt32(self.diceNameArr.count)))])
             self.dice3Image.image = UIImage(named: self.diceNameArr[Int(arc4random_uniform (UInt32(self.diceNameArr.count)))])
+            self.player1rollButton.isEnabled = false
+            self.player2rollButton.isEnabled = false
+            
+            
             
         }
         DispatchQueue.main.asyncAfter(deadline: .now() + 0.8)
         {
-            self.disableRolling()
             self.dice1Image.image = UIImage(named: self.diceNameArr[Int(arc4random_uniform (UInt32(self.diceNameArr.count)))])
             self.dice2Image.image = UIImage(named: self.diceNameArr[Int(arc4random_uniform (UInt32(self.diceNameArr.count)))])
             self.dice3Image.image = UIImage(named: self.diceNameArr[Int(arc4random_uniform (UInt32(self.diceNameArr.count)))])
+            self.player1rollButton.isEnabled = false
+            self.player2rollButton.isEnabled = false
+            
+            
             
         }
         DispatchQueue.main.asyncAfter(deadline: .now() + 1.0)
         {
-            self.disableRolling()
             self.dice1Image.image = UIImage(named: self.diceNameArr[Int(arc4random_uniform (UInt32(self.diceNameArr.count)))])
             self.dice2Image.image = UIImage(named: self.diceNameArr[Int(arc4random_uniform (UInt32(self.diceNameArr.count)))])
             self.dice3Image.image = UIImage(named: self.diceNameArr[Int(arc4random_uniform (UInt32(self.diceNameArr.count)))])
+            self.player1rollButton.isEnabled = false
+            self.player2rollButton.isEnabled = false
+            
+            
             
         }
         DispatchQueue.main.asyncAfter(deadline: .now() + 1.2)
         {
-            self.disableRolling()
             self.dice1Image.image = UIImage(named: self.diceNameArr[Int(arc4random_uniform (UInt32(self.diceNameArr.count)))])
             self.dice2Image.image = UIImage(named: self.diceNameArr[Int(arc4random_uniform (UInt32(self.diceNameArr.count)))])
             self.dice3Image.image = UIImage(named: self.diceNameArr[Int(arc4random_uniform (UInt32(self.diceNameArr.count)))])
+            self.player1rollButton.isEnabled = false
+            self.player2rollButton.isEnabled = false
+            
             
         }
+        
+        
     }
     
     //Functions to test the functionality of hiearchy of winning

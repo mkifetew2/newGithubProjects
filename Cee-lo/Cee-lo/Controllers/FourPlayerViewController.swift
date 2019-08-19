@@ -1545,7 +1545,7 @@ class FourPlayerViewController: UIViewController {
             self.dice1.isHidden = true
             self.dice2.isHidden = true
             self.dice3.isHidden = true
-            resultImage.isHidden = false 
+            self.resultImage.isHidden = false 
             
             if name == "tie12"
             {

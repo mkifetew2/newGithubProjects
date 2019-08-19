@@ -12,13 +12,28 @@ import SwiftyJSON
 
 class WeatherDisplayViewController: UIViewController {
 
-    var cityName : String?
-    var APP_URL = ""
+    var cityName : String? = ""
+    var weatherDescription : String? = ""
+    var cityTemp : Int? = 0
+    @IBOutlet weak var weatherDisplay: UIImageView!
+    @IBOutlet weak var tempLabel: UILabel!
+    
+    @IBAction func switchPage(_ sender: UIButton)
+    {
+        
+    }
+    
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
         // Do any additional setup after loading the view.
+        
+    }
+    
+    override func viewDidAppear(_ animated: Bool)
+    {
+        
     }
 
     override func didReceiveMemoryWarning() {
