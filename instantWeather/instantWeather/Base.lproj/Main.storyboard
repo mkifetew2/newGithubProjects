@@ -25,7 +25,7 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pmu-UT-w4Y" userLabel="submitButton">
+                            <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pmu-UT-w4Y" userLabel="submitButton">
                                 <rect key="frame" x="108.5" y="480" width="157" height="41"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="24"/>
                                 <state key="normal" title="Check weather"/>
@@ -63,31 +63,48 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Ffb-Ln-N1r">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Ffb-Ln-N1r">
                                 <rect key="frame" x="119" y="519" width="240" height="128"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="w0z-ep-mMk">
-                                <rect key="frame" x="250" y="453" width="104" height="61"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" name="ChalkboardSE-Regular" family="Chalkboard SE" pointSize="43"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Temp" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="w0z-ep-mMk">
+                                <rect key="frame" x="32.5" y="361" width="123" height="78"/>
+                                <fontDescription key="fontDescription" name="ChalkboardSE-Regular" family="Chalkboard SE" pointSize="55"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JSr-H2-fQ8">
-                                <rect key="frame" x="16" y="65" width="46" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Button"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JSr-H2-fQ8">
+                                <rect key="frame" x="29.5" y="62.5" width="54" height="42"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="25"/>
+                                <state key="normal" title="Back"/>
                                 <connections>
                                     <action selector="switchPage:" destination="UAe-4g-Tku" eventType="touchUpInside" id="5OF-3P-Git"/>
                                     <segue destination="BYZ-38-t0r" kind="show" identifier="switchPage" id="DK0-JE-acs"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="City" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="h9z-0A-C4u" userLabel="cityLabel">
+                                <rect key="frame" x="139" y="194.5" width="97" height="78"/>
+                                <fontDescription key="fontDescription" name="ChalkboardSE-Regular" family="Chalkboard SE" pointSize="55"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" red="0.98171764612197876" green="0.78165727853775024" blue="0.038854632526636124" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="Ffb-Ln-N1r" firstAttribute="leading" secondItem="ca3-8B-eEC" secondAttribute="leading" constant="119" id="3Ha-lJ-QbG"/>
+                            <constraint firstItem="ca3-8B-eEC" firstAttribute="trailing" secondItem="Ffb-Ln-N1r" secondAttribute="trailing" constant="16" id="3MV-qC-PdQ"/>
+                            <constraint firstItem="JSr-H2-fQ8" firstAttribute="centerX" secondItem="810-Wr-HZK" secondAttribute="centerX" multiplier="0.3" id="6FY-rq-WYr"/>
+                            <constraint firstItem="w0z-ep-mMk" firstAttribute="centerY" secondItem="810-Wr-HZK" secondAttribute="centerY" multiplier="1.2" id="BNe-Et-ceu"/>
+                            <constraint firstItem="h9z-0A-C4u" firstAttribute="centerX" secondItem="810-Wr-HZK" secondAttribute="centerX" id="E1V-e2-5o0"/>
+                            <constraint firstItem="ca3-8B-eEC" firstAttribute="bottom" secondItem="Ffb-Ln-N1r" secondAttribute="bottom" constant="20" id="LdA-Zg-o2U"/>
+                            <constraint firstItem="h9z-0A-C4u" firstAttribute="centerY" secondItem="810-Wr-HZK" secondAttribute="centerY" multiplier="0.7" id="XVe-2G-g8e"/>
+                            <constraint firstItem="Ffb-Ln-N1r" firstAttribute="top" secondItem="w0z-ep-mMk" secondAttribute="bottom" constant="80" id="cCX-4r-fO5"/>
+                            <constraint firstItem="w0z-ep-mMk" firstAttribute="centerX" secondItem="810-Wr-HZK" secondAttribute="centerX" multiplier="0.5" id="grJ-Lp-hnT"/>
+                            <constraint firstItem="JSr-H2-fQ8" firstAttribute="centerY" secondItem="810-Wr-HZK" secondAttribute="centerY" multiplier="0.25" id="w5S-Fu-Elp"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="ca3-8B-eEC"/>
                     </view>
                     <connections>
+                        <outlet property="cityLabel" destination="h9z-0A-C4u" id="j4f-4U-al8"/>
                         <outlet property="tempLabel" destination="w0z-ep-mMk" id="vdH-Xp-hjb"/>
                         <outlet property="weatherDisplay" destination="Ffb-Ln-N1r" id="8ea-DT-OEF"/>
                     </connections>
