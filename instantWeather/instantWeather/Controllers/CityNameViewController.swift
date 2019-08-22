@@ -25,8 +25,11 @@ class CityNameViewController: UIViewController, UITextFieldDelegate {
         super.viewDidLoad()
         
         cityEntry.delegate = self
+        
         // Do any additional setup after loading the view.
     }
+    
+    
     
     func textFieldDidEndEditing(_ textField: UITextField) {
         if (cityEntry.text?.count)! > 0

@@ -7,9 +7,11 @@
 //
 
 import UIKit
+import AVFoundation
 
 class ThreePlayTurnOfEventsViewController: UIViewController {
 
+    var audioPlayer = AVAudioPlayer()
     @IBOutlet weak var dice: UIImageView!
     
     @IBOutlet weak var player1Roll: UIButton!
@@ -46,6 +48,16 @@ class ThreePlayTurnOfEventsViewController: UIViewController {
         player3Roll.isEnabled = false
         player3Roll.isHidden = true
         // Do any additional setup after loading the view.
+        
+        let sound = Bundle.main.path(forResource: "diceRollingSound", ofType: "mp3")
+        do
+        {
+            audioPlayer = try AVAudioPlayer(contentsOf: URL(fileURLWithPath: sound!))
+        }
+        catch
+        {
+            print(error)
+        }
     }
 
     override func didReceiveMemoryWarning() {
@@ -123,6 +135,7 @@ class ThreePlayTurnOfEventsViewController: UIViewController {
     
     @IBAction func p1rollPressed(_ sender: UIButton)
     {
+        audioPlayer.play()
         randomImageFirst()
         if player1active == true
         {
@@ -154,6 +167,7 @@ class ThreePlayTurnOfEventsViewController: UIViewController {
     
     @IBAction func p2rollPressed(_ sender: UIButton)
     {
+        audioPlayer.play()
         randomImageFirst()
         if player2active == true
         {
@@ -185,6 +199,7 @@ class ThreePlayTurnOfEventsViewController: UIViewController {
     
     @IBAction func p3rollPressed(_ sender: UIButton)
     {
+        audioPlayer.play()
         randomImageFirst()
         if player3active == true
         {

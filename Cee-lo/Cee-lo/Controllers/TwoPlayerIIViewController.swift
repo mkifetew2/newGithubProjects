@@ -7,8 +7,13 @@
 //
 
 import UIKit
+import AVFoundation
 
 class TwoPlayerIIViewController: UIViewController, UITextFieldDelegate {
+    
+    var audioPlayer = AVAudioPlayer()
+    var audioPlayer2 = AVAudioPlayer()
+    var audioPlayer3 = AVAudioPlayer()
 
     
     @IBOutlet weak var dice1Image: UIImageView!
@@ -74,6 +79,34 @@ class TwoPlayerIIViewController: UIViewController, UITextFieldDelegate {
         dice3Image.image = UIImage(named: "DICE4B")
         betTextField.delegate = self
         player2rollButton.isHidden = true
+        let sound = Bundle.main.path(forResource: "diceRollingSound", ofType: "mp3")
+        let sound2 = Bundle.main.path(forResource: "123sound", ofType: "mp3")
+        let sound3 = Bundle.main.path(forResource: "456sound", ofType: "mp3")
+        do
+        {
+            audioPlayer = try AVAudioPlayer(contentsOf: URL(fileURLWithPath: sound!))
+        }
+        catch
+        {
+            print(error)
+        }
+        
+        do {
+            audioPlayer2 = try AVAudioPlayer(contentsOf: URL(fileURLWithPath: sound2!))
+        }
+        catch
+        {
+            print(error)
+        }
+        
+        do {
+            audioPlayer3 = try AVAudioPlayer(contentsOf: URL(fileURLWithPath: sound3!))
+        }
+        catch{
+            print(error)
+        }
+        
+        
     }
     
     
@@ -182,16 +215,7 @@ class TwoPlayerIIViewController: UIViewController, UITextFieldDelegate {
             
             
         }
-        DispatchQueue.main.asyncAfter(deadline: .now() + 1.2)
-        {
-            self.dice1Image.image = UIImage(named: self.diceNameArr[Int(arc4random_uniform (UInt32(self.diceNameArr.count)))])
-            self.dice2Image.image = UIImage(named: self.diceNameArr[Int(arc4random_uniform (UInt32(self.diceNameArr.count)))])
-            self.dice3Image.image = UIImage(named: self.diceNameArr[Int(arc4random_uniform (UInt32(self.diceNameArr.count)))])
-            self.player1rollButton.isEnabled = false
-            self.player2rollButton.isEnabled = false
-            
-            
-        }
+        
         
         
     }
@@ -199,9 +223,9 @@ class TwoPlayerIIViewController: UIViewController, UITextFieldDelegate {
     //Functions to test the functionality of hiearchy of winning
     func testPlayer1Roll()
     {
-        randomIndexVar1 = 3
-        randomIndexVar2 = 5
-        randomIndexVar3 = 4
+        randomIndexVar1 = 0
+        randomIndexVar2 = 1
+        randomIndexVar3 = 2
         threeNumArr[0] = randomIndexVar1!
         threeNumArr[1] = randomIndexVar2!
         threeNumArr[2] = randomIndexVar3!
@@ -210,8 +234,8 @@ class TwoPlayerIIViewController: UIViewController, UITextFieldDelegate {
     
     func testPlayer2Roll()
     {
-        randomIndexVar1 = 4
-        randomIndexVar2 = 3
+        randomIndexVar1 = 3
+        randomIndexVar2 = 4
         randomIndexVar3 = 5
         threeNumArr[0] = randomIndexVar1!
         threeNumArr[1] = randomIndexVar2!
@@ -323,6 +347,7 @@ class TwoPlayerIIViewController: UIViewController, UITextFieldDelegate {
     
     @IBAction func player1roll(_ sender: UIButton)
     {
+        audioPlayer.play()
         //whether or not the person uses the submit button to enter bet if there is anything inside the textfield it will become the bet
         betLabel.text! = betTextField.text!
         betTextField.isHidden = true
@@ -340,7 +365,7 @@ class TwoPlayerIIViewController: UIViewController, UITextFieldDelegate {
         resetButton.isEnabled = false
         randomImageFirst()
         
-        DispatchQueue.main.asyncAfter(deadline: .now() + 1.4)
+        DispatchQueue.main.asyncAfter(deadline: .now() + 1.2)
         {
             self.diceRoll()
             //testPlayer1Roll()
@@ -356,6 +381,7 @@ class TwoPlayerIIViewController: UIViewController, UITextFieldDelegate {
                     self.diceNameArr[self.threeNumArr[0]] == "DICE6B" && self.diceNameArr[self.threeNumArr[1]] == "DICE4B" && self.diceNameArr[self.threeNumArr[2]] == "DICE5B" ||
                     self.diceNameArr[self.threeNumArr[0]] == "DICE6B" && self.diceNameArr[self.threeNumArr[1]] == "DICE5B" && self.diceNameArr[self.threeNumArr[2]] == "DICE4B")
                     {
+                        self.audioPlayer3.play()
                         self.minTurns = 0
                         self.player1fourFiveSix = true
                         self.player1score = 6
@@ -381,6 +407,7 @@ class TwoPlayerIIViewController: UIViewController, UITextFieldDelegate {
                     self.diceNameArr[self.threeNumArr[0]] == "DICE3B" && self.diceNameArr[self.threeNumArr[1]] == "DICE1B" && self.diceNameArr[self.threeNumArr[2]] == "DICE2B" ||
                     self.diceNameArr[self.threeNumArr[0]] == "DICE3B" && self.diceNameArr[self.threeNumArr[1]] == "DICE2B" && self.diceNameArr[self.threeNumArr[2]] == "DICE1B")
                     {
+                        self.audioPlayer2.play()
                         self.minTurns = 0
                         self.player1oneTwoThree = true
                         self.player1score = 0
@@ -494,11 +521,12 @@ class TwoPlayerIIViewController: UIViewController, UITextFieldDelegate {
     
     @IBAction func player2roll(_ sender: UIButton)
     {
+        audioPlayer.play()
         
         randomImageFirst()
         
         
-        DispatchQueue.main.asyncAfter(deadline: .now() + 1.6)
+        DispatchQueue.main.asyncAfter(deadline: .now() + 1.2)
         {
             self.diceRoll()
             //testPlayer2Roll()
@@ -518,6 +546,7 @@ class TwoPlayerIIViewController: UIViewController, UITextFieldDelegate {
                         self.diceNameArr[self.threeNumArr[0]] == "DICE6B" && self.diceNameArr[self.threeNumArr[1]] == "DICE4B" && self.diceNameArr[self.threeNumArr[2]] == "DICE5B" ||
                         self.diceNameArr[self.threeNumArr[0]] == "DICE6B" && self.diceNameArr[self.threeNumArr[1]] == "DICE5B" && self.diceNameArr[self.threeNumArr[2]] == "DICE4B")
                     {
+                        self.audioPlayer3.play()
                         self.minTurns = 0
                         self.player2fourFiveSix = true
                         self.player2score = 6
@@ -540,6 +569,7 @@ class TwoPlayerIIViewController: UIViewController, UITextFieldDelegate {
                         self.diceNameArr[self.threeNumArr[0]] == "DICE3B" && self.diceNameArr[self.threeNumArr[1]] == "DICE1B" && self.diceNameArr[self.threeNumArr[2]] == "DICE2B" ||
                         self.diceNameArr[self.threeNumArr[0]] == "DICE3B" && self.diceNameArr[self.threeNumArr[1]] == "DICE2B" && self.diceNameArr[self.threeNumArr[2]] == "DICE1B")
                     {
+                        self.audioPlayer2.play()
                         self.minTurns = 0
                         self.player2oneTwoThree = true
                         self.player2score = 0
@@ -845,7 +875,7 @@ class TwoPlayerIIViewController: UIViewController, UITextFieldDelegate {
     
     func winningImage(name: String)
     {
-        DispatchQueue.main.asyncAfter(deadline: .now() + 5.4)
+        DispatchQueue.main.asyncAfter(deadline: .now() + 4.4)
         {
             self.dice1Image.isHidden = true
             self.dice2Image.isHidden = true
@@ -881,7 +911,7 @@ class TwoPlayerIIViewController: UIViewController, UITextFieldDelegate {
     //Winner has been decided
     func gameOver()
     {
-        DispatchQueue.main.asyncAfter(deadline: .now() + 8.4)
+        DispatchQueue.main.asyncAfter(deadline: .now() + 7.9)
         {
             print("Game is over")
                 let alertController = UIAlertController(title: "Game complete", message: self.message, preferredStyle: .alert)
@@ -905,7 +935,7 @@ class TwoPlayerIIViewController: UIViewController, UITextFieldDelegate {
     //Winner is still being decided
     func gameTied()
     {
-        DispatchQueue.main.asyncAfter(deadline: .now() + 8.4)
+        DispatchQueue.main.asyncAfter(deadline: .now() + 7.9)
         {
             print("Game is tied")
             let alertController = UIAlertController(title: "Game complete", message: self.message, preferredStyle: .alert)

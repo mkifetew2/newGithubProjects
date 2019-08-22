@@ -7,14 +7,14 @@
 //
 
 import UIKit
-
+import AVFoundation
 
 class TwoPlayTurnOfEventsViewController: UIViewController {
 
     
 //    var playerArr = [Temp2PlayerGame]()
 //    let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
-    
+    var audioPlayer = AVAudioPlayer()
     
     @IBOutlet weak var dice: UIImageView!
     @IBOutlet weak var player1Roll: UIButton!
@@ -36,7 +36,16 @@ class TwoPlayTurnOfEventsViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         player2Roll.isEnabled = false
-        player2Roll.isHidden = true 
+        player2Roll.isHidden = true
+         let sound = Bundle.main.path(forResource: "diceRollingSound", ofType: "mp3")
+        do
+        {
+            audioPlayer = try AVAudioPlayer(contentsOf: URL(fileURLWithPath: sound!))
+        }
+        catch
+        {
+            print(error)
+        }
     }
 
  
@@ -124,6 +133,7 @@ class TwoPlayTurnOfEventsViewController: UIViewController {
 
     @IBAction func p1rollPressed(_ sender: UIButton)
     {
+        audioPlayer.play()
         randomImageFirst()
         DispatchQueue.main.asyncAfter(deadline: .now() + 1.2) {
             // your code here
@@ -144,6 +154,7 @@ class TwoPlayTurnOfEventsViewController: UIViewController {
     
     @IBAction func p2rollPressed(_ sender: UIButton)
     {
+        audioPlayer.play()
         randomImageFirst()
         DispatchQueue.main.asyncAfter(deadline: .now() + 1.2)
         {

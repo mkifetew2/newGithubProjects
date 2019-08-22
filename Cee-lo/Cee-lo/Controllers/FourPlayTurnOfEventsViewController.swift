@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import AVFoundation
 
 class FourPlayTurnOfEventsViewController: UIViewController {
 
@@ -21,7 +22,7 @@ class FourPlayTurnOfEventsViewController: UIViewController {
     @IBOutlet weak var player2score: UILabel!
     @IBOutlet weak var player3score: UILabel!
     @IBOutlet weak var player4score: UILabel!
-    
+    var audioPlayer = AVAudioPlayer()
     var diceNameArr = ["DICE1B", "DICE2B", "DICE3B", "DICE4B", "DICE5B", "DICE6B"]
     var numArr = ["0", "1", "2", "3", "4", "5"]
     
@@ -50,6 +51,16 @@ class FourPlayTurnOfEventsViewController: UIViewController {
         player2Roll.isHidden = true
         player3Roll.isHidden = true
         player4Roll.isHidden = true
+        
+        let sound = Bundle.main.path(forResource: "diceRollingSound", ofType: "mp3")
+        do
+        {
+            audioPlayer = try AVAudioPlayer(contentsOf: URL(fileURLWithPath: sound!))
+        }
+        catch
+        {
+            print(error)
+        }
     }
     
     func disableRolling()
@@ -127,6 +138,7 @@ class FourPlayTurnOfEventsViewController: UIViewController {
   
     @IBAction func p1rollPressed(_ sender: UIButton)
     {
+        audioPlayer.play()
         randomImageFirst()
         if player1active == true
         {
@@ -166,6 +178,7 @@ class FourPlayTurnOfEventsViewController: UIViewController {
     
     @IBAction func p2rollPressed(_ sender: UIButton)
     {
+        audioPlayer.play()
         randomImageFirst()
         if player2active == true
         {
@@ -204,6 +217,7 @@ class FourPlayTurnOfEventsViewController: UIViewController {
     
     @IBAction func p3rollPressed(_ sender: UIButton)
     {
+        audioPlayer.play()
         randomImageFirst()
         if player3active == true
         {
@@ -235,6 +249,7 @@ class FourPlayTurnOfEventsViewController: UIViewController {
     
     @IBAction func p4rollPressed(_ sender: UIButton)
     {
+        audioPlayer.play()
         randomImageFirst()
         if player4active == true
         {

@@ -7,9 +7,13 @@
 //
 
 import UIKit
+import AVFoundation
 
 class FourPlayerViewController: UIViewController {
 
+    var audioPlayer = AVAudioPlayer()
+    var audioPlayer2 = AVAudioPlayer()
+    var audioPlayer3 = AVAudioPlayer()
     
     
     @IBOutlet weak var submitButton: UIButton!
@@ -98,6 +102,34 @@ class FourPlayerViewController: UIViewController {
         player2rollButton.isHidden = true
         player3rollButton.isHidden = true
         player4rollButton.isHidden = true
+        
+        let sound = Bundle.main.path(forResource: "diceRollingSound", ofType: "mp3")
+        let sound2 = Bundle.main.path(forResource: "123sound", ofType: "mp3")
+        let sound3 = Bundle.main.path(forResource: "456sound", ofType: "mp3")
+        do
+        {
+            audioPlayer = try AVAudioPlayer(contentsOf: URL(fileURLWithPath: sound!))
+        }
+        catch
+        {
+            print(error)
+        }
+        
+        do {
+            audioPlayer2 = try AVAudioPlayer(contentsOf: URL(fileURLWithPath: sound2!))
+        }
+        catch
+        {
+            print(error)
+        }
+        
+        do {
+            audioPlayer3 = try AVAudioPlayer(contentsOf: URL(fileURLWithPath: sound3!))
+        }
+        catch{
+            print(error)
+        }
+        
     
     
     }
@@ -201,17 +233,7 @@ class FourPlayerViewController: UIViewController {
             self.player4rollButton.isEnabled = false
             
         }
-        DispatchQueue.main.asyncAfter(deadline: .now() + 1.2)
-        {
-            self.dice1.image = UIImage(named: self.diceNameArr[Int(arc4random_uniform (UInt32(self.diceNameArr.count)))])
-            self.dice2.image = UIImage(named: self.diceNameArr[Int(arc4random_uniform (UInt32(self.diceNameArr.count)))])
-            self.dice3.image = UIImage(named: self.diceNameArr[Int(arc4random_uniform (UInt32(self.diceNameArr.count)))])
-            self.player1rollButton.isEnabled = false
-            self.player2rollButton.isEnabled = false
-            self.player3rollButton.isEnabled = false
-            self.player4rollButton.isEnabled = false
-            
-        }
+        
     }
     
     func diceRoll()
@@ -234,7 +256,7 @@ class FourPlayerViewController: UIViewController {
         
         
         
-        if(minTurns > 1000)
+        if(minTurns < 2)
         {
             let randomNum = listOfNonWinningScores[Int(arc4random_uniform(UInt32(listOfNonWinningScores.count)))]
             print(randomNum)
@@ -326,13 +348,14 @@ class FourPlayerViewController: UIViewController {
     
     @IBAction func player1Roll(_ sender: UIButton)
     {
+        audioPlayer.play()
         gameDecided = false
         submitButton.isEnabled = false
         resetButton.isEnabled = false
         randomImageFirst()
         
         
-        DispatchQueue.main.asyncAfter(deadline: .now() + 1.6)
+        DispatchQueue.main.asyncAfter(deadline: .now() + 1.2)
         {
             self.diceRoll()
         
@@ -347,6 +370,7 @@ class FourPlayerViewController: UIViewController {
                     self.diceNameArr[self.threeNumArr[0]] == "DICE6B" && self.diceNameArr[self.threeNumArr[1]] == "DICE4B" && self.diceNameArr[self.threeNumArr[2]] == "DICE5B" ||
                     self.diceNameArr[self.threeNumArr[0]] == "DICE6B" && self.diceNameArr[self.threeNumArr[1]] == "DICE5B" && self.diceNameArr[self.threeNumArr[2]] == "DICE4B")
                 {
+                    self.audioPlayer3.play()
                     self.amtOfPlayersLeft = self.amtOfPlayersLeft - 1
                     self.minTurns = 0
                     self.player1fourFiveSix = true
@@ -388,6 +412,7 @@ class FourPlayerViewController: UIViewController {
                     self.diceNameArr[self.threeNumArr[0]] == "DICE3B" && self.diceNameArr[self.threeNumArr[1]] == "DICE1B" && self.diceNameArr[self.threeNumArr[2]] == "DICE2B" ||
                     self.diceNameArr[self.threeNumArr[0]] == "DICE3B" && self.diceNameArr[self.threeNumArr[1]] == "DICE2B" && self.diceNameArr[self.threeNumArr[2]] == "DICE1B")
                 {
+                    self.audioPlayer2.play()
                     self.amtOfPlayersLeft = self.amtOfPlayersLeft - 1
                     self.minTurns = 0
                     self.player1oneTwoThree = true
@@ -571,10 +596,11 @@ class FourPlayerViewController: UIViewController {
     
     @IBAction func player2Roll(_ sender: UIButton)
     {
+        audioPlayer.play()
         randomImageFirst()
         
         
-        DispatchQueue.main.asyncAfter(deadline: .now() + 1.6)
+        DispatchQueue.main.asyncAfter(deadline: .now() + 1.2)
         {
             self.diceRoll()
         
@@ -589,6 +615,7 @@ class FourPlayerViewController: UIViewController {
                     self.diceNameArr[self.threeNumArr[0]] == "DICE6B" && self.diceNameArr[self.threeNumArr[1]] == "DICE4B" && self.diceNameArr[self.threeNumArr[2]] == "DICE5B" ||
                     self.diceNameArr[self.threeNumArr[0]] == "DICE6B" && self.diceNameArr[self.threeNumArr[1]] == "DICE5B" && self.diceNameArr[self.threeNumArr[2]] == "DICE4B")
                 {
+                    self.audioPlayer3.play()
                     self.amtOfPlayersLeft = self.amtOfPlayersLeft - 1
                     self.minTurns = 0
                     self.player2fourFiveSix = true
@@ -623,6 +650,7 @@ class FourPlayerViewController: UIViewController {
                     self.diceNameArr[self.threeNumArr[0]] == "DICE3B" && self.diceNameArr[self.threeNumArr[1]] == "DICE1B" && self.diceNameArr[self.threeNumArr[2]] == "DICE2B" ||
                     self.diceNameArr[self.threeNumArr[0]] == "DICE3B" && self.diceNameArr[self.threeNumArr[1]] == "DICE2B" && self.diceNameArr[self.threeNumArr[2]] == "DICE1B")
                 {
+                    self.audioPlayer2.play()
                     self.amtOfPlayersLeft = self.amtOfPlayersLeft - 1
                     self.minTurns = 0
                     self.player2oneTwoThree = true
@@ -776,9 +804,9 @@ class FourPlayerViewController: UIViewController {
     @IBAction func player3Roll(_ sender: UIButton)
     {
         randomImageFirst()
+        audioPlayer.play()
         
-        
-        DispatchQueue.main.asyncAfter(deadline: .now() + 1.6)
+        DispatchQueue.main.asyncAfter(deadline: .now() + 1.2)
         {
             self.diceRoll()
         
@@ -793,6 +821,7 @@ class FourPlayerViewController: UIViewController {
                     self.diceNameArr[self.threeNumArr[0]] == "DICE6B" && self.diceNameArr[self.threeNumArr[1]] == "DICE4B" && self.diceNameArr[self.threeNumArr[2]] == "DICE5B" ||
                     self.diceNameArr[self.threeNumArr[0]] == "DICE6B" && self.diceNameArr[self.threeNumArr[1]] == "DICE5B" && self.diceNameArr[self.threeNumArr[2]] == "DICE4B")
                 {
+                    self.audioPlayer3.play()
                     self.amtOfPlayersLeft = self.amtOfPlayersLeft - 1
                     self.minTurns = 0
                     self.player3fourFiveSix = true
@@ -821,6 +850,7 @@ class FourPlayerViewController: UIViewController {
                     self.diceNameArr[self.threeNumArr[0]] == "DICE3B" && self.diceNameArr[self.threeNumArr[1]] == "DICE1B" && self.diceNameArr[self.threeNumArr[2]] == "DICE2B" ||
                     self.diceNameArr[self.threeNumArr[0]] == "DICE3B" && self.diceNameArr[self.threeNumArr[1]] == "DICE2B" && self.diceNameArr[self.threeNumArr[2]] == "DICE1B")
                 {
+                     self.audioPlayer2.play()
                     self.amtOfPlayersLeft = self.amtOfPlayersLeft - 1
                     self.minTurns = 0
                     self.player3oneTwoThree = true
@@ -953,9 +983,9 @@ class FourPlayerViewController: UIViewController {
     @IBAction func player4Roll(_ sender: UIButton)
     {
         randomImageFirst()
+        audioPlayer.play()
         
-        
-        DispatchQueue.main.asyncAfter(deadline: .now() + 1.6)
+        DispatchQueue.main.asyncAfter(deadline: .now() + 1.2)
         {
         
             self.diceRoll()
@@ -971,6 +1001,7 @@ class FourPlayerViewController: UIViewController {
                     self.diceNameArr[self.threeNumArr[0]] == "DICE6B" && self.diceNameArr[self.threeNumArr[1]] == "DICE4B" && self.diceNameArr[self.threeNumArr[2]] == "DICE5B" ||
                     self.diceNameArr[self.threeNumArr[0]] == "DICE6B" && self.diceNameArr[self.threeNumArr[1]] == "DICE5B" && self.diceNameArr[self.threeNumArr[2]] == "DICE4B")
                 {
+                    self.audioPlayer3.play()
                     self.amtOfPlayersLeft = self.amtOfPlayersLeft - 1
                     self.minTurns = 0
                     self.player4fourFiveSix = true
@@ -992,6 +1023,7 @@ class FourPlayerViewController: UIViewController {
                     self.diceNameArr[self.threeNumArr[0]] == "DICE3B" && self.diceNameArr[self.threeNumArr[1]] == "DICE1B" && self.diceNameArr[self.threeNumArr[2]] == "DICE2B" ||
                     self.diceNameArr[self.threeNumArr[0]] == "DICE3B" && self.diceNameArr[self.threeNumArr[1]] == "DICE2B" && self.diceNameArr[self.threeNumArr[2]] == "DICE1B")
                 {
+                    self.audioPlayer2.play()
                     self.amtOfPlayersLeft = self.amtOfPlayersLeft - 1
                     self.minTurns = 0
                     self.player4oneTwoThree = true
@@ -1540,7 +1572,7 @@ class FourPlayerViewController: UIViewController {
     
     func winningImage(name: String)
     {
-        DispatchQueue.main.asyncAfter(deadline: .now() + 2.4)
+        DispatchQueue.main.asyncAfter(deadline: .now() + 4.4)
         {
             self.dice1.isHidden = true
             self.dice2.isHidden = true
@@ -2480,7 +2512,7 @@ class FourPlayerViewController: UIViewController {
     
     func gameCompleted()
     {
-        DispatchQueue.main.asyncAfter(deadline: .now() + 5.4)
+        DispatchQueue.main.asyncAfter(deadline: .now() + 7.9)
         {
             let alertController = UIAlertController(title: "Game complete", message: self.message, preferredStyle: .alert)
             let action1 = UIAlertAction(title: "Run it back?", style: .default) { (action:UIAlertAction) in
@@ -2504,7 +2536,7 @@ class FourPlayerViewController: UIViewController {
     //Winner is still being decided
     func gameTied()
     {
-        DispatchQueue.main.asyncAfter(deadline: .now() + 5.4)
+        DispatchQueue.main.asyncAfter(deadline: .now() + 7.9)
         {
             print("Game is tied")
             let alertController = UIAlertController(title: "Game complete", message: self.message, preferredStyle: .alert)
@@ -2526,7 +2558,7 @@ class FourPlayerViewController: UIViewController {
     
     func gameTied12()
     {
-        DispatchQueue.main.asyncAfter(deadline: .now() + 5.4)
+        DispatchQueue.main.asyncAfter(deadline: .now() + 7.9)
         {
             print("Game is tied")
             let alertController = UIAlertController(title: "Game complete", message: self.message, preferredStyle: .alert)
@@ -2548,7 +2580,7 @@ class FourPlayerViewController: UIViewController {
     
     func gameTied13()
     {
-        DispatchQueue.main.asyncAfter(deadline: .now() + 5.4)
+        DispatchQueue.main.asyncAfter(deadline: .now() + 7.9)
         {
             print("Game is tied")
             let alertController = UIAlertController(title: "Game complete", message: self.message, preferredStyle: .alert)
@@ -2570,7 +2602,7 @@ class FourPlayerViewController: UIViewController {
     
     func gameTied14()
     {
-        DispatchQueue.main.asyncAfter(deadline: .now() + 5.4)
+        DispatchQueue.main.asyncAfter(deadline: .now() + 7.9)
         {
             print("Game is tied")
             let alertController = UIAlertController(title: "Game complete", message: self.message, preferredStyle: .alert)
@@ -2592,7 +2624,7 @@ class FourPlayerViewController: UIViewController {
     
     func gameTied23()
     {
-        DispatchQueue.main.asyncAfter(deadline: .now() + 5.4)
+        DispatchQueue.main.asyncAfter(deadline: .now() + 7.9)
         {
             print("Game is tied")
             let alertController = UIAlertController(title: "Game complete", message: self.message, preferredStyle: .alert)
@@ -2614,7 +2646,7 @@ class FourPlayerViewController: UIViewController {
     
     func gameTied24()
     {
-        DispatchQueue.main.asyncAfter(deadline: .now() + 5.4)
+        DispatchQueue.main.asyncAfter(deadline: .now() + 7.9)
         {
             print("Game is tied")
             let alertController = UIAlertController(title: "Game complete", message: self.message, preferredStyle: .alert)
@@ -2636,97 +2668,112 @@ class FourPlayerViewController: UIViewController {
     
     func gameTied34()
     {
-        print("Game is tied")
-        let alertController = UIAlertController(title: "Game complete", message: message, preferredStyle: .alert)
-        let action1 = UIAlertAction(title: "Run it back?", style: .default) { (action:UIAlertAction) in
-            self.resetEverythingP3nP4()
-            print("You've run it back");
+        DispatchQueue.main.asyncAfter(deadline: .now() + 7.9)
+        {
+            print("Game is tied")
+            let alertController = UIAlertController(title: "Game complete", message: self.message, preferredStyle: .alert)
+            let action1 = UIAlertAction(title: "Run it back?", style: .default) { (action:UIAlertAction) in
+                self.resetEverythingP3nP4()
+                print("You've run it back");
+            }
+            let action2 = UIAlertAction(title: "Quit game", style: .default)
+            { (action: UIAlertAction) in
+                self.resetEverything()
+                self.performSegue(withIdentifier: "moveToGame", sender: self)
+                print("quit game")
+            }
+            alertController.addAction(action1)
+            alertController.addAction(action2)
+            self.present(alertController, animated: true, completion: nil)
         }
-        let action2 = UIAlertAction(title: "Quit game", style: .default)
-        { (action: UIAlertAction) in
-            self.resetEverything()
-            self.performSegue(withIdentifier: "moveToGame", sender: self)
-            print("quit game")
-        }
-        alertController.addAction(action1)
-        alertController.addAction(action2)
-        self.present(alertController, animated: true, completion: nil)
     }
     
     func gameTied123()
     {
-        print("Game is tied")
-        let alertController = UIAlertController(title: "Game complete", message: message, preferredStyle: .alert)
-        let action1 = UIAlertAction(title: "Run it back?", style: .default) { (action:UIAlertAction) in
-            self.resetEverythingP1nP2nP3()
-            print("You've run it back");
+        DispatchQueue.main.asyncAfter(deadline: .now() + 7.9)
+        {
+            print("Game is tied")
+            let alertController = UIAlertController(title: "Game complete", message: self.message, preferredStyle: .alert)
+            let action1 = UIAlertAction(title: "Run it back?", style: .default) { (action:UIAlertAction) in
+                self.resetEverythingP1nP2nP3()
+                print("You've run it back");
+            }
+            let action2 = UIAlertAction(title: "Quit game", style: .default)
+            { (action: UIAlertAction) in
+                self.resetEverything()
+                self.performSegue(withIdentifier: "moveToGame", sender: self)
+                print("quit game")
+            }
+            alertController.addAction(action1)
+            alertController.addAction(action2)
+            self.present(alertController, animated: true, completion: nil)
         }
-        let action2 = UIAlertAction(title: "Quit game", style: .default)
-        { (action: UIAlertAction) in
-            self.resetEverything()
-            self.performSegue(withIdentifier: "moveToGame", sender: self)
-            print("quit game")
-        }
-        alertController.addAction(action1)
-        alertController.addAction(action2)
-        self.present(alertController, animated: true, completion: nil)
     }
     
     func gameTied124()
     {
-        print("Game is tied")
-        let alertController = UIAlertController(title: "Game complete", message: message, preferredStyle: .alert)
-        let action1 = UIAlertAction(title: "Run it back?", style: .default) { (action:UIAlertAction) in
-            self.resetEverythingP1nP2nP4()
-            print("You've run it back");
+        DispatchQueue.main.asyncAfter(deadline: .now() + 7.9)
+        {
+            print("Game is tied")
+            let alertController = UIAlertController(title: "Game complete", message: self.message, preferredStyle: .alert)
+            let action1 = UIAlertAction(title: "Run it back?", style: .default) { (action:UIAlertAction) in
+                self.resetEverythingP1nP2nP4()
+                print("You've run it back");
+            }
+            let action2 = UIAlertAction(title: "Quit game", style: .default)
+            { (action: UIAlertAction) in
+                self.resetEverything()
+                self.performSegue(withIdentifier: "moveToGame", sender: self)
+                print("quit game")
+            }
+            alertController.addAction(action1)
+            alertController.addAction(action2)
+            self.present(alertController, animated: true, completion: nil)
         }
-        let action2 = UIAlertAction(title: "Quit game", style: .default)
-        { (action: UIAlertAction) in
-            self.resetEverything()
-            self.performSegue(withIdentifier: "moveToGame", sender: self)
-            print("quit game")
-        }
-        alertController.addAction(action1)
-        alertController.addAction(action2)
-        self.present(alertController, animated: true, completion: nil)
     }
     
     func gameTied234()
     {
-        print("Game is tied")
-        let alertController = UIAlertController(title: "Game complete", message: message, preferredStyle: .alert)
-        let action1 = UIAlertAction(title: "Run it back?", style: .default) { (action:UIAlertAction) in
-            self.resetEverythingP2nP3nP4()
-            print("You've run it back");
+        DispatchQueue.main.asyncAfter(deadline: .now() + 7.9)
+        {
+            print("Game is tied")
+            let alertController = UIAlertController(title: "Game complete", message: self.message, preferredStyle: .alert)
+            let action1 = UIAlertAction(title: "Run it back?", style: .default) { (action:UIAlertAction) in
+                self.resetEverythingP2nP3nP4()
+                print("You've run it back");
+            }
+            let action2 = UIAlertAction(title: "Quit game", style: .default)
+            { (action: UIAlertAction) in
+                self.resetEverything()
+                self.performSegue(withIdentifier: "moveToGame", sender: self)
+                print("quit game")
+            }
+            alertController.addAction(action1)
+            alertController.addAction(action2)
+            self.present(alertController, animated: true, completion: nil)
         }
-        let action2 = UIAlertAction(title: "Quit game", style: .default)
-        { (action: UIAlertAction) in
-            self.resetEverything()
-            self.performSegue(withIdentifier: "moveToGame", sender: self)
-            print("quit game")
-        }
-        alertController.addAction(action1)
-        alertController.addAction(action2)
-        self.present(alertController, animated: true, completion: nil)
     }
     
     func gameTied134()
     {
-        print("Game is tied")
-        let alertController = UIAlertController(title: "Game complete", message: message, preferredStyle: .alert)
-        let action1 = UIAlertAction(title: "Run it back?", style: .default) { (action:UIAlertAction) in
-            self.resetEverythingP1nP3nP4()
-            print("You've run it back");
+        DispatchQueue.main.asyncAfter(deadline: .now() + 7.9)
+        {
+            print("Game is tied")
+            let alertController = UIAlertController(title: "Game complete", message: self.message, preferredStyle: .alert)
+            let action1 = UIAlertAction(title: "Run it back?", style: .default) { (action:UIAlertAction) in
+                self.resetEverythingP1nP3nP4()
+                print("You've run it back");
+            }
+            let action2 = UIAlertAction(title: "Quit game", style: .default)
+            { (action: UIAlertAction) in
+                self.resetEverything()
+                self.performSegue(withIdentifier: "moveToGame", sender: self)
+                print("quit game")
+            }
+            alertController.addAction(action1)
+            alertController.addAction(action2)
+            self.present(alertController, animated: true, completion: nil)
         }
-        let action2 = UIAlertAction(title: "Quit game", style: .default)
-        { (action: UIAlertAction) in
-            self.resetEverything()
-            self.performSegue(withIdentifier: "moveToGame", sender: self)
-            print("quit game")
-        }
-        alertController.addAction(action1)
-        alertController.addAction(action2)
-        self.present(alertController, animated: true, completion: nil)
     }
     
     

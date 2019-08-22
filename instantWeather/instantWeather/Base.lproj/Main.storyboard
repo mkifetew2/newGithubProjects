@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
-    <device id="retina4_7" orientation="portrait">
+    <device id="retina5_9" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
@@ -16,33 +16,41 @@
             <objects>
                 <viewController id="BYZ-38-t0r" customClass="CityNameViewController" customModule="instantWeather" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="City name " textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="w1S-L9-32K" userLabel="cityEntry">
-                                <rect key="frame" x="20" y="268.5" width="335" height="30"/>
+                                <rect key="frame" x="3" y="330" width="222" height="30"/>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pmu-UT-w4Y" userLabel="submitButton">
-                                <rect key="frame" x="108.5" y="480" width="157" height="41"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="24"/>
-                                <state key="normal" title="Check weather"/>
+                                <rect key="frame" x="233" y="329" width="134" height="32"/>
+                                <fontDescription key="fontDescription" name="Georgia-Bold" family="Georgia" pointSize="17"/>
+                                <state key="normal" title="Check weather "/>
                                 <connections>
                                     <action selector="weatherButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="mH3-UJ-4F8"/>
                                     <segue destination="UAe-4g-Tku" kind="show" identifier="weatherResult" id="twX-bu-cZM"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="instantWeather" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hlI-Cr-NLz">
+                                <rect key="frame" x="25" y="78.666666666666671" width="325" height="46"/>
+                                <fontDescription key="fontDescription" name="Georgia-Bold" family="Georgia" pointSize="40"/>
+                                <color key="textColor" red="0.016804177310000001" green="0.19835099580000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" red="1" green="0.71922171776111121" blue="0.47102864583333331" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="pmu-UT-w4Y" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="DNX-iI-Ai9"/>
-                            <constraint firstItem="pmu-UT-w4Y" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" multiplier="1.5" id="SDo-if-kd4"/>
+                            <constraint firstItem="hlI-Cr-NLz" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="25" id="7Ia-Cf-oeO"/>
+                            <constraint firstItem="pmu-UT-w4Y" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" multiplier="1.6" id="DNX-iI-Ai9"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="w1S-L9-32K" secondAttribute="trailing" constant="150" id="GFJ-Ek-tFC"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="hlI-Cr-NLz" secondAttribute="trailing" constant="25" id="RM4-om-cIl"/>
+                            <constraint firstItem="pmu-UT-w4Y" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" multiplier="0.85" id="SDo-if-kd4"/>
                             <constraint firstItem="w1S-L9-32K" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" multiplier="0.85" id="VJ3-Hl-8O4"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="w1S-L9-32K" secondAttribute="trailing" constant="20" id="k4N-7e-Y4h"/>
-                            <constraint firstItem="w1S-L9-32K" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="oxW-Eu-Uja"/>
-                            <constraint firstItem="w1S-L9-32K" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="rfP-nA-BML"/>
+                            <constraint firstItem="hlI-Cr-NLz" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" multiplier="0.25" id="drc-Gd-hLV"/>
+                            <constraint firstItem="w1S-L9-32K" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="3" id="fyd-Fb-7nu"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
@@ -53,37 +61,37 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="254" y="134"/>
+            <point key="canvasLocation" x="253.59999999999999" y="133.74384236453201"/>
         </scene>
         <!--Weather Display View Controller-->
         <scene sceneID="H2n-PH-BYh">
             <objects>
                 <viewController id="UAe-4g-Tku" customClass="WeatherDisplayViewController" customModule="instantWeather" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="810-Wr-HZK">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Ffb-Ln-N1r">
-                                <rect key="frame" x="119" y="519" width="240" height="128"/>
+                                <rect key="frame" x="119" y="598.66666666666663" width="240" height="159.33333333333337"/>
                             </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Temp" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="w0z-ep-mMk">
-                                <rect key="frame" x="32.5" y="361" width="123" height="78"/>
-                                <fontDescription key="fontDescription" name="ChalkboardSE-Regular" family="Chalkboard SE" pointSize="55"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="-" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="w0z-ep-mMk">
+                                <rect key="frame" x="83.666666666666671" y="456" width="20.666666666666671" height="62.666666666666629"/>
+                                <fontDescription key="fontDescription" name="Georgia" family="Georgia" pointSize="55"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JSr-H2-fQ8">
-                                <rect key="frame" x="29.5" y="62.5" width="54" height="42"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="25"/>
+                                <rect key="frame" x="29.666666666666671" y="81" width="54" height="41"/>
+                                <fontDescription key="fontDescription" name="Georgia" family="Georgia" pointSize="25"/>
                                 <state key="normal" title="Back"/>
                                 <connections>
                                     <action selector="switchPage:" destination="UAe-4g-Tku" eventType="touchUpInside" id="5OF-3P-Git"/>
                                     <segue destination="BYZ-38-t0r" kind="show" identifier="switchPage" id="DK0-JE-acs"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="City" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="h9z-0A-C4u" userLabel="cityLabel">
-                                <rect key="frame" x="139" y="194.5" width="97" height="78"/>
-                                <fontDescription key="fontDescription" name="ChalkboardSE-Regular" family="Chalkboard SE" pointSize="55"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="-" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="h9z-0A-C4u" userLabel="cityLabel">
+                                <rect key="frame" x="178.33333333333334" y="256" width="19" height="57"/>
+                                <fontDescription key="fontDescription" name="Georgia-Bold" family="Georgia" pointSize="50"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>

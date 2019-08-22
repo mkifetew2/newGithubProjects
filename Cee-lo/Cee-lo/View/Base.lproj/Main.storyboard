@@ -1096,10 +1096,21 @@
                                     <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Dice Up Logo" translatesAutoresizingMaskIntoConstraints="NO" id="v0b-Eg-4qy">
                                         <rect key="frame" x="33" y="33" width="289" height="131"/>
                                     </imageView>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pk4-SB-rdJ">
+                                        <rect key="frame" x="4.5" y="7.5" width="62" height="48"/>
+                                        <fontDescription key="fontDescription" name="AcademyEngravedLetPlain" family="Academy Engraved LET" pointSize="30"/>
+                                        <state key="normal" title="Back">
+                                            <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        </state>
+                                        <connections>
+                                            <segue destination="Amm-q9-zcm" kind="show" identifier="backToMain" id="vvB-4b-GDS"/>
+                                        </connections>
+                                    </button>
                                 </subviews>
                                 <color key="backgroundColor" red="0.0" green="0.5607843137254902" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="trailingMargin" secondItem="v0b-Eg-4qy" secondAttribute="trailing" constant="25" id="13Z-bI-xea"/>
+                                    <constraint firstItem="pk4-SB-rdJ" firstAttribute="centerX" secondItem="ZWe-sy-God" secondAttribute="centerX" multiplier="0.2" id="1Sd-8D-9dn"/>
                                     <constraint firstItem="15a-SL-HCU" firstAttribute="centerY" secondItem="ZWe-sy-God" secondAttribute="centerY" multiplier="1.95" id="3In-zy-4Mf"/>
                                     <constraint firstItem="jhr-pk-x5O" firstAttribute="centerX" secondItem="ZWe-sy-God" secondAttribute="centerX" multiplier="1.9" id="4fu-LQ-o0K"/>
                                     <constraint firstItem="Eku-Jd-jkF" firstAttribute="centerY" secondItem="ZWe-sy-God" secondAttribute="centerY" multiplier="1.95" id="7dg-Nx-owp"/>
@@ -1117,6 +1128,7 @@
                                     <constraint firstItem="T0t-z3-SoV" firstAttribute="centerX" secondItem="ZWe-sy-God" secondAttribute="centerX" id="goR-X0-zcj"/>
                                     <constraint firstItem="say-2O-2i3" firstAttribute="centerY" secondItem="ZWe-sy-God" secondAttribute="centerY" multiplier="1.4" id="q8y-fE-MlC"/>
                                     <constraint firstItem="465-lO-6T7" firstAttribute="centerX" secondItem="ZWe-sy-God" secondAttribute="centerX" multiplier="1.5" id="rel-P6-a3y"/>
+                                    <constraint firstItem="pk4-SB-rdJ" firstAttribute="centerY" secondItem="ZWe-sy-God" secondAttribute="centerY" multiplier="0.1" id="ysb-EZ-3IX"/>
                                 </constraints>
                             </view>
                         </subviews>
@@ -1229,10 +1241,21 @@
                                     <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Dice Up Logo" translatesAutoresizingMaskIntoConstraints="NO" id="PN4-Am-ZnQ">
                                         <rect key="frame" x="33" y="33" width="289" height="131"/>
                                     </imageView>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eSX-pW-d2h">
+                                        <rect key="frame" x="4.5" y="7.5" width="62" height="48"/>
+                                        <fontDescription key="fontDescription" name="AcademyEngravedLetPlain" family="Academy Engraved LET" pointSize="30"/>
+                                        <state key="normal" title="Back">
+                                            <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        </state>
+                                        <connections>
+                                            <segue destination="Amm-q9-zcm" kind="show" id="tVL-fo-rOy"/>
+                                        </connections>
+                                    </button>
                                 </subviews>
                                 <color key="backgroundColor" red="0.0" green="0.5607843137254902" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstItem="T9t-sy-YUx" firstAttribute="centerY" secondItem="leA-c3-BzG" secondAttribute="centerY" multiplier="1.4" id="1gc-7h-POT"/>
+                                    <constraint firstItem="eSX-pW-d2h" firstAttribute="centerY" secondItem="leA-c3-BzG" secondAttribute="centerY" multiplier="0.1" id="4ou-ak-nfo"/>
                                     <constraint firstItem="RiX-hk-ItH" firstAttribute="centerX" secondItem="leA-c3-BzG" secondAttribute="centerX" multiplier="0.35" id="7rb-Ca-5ex"/>
                                     <constraint firstItem="0VS-Os-FId" firstAttribute="centerY" secondItem="leA-c3-BzG" secondAttribute="centerY" multiplier="1.4" id="7wt-zL-U2E"/>
                                     <constraint firstItem="UQ6-u6-Qmz" firstAttribute="centerX" secondItem="leA-c3-BzG" secondAttribute="centerX" multiplier="1.1" id="EDb-is-7Pz"/>
@@ -1251,6 +1274,7 @@
                                     <constraint firstItem="Xan-Fq-xy3" firstAttribute="centerX" secondItem="leA-c3-BzG" secondAttribute="centerX" multiplier="0.15" id="fBb-pU-vZS"/>
                                     <constraint firstItem="PN4-Am-ZnQ" firstAttribute="top" secondItem="leA-c3-BzG" secondAttribute="topMargin" constant="25" id="lxJ-tA-exC"/>
                                     <constraint firstAttribute="trailingMargin" secondItem="PN4-Am-ZnQ" secondAttribute="trailing" constant="25" id="mrX-d9-dft"/>
+                                    <constraint firstItem="eSX-pW-d2h" firstAttribute="centerX" secondItem="leA-c3-BzG" secondAttribute="centerX" multiplier="0.2" id="rae-tn-GaZ"/>
                                     <constraint firstItem="u2N-BS-US4" firstAttribute="centerY" secondItem="leA-c3-BzG" secondAttribute="centerY" multiplier="1.4" id="rqM-aS-sAn"/>
                                     <constraint firstItem="ORx-Zn-NnE" firstAttribute="centerX" secondItem="leA-c3-BzG" secondAttribute="centerX" multiplier="1.85" id="s4z-ug-24M"/>
                                     <constraint firstItem="1gp-Wk-Bax" firstAttribute="centerX" secondItem="leA-c3-BzG" secondAttribute="centerX" id="wdk-4i-xhy"/>
@@ -1392,6 +1416,16 @@
                                     <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Dice Up Logo" translatesAutoresizingMaskIntoConstraints="NO" id="t3p-ha-c3f">
                                         <rect key="frame" x="33" y="33" width="289" height="131"/>
                                     </imageView>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QF7-Tu-Bxa">
+                                        <rect key="frame" x="4.5" y="7.5" width="62" height="48"/>
+                                        <fontDescription key="fontDescription" name="AcademyEngravedLetPlain" family="Academy Engraved LET" pointSize="30"/>
+                                        <state key="normal" title="Back">
+                                            <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        </state>
+                                        <connections>
+                                            <segue destination="Amm-q9-zcm" kind="show" id="IZp-J1-dDm"/>
+                                        </connections>
+                                    </button>
                                 </subviews>
                                 <color key="backgroundColor" red="0.0" green="0.5607843137254902" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
@@ -1399,6 +1433,7 @@
                                     <constraint firstItem="xfk-Rt-7u5" firstAttribute="centerX" secondItem="qwH-o8-hGM" secondAttribute="centerX" id="342-fS-VLY"/>
                                     <constraint firstItem="Otv-V1-HfK" firstAttribute="centerY" secondItem="qwH-o8-hGM" secondAttribute="centerY" multiplier="1.95" id="40Q-OB-gBJ"/>
                                     <constraint firstItem="CwE-kf-BOf" firstAttribute="centerX" secondItem="qwH-o8-hGM" secondAttribute="centerX" multiplier="1.75" id="4dU-bu-um3"/>
+                                    <constraint firstItem="QF7-Tu-Bxa" firstAttribute="centerY" secondItem="qwH-o8-hGM" secondAttribute="centerY" multiplier="0.1" id="69x-P1-8Q9"/>
                                     <constraint firstItem="oXS-77-oum" firstAttribute="centerY" secondItem="qwH-o8-hGM" secondAttribute="centerY" multiplier="1.95" id="DFw-v1-LFK"/>
                                     <constraint firstItem="xfk-Rt-7u5" firstAttribute="top" secondItem="t3p-ha-c3f" secondAttribute="bottom" constant="40" id="EKw-Ub-I42"/>
                                     <constraint firstItem="ix8-Pz-OII" firstAttribute="centerX" secondItem="qwH-o8-hGM" secondAttribute="centerX" multiplier="1.85" id="Fef-nd-6NJ"/>
@@ -1411,6 +1446,7 @@
                                     <constraint firstItem="ud2-pQ-DnW" firstAttribute="centerX" secondItem="qwH-o8-hGM" secondAttribute="centerX" multiplier="1.25" id="Su5-yE-Grr"/>
                                     <constraint firstItem="E4A-t6-nb9" firstAttribute="centerX" secondItem="qwH-o8-hGM" secondAttribute="centerX" multiplier="1.65" id="V8v-fq-opn"/>
                                     <constraint firstItem="ZKz-J7-ZNv" firstAttribute="centerX" secondItem="qwH-o8-hGM" secondAttribute="centerX" multiplier="0.25" id="W8z-c0-yA0"/>
+                                    <constraint firstItem="QF7-Tu-Bxa" firstAttribute="centerX" secondItem="qwH-o8-hGM" secondAttribute="centerX" multiplier="0.2" id="WsR-E8-qNQ"/>
                                     <constraint firstItem="CwE-kf-BOf" firstAttribute="centerY" secondItem="qwH-o8-hGM" secondAttribute="centerY" multiplier="1.4" id="atw-qP-rUL"/>
                                     <constraint firstItem="t3p-ha-c3f" firstAttribute="top" secondItem="qwH-o8-hGM" secondAttribute="topMargin" constant="25" id="b5y-jP-8u4"/>
                                     <constraint firstItem="t3p-ha-c3f" firstAttribute="leading" secondItem="qwH-o8-hGM" secondAttribute="leadingMargin" constant="25" id="fiy-68-qNA"/>
@@ -1461,9 +1497,12 @@
         <image name="number of players" width="1600" height="1600"/>
     </resources>
     <inferredMetricsTieBreakers>
+        <segue reference="Lf2-0Q-iUO"/>
+        <segue reference="MnF-8E-NHj"/>
+        <segue reference="PR0-ap-ZKU"/>
         <segue reference="0IP-dl-twR"/>
         <segue reference="u6m-sk-DPe"/>
         <segue reference="xq2-fj-vds"/>
-        <segue reference="V4k-iK-S94"/>
+        <segue reference="IZp-J1-dDm"/>
     </inferredMetricsTieBreakers>
 </document>

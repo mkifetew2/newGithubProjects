@@ -7,9 +7,13 @@
 //
 
 import UIKit
+import AVFoundation
 
 class ThreePlayerViewController: UIViewController {
 
+    var audioPlayer = AVAudioPlayer()
+    var audioPlayer2 = AVAudioPlayer()
+    var audioPlayer3 = AVAudioPlayer()
    
     @IBOutlet weak var submitButton: UIButton!
     @IBOutlet weak var resetButton: UIButton!
@@ -93,6 +97,33 @@ class ThreePlayerViewController: UIViewController {
         player2rollButton.isHidden = true
         player3rollButton.isHidden = true
         betTextField.isEnabled = true
+        
+        let sound = Bundle.main.path(forResource: "diceRollingSound", ofType: "mp3")
+        let sound2 = Bundle.main.path(forResource: "123sound", ofType: "mp3")
+        let sound3 = Bundle.main.path(forResource: "456sound", ofType: "mp3")
+        do
+        {
+            audioPlayer = try AVAudioPlayer(contentsOf: URL(fileURLWithPath: sound!))
+        }
+        catch
+        {
+            print(error)
+        }
+        
+        do {
+            audioPlayer2 = try AVAudioPlayer(contentsOf: URL(fileURLWithPath: sound2!))
+        }
+        catch
+        {
+            print(error)
+        }
+        
+        do {
+            audioPlayer3 = try AVAudioPlayer(contentsOf: URL(fileURLWithPath: sound3!))
+        }
+        catch{
+            print(error)
+        }
     
         
     }
@@ -107,6 +138,12 @@ class ThreePlayerViewController: UIViewController {
         return true
     }
     
+    override func didReceiveMemoryWarning() {
+        super.didReceiveMemoryWarning()
+        // Dispose of any resources that can be recreated.
+    }
+    
+    //After view is loaded an alert comes to the screen
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         betTextField.becomeFirstResponder()
@@ -119,11 +156,6 @@ class ThreePlayerViewController: UIViewController {
         self.present(alertController, animated: true, completion: nil)
     }
 
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-    
     //This should be limiting the textfield to no more than 8 characters
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
         let currentText = textField.text ?? ""
@@ -184,13 +216,7 @@ class ThreePlayerViewController: UIViewController {
             self.dice3.image = UIImage(named: self.diceNameArr[Int(arc4random_uniform (UInt32(self.diceNameArr.count)))])
             
         }
-        DispatchQueue.main.asyncAfter(deadline: .now() + 1.2)
-        {
-            self.disableRolling()
-            self.dice1.image = UIImage(named: self.diceNameArr[Int(arc4random_uniform (UInt32(self.diceNameArr.count)))])
-            self.dice2.image = UIImage(named: self.diceNameArr[Int(arc4random_uniform (UInt32(self.diceNameArr.count)))])
-            self.dice3.image = UIImage(named: self.diceNameArr[Int(arc4random_uniform (UInt32(self.diceNameArr.count)))])
-        }
+
     }
     
     
@@ -256,7 +282,7 @@ class ThreePlayerViewController: UIViewController {
         
         
         
-        if(minTurns > 1000)
+        if(minTurns < 2)
         {
             let randomNum = listOfNonWinningScores[Int(arc4random_uniform(UInt32(listOfNonWinningScores.count)))]
             print(randomNum)
@@ -335,16 +361,15 @@ class ThreePlayerViewController: UIViewController {
     
     @IBAction func player3rollButton(_ sender: UIButton)
     {
-        
+        audioPlayer.play()
         if player3active == true
         {
             randomImageFirst()
             
             
-            DispatchQueue.main.asyncAfter(deadline: .now() + 1.6)
+            DispatchQueue.main.asyncAfter(deadline: .now() + 1.2)
             {
-                //self.diceRoll()
-                self.testPlayer3Roll()
+                self.diceRoll()
             //testPlayer3Roll()
                 while(self.player3hasGone == false)
             {
@@ -357,6 +382,7 @@ class ThreePlayerViewController: UIViewController {
                         self.diceNameArr[self.threeNumArr[0]] == "DICE6B" && self.diceNameArr[self.threeNumArr[1]] == "DICE4B" && self.diceNameArr[self.threeNumArr[2]] == "DICE5B" ||
                         self.diceNameArr[self.threeNumArr[0]] == "DICE6B" && self.diceNameArr[self.threeNumArr[1]] == "DICE5B" && self.diceNameArr[self.threeNumArr[2]] == "DICE4B")
                         {
+                            self.audioPlayer3.play()
                             self.amtOfPlayersLeft = self.amtOfPlayersLeft - 1
                             self.minTurns = 0
                             self.player3fourFiveSix = true
@@ -379,6 +405,7 @@ class ThreePlayerViewController: UIViewController {
                         self.diceNameArr[self.threeNumArr[0]] == "DICE3B" && self.diceNameArr[self.threeNumArr[1]] == "DICE1B" && self.diceNameArr[self.threeNumArr[2]] == "DICE2B" ||
                         self.diceNameArr[self.threeNumArr[0]] == "DICE3B" && self.diceNameArr[self.threeNumArr[1]] == "DICE2B" && self.diceNameArr[self.threeNumArr[2]] == "DICE1B")
                     {
+                        self.audioPlayer2.play()
                         self.amtOfPlayersLeft = self.amtOfPlayersLeft - 1
                         self.minTurns = 0
                         self.player3oneTwoThree = true
@@ -488,11 +515,11 @@ class ThreePlayerViewController: UIViewController {
     {
         if player2active == true
         {
+            audioPlayer.play()
         randomImageFirst()
-            DispatchQueue.main.asyncAfter(deadline: .now() + 1.6)
+            DispatchQueue.main.asyncAfter(deadline: .now() + 1.2)
             {
-                //self.diceRoll()
-        self.testPlayer2Roll()
+                self.diceRoll()
                 while(self.player2hasGone == false)
         {
             if (self.dice2.image! != self.dice3.image! && self.dice1.image! != self.dice3.image! && self.dice1.image! != self.dice2.image!)
@@ -504,6 +531,7 @@ class ThreePlayerViewController: UIViewController {
                     self.diceNameArr[self.threeNumArr[0]] == "DICE6B" && self.diceNameArr[self.threeNumArr[1]] == "DICE4B" && self.diceNameArr[self.threeNumArr[2]] == "DICE5B" ||
                     self.diceNameArr[self.threeNumArr[0]] == "DICE6B" && self.diceNameArr[self.threeNumArr[1]] == "DICE5B" && self.diceNameArr[self.threeNumArr[2]] == "DICE4B")
                 {
+                    self.audioPlayer3.play()
                     self.amtOfPlayersLeft = self.amtOfPlayersLeft - 1
                     self.minTurns = 0
                     self.player2fourFiveSix = true
@@ -533,6 +561,7 @@ class ThreePlayerViewController: UIViewController {
                     self.diceNameArr[self.threeNumArr[0]] == "DICE3B" && self.diceNameArr[self.threeNumArr[1]] == "DICE1B" && self.diceNameArr[self.threeNumArr[2]] == "DICE2B" ||
                     self.diceNameArr[self.threeNumArr[0]] == "DICE3B" && self.diceNameArr[self.threeNumArr[1]] == "DICE2B" && self.diceNameArr[self.threeNumArr[2]] == "DICE1B")
                 {
+                    self.audioPlayer2.play()
                     self.amtOfPlayersLeft = self.amtOfPlayersLeft - 1
                     self.minTurns = 0
                     self.player2oneTwoThree = true
@@ -666,6 +695,8 @@ class ThreePlayerViewController: UIViewController {
     {
         if player1active == true
         {
+            audioPlayer.play()
+            
             player1score = 0
             player2score = 0
             player3score = 0
@@ -674,10 +705,9 @@ class ThreePlayerViewController: UIViewController {
             resetButton.isEnabled = false
             randomImageFirst()
             
-            DispatchQueue.main.asyncAfter(deadline: .now() + 1.6)
+            DispatchQueue.main.asyncAfter(deadline: .now() + 1.2)
             {
-                //self.diceRoll()
-            self.testPlayer1Roll()
+                self.diceRoll()
             
                 while(self.player1hasGone == false)
             {
@@ -690,6 +720,7 @@ class ThreePlayerViewController: UIViewController {
                         self.diceNameArr[self.threeNumArr[0]] == "DICE6B" && self.diceNameArr[self.threeNumArr[1]] == "DICE4B" && self.diceNameArr[self.threeNumArr[2]] == "DICE5B" ||
                         self.diceNameArr[self.threeNumArr[0]] == "DICE6B" && self.diceNameArr[self.threeNumArr[1]] == "DICE5B" && self.diceNameArr[self.threeNumArr[2]] == "DICE4B")
                     {
+                        self.audioPlayer3.play()
                         self.amtOfPlayersLeft = self.amtOfPlayersLeft - 1
                         self.minTurns = 0
                         self.player1fourFiveSix = true
@@ -726,6 +757,7 @@ class ThreePlayerViewController: UIViewController {
                         self.diceNameArr[self.threeNumArr[0]] == "DICE3B" && self.diceNameArr[self.threeNumArr[1]] == "DICE1B" && self.diceNameArr[self.threeNumArr[2]] == "DICE2B" ||
                         self.diceNameArr[self.threeNumArr[0]] == "DICE3B" && self.diceNameArr[self.threeNumArr[1]] == "DICE2B" && self.diceNameArr[self.threeNumArr[2]] == "DICE1B")
                     {
+                        self.audioPlayer2.play()
                         self.amtOfPlayersLeft = self.amtOfPlayersLeft - 1
                         self.minTurns = 0
                         self.player1oneTwoThree = true
@@ -885,7 +917,7 @@ class ThreePlayerViewController: UIViewController {
     
     func winningImage(name: String)
     {
-        DispatchQueue.main.asyncAfter(deadline: .now() + 2.4)
+        DispatchQueue.main.asyncAfter(deadline: .now() + 4.4)
         {
             self.dice1.isHidden = true
             self.dice2.isHidden = true
@@ -1497,7 +1529,7 @@ class ThreePlayerViewController: UIViewController {
    
     func gameCompleted()
     {
-        DispatchQueue.main.asyncAfter(deadline: .now() + 5.4)
+        DispatchQueue.main.asyncAfter(deadline: .now() + 7.9)
         {
             let alertController = UIAlertController(title: "Game complete", message: self.message, preferredStyle: .alert)
             let action1 = UIAlertAction(title: "Run it back?", style: .default) { (action:UIAlertAction) in
@@ -1521,7 +1553,7 @@ class ThreePlayerViewController: UIViewController {
     //Winner is still being decided
     func gameTied()
     {
-        DispatchQueue.main.asyncAfter(deadline: .now() + 5.4)
+        DispatchQueue.main.asyncAfter(deadline: .now() + 7.9)
         {
             print("Game is tied")
             let alertController = UIAlertController(title: "Game complete", message: self.message, preferredStyle: .alert)
@@ -1543,7 +1575,7 @@ class ThreePlayerViewController: UIViewController {
     
     func gameTied12()
     {
-        DispatchQueue.main.asyncAfter(deadline: .now() + 5.4)
+        DispatchQueue.main.asyncAfter(deadline: .now() + 7.9)
         {
             print("Game is tied")
             let alertController = UIAlertController(title: "Game complete", message: self.message, preferredStyle: .alert)
@@ -1565,7 +1597,7 @@ class ThreePlayerViewController: UIViewController {
     
     func gameTied13()
     {
-        DispatchQueue.main.asyncAfter(deadline: .now() + 5.4)
+        DispatchQueue.main.asyncAfter(deadline: .now() + 7.9)
         {
             print("Game is tied")
             let alertController = UIAlertController(title: "Game complete", message: self.message, preferredStyle: .alert)
@@ -1587,7 +1619,7 @@ class ThreePlayerViewController: UIViewController {
     
     func gameTied23()
     {
-        DispatchQueue.main.asyncAfter(deadline: .now() + 5.4)
+        DispatchQueue.main.asyncAfter(deadline: .now() + 7.9)
         {
             print("Game is tied")
             let alertController = UIAlertController(title: "Game complete", message: self.message, preferredStyle: .alert)
