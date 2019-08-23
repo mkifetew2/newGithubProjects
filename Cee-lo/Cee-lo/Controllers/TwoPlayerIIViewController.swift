@@ -14,6 +14,7 @@ class TwoPlayerIIViewController: UIViewController, UITextFieldDelegate {
     var audioPlayer = AVAudioPlayer()
     var audioPlayer2 = AVAudioPlayer()
     var audioPlayer3 = AVAudioPlayer()
+    var audioPlayer4 = AVAudioPlayer()
 
     
     @IBOutlet weak var dice1Image: UIImageView!
@@ -82,6 +83,7 @@ class TwoPlayerIIViewController: UIViewController, UITextFieldDelegate {
         let sound = Bundle.main.path(forResource: "diceRollingSound", ofType: "mp3")
         let sound2 = Bundle.main.path(forResource: "123sound", ofType: "mp3")
         let sound3 = Bundle.main.path(forResource: "456sound", ofType: "mp3")
+        let sound4 = Bundle.main.path(forResource: "winningSound2", ofType: "mp3")
         do
         {
             audioPlayer = try AVAudioPlayer(contentsOf: URL(fileURLWithPath: sound!))
@@ -101,6 +103,13 @@ class TwoPlayerIIViewController: UIViewController, UITextFieldDelegate {
         
         do {
             audioPlayer3 = try AVAudioPlayer(contentsOf: URL(fileURLWithPath: sound3!))
+        }
+        catch{
+            print(error)
+        }
+        
+        do {
+            audioPlayer4 = try AVAudioPlayer(contentsOf: URL(fileURLWithPath: sound4!))
         }
         catch{
             print(error)
@@ -154,14 +163,7 @@ class TwoPlayerIIViewController: UIViewController, UITextFieldDelegate {
         player2rollButton.isEnabled = false
     }
     
-    func randomImageMaker()
-    {
-        self.disableRolling()
-        self.dice1Image.image = UIImage(named: self.diceNameArr[Int(arc4random_uniform (UInt32(self.diceNameArr.count)))])
-        self.dice2Image.image = UIImage(named: self.diceNameArr[Int(arc4random_uniform (UInt32(self.diceNameArr.count)))])
-        self.dice3Image.image = UIImage(named: self.diceNameArr[Int(arc4random_uniform (UInt32(self.diceNameArr.count)))])
-    }
-    
+   
     func randomImageFirst()
     {
        
@@ -170,53 +172,41 @@ class TwoPlayerIIViewController: UIViewController, UITextFieldDelegate {
             self.dice1Image.image = UIImage(named: self.diceNameArr[Int(arc4random_uniform (UInt32(self.diceNameArr.count)))])
             self.dice2Image.image = UIImage(named: self.diceNameArr[Int(arc4random_uniform (UInt32(self.diceNameArr.count)))])
             self.dice3Image.image = UIImage(named: self.diceNameArr[Int(arc4random_uniform (UInt32(self.diceNameArr.count)))])
-            self.player1rollButton.isEnabled = false
-            self.player2rollButton.isEnabled = false
+            self.disableRolling()
             
         }
+        
         DispatchQueue.main.asyncAfter(deadline: .now() + 0.4)
         {
             self.dice1Image.image = UIImage(named: self.diceNameArr[Int(arc4random_uniform (UInt32(self.diceNameArr.count)))])
             self.dice2Image.image = UIImage(named: self.diceNameArr[Int(arc4random_uniform (UInt32(self.diceNameArr.count)))])
             self.dice3Image.image = UIImage(named: self.diceNameArr[Int(arc4random_uniform (UInt32(self.diceNameArr.count)))])
-            self.player1rollButton.isEnabled = false
-            self.player2rollButton.isEnabled = false
+            self.disableRolling()
         }
+        
         DispatchQueue.main.asyncAfter(deadline: .now() + 0.6)
         {
             self.dice1Image.image = UIImage(named: self.diceNameArr[Int(arc4random_uniform (UInt32(self.diceNameArr.count)))])
             self.dice2Image.image = UIImage(named: self.diceNameArr[Int(arc4random_uniform (UInt32(self.diceNameArr.count)))])
             self.dice3Image.image = UIImage(named: self.diceNameArr[Int(arc4random_uniform (UInt32(self.diceNameArr.count)))])
-            self.player1rollButton.isEnabled = false
-            self.player2rollButton.isEnabled = false
-            
-            
-            
+            self.disableRolling()
         }
+        
         DispatchQueue.main.asyncAfter(deadline: .now() + 0.8)
         {
             self.dice1Image.image = UIImage(named: self.diceNameArr[Int(arc4random_uniform (UInt32(self.diceNameArr.count)))])
             self.dice2Image.image = UIImage(named: self.diceNameArr[Int(arc4random_uniform (UInt32(self.diceNameArr.count)))])
             self.dice3Image.image = UIImage(named: self.diceNameArr[Int(arc4random_uniform (UInt32(self.diceNameArr.count)))])
-            self.player1rollButton.isEnabled = false
-            self.player2rollButton.isEnabled = false
-            
-            
-            
+            self.disableRolling()
         }
+        
         DispatchQueue.main.asyncAfter(deadline: .now() + 1.0)
         {
             self.dice1Image.image = UIImage(named: self.diceNameArr[Int(arc4random_uniform (UInt32(self.diceNameArr.count)))])
             self.dice2Image.image = UIImage(named: self.diceNameArr[Int(arc4random_uniform (UInt32(self.diceNameArr.count)))])
             self.dice3Image.image = UIImage(named: self.diceNameArr[Int(arc4random_uniform (UInt32(self.diceNameArr.count)))])
-            self.player1rollButton.isEnabled = false
-            self.player2rollButton.isEnabled = false
-            
-            
-            
+            self.disableRolling()
         }
-        
-        
         
     }
     
@@ -892,6 +882,7 @@ class TwoPlayerIIViewController: UIViewController, UITextFieldDelegate {
             {
                 self.resultImage.contentMode = .scaleAspectFill
                 self.resultImage.image = UIImage(named: "player1wins")
+                self.audioPlayer4.play()
                 self.gameOver()
             }
             
@@ -899,6 +890,7 @@ class TwoPlayerIIViewController: UIViewController, UITextFieldDelegate {
             {
                 self.resultImage.contentMode = .scaleAspectFill
                 self.resultImage.image = UIImage(named: "player2wins")
+                self.audioPlayer4.play()
                 self.gameOver()
             }
         }
@@ -911,7 +903,7 @@ class TwoPlayerIIViewController: UIViewController, UITextFieldDelegate {
     //Winner has been decided
     func gameOver()
     {
-        DispatchQueue.main.asyncAfter(deadline: .now() + 7.9)
+        DispatchQueue.main.asyncAfter(deadline: .now() + 5.9)
         {
             print("Game is over")
                 let alertController = UIAlertController(title: "Game complete", message: self.message, preferredStyle: .alert)
@@ -935,7 +927,7 @@ class TwoPlayerIIViewController: UIViewController, UITextFieldDelegate {
     //Winner is still being decided
     func gameTied()
     {
-        DispatchQueue.main.asyncAfter(deadline: .now() + 7.9)
+        DispatchQueue.main.asyncAfter(deadline: .now() + 5.9)
         {
             print("Game is tied")
             let alertController = UIAlertController(title: "Game complete", message: self.message, preferredStyle: .alert)

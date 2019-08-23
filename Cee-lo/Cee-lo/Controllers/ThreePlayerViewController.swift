@@ -14,6 +14,7 @@ class ThreePlayerViewController: UIViewController {
     var audioPlayer = AVAudioPlayer()
     var audioPlayer2 = AVAudioPlayer()
     var audioPlayer3 = AVAudioPlayer()
+    var audioPlayer4 = AVAudioPlayer()
    
     @IBOutlet weak var submitButton: UIButton!
     @IBOutlet weak var resetButton: UIButton!
@@ -101,6 +102,7 @@ class ThreePlayerViewController: UIViewController {
         let sound = Bundle.main.path(forResource: "diceRollingSound", ofType: "mp3")
         let sound2 = Bundle.main.path(forResource: "123sound", ofType: "mp3")
         let sound3 = Bundle.main.path(forResource: "456sound", ofType: "mp3")
+        let sound4 = Bundle.main.path(forResource: "winningSound2", ofType: "mp3")
         do
         {
             audioPlayer = try AVAudioPlayer(contentsOf: URL(fileURLWithPath: sound!))
@@ -120,6 +122,12 @@ class ThreePlayerViewController: UIViewController {
         
         do {
             audioPlayer3 = try AVAudioPlayer(contentsOf: URL(fileURLWithPath: sound3!))
+        }
+        catch{
+            print(error)
+        }
+        do {
+            audioPlayer4 = try AVAudioPlayer(contentsOf: URL(fileURLWithPath: sound4!))
         }
         catch{
             print(error)
@@ -961,6 +969,7 @@ class ThreePlayerViewController: UIViewController {
                 self.resultImage.isHidden = false
                 self.resultImage.contentMode = .scaleAspectFill
                 self.resultImage.image = UIImage(named: "player1wins")
+                self.audioPlayer4.play()
                 self.gameCompleted()
             }
             
@@ -969,6 +978,7 @@ class ThreePlayerViewController: UIViewController {
                 self.resultImage.isHidden = false
                 self.resultImage.contentMode = .scaleAspectFill
                 self.resultImage.image = UIImage(named: "player2wins")
+                self.audioPlayer4.play()
                 self.gameCompleted()
             }
             
@@ -977,6 +987,7 @@ class ThreePlayerViewController: UIViewController {
                 self.resultImage.isHidden = false
                 self.resultImage.contentMode = .scaleAspectFill
                 self.resultImage.image = UIImage(named: "player3wins")
+                self.audioPlayer4.play()
                 self.gameCompleted()
             }
         }
@@ -1529,7 +1540,7 @@ class ThreePlayerViewController: UIViewController {
    
     func gameCompleted()
     {
-        DispatchQueue.main.asyncAfter(deadline: .now() + 7.9)
+        DispatchQueue.main.asyncAfter(deadline: .now() + 5.9)
         {
             let alertController = UIAlertController(title: "Game complete", message: self.message, preferredStyle: .alert)
             let action1 = UIAlertAction(title: "Run it back?", style: .default) { (action:UIAlertAction) in
@@ -1553,7 +1564,7 @@ class ThreePlayerViewController: UIViewController {
     //Winner is still being decided
     func gameTied()
     {
-        DispatchQueue.main.asyncAfter(deadline: .now() + 7.9)
+        DispatchQueue.main.asyncAfter(deadline: .now() + 5.9)
         {
             print("Game is tied")
             let alertController = UIAlertController(title: "Game complete", message: self.message, preferredStyle: .alert)
@@ -1575,7 +1586,7 @@ class ThreePlayerViewController: UIViewController {
     
     func gameTied12()
     {
-        DispatchQueue.main.asyncAfter(deadline: .now() + 7.9)
+        DispatchQueue.main.asyncAfter(deadline: .now() + 5.9)
         {
             print("Game is tied")
             let alertController = UIAlertController(title: "Game complete", message: self.message, preferredStyle: .alert)
@@ -1597,7 +1608,7 @@ class ThreePlayerViewController: UIViewController {
     
     func gameTied13()
     {
-        DispatchQueue.main.asyncAfter(deadline: .now() + 7.9)
+        DispatchQueue.main.asyncAfter(deadline: .now() + 5.9)
         {
             print("Game is tied")
             let alertController = UIAlertController(title: "Game complete", message: self.message, preferredStyle: .alert)
@@ -1619,7 +1630,7 @@ class ThreePlayerViewController: UIViewController {
     
     func gameTied23()
     {
-        DispatchQueue.main.asyncAfter(deadline: .now() + 7.9)
+        DispatchQueue.main.asyncAfter(deadline: .now() + 5.9)
         {
             print("Game is tied")
             let alertController = UIAlertController(title: "Game complete", message: self.message, preferredStyle: .alert)

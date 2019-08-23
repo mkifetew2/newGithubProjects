@@ -60,7 +60,7 @@
                                             <constraint firstAttribute="width" constant="125" id="8Hf-RH-Vue"/>
                                         </constraints>
                                         <nil key="textColor"/>
-                                        <fontDescription key="fontDescription" name="AcademyEngravedLetPlain" family="Academy Engraved LET" pointSize="25"/>
+                                        <fontDescription key="fontDescription" name="AcademyEngravedLetPlain" family="Academy Engraved LET" pointSize="28"/>
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
                                     <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsLetterSpacingToFitWidth="YES" enabled="NO" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZQ5-F8-d9N">
@@ -606,7 +606,7 @@
                                             <constraint firstAttribute="height" constant="42" id="WK5-Xw-afl"/>
                                         </constraints>
                                         <nil key="textColor"/>
-                                        <fontDescription key="fontDescription" name="AcademyEngravedLetPlain" family="Academy Engraved LET" pointSize="25"/>
+                                        <fontDescription key="fontDescription" name="AcademyEngravedLetPlain" family="Academy Engraved LET" pointSize="28"/>
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Dice Up Logo" translatesAutoresizingMaskIntoConstraints="NO" id="GEq-Zf-MwO">
@@ -1497,12 +1497,9 @@
         <image name="number of players" width="1600" height="1600"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="Lf2-0Q-iUO"/>
-        <segue reference="MnF-8E-NHj"/>
-        <segue reference="PR0-ap-ZKU"/>
         <segue reference="0IP-dl-twR"/>
         <segue reference="u6m-sk-DPe"/>
         <segue reference="xq2-fj-vds"/>
-        <segue reference="IZp-J1-dDm"/>
+        <segue reference="qXU-Pr-5Rq"/>
     </inferredMetricsTieBreakers>
 </document>

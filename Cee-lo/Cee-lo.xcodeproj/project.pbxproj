@@ -16,6 +16,8 @@
 		05346A97226D76C9003E37B4 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 05346A95226D76C9003E37B4 /* Main.storyboard */; };
 		05346A99226D76CB003E37B4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 05346A98226D76CB003E37B4 /* Assets.xcassets */; };
 		05346A9C226D76CB003E37B4 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 05346A9A226D76CB003E37B4 /* LaunchScreen.storyboard */; };
+		0536BFC32310412200096AF0 /* winningSound.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 0536BFC22310412100096AF0 /* winningSound.mp3 */; };
+		0536BFC52310449400096AF0 /* winningSound2.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 0536BFC42310449400096AF0 /* winningSound2.mp3 */; };
 		0586E7BE227EAEBA00D6C638 /* FourPlayerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0586E7BD227EAEBA00D6C638 /* FourPlayerViewController.swift */; };
 		058F425B230F07FE00AFEBA9 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 058F425A230F07FE00AFEBA9 /* AVFoundation.framework */; };
 		058F4269230F0C8600AFEBA9 /* 456sound.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 058F4266230F0C8600AFEBA9 /* 456sound.mp3 */; };
@@ -37,6 +39,8 @@
 		05346A98226D76CB003E37B4 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		05346A9B226D76CB003E37B4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		05346A9D226D76CB003E37B4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		0536BFC22310412100096AF0 /* winningSound.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = winningSound.mp3; path = ../../../../../Downloads/winningSound.mp3; sourceTree = "<group>"; };
+		0536BFC42310449400096AF0 /* winningSound2.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = winningSound2.mp3; path = ../../../../../Downloads/winningSound2.mp3; sourceTree = "<group>"; };
 		0586E7BD227EAEBA00D6C638 /* FourPlayerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FourPlayerViewController.swift; sourceTree = "<group>"; };
 		058F425A230F07FE00AFEBA9 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		058F4266230F0C8600AFEBA9 /* 456sound.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = 456sound.mp3; path = ../../../../ceeloSounds/456sound.mp3; sourceTree = "<group>"; };
@@ -99,6 +103,8 @@
 				052688C62288A4D70024B0FF /* TwoPlayTurnOfEventsViewController.swift */,
 				052688C82288A4FC0024B0FF /* ThreePlayTurnOfEventsViewController.swift */,
 				058F4268230F0C8600AFEBA9 /* 123sound.mp3 */,
+				0536BFC22310412100096AF0 /* winningSound.mp3 */,
+				0536BFC42310449400096AF0 /* winningSound2.mp3 */,
 				058F4266230F0C8600AFEBA9 /* 456sound.mp3 */,
 				058F4267230F0C8600AFEBA9 /* diceRollingSound.mp3 */,
 				052688CA2288A5190024B0FF /* FourPlayTurnOfEventsViewController.swift */,
@@ -192,6 +198,8 @@
 				05346A99226D76CB003E37B4 /* Assets.xcassets in Resources */,
 				058F426A230F0C8600AFEBA9 /* diceRollingSound.mp3 in Resources */,
 				058F426B230F0C8600AFEBA9 /* 123sound.mp3 in Resources */,
+				0536BFC52310449400096AF0 /* winningSound2.mp3 in Resources */,
+				0536BFC32310412200096AF0 /* winningSound.mp3 in Resources */,
 				058F4269230F0C8600AFEBA9 /* 456sound.mp3 in Resources */,
 				05346A97226D76C9003E37B4 /* Main.storyboard in Resources */,
 			);
