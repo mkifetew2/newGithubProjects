@@ -29,12 +29,14 @@ class CityNameViewController: UIViewController, UITextFieldDelegate {
         // Do any additional setup after loading the view.
     }
     
-    
-    
-    func textFieldDidEndEditing(_ textField: UITextField) {
-        if (cityEntry.text?.count)! > 0
+    func textFieldDidBeginEditing(_ textField: UITextField) {
+        if cityEntry.text!.isEmptyField
         {
             submitButton.isEnabled = true
+        }
+        else
+        {
+            submitButton.isEnabled = false
         }
     }
     
@@ -72,6 +74,12 @@ class CityNameViewController: UIViewController, UITextFieldDelegate {
     
     
     
+}
+
+extension StringProtocol where Index == String.Index {
+    var isEmptyField: Bool {
+        return trimmingCharacters(in: .whitespaces) == ""
+    }
 }
     
 

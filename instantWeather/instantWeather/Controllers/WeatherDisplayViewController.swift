@@ -9,8 +9,9 @@
 import UIKit
 import Alamofire
 import SwiftyJSON
+import CoreLocation
 
-class WeatherDisplayViewController: UIViewController {
+class WeatherDisplayViewController: UIViewController, CLLocationManagerDelegate {
 
     var cityName : String?
     var weatherDescription : String?
@@ -18,21 +19,34 @@ class WeatherDisplayViewController: UIViewController {
     @IBOutlet weak var weatherDisplay: UIImageView!
     @IBOutlet weak var tempLabel: UILabel!
     @IBOutlet weak var cityLabel: UILabel!
+    let locationManager = CLLocationManager()
     var APP_URL = "http://api.openweathermap.org/data/2.5/weather"
     var APP_ID = "993d139627c4a431d89b8b944c0ea92e"
     
-    @IBAction func switchPage(_ sender: UIButton)
-    {
-        print(cityName)
-    }
+ 
     
     override func viewDidLoad() {
         super.viewDidLoad()
+//        locationManager.delegate = self
+//        locationManager.desiredAccuracy = kCLLocationAccuracyHundredMeters
+//        locationManager.requestWhenInUseAuthorization()
+//        locationManager.startUpdatingLocation()
         // Do any additional setup after loading the view.
         let params : [String : String] = ["q" : cityName!, "appid" : APP_ID]
         getWeather(url: APP_URL, params: params)
         print("here")
         
+    }
+    
+    //This function is for when the location is updated
+    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+        //Since the array in the parameters holds a bunch of nearby locations, the last one is the most accurate
+        let currentLocation = locations[locations.count - 1]
+        if currentLocation.horizontalAccuracy > 0
+        {
+            locationManager.stopUpdatingLocation()
+            print("Longitude = \(currentLocation.coordinate.longitude), Latitude = \(currentLocation.coordinate.longitude)")
+        }
     }
     
     override func didReceiveMemoryWarning() {
@@ -62,14 +76,21 @@ class WeatherDisplayViewController: UIViewController {
     
     func weatherUI(json : JSON)
     {
-        let temp = json["main"]["temp"].int
-        let id = json["weather"][0]["id"].int
-        
-        if temp != nil
+        if let temp = json["main"]["temp"].int
         {
-            cityTemp = temp! - 273
+             cityTemp = temp - 273
         }
-        weatherDisplay2(id: id!)
+        
+        
+        if let id = json["weather"][0]["id"].int
+        {
+            weatherDisplay2(id: id)
+        }
+        else
+        {
+            weatherDisplay2(id: 0)
+        }
+        
         
     }
 
@@ -83,30 +104,41 @@ class WeatherDisplayViewController: UIViewController {
             weatherDisplay.image = UIImage(named: "thunderstorm")
         case 300, 301, 302, 310, 311, 312, 313, 314, 321:
             weatherDescription = "drizzle"
-            weatherDisplay.image = UIImage(named: "rainy")
+            weatherDisplay.image = UIImage(named: "drizzle")
         case 500, 501, 502, 503, 504, 511, 520, 521, 522, 531:
             weatherDescription = "rain"
             weatherDisplay.image = UIImage(named: "rainy2")
         case 600, 601, 602, 611, 612, 613, 615, 616, 620, 621, 622:
             weatherDescription = "snow"
-            weatherDisplay.image = UIImage(named: "lightSnow")
+            weatherDisplay.image = UIImage(named: "snow")
         case 701, 711, 721, 731, 741, 751, 761, 762, 771, 781:
             weatherDescription = "atmosphere"
             weatherDisplay.image = UIImage(named: "fog")
         case 800:
             weatherDescription = "clear sky"
-            weatherDisplay.image = UIImage(named: "verySunny")
+            weatherDisplay.image = UIImage(named: "sunny")
         case 801, 802, 803, 804:
             weatherDescription = "clouds"
-            weatherDisplay.image = UIImage(named: "cloudy")
+            weatherDisplay.image = UIImage(named: "overcast")
         default:
             weatherDescription = "none"
+            weatherDisplay.image = UIImage(named: "unknown")
         }
         
         tempLabel.text = "\(cityTemp!)℃"
-        cityLabel.text = cityName!
+        if let displayName = cityName
+        {
+            cityLabel.text = displayName
+        }
+        else
+        {
+            cityLabel.text = "No entry"
+        }
+        
         
         
     }
 
 }
+
+
