@@ -207,7 +207,7 @@ class FourPlayTurnOfEventsViewController: UIViewController {
             
             player2active = false
             amtOfRollsLeft = amtOfRollsLeft - 1
-            DispatchQueue.main.asyncAfter(deadline: .now() + 3.9)
+            DispatchQueue.main.asyncAfter(deadline: .now() + 4.9)
             {
                 self.nextScreen()
             }
@@ -237,7 +237,7 @@ class FourPlayTurnOfEventsViewController: UIViewController {
             }
             player3active = false
             amtOfRollsLeft = amtOfRollsLeft - 1
-            DispatchQueue.main.asyncAfter(deadline: .now() + 3.9)
+            DispatchQueue.main.asyncAfter(deadline: .now() + 4.9)
             {
                 self.nextScreen()
             }
@@ -263,7 +263,7 @@ class FourPlayTurnOfEventsViewController: UIViewController {
                 self.amtOfRollsLeft = self.amtOfRollsLeft - 1
             }
             
-            DispatchQueue.main.asyncAfter(deadline: .now() + 3.9)
+            DispatchQueue.main.asyncAfter(deadline: .now() + 4.9)
             {
                 self.nextScreen()
             }

@@ -250,7 +250,7 @@ class TwoPlayerIIViewController: UIViewController, UITextFieldDelegate {
         
             
             
-            if(minTurns < 2)
+            if(minTurns < 0)
             {
                 let randomNum = listOfNonWinningScores[Int(arc4random_uniform(UInt32(listOfNonWinningScores.count)))]
                 print(randomNum)

@@ -103,6 +103,7 @@ class FourPlayerViewController: UIViewController {
         player2rollButton.isHidden = true
         player3rollButton.isHidden = true
         player4rollButton.isHidden = true
+        betTextField.delegate = self
         
         let sound = Bundle.main.path(forResource: "diceRollingSound", ofType: "mp3")
         let sound2 = Bundle.main.path(forResource: "123sound", ofType: "mp3")
@@ -172,7 +173,7 @@ class FourPlayerViewController: UIViewController {
         
         let updatedText = currentText.replacingCharacters(in: stringRange, with: string)
         
-        return updatedText.count <= 9
+        return updatedText.count <= 8
     }
     
     
@@ -252,7 +253,7 @@ class FourPlayerViewController: UIViewController {
         
         
         
-        if(minTurns < 2)
+        if(minTurns < 0)
         {
             let randomNum = listOfNonWinningScores[Int(arc4random_uniform(UInt32(listOfNonWinningScores.count)))]
             print(randomNum)

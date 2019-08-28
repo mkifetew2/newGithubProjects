@@ -9,7 +9,7 @@
 import UIKit
 import AVFoundation
 
-class ThreePlayerViewController: UIViewController {
+class ThreePlayerViewController: UIViewController, UITextFieldDelegate {
 
     var audioPlayer = AVAudioPlayer()
     var audioPlayer2 = AVAudioPlayer()
@@ -98,6 +98,8 @@ class ThreePlayerViewController: UIViewController {
         player2rollButton.isHidden = true
         player3rollButton.isHidden = true
         betTextField.isEnabled = true
+        betTextField.delegate = self 
+        
         
         let sound = Bundle.main.path(forResource: "diceRollingSound", ofType: "mp3")
         let sound2 = Bundle.main.path(forResource: "123sound", ofType: "mp3")
@@ -290,7 +292,7 @@ class ThreePlayerViewController: UIViewController {
         
         
         
-        if(minTurns < 2)
+        if(minTurns < 0)
         {
             let randomNum = listOfNonWinningScores[Int(arc4random_uniform(UInt32(listOfNonWinningScores.count)))]
             print(randomNum)
