@@ -11,8 +11,8 @@ import AVFoundation
 
 class FourPlayTurnOfEventsViewController: UIViewController {
 
+    //Outlets that are represented on screen
     @IBOutlet weak var dice: UIImageView!
-    
     @IBOutlet weak var player1Roll: UIButton!
     @IBOutlet weak var player2Roll: UIButton!
     @IBOutlet weak var player3Roll: UIButton!
@@ -22,17 +22,25 @@ class FourPlayTurnOfEventsViewController: UIViewController {
     @IBOutlet weak var player2score: UILabel!
     @IBOutlet weak var player3score: UILabel!
     @IBOutlet weak var player4score: UILabel!
+    
+    
+    //One audioplayer to play necessary sounds
     var audioPlayer = AVAudioPlayer()
+    
+    //Arrays needed to refer to assets pics
     var diceNameArr = ["DICE1B", "DICE2B", "DICE3B", "DICE4B", "DICE5B", "DICE6B"]
     var numArr = ["0", "1", "2", "3", "4", "5"]
     
+    //random number generated for when dice is rolled
     var randomIndexVar1 : Int?
     
+    //temp scores for the players
     var player1tempScore : Float = 0
     var player2tempScore : Float = 0
     var player3tempScore : Float = 0
     var player4tempScore : Float = 0
     
+    //For how many people are in the game
     var amtOfRollsLeft : Int = 4
     
     var player1active : Bool = true
@@ -41,10 +49,12 @@ class FourPlayTurnOfEventsViewController: UIViewController {
     var player4active : Bool = true
     
     
+    //When the view is loaded it has to deactivate the 2nd & 3rd player roll button
+    //Also launches the necessary sound for it
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
+        
         player2Roll.isEnabled = false
         player3Roll.isEnabled = false
         player4Roll.isEnabled = false
@@ -52,6 +62,8 @@ class FourPlayTurnOfEventsViewController: UIViewController {
         player3Roll.isHidden = true
         player4Roll.isHidden = true
         
+        
+        //Do-catch necessary for sounds to be included
         let sound = Bundle.main.path(forResource: "diceRollingSound", ofType: "mp3")
         do
         {
@@ -63,6 +75,7 @@ class FourPlayTurnOfEventsViewController: UIViewController {
         }
     }
     
+    //Disables all buttons to not be pressed
     func disableRolling()
     {
         player1Roll.isEnabled = false
@@ -71,36 +84,44 @@ class FourPlayTurnOfEventsViewController: UIViewController {
         player4Roll.isEnabled = false
     }
     
+    //Changes the on-screen dice
+    func changeImage()
+    {
+        dice.image = UIImage(named: self.diceNameArr[Int(arc4random_uniform(UInt32(self.diceNameArr.count)))])
+    }
+    
+    //Responsible for the dice changing images on screen when button is pressed
+    //Necessary delays included to look nice on screen
     func randomImageFirst()
     {
         
         DispatchQueue.main.asyncAfter(deadline: .now() + 0.2)
         {
-            self.dice.image = UIImage(named: self.diceNameArr[Int(arc4random_uniform(UInt32(self.diceNameArr.count)))])
+            self.changeImage()
             self.disableRolling()
         }
         
         DispatchQueue.main.asyncAfter(deadline: .now() + 0.4)
         {
-            self.dice.image = UIImage(named: self.diceNameArr[Int(arc4random_uniform(UInt32(self.diceNameArr.count)))])
+            self.changeImage()
             self.disableRolling()
         }
         
         DispatchQueue.main.asyncAfter(deadline: .now() + 0.6)
         {
-            self.dice.image = UIImage(named: self.diceNameArr[Int(arc4random_uniform(UInt32(self.diceNameArr.count)))])
+            self.changeImage()
             self.disableRolling()
         }
         
         DispatchQueue.main.asyncAfter(deadline: .now() + 0.8)
         {
-            self.dice.image = UIImage(named: self.diceNameArr[Int(arc4random_uniform(UInt32(self.diceNameArr.count)))])
+            self.changeImage()
             self.disableRolling()
         }
         
         DispatchQueue.main.asyncAfter(deadline: .now() + 1.0)
         {
-            self.dice.image = UIImage(named: self.diceNameArr[Int(arc4random_uniform(UInt32(self.diceNameArr.count)))])
+            self.changeImage()
             self.disableRolling()
         }
         
@@ -114,6 +135,7 @@ class FourPlayTurnOfEventsViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
+    //Function that is called when player presses their roll button
     func diceRoll()
     {
         disableRolling()
@@ -128,14 +150,13 @@ class FourPlayTurnOfEventsViewController: UIViewController {
         UIUpdates()
     }
     
+    //Updates the on-screen dice
     func UIUpdates()
     {
         dice.image = UIImage(named: diceNameArr[randomIndexVar1!])
     }
     
-    
-    
-  
+    //Sequence of things that happen when player1Roll is pressed, necessary delays included
     @IBAction func p1rollPressed(_ sender: UIButton)
     {
         audioPlayer.play()
@@ -175,7 +196,7 @@ class FourPlayTurnOfEventsViewController: UIViewController {
         
     }
     
-    
+     //Sequence of things that happen when player2Roll is pressed, necessary delays included
     @IBAction func p2rollPressed(_ sender: UIButton)
     {
         audioPlayer.play()
@@ -202,11 +223,12 @@ class FourPlayTurnOfEventsViewController: UIViewController {
                         self.player4Roll.isHidden = false
                     }
             }
-            
-            
-            
+        
             player2active = false
             amtOfRollsLeft = amtOfRollsLeft - 1
+            
+            //Checking to see who won after the last player has rolled
+            //Only will be done if theres a tie between player 1 and 2
             DispatchQueue.main.asyncAfter(deadline: .now() + 4.9)
             {
                 self.nextScreen()
@@ -214,7 +236,7 @@ class FourPlayTurnOfEventsViewController: UIViewController {
         }
     }
     
-    
+    //Sequence of things that happen when player3Roll is pressed, necessary delays included
     @IBAction func p3rollPressed(_ sender: UIButton)
     {
         audioPlayer.play()
@@ -235,8 +257,12 @@ class FourPlayTurnOfEventsViewController: UIViewController {
                     self.player4Roll.isHidden = false
                 }
             }
+            
             player3active = false
             amtOfRollsLeft = amtOfRollsLeft - 1
+            
+            //Checking to see who won after the last player has rolled
+            //This will be called if the last player is 3rd player
             DispatchQueue.main.asyncAfter(deadline: .now() + 4.9)
             {
                 self.nextScreen()
@@ -246,7 +272,7 @@ class FourPlayTurnOfEventsViewController: UIViewController {
     }
     
     
-    
+     //Sequence of things that happen when player4Roll is pressed, necessary delays included
     @IBAction func p4rollPressed(_ sender: UIButton)
     {
         audioPlayer.play()
@@ -263,6 +289,7 @@ class FourPlayTurnOfEventsViewController: UIViewController {
                 self.amtOfRollsLeft = self.amtOfRollsLeft - 1
             }
             
+            //Checking to see who won after the last player has rolled
             DispatchQueue.main.asyncAfter(deadline: .now() + 4.9)
             {
                 self.nextScreen()
@@ -291,6 +318,7 @@ class FourPlayTurnOfEventsViewController: UIViewController {
         amtOfRollsLeft = 4
     }
     
+    //Resets scores and other various attributes if there is a tie with player 1, 2, 3
     func resetEverythingP1nP2nP3()
     {
         player1tempScore = 0
@@ -309,6 +337,7 @@ class FourPlayTurnOfEventsViewController: UIViewController {
         amtOfRollsLeft = 3
     }
     
+    //Resets scores and other various attributes if there is a tie with player 1, 2, 4
     func resetEverythingP1nP2nP4()
     {
         player1tempScore = 0
@@ -327,6 +356,7 @@ class FourPlayTurnOfEventsViewController: UIViewController {
         amtOfRollsLeft = 3
     }
     
+    //Resets scores and other various attributes if there is a tie with player 1, 3, 4
     func resetEverythingP1nP3nP4()
     {
         player1tempScore = 0
@@ -345,6 +375,7 @@ class FourPlayTurnOfEventsViewController: UIViewController {
         amtOfRollsLeft = 3
     }
     
+    //Resets scores and other various attributes if there is a tie with player 2, 3, 4
     func resetEverythingP2nP3nP4()
     {
         player1tempScore = 0.135
@@ -365,7 +396,7 @@ class FourPlayTurnOfEventsViewController: UIViewController {
     
     
     
-    
+    //Resets scores and other various attributes if there is a tie with player 1, 2
     func resetEverythingP1nP2()
     {
         player1tempScore = 0
@@ -382,6 +413,7 @@ class FourPlayTurnOfEventsViewController: UIViewController {
         amtOfRollsLeft = 2
     }
     
+    //Resets scores and other various attributes if there is a tie with player 1, 3
     func resetEverythingP1nP3()
     {
         player1tempScore = 0
@@ -397,7 +429,7 @@ class FourPlayTurnOfEventsViewController: UIViewController {
         player3active = true
         amtOfRollsLeft = 2
     }
-    
+    //Resets scores and other various attributes if there is a tie with player 1, 4
     func resetEverythingP1nP4()
     {
         player1tempScore = 0
@@ -414,7 +446,7 @@ class FourPlayTurnOfEventsViewController: UIViewController {
         amtOfRollsLeft = 2
     }
     
-    
+    //Resets scores and other various attributes if there is a tie with player 2, 3
     func resetEverythingP2nP3()
     {
         player1tempScore = 0.14
@@ -431,6 +463,7 @@ class FourPlayTurnOfEventsViewController: UIViewController {
         amtOfRollsLeft = 2
     }
     
+    //Resets scores and other various attributes if there is a tie with player 2, 4
     func resetEverythingP2nP4()
     {
         player1tempScore = 0.11
@@ -447,6 +480,7 @@ class FourPlayTurnOfEventsViewController: UIViewController {
         amtOfRollsLeft = 2
     }
     
+    //Resets scores and other various attributes if there is a tie with player 3, 4
     func resetEverythingP3nP4()
     {
         player1tempScore = 0.1356
@@ -464,11 +498,13 @@ class FourPlayTurnOfEventsViewController: UIViewController {
     }
     
     
-    
+    //Checks to see which player will go when based on the current rolls done
+    //Alert controller with action shown in either instance
     func nextScreen()
     {
         if(amtOfRollsLeft == 0)
         {
+            //When a player has won
             if(player1tempScore > player2tempScore && player2tempScore > player3tempScore && player3tempScore > player4tempScore
                 || player1tempScore > player2tempScore && player2tempScore > player4tempScore && player4tempScore > player3tempScore
                 || player1tempScore > player3tempScore && player3tempScore > player2tempScore && player2tempScore > player4tempScore

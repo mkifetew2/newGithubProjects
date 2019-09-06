@@ -11,11 +11,11 @@ import AVFoundation
 
 class TwoPlayTurnOfEventsViewController: UIViewController {
 
-    
-//    var playerArr = [Temp2PlayerGame]()
-//    let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
+    //Two audioplayers to play necessary sounds
     var audioPlayer = AVAudioPlayer()
+    var audioPlayer2 = AVAudioPlayer()
     
+    //Outlets that are represented on screen
     @IBOutlet weak var dice: UIImageView!
     @IBOutlet weak var player1Roll: UIButton!
     @IBOutlet weak var player2Roll: UIButton!
@@ -23,21 +23,32 @@ class TwoPlayTurnOfEventsViewController: UIViewController {
     @IBOutlet weak var player1score: UILabel!
     @IBOutlet weak var player2score: UILabel!
     
+    
+    //Arrays needed to refer to assets pics
     var diceNameArr = ["DICE1B", "DICE2B", "DICE3B", "DICE4B", "DICE5B", "DICE6B"]
     var numArr = ["0", "1", "2", "3", "4", "5"]
     
+    
+    //random number generated for when dice is rolled
     var randomIndexVar1 : Int?
     
+    //temp scores for the players
     var player1tempScore : Int = 0
     var player2tempScore : Int = 0
     
     
     
+    //When the view is loaded it has to deactivate the 2nd player roll button
+    //Also launches the necessary sound for it
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         player2Roll.isEnabled = false
         player2Roll.isHidden = true
-         let sound = Bundle.main.path(forResource: "diceRollingSound", ofType: "mp3")
+        
+        
+        //Do-catch necessary for sounds to be included
+        let sound = Bundle.main.path(forResource: "diceRollingSound", ofType: "mp3")
         do
         {
             audioPlayer = try AVAudioPlayer(contentsOf: URL(fileURLWithPath: sound!))
@@ -46,6 +57,17 @@ class TwoPlayTurnOfEventsViewController: UIViewController {
         {
             print(error)
         }
+        
+        let sound2 = Bundle.main.path(forResource: "ceeloBackground", ofType: "mp3")
+        do
+        {
+            audioPlayer2 = try AVAudioPlayer(contentsOf: URL(fileURLWithPath: sound2!))
+        }
+        catch
+        {
+            print(error)
+        }
+        audioPlayer2.play()
     }
 
  
@@ -55,50 +77,59 @@ class TwoPlayTurnOfEventsViewController: UIViewController {
        
     }
     
+    //Disables both buttons to not be pressed
     func disableRolling()
     {
         player1Roll.isEnabled = false
         player2Roll.isEnabled = false
     }
     
+    //Changes the on-screen dice
+    func changeImage()
+    {
+        dice.image = UIImage(named: self.diceNameArr[Int(arc4random_uniform(UInt32(self.diceNameArr.count)))])
+    }
+    
+    //Responsible for the dice changing images on screen when button is pressed
+    //Necessary delays included to look nice on screen
     func randomImageFirst()
     {
         
         DispatchQueue.main.asyncAfter(deadline: .now() + 0.2)
         {
-            self.dice.image = UIImage(named: self.diceNameArr[Int(arc4random_uniform(UInt32(self.diceNameArr.count)))])
+            self.changeImage()
             self.disableRolling()
         }
         
         DispatchQueue.main.asyncAfter(deadline: .now() + 0.4)
         {
-            self.dice.image = UIImage(named: self.diceNameArr[Int(arc4random_uniform(UInt32(self.diceNameArr.count)))])
+            self.changeImage()
             self.disableRolling()
         }
         
         DispatchQueue.main.asyncAfter(deadline: .now() + 0.6)
         {
-            self.dice.image = UIImage(named: self.diceNameArr[Int(arc4random_uniform(UInt32(self.diceNameArr.count)))])
+            self.changeImage()
             self.disableRolling()
         }
         
         DispatchQueue.main.asyncAfter(deadline: .now() + 0.8)
         {
-            self.dice.image = UIImage(named: self.diceNameArr[Int(arc4random_uniform(UInt32(self.diceNameArr.count)))])
+            self.changeImage()
             self.disableRolling()
         }
         
         DispatchQueue.main.asyncAfter(deadline: .now() + 1.0)
         {
-            self.dice.image = UIImage(named: self.diceNameArr[Int(arc4random_uniform(UInt32(self.diceNameArr.count)))])
+            self.changeImage()
             self.disableRolling()
         }
         
         
-        
-        
     }
     
+    
+    //Function that is called when player presses their roll button
     func diceRoll()
     {
         disableRolling()
@@ -114,11 +145,13 @@ class TwoPlayTurnOfEventsViewController: UIViewController {
 
     }
     
+    //Updates the on-screen dice
     func UIUpdates()
     {
         dice.image = UIImage(named: diceNameArr[randomIndexVar1!])
     }
     
+    //Resets the game from the beginning
     func resetEverything()
     {
         player1tempScore = 0
@@ -131,12 +164,13 @@ class TwoPlayTurnOfEventsViewController: UIViewController {
     }
     
 
+    //Sequence of things that happen when player1Roll is pressed, necessary delays included
     @IBAction func p1rollPressed(_ sender: UIButton)
     {
         audioPlayer.play()
         randomImageFirst()
         DispatchQueue.main.asyncAfter(deadline: .now() + 1.2) {
-            // your code here
+
             self.diceRoll()
             //testForTieFunctionality()
             print("got here")
@@ -152,6 +186,7 @@ class TwoPlayTurnOfEventsViewController: UIViewController {
         
     }
     
+    //Sequence of things that happen when player2Roll is pressed, necessary delays included
     @IBAction func p2rollPressed(_ sender: UIButton)
     {
         audioPlayer.play()
@@ -167,26 +202,17 @@ class TwoPlayTurnOfEventsViewController: UIViewController {
             
         }
         
+        //Checking to see who won after the last player has rolled
         DispatchQueue.main.asyncAfter(deadline: .now() + 4.9)
         {
             self.checkForPlayOrder()
         }
     }
     
-    
-    
-//    func saveScores()
-//    {
-//        do{
-//            try context.save()
-//        }
-//        catch{
-//            print("Error saving scores\(error)")
-//        }
-//    }
-//    
+
  
-    
+    //Checks to see which player will go when based on the current rolls done
+    //Alert controller with action shown in either instance 
     func checkForPlayOrder()
     {
         if(player1tempScore > player2tempScore || player2tempScore > player1tempScore)

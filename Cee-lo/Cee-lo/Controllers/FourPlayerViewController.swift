@@ -9,7 +9,7 @@
 import UIKit
 import AVFoundation
 
-class FourPlayerViewController: UIViewController {
+class FourPlayerViewController: UIViewController, UITextFieldDelegate  {
 
     var audioPlayer = AVAudioPlayer()
     var audioPlayer2 = AVAudioPlayer()
