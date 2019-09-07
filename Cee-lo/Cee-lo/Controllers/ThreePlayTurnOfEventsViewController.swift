@@ -305,6 +305,7 @@ class ThreePlayTurnOfEventsViewController: UIViewController {
 
     }
     
+    
     //Checks to see which player will go when based on the current rolls done
     //Alert controller with action shown in either instance
     func checkForPlayOrder()

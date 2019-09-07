@@ -57,17 +57,6 @@ class TwoPlayTurnOfEventsViewController: UIViewController {
         {
             print(error)
         }
-        
-        let sound2 = Bundle.main.path(forResource: "ceeloBackground", ofType: "mp3")
-        do
-        {
-            audioPlayer2 = try AVAudioPlayer(contentsOf: URL(fileURLWithPath: sound2!))
-        }
-        catch
-        {
-            print(error)
-        }
-        audioPlayer2.play()
     }
 
  
