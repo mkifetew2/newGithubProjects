@@ -298,17 +298,23 @@ class FourPlayTurnOfEventsViewController: UIViewController {
         player4active = false
     }
     
-    func resetEverything()
+    func resetTempScores()
     {
         player1tempScore = 0
         player2tempScore = 0
         player3tempScore = 0
         player4tempScore = 0
+        randomIndexVar1 = 0
+    
+    }
+    
+    func resetEverything()
+    {
+        resetTempScores()
         player1score.text = "0"
         player2score.text = "0"
         player3score.text = "0"
         player4score.text = "0"
-        randomIndexVar1 = 0
         player1Roll.isEnabled = true
         player1Roll.isHidden = false
         player1active = true
@@ -317,18 +323,14 @@ class FourPlayTurnOfEventsViewController: UIViewController {
         player4active = true
         amtOfRollsLeft = 4
     }
-    
+
     //Resets scores and other various attributes if there is a tie with player 1, 2, 3
     func resetEverythingP1nP2nP3()
     {
-        player1tempScore = 0
-        player2tempScore = 0
-        player3tempScore = 0
-        player4tempScore = 0.176
+        resetTempScores()
         player1score.text = "0"
         player2score.text = "0"
         player3score.text = "0"
-        randomIndexVar1 = 0
         player1Roll.isEnabled = true
         player1Roll.isHidden = false
         player1active = true
@@ -336,18 +338,14 @@ class FourPlayTurnOfEventsViewController: UIViewController {
         player3active = true
         amtOfRollsLeft = 3
     }
-    
+
     //Resets scores and other various attributes if there is a tie with player 1, 2, 4
     func resetEverythingP1nP2nP4()
     {
-        player1tempScore = 0
-        player2tempScore = 0
-        player4tempScore = 0
-        player3tempScore = 0.134
+        resetTempScores()
         player1score.text = "0"
         player2score.text = "0"
         player4score.text = "0"
-        randomIndexVar1 = 0
         player1Roll.isEnabled = true
         player1Roll.isHidden = false
         player1active = true
@@ -355,18 +353,14 @@ class FourPlayTurnOfEventsViewController: UIViewController {
         player4active = true
         amtOfRollsLeft = 3
     }
-    
+
     //Resets scores and other various attributes if there is a tie with player 1, 3, 4
     func resetEverythingP1nP3nP4()
     {
-        player1tempScore = 0
-        player2tempScore = 0.168
-        player3tempScore = 0
-        player4tempScore = 0
+        resetTempScores()
         player1score.text = "0"
         player3score.text = "0"
         player4score.text = "0"
-        randomIndexVar1 = 0
         player1Roll.isEnabled = true
         player1Roll.isHidden = false
         player1active = true
@@ -374,18 +368,15 @@ class FourPlayTurnOfEventsViewController: UIViewController {
         player4active = true
         amtOfRollsLeft = 3
     }
-    
+
     //Resets scores and other various attributes if there is a tie with player 2, 3, 4
+    //n
     func resetEverythingP2nP3nP4()
     {
-        player1tempScore = 0.135
-        player2tempScore = 0
-        player3tempScore = 0
-        player4tempScore = 0
+        resetTempScores()
         player2score.text = "0"
         player3score.text = "0"
         player4score.text = "0"
-        randomIndexVar1 = 0
         player2Roll.isEnabled = true
         player2Roll.isHidden = false
         player2active = true
@@ -393,36 +384,28 @@ class FourPlayTurnOfEventsViewController: UIViewController {
         player4active = true
         amtOfRollsLeft = 3
     }
-    
-    
-    
+
+
+
     //Resets scores and other various attributes if there is a tie with player 1, 2
     func resetEverythingP1nP2()
     {
-        player1tempScore = 0
-        player2tempScore = 0
-        player3tempScore = 0.14566
-        player4tempScore = 0.27779
+        resetTempScores()
         player1score.text = "0"
         player2score.text = "0"
-        randomIndexVar1 = 0
         player1Roll.isEnabled = true
         player1Roll.isHidden = false
         player1active = true
         player2active = true
         amtOfRollsLeft = 2
     }
-    
+
     //Resets scores and other various attributes if there is a tie with player 1, 3
     func resetEverythingP1nP3()
     {
-        player1tempScore = 0
-        player2tempScore = 0.12345
-        player3tempScore = 0
-        player4tempScore = 0.3664
+        resetTempScores()
         player1score.text = "0"
         player3score.text = "0"
-        randomIndexVar1 = 0
         player1Roll.isEnabled = true
         player1Roll.isHidden = false
         player1active = true
@@ -432,64 +415,48 @@ class FourPlayTurnOfEventsViewController: UIViewController {
     //Resets scores and other various attributes if there is a tie with player 1, 4
     func resetEverythingP1nP4()
     {
-        player1tempScore = 0
-        player2tempScore = 0.132
-        player3tempScore = 0.211
-        player4tempScore = 0
+        resetTempScores()
         player1score.text = "0"
         player4score.text = "0"
-        randomIndexVar1 = 0
         player1Roll.isEnabled = true
         player1Roll.isHidden = false
         player1active = true
         player4active = true
         amtOfRollsLeft = 2
     }
-    
+
     //Resets scores and other various attributes if there is a tie with player 2, 3
     func resetEverythingP2nP3()
     {
-        player1tempScore = 0.14
-        player2tempScore = 0
-        player3tempScore = 0
-        player4tempScore = 0.22
+        resetTempScores()
         player2score.text = "0"
         player3score.text = "0"
-        randomIndexVar1 = 0
         player2Roll.isEnabled = true
         player2Roll.isHidden = false
         player2active = true
         player3active = true
         amtOfRollsLeft = 2
     }
-    
+
     //Resets scores and other various attributes if there is a tie with player 2, 4
     func resetEverythingP2nP4()
     {
-        player1tempScore = 0.11
-        player2tempScore = 0
-        player3tempScore = 0.21
-        player4tempScore = 0
+        resetTempScores()
         player2score.text = "0"
         player4score.text = "0"
-        randomIndexVar1 = 0
         player2Roll.isEnabled = true
         player2Roll.isHidden = false
         player2active = true
         player4active = true
         amtOfRollsLeft = 2
     }
-    
+
     //Resets scores and other various attributes if there is a tie with player 3, 4
     func resetEverythingP3nP4()
     {
-        player1tempScore = 0.1356
-        player2tempScore = 0.7553
-        player3tempScore = 0
-        player4tempScore = 0
+        resetTempScores()
         player3score.text = "0"
         player4score.text = "0"
-        randomIndexVar1 = 0
         player3Roll.isEnabled = true
         player3Roll.isHidden = false
         player3active = true
@@ -551,8 +518,6 @@ class FourPlayTurnOfEventsViewController: UIViewController {
                     self.resetEverything()
                 }
                 
-                amtOfRollsLeft = 4
-                
                 alertController2.addAction(action2)
                 self.present(alertController2, animated: true, completion: nil)
             }
@@ -567,8 +532,6 @@ class FourPlayTurnOfEventsViewController: UIViewController {
                 self.resetEverything()
             }
             
-            amtOfRollsLeft = 4
-            
             alertController2.addAction(action2)
             self.present(alertController2, animated: true, completion: nil)
         }
@@ -581,8 +544,6 @@ class FourPlayTurnOfEventsViewController: UIViewController {
         let action2 = UIAlertAction(title: "OK", style: .default) { (action:    UIAlertAction) in
             self.resetEverythingP1nP2nP3()
         }
-        
-        amtOfRollsLeft = 3
         
         alertController2.addAction(action2)
         self.present(alertController2, animated: true, completion: nil)
@@ -598,8 +559,6 @@ class FourPlayTurnOfEventsViewController: UIViewController {
             self.resetEverythingP1nP2nP4()
         }
         
-        amtOfRollsLeft = 3
-        
         alertController2.addAction(action2)
         self.present(alertController2, animated: true, completion: nil)
         
@@ -613,8 +572,6 @@ class FourPlayTurnOfEventsViewController: UIViewController {
         let action2 = UIAlertAction(title: "OK", style: .default) { (action:    UIAlertAction) in
             self.resetEverythingP1nP3nP4()
         }
-        
-        amtOfRollsLeft = 3
         
         alertController2.addAction(action2)
         self.present(alertController2, animated: true, completion: nil)
@@ -630,8 +587,6 @@ class FourPlayTurnOfEventsViewController: UIViewController {
             self.resetEverythingP2nP3nP4()
         }
         
-        amtOfRollsLeft = 3
-        
         alertController2.addAction(action2)
         self.present(alertController2, animated: true, completion: nil)
         
@@ -645,8 +600,6 @@ class FourPlayTurnOfEventsViewController: UIViewController {
             let action2 = UIAlertAction(title: "OK", style: .default) { (action:    UIAlertAction) in
             self.resetEverythingP1nP2()
             }
-        
-        amtOfRollsLeft = 2
         
         alertController2.addAction(action2)
         self.present(alertController2, animated: true, completion: nil)
@@ -662,8 +615,6 @@ class FourPlayTurnOfEventsViewController: UIViewController {
             self.resetEverythingP1nP3()
         }
         
-        amtOfRollsLeft = 2
-        
         alertController2.addAction(action2)
         self.present(alertController2, animated: true, completion: nil)
         
@@ -677,8 +628,6 @@ class FourPlayTurnOfEventsViewController: UIViewController {
         let action2 = UIAlertAction(title: "OK", style: .default) { (action:    UIAlertAction) in
             self.resetEverythingP1nP4()
         }
-        
-        amtOfRollsLeft = 2
         
         alertController2.addAction(action2)
         self.present(alertController2, animated: true, completion: nil)
@@ -694,7 +643,6 @@ class FourPlayTurnOfEventsViewController: UIViewController {
             self.resetEverythingP2nP3()
         }
         
-        amtOfRollsLeft = 2
         
         alertController2.addAction(action2)
         self.present(alertController2, animated: true, completion: nil)
@@ -710,8 +658,6 @@ class FourPlayTurnOfEventsViewController: UIViewController {
             self.resetEverythingP2nP4()
         }
         
-        amtOfRollsLeft = 2
-        
         alertController2.addAction(action2)
         self.present(alertController2, animated: true, completion: nil)
         
@@ -725,8 +671,6 @@ class FourPlayTurnOfEventsViewController: UIViewController {
         let action2 = UIAlertAction(title: "OK", style: .default) { (action:    UIAlertAction) in
             self.resetEverythingP3nP4()
         }
-        
-        amtOfRollsLeft = 2
         
         alertController2.addAction(action2)
         self.present(alertController2, animated: true, completion: nil)
