@@ -242,69 +242,60 @@ class ThreePlayTurnOfEventsViewController: UIViewController {
         player3active = false
     }
     
-    //Resets scores and other various attributes if there is a tie with player 1 and 2
-    func resetEverythingP1nP2()
+   
+    //Refactored function for resetting necessary on screen elements 
+    func reset(whichPlayers : String)
     {
         player1tempScore = 0
         player2tempScore = 0
         player3tempScore = 0
-        player1active = true
-        player2active = true
-        player1score.text = "0"
-        player2score.text = "0"
         randomIndexVar1 = 0
-        player1Roll.isEnabled = true
-        player1Roll.isHidden = false
+        
+        //Resets scores and other various attributes if there is a tie with player 1 and 2
+        if (whichPlayers == "P1nP2")
+        {
+            player1active = true
+            player2active = true
+            player1score.text = "0"
+            player2score.text = "0"
+            player1Roll.isEnabled = true
+            player1Roll.isHidden = false
+        }
+        //Resets scores and other various attributes if there is a tie with player 1 and 3
+        else if (whichPlayers == "P1nP3")
+        {
+            player1active = true
+            player3active = true
+            player1score.text = "0"
+            player3score.text = "0"
+            player1Roll.isEnabled = true
+            player1Roll.isHidden = false
+        }
+         //Resets scores and other various attributes if there is a tie with player 2 and 3
+        else if (whichPlayers == "P2nP3")
+        {
+            player2active = true
+            player3active = true
+            player2score.text = "0"
+            player3score.text = "0"
+            player2Roll.isEnabled = true
+            player2Roll.isHidden = false
+        }
+            
+        //Resets scores and other various attributes if there is a 3-way tie
+        else if (whichPlayers == "all")
+        {
+            player1active = true
+            player2active = true
+            player3active = true
+            player1score.text = "0"
+            player2score.text = "0"
+            player3score.text = "0"
+            player1Roll.isEnabled = true
+            player1Roll.isHidden = false
+        }
+        
     }
-    
-    //Resets scores and other various attributes if there is a tie with player 1 and 3
-    func resetEverythingP1nP3()
-    {
-        player1tempScore = 0
-        player2tempScore = 0
-        player3tempScore = 0
-        player1active = true
-        player3active = true
-        player1score.text = "0"
-        player3score.text = "0"
-        randomIndexVar1 = 0
-        player1Roll.isEnabled = true
-        player1Roll.isHidden = false
-    }
-    
-    //Resets scores and other various attributes if there is a tie with player 2 and 3
-    func resetEverythingP2nP3()
-    {
-        player1tempScore = 0
-        player2tempScore = 0
-        player3tempScore = 0
-        player2active = true
-        player3active = true
-        player2score.text = "0"
-        player3score.text = "0"
-        randomIndexVar1 = 0
-        player2Roll.isEnabled = true
-        player2Roll.isHidden = false
-    }
-    
-    //Resets scores and other various attributes if there is a 3-way tie
-    func resetEverything()
-    {
-        player1tempScore = 0
-        player2tempScore = 0
-        player3tempScore = 0
-        player1active = true
-        player2active = true
-        player3active = true
-        player1score.text = "0"
-        player2score.text = "0"
-        player3score.text = "0"
-        randomIndexVar1 = 0
-        player1Roll.isEnabled = true
-        player1Roll.isHidden = false
-
-    }
-    
     
     //Checks to see which player will go when based on the current rolls done
     //Alert controller with action shown in either instance
@@ -337,7 +328,7 @@ class ThreePlayTurnOfEventsViewController: UIViewController {
             let alertController2 = UIAlertController(title: "Re-roll needs to be done", message: "There was tie and a re-roll needs to be done so that turns can be decided", preferredStyle: .alert)
             
             let action2 = UIAlertAction(title: "OK", style: .default) { (action:    UIAlertAction) in
-                self.resetEverything()
+                self.reset(whichPlayers: "all")
             }
             
             amtOfRollsLeft = 3
@@ -353,7 +344,7 @@ class ThreePlayTurnOfEventsViewController: UIViewController {
             let alertController2 = UIAlertController(title: "Re-roll needs to be done", message: "There was tie and a re-roll needs to be done so that turns can be decided", preferredStyle: .alert)
             
             let action2 = UIAlertAction(title: "OK", style: .default) { (action:    UIAlertAction) in
-                self.resetEverythingP1nP2()
+                self.reset(whichPlayers: "P1nP2")
             }
             amtOfRollsLeft = 2
             
@@ -368,7 +359,7 @@ class ThreePlayTurnOfEventsViewController: UIViewController {
             let alertController2 = UIAlertController(title: "Re-roll needs to be done", message: "There was tie and a re-roll needs to be done so that turns can be decided", preferredStyle: .alert)
             
             let action2 = UIAlertAction(title: "OK", style: .default) { (action:    UIAlertAction) in
-                self.resetEverythingP1nP3()
+                self.reset(whichPlayers: "P1nP3")
             }
             
             amtOfRollsLeft = 2
@@ -384,7 +375,7 @@ class ThreePlayTurnOfEventsViewController: UIViewController {
             let alertController2 = UIAlertController(title: "Re-roll needs to be done", message: "There was tie and a re-roll needs to be done so that turns can be decided", preferredStyle: .alert)
             
             let action2 = UIAlertAction(title: "OK", style: .default) { (action:    UIAlertAction) in
-                self.resetEverythingP2nP3()
+                self.reset(whichPlayers: "P2nP3")
             }
             
             amtOfRollsLeft = 2
@@ -393,13 +384,8 @@ class ThreePlayTurnOfEventsViewController: UIViewController {
             self.present(alertController2, animated: true, completion: nil)
         }
         
-      
-        
         
         }
     }
-    
-
    
-
 }
