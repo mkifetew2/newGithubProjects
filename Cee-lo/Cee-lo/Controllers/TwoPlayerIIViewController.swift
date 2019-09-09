@@ -384,16 +384,7 @@ class TwoPlayerIIViewController: UIViewController, UITextFieldDelegate {
                         //Disables and hides player1Roll button and enables and shows player2Roll button
                         //Player 1 has gone and player 2 hasn't
                         self.player1fourFiveSix = true
-                        self.player1score = 6
-                        self.player1Score.text = String(self.player1score)
-                        self.player2Score.text = "0"
-                        self.player1diceResult.text = "\(self.threeNumArr[0] + 1)-\(self.threeNumArr[1] + 1)-\(self.threeNumArr[2] + 1)"
-                        self.player1rollButton.isEnabled = false
-                        self.player1rollButton.isHidden = true
-                        self.player2rollButton.isEnabled = true
-                        self.player2rollButton.isHidden = false
-                        self.player2hasGone = false
-                        self.player1hasGone = true
+                        self.dicePlayer1MatchHelper(sameThreeNumArr: self.threeNumArr, thirdDiceNum: nil, playerScore: 6)
                         print("here456")
                         break
                     
@@ -414,18 +405,8 @@ class TwoPlayerIIViewController: UIViewController, UITextFieldDelegate {
                         //Disables and hides player1Roll button and enables and shows player2Roll button
                         //Player 1 has gone and player 2 hasn't
                         self.player1oneTwoThree = true
-                        self.player1score = 0
-                        self.player1Score.text = String(self.player1score)
-                        self.player2Score.text = "0"
-                        self.player1diceResult.text = "\(self.threeNumArr[0] + 1)-\(self.threeNumArr[1] + 1)-\(self.threeNumArr[2] + 1)"
-                        self.player1rollButton.isEnabled = false
-                        self.player1rollButton.isHidden = true
-                        self.player2rollButton.isEnabled = true
-                        self.player2rollButton.isHidden = false
-                        self.player2hasGone = false
-                        self.player1hasGone = true
-                        //reloadInputViews()
                         print("here123")
+                        self.dicePlayer1MatchHelper(sameThreeNumArr: self.threeNumArr, thirdDiceNum: nil, playerScore: 0)
                         break
                     }
                 
@@ -449,18 +430,8 @@ class TwoPlayerIIViewController: UIViewController, UITextFieldDelegate {
                 //Disables and hides player1Roll button and enables and shows player2Roll button
                 //Player 1 has gone and player 2 hasn't
                 self.player1Triple = true
-                self.player1score = Int(self.threeNumArr[0] + 1)
-                self.player1Score.text = String(self.player1score)
-                self.player2Score.text = "0"
-                self.player1diceResult.text = "\(self.threeNumArr[0] + 1)-\(self.threeNumArr[1] + 1)-\(self.threeNumArr[2] + 1)"
-                self.player1rollButton.isEnabled = false
-                self.player1rollButton.isHidden = true
-                self.player2rollButton.isEnabled = true
-                self.player2rollButton.isHidden = false
-                self.player2hasGone = false
-                self.player1hasGone = true
-                //reloadInputViews()
                 print("hereTriple1")
+                self.dicePlayer1MatchHelper(sameThreeNumArr: self.threeNumArr, thirdDiceNum: 0)
                 break
                 
             }
@@ -472,18 +443,8 @@ class TwoPlayerIIViewController: UIViewController, UITextFieldDelegate {
                 //Sets the diceResult text to whatever the roll was
                 //Disables and hides player1Roll button and enables and shows player2Roll button
                 //Player 1 has gone and player 2 hasn't
-                self.player1score = Int(self.threeNumArr[2] + 1)
-                self.player1Score.text = String(self.player1score)
-                self.player2Score.text = "0"
-                self.player1diceResult.text = "\(self.threeNumArr[0] + 1)-\(self.threeNumArr[1] + 1)-\(self.threeNumArr[2] + 1)"
-                self.player1rollButton.isEnabled = false
-                self.player1rollButton.isHidden = true
-                self.player2rollButton.isEnabled = true
-                self.player2rollButton.isHidden = false
-                self.player2hasGone = false
-                self.player1hasGone = true
-                //reloadInputViews()
                 print("here1")
+                self.dicePlayer1MatchHelper(sameThreeNumArr: self.threeNumArr, thirdDiceNum: 2)
                 break
                 
             }
@@ -495,18 +456,8 @@ class TwoPlayerIIViewController: UIViewController, UITextFieldDelegate {
                 //Sets the diceResult text to whatever the roll was
                 //Disables and hides player1Roll button and enables and shows player2Roll button
                 //Player 1 has gone and player 2 hasn't
-                self.player1score = Int(self.threeNumArr[1] + 1)
-                self.player1Score.text = String(self.player1score)
-                self.player2Score.text = "0"
-                self.player1diceResult.text = "\(self.threeNumArr[0] + 1)-\(self.threeNumArr[1] + 1)-\(self.threeNumArr[2] + 1)"
-                self.player1rollButton.isEnabled = false
-                self.player1rollButton.isHidden = true
-                self.player2rollButton.isEnabled = true
-                self.player2rollButton.isHidden = false
-                self.player2hasGone = false
-                self.player1hasGone = true
-                //reloadInputViews()
                 print("here2")
+                self.dicePlayer1MatchHelper(sameThreeNumArr: self.threeNumArr, thirdDiceNum: 1)
                 break
                 
             }
@@ -518,26 +469,57 @@ class TwoPlayerIIViewController: UIViewController, UITextFieldDelegate {
                 //Sets the diceResult text to whatever the roll was
                 //Disables and hides player1Roll button and enables and shows player2Roll button
                 //Player 1 has gone and player 2 hasn't
-                self.player1score = Int(self.threeNumArr[0] + 1)
-                self.player1Score.text = String(self.player1score)
-                self.player2Score.text = "0"
-                self.player1diceResult.text = "\(self.threeNumArr[0] + 1)-\(self.threeNumArr[1] + 1)-\(self.threeNumArr[2] + 1)"
-                self.player1rollButton.isEnabled = false
-                self.player1rollButton.isHidden = true
-                self.player2rollButton.isEnabled = true
-                self.player2rollButton.isHidden = false
-                self.player2hasGone = false
-                self.player1hasGone = true
-                //reloadInputViews()
                 print("here3")
+                self.dicePlayer1MatchHelper(sameThreeNumArr: self.threeNumArr, thirdDiceNum: 0)
                 break
             }
             
             
             
-        }
+            }
         }
         print("Player 1 has went")
+    }
+    
+    func dicePlayer1MatchHelper(sameThreeNumArr: [Int], thirdDiceNum : Int?, playerScore: Int? = nil)
+    {
+        if let diceScore = thirdDiceNum
+        {
+            player1score = Int(sameThreeNumArr[diceScore] + 1)
+        }
+        else
+        {
+            player1score = playerScore!
+        }
+        player1Score.text = String(player1score)
+        player2Score.text = "0"
+        player1diceResult.text = "\(sameThreeNumArr[0] + 1)-\(sameThreeNumArr[1] + 1)-\(sameThreeNumArr[2] + 1)"
+        player1rollButton.isEnabled = false
+        player1rollButton.isHidden = true
+        player2rollButton.isEnabled = true
+        player2rollButton.isHidden = false
+        player2hasGone = false
+        player1hasGone = true
+        
+        
+    }
+    
+    func dicePlayer2MatchHelper(sameThreeNumArr: [Int], thirdDiceNum: Int? = nil, playerScore: Int? = nil)
+    {
+        if let diceScore = thirdDiceNum
+        {
+            player2score = Int(sameThreeNumArr[diceScore] + 1)
+        }
+        else
+        {
+            player2score = playerScore!
+        }
+        player2Score.text = String(player2score)
+        player2diceResult.text = "\(sameThreeNumArr[0] + 1)-\(sameThreeNumArr[1] + 1)-\(sameThreeNumArr[2] + 1)"
+        player2rollButton.isEnabled = false
+        player2rollButton.isHidden = true
+        player2hasGone = true
+        checkWhoWon()
     }
     
     
@@ -580,15 +562,8 @@ class TwoPlayerIIViewController: UIViewController, UITextFieldDelegate {
                         //Player 2 has gone
                         //Checks who won the game between the players
                         self.player2fourFiveSix = true
-                        self.player2score = 6
-                        self.player2Score.text = String(self.player2score)
-                        self.player2diceResult.text = "\(self.threeNumArr[0] + 1)-\(self.threeNumArr[1] + 1)-\(self.threeNumArr[2] + 1)"
-                        self.player2rollButton.isEnabled = false
-                        self.player2rollButton.isHidden = true
-                        self.player2hasGone = true
-                        //reloadInputViews()
                         print("here456")
-                        self.checkWhoWon()
+                        self.dicePlayer1MatchHelper(sameThreeNumArr: self.threeNumArr, thirdDiceNum: nil, playerScore: 6)
                         break
                     }
                     
@@ -609,15 +584,8 @@ class TwoPlayerIIViewController: UIViewController, UITextFieldDelegate {
                         //Both players have gone
                         //Checks to see who won between the players
                         self.player2oneTwoThree = true
-                        self.player2score = 0
-                        self.player2Score.text = String(self.player2score)
-                        self.player2diceResult.text = "\(self.threeNumArr[0] + 1)-\(self.threeNumArr[1] + 1)-\(self.threeNumArr[2] + 1)"
-                        self.player2rollButton.isEnabled = false
-                        self.player2rollButton.isHidden = true
-                        self.player2hasGone = true
-                        //reloadInputViews()
                         print("here123")
-                        self.checkWhoWon()
+                        self.dicePlayer2MatchHelper(sameThreeNumArr: self.threeNumArr, thirdDiceNum: nil, playerScore: 0)
                         break
                     }
                     
@@ -641,16 +609,8 @@ class TwoPlayerIIViewController: UIViewController, UITextFieldDelegate {
                     //Both players have gone
                     //Checks who won
                     self.player2Triple = true
-                    self.player2score = Int(self.threeNumArr[0] + 1)
-                    self.player2Score.text = String(self.player2score)
-                    self.player2diceResult.text = "\(self.threeNumArr[0] + 1)-\(self.threeNumArr[1] + 1)-\(self.threeNumArr[2] + 1)"
-                    self.player2rollButton.isEnabled = false
-                    self.player2rollButton.isHidden = true
-                    self.player1hasGone = false
-                    self.player2hasGone = true
-                    //reloadInputViews()
                     print("hereTriple2")
-                    self.checkWhoWon()
+                    self.dicePlayer2MatchHelper(sameThreeNumArr: self.threeNumArr, thirdDiceNum: 0, playerScore: nil)
                     break
                     
                 }
@@ -663,16 +623,8 @@ class TwoPlayerIIViewController: UIViewController, UITextFieldDelegate {
                     //Disables and hides player2Roll button
                     //Both players have scored
                     //Checks who won the game
-                    self.player2score = Int(self.threeNumArr[2] + 1)
-                    self.player2Score.text = String(self.player2score)
-                    self.player2diceResult.text = "\(self.threeNumArr[0] + 1)-\(self.threeNumArr[1] + 1)-\(self.threeNumArr[2] + 1)"
-                    self.player2rollButton.isEnabled = false
-                    self.player2rollButton.isHidden = true
-                    self.player1hasGone = false
-                    self.player2hasGone = true
-                    //reloadInputViews()
                     print("here 4")
-                    self.checkWhoWon()
+                    self.dicePlayer2MatchHelper(sameThreeNumArr: self.threeNumArr, thirdDiceNum: 2, playerScore: nil)
                     break
                 }
                 
@@ -684,16 +636,8 @@ class TwoPlayerIIViewController: UIViewController, UITextFieldDelegate {
                     //Disables and hides player2Roll button
                     //Both players have scored
                     //Checks who won the game
-                    self.player2score = Int(self.threeNumArr[1] + 1)
-                    self.player2Score.text = String(self.player2score)
-                    self.player2diceResult.text = "\(self.threeNumArr[0] + 1)-\(self.threeNumArr[1] + 1)-\(self.threeNumArr[2] + 1)"
-                    self.player2rollButton.isEnabled = false
-                    self.player2rollButton.isHidden = true
-                    self.player1hasGone = false
-                    self.player2hasGone = true
-                    //reloadInputViews()
                     print("here5")
-                    self.checkWhoWon()
+                    self.dicePlayer2MatchHelper(sameThreeNumArr: self.threeNumArr, thirdDiceNum: 1, playerScore: nil)
                     break
                 }
                    
@@ -705,16 +649,8 @@ class TwoPlayerIIViewController: UIViewController, UITextFieldDelegate {
                     //Disables and hides player2Roll button
                     //Both players have scored
                     //Checks who won the game
-                    self.player2score = Int(self.threeNumArr[0] + 1)
-                    self.player2Score.text = String(self.player2score)
-                    self.player2diceResult.text = "\(self.threeNumArr[0] + 1)-\(self.threeNumArr[1] + 1)-\(self.threeNumArr[2] + 1)"
-                    self.player2rollButton.isEnabled = false
-                    self.player2rollButton.isHidden = true
-                    self.player1hasGone = false
-                    self.player2hasGone = true
-                    //reloadInputViews()
                     print("here6")
-                    self.checkWhoWon()
+                    self.dicePlayer2MatchHelper(sameThreeNumArr: self.threeNumArr, thirdDiceNum: 0, playerScore: nil)
                     break
                 }
                 
