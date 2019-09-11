@@ -805,22 +805,35 @@ class FourPlayerViewController: UIViewController, UITextFieldDelegate  {
         }
     }
     
+    public func resetHelper()
+    {
+        player1score = 0
+        player2score = 0
+        player3score = 0
+        player4score = 0
+        player1scoreLabel.text = "0"
+        player2scoreLabel.text = "0"
+        player3scoreLabel.text = "0"
+        player4scoreLabel.text = "0"
+        randomIndexVar1 = 0
+        randomIndexVar2 = 0
+        randomIndexVar3 = 0
+        gameDecided = false
+        threeNumArr = [0,0,0]
+        dice1.isHidden = false
+        dice2.isHidden = false
+        dice3.isHidden = false
+        resultImage.isHidden = true
+    }
+    
     public func resetEverything()
     {
+        resetHelper()
         player1diceResult.text = "0-0-0"
         player2diceResult.text = "0-0-0"
         player3diceResult.text = "0-0-0"
         player4diceResult.text = "0-0-0"
         
-        player1score = 0
-        player2score = 0
-        player3score = 0
-        player4score = 0
-        
-        player1scoreLabel.text = "0"
-        player2scoreLabel.text = "0"
-        player3scoreLabel.text = "0"
-        player4scoreLabel.text = "0"
         
         player4oneTwoThree = false
         player3oneTwoThree = false
@@ -837,29 +850,22 @@ class FourPlayerViewController: UIViewController, UITextFieldDelegate  {
         player3Triple = false
         player4Triple = false
         
-        randomIndexVar1 = 0
-        randomIndexVar2 = 0
-        randomIndexVar3 = 0
-        gameDecided = false
-        minTurns = 0
-        threeNumArr = [0,0,0]
         player1hasGone = false
         player2hasGone = false
         player3hasGone = false
         player4hasGone = false
+        
         player1rollButton.isHidden = false
         player1rollButton.isEnabled = true
         
         submitButton.isEnabled = true
         resetButton.isEnabled = true
+        
         betLabel.text = ""
         betTextField.text = ""
+        
         betTextField.isHidden = false
         betTextField.isEnabled = true
-        resultImage.isHidden = true
-        dice1.isHidden = false
-        dice2.isHidden = false
-        dice3.isHidden = false
         
     }
     
@@ -869,16 +875,7 @@ class FourPlayerViewController: UIViewController, UITextFieldDelegate  {
         player2diceResult.text = "0-0-0"
         player3diceResult.text = "0-0-0"
         player4diceResult.text = "0-0-0"
-        
-        player1score = 0
-        player2score = 0
-        player3score = 0
-        player4score = 0
-        
-        player1scoreLabel.text = "0"
-        player2scoreLabel.text = "0"
-        player3scoreLabel.text = "0"
-        player4scoreLabel.text = "0"
+    
         
         player4oneTwoThree = false
         player3oneTwoThree = false
@@ -895,34 +892,15 @@ class FourPlayerViewController: UIViewController, UITextFieldDelegate  {
         player3Triple = false
         player4Triple = false
         
-        randomIndexVar1 = 0
-        randomIndexVar2 = 0
-        randomIndexVar3 = 0
-        gameDecided = false
-        minTurns = 0
-        threeNumArr = [0,0,0]
-        resultImage.isHidden = true
-        dice1.isHidden = false
-        dice2.isHidden = false
-        dice3.isHidden = false
        
     }
     
     public func resetEverythingP1nP2nP3()
     {
+        resetHelper()
         player1diceResult.text = "0-0-0"
         player2diceResult.text = "0-0-0"
         player3diceResult.text = "0-0-0"
-        player1score = 0
-        player2score = 0
-        player3score = 0
-        player4score = 0
-        player1scoreLabel.text = "0"
-        player2scoreLabel.text = "0"
-        player3scoreLabel.text = "0"
-        randomIndexVar1 = 0
-        randomIndexVar2 = 0
-        randomIndexVar3 = 0
         player1rollButton.isHidden = false
         player1rollButton.isEnabled = true
         player1oneTwoThree = false
@@ -934,33 +912,17 @@ class FourPlayerViewController: UIViewController, UITextFieldDelegate  {
         player1Triple = false
         player2Triple = false
         player3Triple = false
-        gameDecided = false
-        minTurns = 0
-        threeNumArr = [0,0,0]
         player1hasGone = false
         player2hasGone = false
         player3hasGone = false
-        resultImage.isHidden = true
-        dice1.isHidden = false
-        dice2.isHidden = false
-        dice3.isHidden = false
     }
     
     public func resetEverythingP1nP2nP4()
     {
+        resetHelper()
         player1diceResult.text = "0-0-0"
         player2diceResult.text = "0-0-0"
         player4diceResult.text = "0-0-0"
-        player1score = 0
-        player2score = 0
-        player3score = 0
-        player4score = 0
-        player1scoreLabel.text = "0"
-        player2scoreLabel.text = "0"
-        player4scoreLabel.text = "0"
-        randomIndexVar1 = 0
-        randomIndexVar2 = 0
-        randomIndexVar3 = 0
         player1rollButton.isHidden = false
         player1rollButton.isEnabled = true
         player1oneTwoThree = false
@@ -972,33 +934,17 @@ class FourPlayerViewController: UIViewController, UITextFieldDelegate  {
         player1Triple = false
         player2Triple = false
         player4Triple = false
-        gameDecided = false
-        minTurns = 0
-        threeNumArr = [0,0,0]
         player1hasGone = false
         player2hasGone = false
         player4hasGone = false
-        resultImage.isHidden = true
-        dice1.isHidden = false
-        dice2.isHidden = false
-        dice3.isHidden = false
     }
     
     public func resetEverythingP1nP3nP4()
     {
+        resetHelper()
         player1diceResult.text = "0-0-0"
         player3diceResult.text = "0-0-0"
         player4diceResult.text = "0-0-0"
-        player1score = 0
-        player2score = 0
-        player3score = 0
-        player4score = 0
-        player1scoreLabel.text = "0"
-        player3scoreLabel.text = "0"
-        player4scoreLabel.text = "0"
-        randomIndexVar1 = 0
-        randomIndexVar2 = 0
-        randomIndexVar3 = 0
         player1rollButton.isHidden = false
         player1rollButton.isEnabled = true
         player1oneTwoThree = false
@@ -1010,33 +956,17 @@ class FourPlayerViewController: UIViewController, UITextFieldDelegate  {
         player1Triple = false
         player3Triple = false
         player4Triple = false
-        gameDecided = false
-        minTurns = 0
-        threeNumArr = [0,0,0]
         player1hasGone = false
         player3hasGone = false
         player4hasGone = false
-        resultImage.isHidden = true
-        dice1.isHidden = false
-        dice2.isHidden = false
-        dice3.isHidden = false
     }
     
     public func resetEverythingP2nP3nP4()
     {
+        resetHelper()
         player2diceResult.text = "0-0-0"
         player3diceResult.text = "0-0-0"
         player4diceResult.text = "0-0-0"
-        player1score = 0
-        player2score = 0
-        player3score = 0
-        player4score = 0
-        player2scoreLabel.text = "0"
-        player3scoreLabel.text = "0"
-        player4scoreLabel.text = "0"
-        randomIndexVar1 = 0
-        randomIndexVar2 = 0
-        randomIndexVar3 = 0
         player2rollButton.isHidden = false
         player2rollButton.isEnabled = true
         player2oneTwoThree = false
@@ -1048,34 +978,18 @@ class FourPlayerViewController: UIViewController, UITextFieldDelegate  {
         player2Triple = false
         player3Triple = false
         player4Triple = false
-        gameDecided = false
-        minTurns = 0
-        threeNumArr = [0,0,0]
         player2hasGone = false
         player3hasGone = false
         player4hasGone = false
-        resultImage.isHidden = true
-        dice1.isHidden = false
-        dice2.isHidden = false
-        dice3.isHidden = false
     }
     
     
     
     public func resetEverythingP1nP2()
     {
-        
+        resetHelper()
         player1diceResult.text = "0-0-0"
         player2diceResult.text = "0-0-0"
-        player1score = 0
-        player2score = 0
-        player3score = 0
-        player4score = 0
-        player1scoreLabel.text = "0"
-        player2scoreLabel.text = "0"
-        randomIndexVar1 = 0
-        randomIndexVar2 = 0
-        randomIndexVar3 = 0
         player1rollButton.isHidden = false
         player1rollButton.isEnabled = true
         player1oneTwoThree = false
@@ -1084,31 +998,16 @@ class FourPlayerViewController: UIViewController, UITextFieldDelegate  {
         player2fourFiveSix = false
         player1Triple = false
         player2Triple = false
-        gameDecided = false
-        minTurns = 0
-        threeNumArr = [0,0,0]
         player1hasGone = false
         player2hasGone = false
-        resultImage.isHidden = true
-        dice1.isHidden = false
-        dice2.isHidden = false
-        dice3.isHidden = false
         
     }
     
     public func resetEverythingP1nP3()
     {
+        resetHelper()
         player1diceResult.text = "0-0-0"
         player3diceResult.text = "0-0-0"
-        player1score = 0
-        player2score = 0
-        player3score = 0
-        player4score = 0
-        player1scoreLabel.text = "0"
-        player3scoreLabel.text = "0"
-        randomIndexVar1 = 0
-        randomIndexVar2 = 0
-        randomIndexVar3 = 0
         player1rollButton.isHidden = false
         player1rollButton.isEnabled = true
         player1oneTwoThree = false
@@ -1117,30 +1016,15 @@ class FourPlayerViewController: UIViewController, UITextFieldDelegate  {
         player3fourFiveSix = false
         player1Triple = false
         player3Triple = false
-        gameDecided = false
-        minTurns = 0
-        threeNumArr = [0,0,0]
         player1hasGone = false
         player3hasGone = false
-        resultImage.isHidden = true
-        dice1.isHidden = false
-        dice2.isHidden = false
-        dice3.isHidden = false
     }
     
     public func resetEverythingP1nP4()
     {
+        resetHelper()
         player1diceResult.text = "0-0-0"
         player4diceResult.text = "0-0-0"
-        player1score = 0
-        player2score = 0
-        player3score = 0
-        player4score = 0
-        player1scoreLabel.text = "0"
-        player4scoreLabel.text = "0"
-        randomIndexVar1 = 0
-        randomIndexVar2 = 0
-        randomIndexVar3 = 0
         player1rollButton.isHidden = false
         player1rollButton.isEnabled = true
         player1oneTwoThree = false
@@ -1149,30 +1033,15 @@ class FourPlayerViewController: UIViewController, UITextFieldDelegate  {
         player4fourFiveSix = false
         player1Triple = false
         player4Triple = false
-        gameDecided = false
-        minTurns = 0
-        threeNumArr = [0,0,0]
         player1hasGone = false
         player4hasGone = false
-        resultImage.isHidden = true
-        dice1.isHidden = false
-        dice2.isHidden = false
-        dice3.isHidden = false
     }
     
     public func resetEverythingP2nP3()
     {
+        resetHelper()
         player2diceResult.text = "0-0-0"
         player3diceResult.text = "0-0-0"
-        player1score = 0
-        player2score = 0
-        player3score = 0
-        player4score = 0
-        player2scoreLabel.text = "0"
-        player3scoreLabel.text = "0"
-        randomIndexVar1 = 0
-        randomIndexVar2 = 0
-        randomIndexVar3 = 0
         player2rollButton.isHidden = false
         player2rollButton.isEnabled = true
         player2oneTwoThree = false
@@ -1181,30 +1050,15 @@ class FourPlayerViewController: UIViewController, UITextFieldDelegate  {
         player3fourFiveSix = false
         player2Triple = false
         player3Triple = false
-        gameDecided = false
-        minTurns = 0
-        threeNumArr = [0,0,0]
         player2hasGone = false
         player3hasGone = false
-        resultImage.isHidden = true
-        dice1.isHidden = false
-        dice2.isHidden = false
-        dice3.isHidden = false
     }
     
     public func resetEverythingP2nP4()
     {
+        resetHelper()
         player2diceResult.text = "0-0-0"
         player4diceResult.text = "0-0-0"
-        player1score = 0
-        player2score = 0
-        player3score = 0
-        player4score = 0
-        player2scoreLabel.text = "0"
-        player4scoreLabel.text = "0"
-        randomIndexVar1 = 0
-        randomIndexVar2 = 0
-        randomIndexVar3 = 0
         player2rollButton.isHidden = false
         player2rollButton.isEnabled = true
         player2oneTwoThree = false
@@ -1213,30 +1067,15 @@ class FourPlayerViewController: UIViewController, UITextFieldDelegate  {
         player4fourFiveSix = false
         player2Triple = false
         player4Triple = false
-        gameDecided = false
-        minTurns = 0
-        threeNumArr = [0,0,0]
         player2hasGone = false
         player4hasGone = false
-        resultImage.isHidden = true
-        dice1.isHidden = false
-        dice2.isHidden = false
-        dice3.isHidden = false
     }
     
     public func resetEverythingP3nP4()
     {
+        resetHelper()
         player3diceResult.text = "0-0-0"
         player4diceResult.text = "0-0-0"
-        player1score = 0
-        player2score = 0
-        player3score = 0
-        player4score = 0
-        player3scoreLabel.text = "0"
-        player4scoreLabel.text = "0"
-        randomIndexVar1 = 0
-        randomIndexVar2 = 0
-        randomIndexVar3 = 0
         player3rollButton.isHidden = false
         player3rollButton.isEnabled = true
         player2oneTwoThree = false
@@ -1245,15 +1084,8 @@ class FourPlayerViewController: UIViewController, UITextFieldDelegate  {
         player4fourFiveSix = false
         player3Triple = false
         player4Triple = false
-        gameDecided = false
-        minTurns = 0
-        threeNumArr = [0,0,0]
         player3hasGone = false
         player4hasGone = false
-        resultImage.isHidden = true
-        dice1.isHidden = false
-        dice2.isHidden = false
-        dice3.isHidden = false 
     }
     
     func winningImage(name: String)

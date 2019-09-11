@@ -169,6 +169,7 @@ class FourPlayTurnOfEventsViewController: UIViewController {
                 self.player1tempScore = Float(self.player1score.text!)!
                 self.player1Roll.isEnabled = false
                 self.player1Roll.isHidden = true
+                print(self.player1score.text!)
                 
                 if self.player2active == true
                 {
@@ -188,10 +189,9 @@ class FourPlayTurnOfEventsViewController: UIViewController {
                     self.player4Roll.isHidden = false
                 }
                 
-                self.player1active = false
-                self.amtOfRollsLeft = self.amtOfRollsLeft - 1
-                self.nextScreen()
         }
+            self.player1active = false
+            self.amtOfRollsLeft = self.amtOfRollsLeft - 1
         }
         
     }
@@ -210,6 +210,7 @@ class FourPlayTurnOfEventsViewController: UIViewController {
                     self.player2tempScore = Float(self.player2score.text!)!
                     self.player2Roll.isEnabled = false
                     self.player2Roll.isHidden = true
+                    print(self.player2score.text!)
                 
                     if self.player3active == true
                     {
@@ -250,6 +251,7 @@ class FourPlayTurnOfEventsViewController: UIViewController {
                 self.player3tempScore = Float(self.player3score.text!)!
                 self.player3Roll.isEnabled = false
                 self.player3Roll.isHidden = true
+                print(self.player3score.text!)
                 
                 if self.player4active == true
                 {
@@ -287,23 +289,23 @@ class FourPlayTurnOfEventsViewController: UIViewController {
                 self.player4Roll.isEnabled = false
                 self.player4Roll.isHidden = true
                 self.amtOfRollsLeft = self.amtOfRollsLeft - 1
+                print(self.player4score.text!)
             }
-            
+            player4active = false
             //Checking to see who won after the last player has rolled
             DispatchQueue.main.asyncAfter(deadline: .now() + 4.9)
             {
                 self.nextScreen()
             }
         }
-        player4active = false
     }
     
     func resetTempScores()
     {
-        player1tempScore = 0
-        player2tempScore = 0
-        player3tempScore = 0
-        player4tempScore = 0
+        player1tempScore = 0.1
+        player2tempScore = 0.2
+        player3tempScore = 0.3
+        player4tempScore = 0.4
         randomIndexVar1 = 0
     
     }

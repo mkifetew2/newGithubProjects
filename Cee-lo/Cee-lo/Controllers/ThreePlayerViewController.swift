@@ -650,12 +650,9 @@ class ThreePlayerViewController: UIViewController, UITextFieldDelegate {
         }
         amtOfPlayersLeft = amtOfPlayersLeft - 1
         player1scoreLabel.text = String(player1score)
-        player2scoreLabel.text = "0"
         player1diceResult.text = "\(sameThreeNumArr[0] + 1)-\(sameThreeNumArr[1] + 1)-\(sameThreeNumArr[2] + 1)"
         player1rollButton.isEnabled = false
         player1rollButton.isHidden = true
-        player2rollButton.isEnabled = true
-        player2rollButton.isHidden = false
         player2hasGone = false
         player1hasGone = true
         if self.player2active == true
