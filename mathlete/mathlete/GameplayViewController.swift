@@ -36,10 +36,14 @@ class GameplayViewController: UIViewController {
     
     //Timer variable and how much time the game is
     var timer : Timer?
-    var timeLeft = 10
+    var timeLeft = 15
     
+    //Arrays of messages to be displayed when correct and incorrect
+    var correctResponseArr = ["Wonderful! ☺️ ", "Great! ☺️ ", "Correct! ☺️ ", "Amazing! ☺️ ", "Magnificent ☺️ "]
+    var incorrectResponseArr = ["Try again 😔 ", "Incorrect 😔 "]
     var correctTag : Int?
     
+    //
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -53,16 +57,19 @@ class GameplayViewController: UIViewController {
        
     }
     
+    //Start game when view has appeared
     override func viewDidAppear(_ animated: Bool) {
         gameStarts()
     }
     
+    //Executed once the game starts
     func startTimer()
     {
         guard timer == nil else { return }
         timer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(onTimerFires), userInfo: nil, repeats: true)
     }
     
+    //Game is finished
     func stopTimer()
     {
         guard timer != nil else { return }
@@ -72,23 +79,32 @@ class GameplayViewController: UIViewController {
         topRightButton.isEnabled = false
         bottomLeftButton.isEnabled = false
         bottomRightButton.isEnabled = false
-        let alertController = UIAlertController(title: "Game is finished", message: "You finished with \(amtOfRightAnswers) out of \(amtOfQuestions) which is \(Float((amtOfRightAnswers/amtOfQuestions) * 100)) percent", preferredStyle: .alert)
+        let alertController = UIAlertController(title: "Game is finished", message: "You finished with \(amtOfRightAnswers) out of \(amtOfQuestions) which is \((Float(amtOfRightAnswers * 100 / amtOfQuestions))) percent", preferredStyle: .alert)
         let action1 = UIAlertAction(title: "OK", style: .default) { (action) in
             self.performSegue(withIdentifier: "okPressed", sender: self)
         }
-        
+
         alertController.addAction(action1)
         present(alertController, animated: true, completion: nil)
     }
     
+    //What to do in certain scenarios depending on the time left
     @objc func onTimerFires()
     {
 
         timeLeft -= 1
         timeLabel.text = ":\(timeLeft)"
+        
+        
         if(timeLeft > 0)
         {
             timeLabel.text = ":\(timeLeft)"
+            
+            //Turn the text red to indicate time almost up
+            if (timeLeft < 10)
+            {
+                timeLabel.textColor = .red
+            }
         }
         else
         {
@@ -98,6 +114,8 @@ class GameplayViewController: UIViewController {
         
     }
     
+    //Game has started, time to generate numbers for the correct answer and multiple incorrect answers
+    //Sets necessary labels
     func gameStarts()
     {
 
@@ -118,6 +136,7 @@ class GameplayViewController: UIViewController {
         
     }
   
+    //What to do when the buttons are pressed on screen, whether they are correct or incorrect responses
     @IBAction func buttonPressed(sender: UIButton)
     {
         let tag = sender.tag
@@ -126,38 +145,64 @@ class GameplayViewController: UIViewController {
             case 0:
             if tag == correctTag
             {
-                amtOfRightAnswers = amtOfRightAnswers + 1
+                correctAnswer()
             }
-                amtOfQuestions = amtOfQuestions + 1
-                gameStarts()
+            else
+            {
+                incorrectAnswer()
+            }
             
             case 1:
             if tag == correctTag
             {
-                amtOfRightAnswers = amtOfRightAnswers + 1
+                correctAnswer()
             }
-                amtOfQuestions = amtOfQuestions + 1
-                gameStarts()
+            else
+            {
+                incorrectAnswer()
+            }
             
             case 2:
             if tag == correctTag
             {
-                amtOfRightAnswers = amtOfRightAnswers + 1
+                correctAnswer()
             }
-                amtOfQuestions = amtOfQuestions + 1
-                gameStarts()
+            else
+            {
+                incorrectAnswer()
+            }
             
             case 3:
             if tag == correctTag
             {
-                amtOfRightAnswers = amtOfRightAnswers + 1
+                correctAnswer()
             }
-                amtOfQuestions = amtOfQuestions + 1
-                gameStarts()
+            else
+            {
+                incorrectAnswer()
+            }
+            
             
             default:
             print("never here")
         }
+    }
+    
+    //What happens when the user is correct
+    func correctAnswer()
+    {
+        amtOfRightAnswers = amtOfRightAnswers + 1
+        amtOfQuestions = amtOfQuestions + 1
+        resultLabel.text = correctResponseArr[Int(arc4random_uniform(UInt32(correctResponseArr.count)))]
+        gameStarts()
+    }
+    
+    //What happens when the user is incorrect
+    func incorrectAnswer()
+    {
+        amtOfQuestions = amtOfQuestions + 1
+        resultLabel.text = incorrectResponseArr[Int(arc4random_uniform(UInt32(incorrectResponseArr.count)))]
+        gameStarts()
     }
     
 
