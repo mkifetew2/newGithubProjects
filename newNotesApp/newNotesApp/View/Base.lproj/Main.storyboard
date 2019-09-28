@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="QSe-yb-5yd">
     <device id="retina5_5" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -33,6 +33,7 @@
                             <outlet property="delegate" destination="ltz-eb-emO" id="ZOu-n2-s9g"/>
                         </connections>
                     </tableView>
+                    <toolbarItems/>
                     <navigationItem key="navigationItem" id="Beg-C5-fvW">
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="6Wc-SY-yv9">
                             <connections>
@@ -40,13 +41,15 @@
                             </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
-                        <segue destination="DHP-ht-Y7U" kind="custom" identifier="whenCellPressed" id="gi1-2c-hGF"/>
+                        <segue destination="DHP-ht-Y7U" kind="showDetail" identifier="whenCellPressed" id="gi1-2c-hGF"/>
+                        <segue destination="DHP-ht-Y7U" kind="presentation" identifier="updateVC" id="xT1-A8-w1E"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="w89-vn-8OL" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1200" y="55"/>
+            <point key="canvasLocation" x="1197" y="35"/>
         </scene>
         <!--Contents View Controller-->
         <scene sceneID="z8B-JX-r2c">
@@ -77,7 +80,7 @@
                                     <action selector="backPressed:" destination="DHP-ht-Y7U" eventType="touchUpInside" id="Juy-rD-1pa"/>
                                 </connections>
                             </button>
-                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="f3O-Da-tsR">
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="New note" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="f3O-Da-tsR">
                                 <rect key="frame" x="7.6666666666666714" y="48.666666666666657" width="150" height="50"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="150" id="Hir-ne-Ja4"/>
@@ -88,7 +91,7 @@
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yEY-0z-zVx">
-                                <rect key="frame" x="7.6666666666666714" y="48.666666666666657" width="150" height="50"/>
+                                <rect key="frame" x="7.6666666666666714" y="67" width="150" height="50"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="150" id="snm-fp-keK"/>
                                     <constraint firstAttribute="height" constant="50" id="wfZ-gH-QIM"/>
@@ -107,7 +110,7 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="Fna-hx-7fC" firstAttribute="centerY" secondItem="VCx-cs-NpW" secondAttribute="centerY" multiplier="0.2" id="6Rz-z9-ysD"/>
-                            <constraint firstItem="yEY-0z-zVx" firstAttribute="centerY" secondItem="VCx-cs-NpW" secondAttribute="centerY" multiplier="0.2" id="EVR-Hc-9zD"/>
+                            <constraint firstItem="yEY-0z-zVx" firstAttribute="centerY" secondItem="VCx-cs-NpW" secondAttribute="centerY" multiplier="0.25" id="EVR-Hc-9zD"/>
                             <constraint firstItem="f3O-Da-tsR" firstAttribute="centerY" secondItem="VCx-cs-NpW" secondAttribute="centerY" multiplier="0.2" id="FCg-W6-PpO"/>
                             <constraint firstItem="KaI-iq-tRV" firstAttribute="leading" secondItem="Qhb-fA-dA9" secondAttribute="leading" id="FUj-Sn-Nxc"/>
                             <constraint firstItem="KaI-iq-tRV" firstAttribute="bottom" secondItem="Qhb-fA-dA9" secondAttribute="bottom" id="FxB-HR-CIP"/>
@@ -122,10 +125,17 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="Qhb-fA-dA9"/>
                     </view>
+                    <connections>
+                        <outlet property="addButton" destination="KaI-iq-tRV" id="5pq-Ra-8Ux"/>
+                        <outlet property="noteLabel" destination="yEY-0z-zVx" id="zO0-oi-7Ef"/>
+                        <outlet property="noteTitle" destination="f3O-Da-tsR" id="kPK-lM-aY5"/>
+                        <outlet property="textView" destination="EQ9-jT-7lB" id="HQ5-PJ-Zrj"/>
+                        <segue destination="ltz-eb-emO" kind="showDetail" identifier="addedNote" id="dLD-R8-w0P"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="j9N-Fp-esf" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1970" y="55"/>
+            <point key="canvasLocation" x="2313" y="63"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="I58-9R-hv6">
@@ -146,4 +156,8 @@
             <point key="canvasLocation" x="342.02898550724638" y="54.619565217391312"/>
         </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="xT1-A8-w1E"/>
+        <segue reference="dLD-R8-w0P"/>
+    </inferredMetricsTieBreakers>
 </document>
