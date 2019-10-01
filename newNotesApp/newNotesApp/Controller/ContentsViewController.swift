@@ -11,12 +11,14 @@ import CoreData
 
 class ContentsViewController: UIViewController {
 
+    //variables to hold the contents on the screen
     var name : String = ""
     var contents : String = ""
     
+    
+    //Necessary on screen outlets
     @IBOutlet weak var addButton: UIButton!
     @IBOutlet weak var noteTitle: UITextField!
-    @IBOutlet weak var noteLabel: UILabel!
     @IBOutlet weak var textView: UITextView!
     
     let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
@@ -24,31 +26,25 @@ class ContentsViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        noteLabel.text = name
+        noteTitle.text = name
         textView.text = contents
 
     }
     
-    //Dismisses the screen 
-    @IBAction func backPressed(_ sender: UIButton) {
-        self.dismiss(animated: true, completion: nil)
-    }
+
     
     //Adds the note when button is pressed
     @IBAction func addNote(_ sender: UIButton) {
-        performSegue(withIdentifier: "addedNote", sender: self)
-    }
-    
-    //Prepare for when the note is added
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        
-        name = noteTitle.text!
-        contents = textView.text!
-        let dstVC = segue.destination as! NotesViewController
+        name = noteTitle.text ?? "No name"
+        contents = textView.text ?? "No contents"
+        let dstVC = NotesViewController()
         let newEntry = Entry(context: context)
         newEntry.name = name
         newEntry.contents = contents
         dstVC.notesArr.append(newEntry)
+        dstVC.saveNotes()
     }
+    
+    
     
 }

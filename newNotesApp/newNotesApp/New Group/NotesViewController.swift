@@ -11,14 +11,20 @@ import CoreData
 
 class NotesViewController: UITableViewController {
 
+    //What gives us access to save the data
     let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
+    
+    //The array which hold our notes entry
     var notesArr = [Entry]()
+    
+    //To know which cells is selected so it can open the entry on the next view correctly 
     var selectedCell : Int!
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
         loadNotes()
+        tableView.reloadData()
     }
     
     //How many cells there should be
@@ -48,7 +54,7 @@ class NotesViewController: UITableViewController {
     //What happens when a user decides to add another note
     @IBAction func noteAdded(_ sender: UIBarButtonItem)
     {
-        performSegue(withIdentifier: "whenCellPressed", sender: self)
+        performSegue(withIdentifier: "whenPlusPressed", sender: self)
     }
     
     
@@ -58,6 +64,15 @@ class NotesViewController: UITableViewController {
         let dstVC = segue.destination as! ContentsViewController
         dstVC.name = notesArr[selectedCell].name!
         dstVC.contents = notesArr[selectedCell].contents!
+    }
+    
+    //If you want to delete the note entry
+    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        let commit = notesArr[indexPath.row]
+        notesArr.remove(at: indexPath.row)
+        context.delete(commit)
+        self.tableView.reloadData()
+        saveNotes()
     }
     
     
